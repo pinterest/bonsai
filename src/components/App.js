@@ -4,12 +4,12 @@
 
 import type {RawStats} from '../types/Stats';
 
-import React, { Component } from 'react';
 import './css/App.css';
 
 import DataFilePicker from './DataFilePicker';
 import FilePicker from './FilePicker';
 import HowTo from './HowTo';
+import React, { Component } from 'react';
 import StatsTable from './StatsTable';
 
 type State = {

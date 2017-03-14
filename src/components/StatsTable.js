@@ -4,9 +4,8 @@
 
 import type {RawStats} from '../types/Stats';
 
+import ChunkData from './ChunkData';
 import EntryGraph from './EntryGraph';
-import ModuleList from './ModuleList';
-import parentChunkIds from '../stats/parentChunkIds';
 import React, { Component } from 'react';
 
 type Props = {
@@ -17,33 +16,17 @@ type State = {
   selectedChunkId: ?number,
 };
 
-function list(items) {
-  if (!items) {
-    return null;
-  }
-  return (
-    <ul>
-      {items.map((item) => <li key={item}>{item}</li>)}
-    </ul>
-  )
-}
-
 export default class StatsTable extends Component<void, Props, State> {
   state: State = {
     selectedChunkId: null,
   };
 
   render() {
-    const chunkData = this.state.selectedChunkId
-      ? <div>
-          <strong>{this.state.selectedChunkId}</strong>
-          {
-            list(
-              parentChunkIds(this.props.stats, this.state.selectedChunkId)
-            )
-          }
-          <ModuleList modules={[]} />
-        </div>
+    const selectedChunkData = this.state.selectedChunkId
+      ? <ChunkData
+        stats={this.props.stats}
+        selectedChunkId={this.state.selectedChunkId}
+      />
       : null;
 
     return (
@@ -54,7 +37,7 @@ export default class StatsTable extends Component<void, Props, State> {
           onSelectChunkId={this.onSelectChunkId}
         />
 
-        {chunkData}
+        {selectedChunkData}
       </div>
     );
   }

@@ -15,7 +15,7 @@ type Props = {
   onSelectChunkId: (chunkId: number) => void,
 };
 
-export default function(props: Props) {
+export default function EntryGraph(props: Props) {
   const chunksByParent = getEntryHeirarchy(props.stats);
 
   function renderEntryGraphNode(chunk) {

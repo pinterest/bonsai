@@ -8,3 +8,21 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+tr:hover {
+  background: #ddd;
+}
+
+thead th, thead td {
+  padding: 10px 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+td {
+  padding: 4px 2px;
+  border-bottom: 1px solid #eee;
+}

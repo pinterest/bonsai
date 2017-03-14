@@ -1,0 +1,13 @@
+.ClickToShow {
+  position: relative;
+}
+
+.ClickToShow-Panel {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  background: white;
+  border: 1px solid black;
+  padding: 5px;
+  z-index: 1;
+}
