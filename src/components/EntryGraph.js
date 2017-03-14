@@ -6,12 +6,13 @@ import type {RawStats} from '../types/Stats';
 
 import './css/EntryGraph.css';
 
-import React from 'react';
 import getEntryHeirarchy from '../stats/getEntryHeirarchy';
+import React from 'react';
 
 type Props = {
   stats: RawStats,
-  onSelectEntry: (chunkId: number) => void,
+  selectedChunkId: ?number,
+  onSelectChunkId: (chunkId: number) => void,
 };
 
 export default function(props: Props) {
@@ -19,13 +20,20 @@ export default function(props: Props) {
 
   function renderEntryGraphNode(chunk) {
     const joinedNames = chunk.names.join(', ');
+    const label = `${joinedNames} (${chunk.id})`;
+
+    const isSelected = props.selectedChunkId === chunk.id;
+
     return (
       <li key={joinedNames}>
         <a href="#" onClick={(event: Event) => {
           event.preventDefault();
-          props.onSelectEntry(chunk.id);
+          props.onSelectChunkId(chunk.id);
         }}>
-          {`${joinedNames} (${chunk.id})`}
+          {isSelected
+            ? <strong>{label}</strong>
+            : label
+          }
         </a>
         <ul>{chunk.children.map(renderEntryGraphNode)}</ul>
       </li>

@@ -46,7 +46,7 @@ export default class DataFilePicker extends Component<void, Props, State> {
     );
   }
 
-  onChange = (event: Event) => {
+  onChange = (event: SyntheticInputEvent) => {
     if (event.target.value) {
       this.props.onLoading();
       fetchJSON(String(event.target.value), (fileName, json) => {

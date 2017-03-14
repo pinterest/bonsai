@@ -1,0 +1,344 @@
+exports[`getEntryHeirarchy should list all the chunks 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [],
+                  "id": 156,
+                  "names": Array [
+                    "CloseupContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 157,
+                  "names": Array [
+                    "webpack-dev",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 158,
+                  "names": Array [
+                    "UserSettingsPageContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [],
+                      "id": 156,
+                      "names": Array [
+                        "CloseupContainer",
+                      ],
+                    },
+                  ],
+                  "id": 159,
+                  "names": Array [
+                    "AuthHomePage",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 160,
+                  "names": Array [
+                    "SearchPageContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 161,
+                  "names": Array [
+                    "BoardPage",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 162,
+                  "names": Array [
+                    "BoardsListPage",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 163,
+                  "names": Array [
+                    "ArticlePage",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 164,
+                  "names": Array [
+                    "ProfilePageContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 165,
+                  "names": Array [
+                    "ExplorePage",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 166,
+                  "names": Array [
+                    "UserProfilePinGridContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 167,
+                  "names": Array [
+                    "NewsHubLandingPage",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 168,
+                  "names": Array [
+                    "DidItProfileFeedContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 169,
+                  "names": Array [
+                    "UserLikesGridContainer",
+                  ],
+                },
+              ],
+              "id": 177,
+              "names": Array [
+                "entryChunk-www",
+              ],
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [],
+                  "id": 155,
+                  "names": Array [
+                    "UnauthInterestFeedPageContainer",
+                  ],
+                },
+                Object {
+                  "children": Array [],
+                  "id": 171,
+                  "names": Array [
+                    "BenchmarkPage",
+                  ],
+                },
+              ],
+              "id": 191,
+              "names": Array [
+                "entryChunk-www-unauth",
+              ],
+            },
+            Object {
+              "children": Array [],
+              "id": 197,
+              "names": Array [
+                "external-core-1",
+              ],
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "children": Array [],
+                          "id": 172,
+                          "names": Array [
+                            "entryChunk-react-analytics",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 173,
+                          "names": Array [
+                            "entryChunk-react-sterling",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 174,
+                          "names": Array [
+                            "entryChunk-react-eval",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 175,
+                          "names": Array [
+                            "entryChunk-react-common",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 176,
+                          "names": Array [
+                            "entryChunk-react-PinBookmarklet",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 178,
+                          "names": Array [
+                            "entryChunk-react-PinBookmarkletReactWrapper",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 179,
+                          "names": Array [
+                            "entryChunk-react-OpenClosedInterestFeedReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 180,
+                          "names": Array [
+                            "entryChunk-react-UnauthOpenClosedPinReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 181,
+                          "names": Array [
+                            "entryChunk-react-UnauthOpenClosedBoardReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 182,
+                          "names": Array [
+                            "entryChunk-react-OpenInterestFeedReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 183,
+                          "names": Array [
+                            "entryChunk-react-UnauthOpenPinReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 184,
+                          "names": Array [
+                            "entryChunk-react-UnauthOpenBoardReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 185,
+                          "names": Array [
+                            "entryChunk-react-InterestFeedReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 186,
+                          "names": Array [
+                            "entryChunk-react-UnauthBoardReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 187,
+                          "names": Array [
+                            "entryChunk-react-UnauthPinReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 188,
+                          "names": Array [
+                            "entryChunk-react-UnauthHomeReactPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 189,
+                          "names": Array [
+                            "entryChunk-react-UnauthLoginReactWrapper",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 190,
+                          "names": Array [
+                            "entryChunk-react-UnauthSamsungCameraPinPage",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 192,
+                          "names": Array [
+                            "external-analytics",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 193,
+                          "names": Array [
+                            "external-sterling",
+                          ],
+                        },
+                        Object {
+                          "children": Array [],
+                          "id": 199,
+                          "names": Array [
+                            "Testing",
+                          ],
+                        },
+                      ],
+                      "id": 194,
+                      "names": Array [
+                        "entryChunk-core",
+                      ],
+                    },
+                  ],
+                  "id": 196,
+                  "names": Array [
+                    "external-core-2",
+                  ],
+                },
+              ],
+              "id": 198,
+              "names": Array [
+                "external-core-1-slim",
+              ],
+            },
+          ],
+          "id": 195,
+          "names": Array [
+            "vendor-react",
+          ],
+        },
+      ],
+      "id": 203,
+      "names": Array [
+        "scout",
+      ],
+    },
+    Object {
+      "children": Array [],
+      "id": 204,
+      "names": Array [
+        "bundle-socialConnectPopup",
+      ],
+    },
+  ],
+  "id": null,
+}
+`;
