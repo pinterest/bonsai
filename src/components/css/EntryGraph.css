@@ -1,0 +1,7 @@
+.EntryGraph {
+  text-align: left;
+}
+.EntryGraph,
+.EntryGraph ul {
+  margin-left: 1em;
+}

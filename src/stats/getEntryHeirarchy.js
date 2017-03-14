@@ -22,7 +22,7 @@ export default function getEntryHeirarchy(stats: RawStats) {
   return {
     id: null,
     children: getEntryChunks(stats)
-      .filter((chunk) => chunk.parents.length == 0)
+      .filter((chunk) => chunk.parents.length === 0)
       .map((chunk) => ({
         id: chunk.id,
         names: chunk.names,

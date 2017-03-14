@@ -4,7 +4,9 @@
 
 import React from 'react';
 
-export default function(props) {
+type Props = {};
+
+export default function(props: Props) {
   return (
     <div>
       <p>

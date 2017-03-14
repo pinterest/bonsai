@@ -20,7 +20,7 @@ export type Reason = {
   moduleIdentifier: string,
   module: string,
   moduleName: string,
-  export type: string,
+  type: string,
   userRequest: string,
   loc: string,
 };

@@ -4,33 +4,50 @@
 
 import React, { Component } from 'react';
 
+type OnChangeCallback = (fileName: string, file: string) => void;
+
 type Props = {
-  onChange: (file: Object) => void,
+  onLoading: () => void,
+  onChange: OnChangeCallback,
 };
+
+function readFile(
+  file: File,
+  callback: OnChangeCallback,
+) {
+  const reader = new FileReader();
+
+  reader.onloadend = function(event) {
+    if (event.target.readyState === reader.DONE) {
+      callback(file.name, reader.result);
+    }
+  };
+
+  reader.readAsText(file);
+}
 
 export default class FilePicker extends Component<void, Props, void> {
   render() {
     return (
-      <div className="FilePicker">
-        <input
-          type="file"
-          ref={(input) => {
-            if (input) {
-              input.addEventListener('dragover', this.onDragOver);
-              input.addEventListener('drop', this.onDrop);
-            }
-          }}
-        />
-      </div>
+      <input
+        type="file"
+        ref={(input) => {
+          if (input) {
+            input.addEventListener('dragover', this.onDragOver);
+            input.addEventListener('drop', this.onDrop);
+          }
+        }}
+      />
     );
   }
 
-  onDragOver = (event) => {
+  onDragOver = (event: DragEventHandler) => {
     event.preventDefault();
   };
 
-  onDrop = (event) => {
+  onDrop = (event: DragEventHandler) => {
     event.preventDefault();
-    this.props.onChange(event.dataTransfer.files[0]);
+    this.props.onLoading();
+    readFile(event.dataTransfer.files[0], this.props.onChange);
   };
 }

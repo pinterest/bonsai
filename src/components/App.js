@@ -7,56 +7,84 @@ import type {RawStats} from '../types/Stats';
 import React, { Component } from 'react';
 import './css/App.css';
 
+import DataFilePicker from './DataFilePicker';
 import FilePicker from './FilePicker';
-import StatsTable from './StatsTable';
 import HowTo from './HowTo';
+import StatsTable from './StatsTable';
 
-function readFile(file, callback) {
-  const reader = new FileReader();
-
-  reader.onloadend = function(event) {
-    if (event.target.readyState === FileReader.DONE) {
-      callback(reader.result);
-    }
-  };
-
-  reader.readAsText(file);
-}
-
-export type State = {
-  stats: ?RawStats,
+type State = {
+  dataFiles: Array<string>,
+  loading: boolean,
+  stats: ?{
+    file: string,
+    raw: RawStats,
+  },
 };
 
-class App extends Component {
+export default class App extends Component<void, void, State> {
   state: State = {
-    states: null,
+    dataFiles: [],
+    loading: false,
+    stats: null,
   };
 
   render() {
-    const statsTable = this.state.stats
-      ? <StatsTable stats={this.state.stats} />
-      : <HowTo />;
-
     return (
       <div className="App">
         <h1>Webpack Dependency Size</h1>
-        <FilePicker
-          onChange={this.onFileChange}
-        />
+        <div>
+          Existing data file:&nbsp;
+          <DataFilePicker
+            onLoading={this.onLoading}
+            onChange={this.onDataFilePicked}
+          />
+          &nbsp;or&nbsp;
+          <FilePicker
+            onLoading={this.onLoading}
+            onChange={this.onFileUploaded}
+          />
+        </div>
 
-        {statsTable}
+        {this.state.loading ? <p><em>Loading...</em></p> : null}
+        {this.renderBody()}
       </div>
     );
   }
 
-  onFileChange = (file) => {
-    readFile(file, (fileText) => {
-      this.setState({
-        stats: JSON.parse(fileText),
-      });
+  renderBody() {
+    if (this.state.stats) {
+      return [
+        <h3 key="statsFileName">{this.state.stats.file}</h3>,
+        <StatsTable key="statsTable" stats={this.state.stats.raw} />
+      ];
+    } else {
+      return <HowTo />;
+    }
+  }
+
+  onLoading = () => {
+    this.setState({
+      loading: true,
     });
   };
 
-}
+  onFileUploaded = (fileName: string, fileText: string) => {
+    this.setState({
+      loading: false,
+      stats: {
+        file: fileName,
+        raw: JSON.parse(fileText),
+      },
+    });
+  };
 
-export default App;
+  onDataFilePicked = (fileName: string, json: Object) => {
+    this.setState({
+      loading: false,
+      stats: {
+        file: fileName,
+        raw: json,
+      },
+    });
+  };
+}
