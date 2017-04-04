@@ -1,7 +1,7 @@
-.EntryGraph {
+.ChunkGraph {
   text-align: left;
 }
-.EntryGraph,
-.EntryGraph ul {
+.ChunkGraph,
+.ChunkGraph ul {
   margin-left: 1em;
 }

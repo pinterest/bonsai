@@ -38,7 +38,7 @@ export default class DataFilePicker extends Component<void, Props, State> {
   render() {
     return (
       <select onChange={this.onChange}>
-        <option value="">-- ./data files --</option>
+        <option value=""></option>
         {this.state.dataFiles.map((file) =>
           <option key={file} value={file}>{file}</option>
         )}

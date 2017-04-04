@@ -80,3 +80,8 @@ export type RawStats = {
   chunks: Array<Chunk>,
   modules: Array<Module>,
 };
+
+
+export type ExtendedModule = Module & {
+  imports: Array<Module>,
+};

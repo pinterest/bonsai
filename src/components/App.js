@@ -10,7 +10,7 @@ import DataFilePicker from './DataFilePicker';
 import FilePicker from './FilePicker';
 import HowTo from './HowTo';
 import React, { Component } from 'react';
-import StatsTable from './StatsTable';
+import Stats from './Stats';
 
 type State = {
   dataFiles: Array<string>,
@@ -46,20 +46,9 @@ export default class App extends Component<void, void, State> {
         </div>
 
         {this.state.loading ? <p><em>Loading...</em></p> : null}
-        {this.renderBody()}
+        {this.state.stats ? <Stats stats={this.state.stats} /> : <HowTo />}
       </div>
     );
-  }
-
-  renderBody() {
-    if (this.state.stats) {
-      return [
-        <h3 key="statsFileName">{this.state.stats.file}</h3>,
-        <StatsTable key="statsTable" stats={this.state.stats.raw} />
-      ];
-    } else {
-      return <HowTo />;
-    }
   }
 
   onLoading = () => {

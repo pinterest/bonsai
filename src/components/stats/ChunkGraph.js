@@ -2,11 +2,11 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {RawStats} from '../../types/Stats';
 
-import './css/EntryGraph.css';
+import './css/ChunkGraph.css';
 
-import getEntryHeirarchy from '../stats/getEntryHeirarchy';
+import getEntryHeirarchy from '../../stats/getEntryHeirarchy';
 import React from 'react';
 
 type Props = {
@@ -15,10 +15,10 @@ type Props = {
   onSelectChunkId: (chunkId: number) => void,
 };
 
-export default function EntryGraph(props: Props) {
+export default function ChunkGraph(props: Props) {
   const chunksByParent = getEntryHeirarchy(props.stats);
 
-  function renderEntryGraphNode(chunk) {
+  function renderChunkGraphNode(chunk) {
     const joinedNames = chunk.names.join(', ');
     const label = `${joinedNames} (${chunk.id})`;
 
@@ -35,14 +35,14 @@ export default function EntryGraph(props: Props) {
             : label
           }
         </a>
-        <ul>{chunk.children.map(renderEntryGraphNode)}</ul>
+        <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
       </li>
     );
   }
 
   return (
-    <ul className="EntryGraph">
-      {chunksByParent.children.map(renderEntryGraphNode)}
+    <ul className="ChunkGraph">
+      {chunksByParent.children.map(renderChunkGraphNode)}
     </ul>
   );
 }

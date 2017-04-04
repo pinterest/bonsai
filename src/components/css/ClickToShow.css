@@ -3,11 +3,18 @@
 }
 
 .ClickToShow-Panel {
-  position: absolute;
-  top: 1em;
-  left: 0;
   background: white;
   border: 1px solid black;
+  box-shadow: black 1px 1px 10px;
   padding: 5px;
+  position: absolute;
+  top: 1em;
   z-index: 1;
+}
+
+.ClickToShow-Panel--left {
+    left: 0;
+}
+.ClickToShow-Panel--right {
+    right: 0;
 }
