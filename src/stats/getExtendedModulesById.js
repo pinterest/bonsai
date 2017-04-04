@@ -12,7 +12,7 @@ export type ExtendedModulesById = {[key: number]: ExtendedModule};
 export default function getExtendedModulesById(
   stats: RawStats,
   selectedChunkId: number,
-): Array<ExtendedModule> {
+): ?ExtendedModulesById {
   const parentChunkIds = getParentChunkIds(
     stats,
     selectedChunkId
@@ -30,7 +30,7 @@ export default function getExtendedModulesById(
   const extendedModulesById = modules.map((module) => {
     return {
       ...module,
-      imports: [],
+      requirements: [],
     };
   }).reduce((map, module) => {
     map[module.id] = module;
@@ -42,7 +42,7 @@ export default function getExtendedModulesById(
       // this module was added becuase $reason.
       // record the reason as an import on $reason.moduleId
       if (extendedModulesById[reason.moduleId]) {
-        extendedModulesById[reason.moduleId].imports.push(module);
+        extendedModulesById[reason.moduleId].requirements.push(module);
       }
     });
   });

@@ -81,7 +81,27 @@ export type RawStats = {
   modules: Array<Module>,
 };
 
-
-export type ExtendedModule = Module & {
-  imports: Array<Module>,
+// should be ExtendedModule = Module * { requirements: Array<Module> };
+export type ExtendedModule = {
+  id: number,
+  identifier: string,
+  name: string,
+  index: number,
+  index2: number,
+  size: number,
+  cachable: boolean,
+  built: boolean,
+  optional: boolean,
+  prefetched: boolean,
+  chunks: Array<number>,
+  assets: Array<*>,
+  issuer: string,
+  issuerId: number,
+  failed: boolean,
+  errors: number,
+  warnings: number,
+  reasons: Array<Reason>,
+  usedExports: true | Array<string>,
+  providedExports: ?Array<string>,
+  requirements: Array<Module>,
 };

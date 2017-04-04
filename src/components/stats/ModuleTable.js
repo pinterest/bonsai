@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {Reason, ExtendedModule} from '../../types/Stats';
+import type {Reason, Module, ExtendedModule} from '../../types/Stats';
 
 import ClickToShow from '../ClickToShow';
 import React from 'react';
@@ -11,7 +11,7 @@ type Props = {
   extendedModulesById: {[key: number]: ExtendedModule},
 };
 
-function moduleLabel(module: ExtendedModule): React$Element<any> {
+function moduleLabel(module: Module | ExtendedModule): React$Element<any> {
   return (
     <span key={module.identifier}>
       {module.identifier} ({module.id})
@@ -27,27 +27,32 @@ function reasonLabel(reason: Reason): React$Element<any> {
   );
 }
 
-function moduleReasons(module: ExtendedModule): React$Element<any> {
+function moduleReasons(eModule: ExtendedModule): React$Element<any> {
   return (
     <div>
-      {module.reasons.map(reasonLabel).reduce(
-        (nodes, label) => nodes.concat(label, <br/>), []
+      {eModule.reasons.map(reasonLabel).reduce(
+        (nodes, label) => nodes.concat(label, <br/>),
+        [],
       )}
     </div>
   );
 }
 
-function moduleImports(module: ExtendedModule): React$Element<any> {
+function moduleImports(eModule: ExtendedModule): React$Element<any> {
   return (
     <div>
-      {module.imports.map(moduleLabel).reduce(
-        (nodes, label) => nodes.concat(label, <br />), []
+      {eModule.requirements.map(moduleLabel).reduce(
+        (nodes, label) => nodes.concat(label, <br />),
+        [],
       )}
     </div>
   );
 }
 
 export default function ModuleList(props: Props) {
+  // $FlowFixMe: Flow things that this is incompatible with mixed :(
+  const extendedModules: Array<ExtendedModule> = Object.values(props.extendedModulesById);
+
   return (
     <table cellPadding="0" cellSpacing="0">
       <thead>
@@ -61,20 +66,20 @@ export default function ModuleList(props: Props) {
         </tr>
       </thead>
       <tbody>
-        {Object.values(props.extendedModulesById).map((module: ExtendedModule) =>
-          <tr key={module.identifier}>
-            <td>{module.chunks.join(', ')}</td>
-            <td>{moduleLabel(module)}</td>
-            <td>{module.name}</td>
-            <td>{module.size}</td>
+        {extendedModules.map((eModule: ExtendedModule) =>
+          <tr key={eModule.identifier}>
+            <td>{eModule.chunks.join(', ')}</td>
+            <td>{moduleLabel(eModule)}</td>
+            <td>{eModule.name}</td>
+            <td>{eModule.size}</td>
             <td>
-              <ClickToShow onRight={true} extra={moduleReasons(module)}>
-                {module.reasons.length}
+              <ClickToShow onRight={true} extra={moduleReasons(eModule)}>
+                {eModule.reasons.length}
               </ClickToShow>
             </td>
             <td>
-              <ClickToShow onRight={true} extra={moduleImports(module)}>
-                {module.imports.length}
+              <ClickToShow onRight={true} extra={moduleImports(eModule)}>
+                {eModule.requirements.length}
               </ClickToShow>
             </td>
           </tr>

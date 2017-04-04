@@ -49,6 +49,10 @@ export default class Stats extends Component<void, Props, State> {
   renderSelectedChunk(stats: RawStats, selectedChunkId: number) {
     const extendedModulesById = getExtendedModulesById(stats, selectedChunkId);
 
+    if (!extendedModulesById) {
+      return null;
+    }
+
     return (
       <fieldset>
         <h4>Selected Chunk = {String(selectedChunkId)}</h4>
