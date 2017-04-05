@@ -42,6 +42,7 @@ export type Chunk = {
   entry: boolean,
   extraAsync: boolean,
   size: number,
+  name: string,
   names: Array<string>,
   files: Array<string>,
   hash: string,

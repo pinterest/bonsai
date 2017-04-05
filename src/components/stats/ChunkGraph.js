@@ -19,25 +19,32 @@ export default function ChunkGraph(props: Props) {
   const chunksByParent = getEntryHeirarchy(props.stats);
 
   function renderChunkGraphNode(chunk) {
-    const joinedNames = chunk.names.join(', ');
-    const label = `${joinedNames} (${chunk.id})`;
+    if (chunk.ids.length > 1) {
+      return (
+        <li key={chunk.name}>
+          {chunk.name}
+          <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
+        </li>
+      );
+    } else {
+      const isSelected = props.selectedChunkId === chunk.id;
+      const label = `${chunk.name} (${chunk.ids.join(', ')})`;
 
-    const isSelected = props.selectedChunkId === chunk.id;
-
-    return (
-      <li key={joinedNames}>
-        <a href="#" onClick={(event: Event) => {
-          event.preventDefault();
-          props.onSelectChunkId(chunk.id);
-        }}>
-          {isSelected
-            ? <strong>{label}</strong>
-            : label
-          }
-        </a>
-        <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
-      </li>
-    );
+      return (
+        <li key={chunk.name}>
+          <a href="#" onClick={(event: Event) => {
+            event.preventDefault();
+            props.onSelectChunkId(chunk.id);
+          }}>
+            {isSelected
+              ? <strong>{label}</strong>
+              : label
+            }
+          </a>
+          <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
+        </li>
+      );
+    }
   }
 
   return (

@@ -10,6 +10,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 156,
+                  "ids": Array [
+                    156,
+                  ],
+                  "name": "CloseupContainer",
                   "names": Array [
                     "CloseupContainer",
                   ],
@@ -17,6 +21,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 157,
+                  "ids": Array [
+                    157,
+                  ],
+                  "name": "webpack-dev",
                   "names": Array [
                     "webpack-dev",
                   ],
@@ -24,6 +32,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 158,
+                  "ids": Array [
+                    158,
+                  ],
+                  "name": "UserSettingsPageContainer",
                   "names": Array [
                     "UserSettingsPageContainer",
                   ],
@@ -33,12 +45,20 @@ Object {
                     Object {
                       "children": Array [],
                       "id": 156,
+                      "ids": Array [
+                        156,
+                      ],
+                      "name": "CloseupContainer",
                       "names": Array [
                         "CloseupContainer",
                       ],
                     },
                   ],
                   "id": 159,
+                  "ids": Array [
+                    159,
+                  ],
+                  "name": "AuthHomePage",
                   "names": Array [
                     "AuthHomePage",
                   ],
@@ -46,6 +66,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 160,
+                  "ids": Array [
+                    160,
+                  ],
+                  "name": "SearchPageContainer",
                   "names": Array [
                     "SearchPageContainer",
                   ],
@@ -53,6 +77,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 161,
+                  "ids": Array [
+                    161,
+                  ],
+                  "name": "BoardPage",
                   "names": Array [
                     "BoardPage",
                   ],
@@ -60,6 +88,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 162,
+                  "ids": Array [
+                    162,
+                  ],
+                  "name": "BoardsListPage",
                   "names": Array [
                     "BoardsListPage",
                   ],
@@ -67,6 +99,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 163,
+                  "ids": Array [
+                    163,
+                  ],
+                  "name": "ArticlePage",
                   "names": Array [
                     "ArticlePage",
                   ],
@@ -74,6 +110,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 164,
+                  "ids": Array [
+                    164,
+                  ],
+                  "name": "ProfilePageContainer",
                   "names": Array [
                     "ProfilePageContainer",
                   ],
@@ -81,6 +121,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 165,
+                  "ids": Array [
+                    165,
+                  ],
+                  "name": "ExplorePage",
                   "names": Array [
                     "ExplorePage",
                   ],
@@ -88,6 +132,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 166,
+                  "ids": Array [
+                    166,
+                  ],
+                  "name": "UserProfilePinGridContainer",
                   "names": Array [
                     "UserProfilePinGridContainer",
                   ],
@@ -95,6 +143,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 167,
+                  "ids": Array [
+                    167,
+                  ],
+                  "name": "NewsHubLandingPage",
                   "names": Array [
                     "NewsHubLandingPage",
                   ],
@@ -102,6 +154,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 168,
+                  "ids": Array [
+                    168,
+                  ],
+                  "name": "DidItProfileFeedContainer",
                   "names": Array [
                     "DidItProfileFeedContainer",
                   ],
@@ -109,12 +165,20 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 169,
+                  "ids": Array [
+                    169,
+                  ],
+                  "name": "UserLikesGridContainer",
                   "names": Array [
                     "UserLikesGridContainer",
                   ],
                 },
               ],
               "id": 177,
+              "ids": Array [
+                177,
+              ],
+              "name": "entryChunk-www",
               "names": Array [
                 "entryChunk-www",
               ],
@@ -124,6 +188,10 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 155,
+                  "ids": Array [
+                    155,
+                  ],
+                  "name": "UnauthInterestFeedPageContainer",
                   "names": Array [
                     "UnauthInterestFeedPageContainer",
                   ],
@@ -131,12 +199,20 @@ Object {
                 Object {
                   "children": Array [],
                   "id": 171,
+                  "ids": Array [
+                    171,
+                  ],
+                  "name": "BenchmarkPage",
                   "names": Array [
                     "BenchmarkPage",
                   ],
                 },
               ],
               "id": 191,
+              "ids": Array [
+                191,
+              ],
+              "name": "entryChunk-www-unauth",
               "names": Array [
                 "entryChunk-www-unauth",
               ],
@@ -144,6 +220,10 @@ Object {
             Object {
               "children": Array [],
               "id": 197,
+              "ids": Array [
+                197,
+              ],
+              "name": "external-core-1",
               "names": Array [
                 "external-core-1",
               ],
@@ -157,6 +237,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 172,
+                          "ids": Array [
+                            172,
+                          ],
+                          "name": "entryChunk-react-analytics",
                           "names": Array [
                             "entryChunk-react-analytics",
                           ],
@@ -164,6 +248,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 173,
+                          "ids": Array [
+                            173,
+                          ],
+                          "name": "entryChunk-react-sterling",
                           "names": Array [
                             "entryChunk-react-sterling",
                           ],
@@ -171,6 +259,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 174,
+                          "ids": Array [
+                            174,
+                          ],
+                          "name": "entryChunk-react-eval",
                           "names": Array [
                             "entryChunk-react-eval",
                           ],
@@ -178,6 +270,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 175,
+                          "ids": Array [
+                            175,
+                          ],
+                          "name": "entryChunk-react-common",
                           "names": Array [
                             "entryChunk-react-common",
                           ],
@@ -185,6 +281,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 176,
+                          "ids": Array [
+                            176,
+                          ],
+                          "name": "entryChunk-react-PinBookmarklet",
                           "names": Array [
                             "entryChunk-react-PinBookmarklet",
                           ],
@@ -192,6 +292,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 178,
+                          "ids": Array [
+                            178,
+                          ],
+                          "name": "entryChunk-react-PinBookmarkletReactWrapper",
                           "names": Array [
                             "entryChunk-react-PinBookmarkletReactWrapper",
                           ],
@@ -199,6 +303,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 179,
+                          "ids": Array [
+                            179,
+                          ],
+                          "name": "entryChunk-react-OpenClosedInterestFeedReactPage",
                           "names": Array [
                             "entryChunk-react-OpenClosedInterestFeedReactPage",
                           ],
@@ -206,6 +314,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 180,
+                          "ids": Array [
+                            180,
+                          ],
+                          "name": "entryChunk-react-UnauthOpenClosedPinReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthOpenClosedPinReactPage",
                           ],
@@ -213,6 +325,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 181,
+                          "ids": Array [
+                            181,
+                          ],
+                          "name": "entryChunk-react-UnauthOpenClosedBoardReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthOpenClosedBoardReactPage",
                           ],
@@ -220,6 +336,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 182,
+                          "ids": Array [
+                            182,
+                          ],
+                          "name": "entryChunk-react-OpenInterestFeedReactPage",
                           "names": Array [
                             "entryChunk-react-OpenInterestFeedReactPage",
                           ],
@@ -227,6 +347,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 183,
+                          "ids": Array [
+                            183,
+                          ],
+                          "name": "entryChunk-react-UnauthOpenPinReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthOpenPinReactPage",
                           ],
@@ -234,6 +358,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 184,
+                          "ids": Array [
+                            184,
+                          ],
+                          "name": "entryChunk-react-UnauthOpenBoardReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthOpenBoardReactPage",
                           ],
@@ -241,6 +369,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 185,
+                          "ids": Array [
+                            185,
+                          ],
+                          "name": "entryChunk-react-InterestFeedReactPage",
                           "names": Array [
                             "entryChunk-react-InterestFeedReactPage",
                           ],
@@ -248,6 +380,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 186,
+                          "ids": Array [
+                            186,
+                          ],
+                          "name": "entryChunk-react-UnauthBoardReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthBoardReactPage",
                           ],
@@ -255,6 +391,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 187,
+                          "ids": Array [
+                            187,
+                          ],
+                          "name": "entryChunk-react-UnauthPinReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthPinReactPage",
                           ],
@@ -262,6 +402,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 188,
+                          "ids": Array [
+                            188,
+                          ],
+                          "name": "entryChunk-react-UnauthHomeReactPage",
                           "names": Array [
                             "entryChunk-react-UnauthHomeReactPage",
                           ],
@@ -269,6 +413,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 189,
+                          "ids": Array [
+                            189,
+                          ],
+                          "name": "entryChunk-react-UnauthLoginReactWrapper",
                           "names": Array [
                             "entryChunk-react-UnauthLoginReactWrapper",
                           ],
@@ -276,6 +424,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 190,
+                          "ids": Array [
+                            190,
+                          ],
+                          "name": "entryChunk-react-UnauthSamsungCameraPinPage",
                           "names": Array [
                             "entryChunk-react-UnauthSamsungCameraPinPage",
                           ],
@@ -283,6 +435,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 192,
+                          "ids": Array [
+                            192,
+                          ],
+                          "name": "external-analytics",
                           "names": Array [
                             "external-analytics",
                           ],
@@ -290,6 +446,10 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 193,
+                          "ids": Array [
+                            193,
+                          ],
+                          "name": "external-sterling",
                           "names": Array [
                             "external-sterling",
                           ],
@@ -297,36 +457,60 @@ Object {
                         Object {
                           "children": Array [],
                           "id": 199,
+                          "ids": Array [
+                            199,
+                          ],
+                          "name": "Testing",
                           "names": Array [
                             "Testing",
                           ],
                         },
                       ],
                       "id": 194,
+                      "ids": Array [
+                        194,
+                      ],
+                      "name": "entryChunk-core",
                       "names": Array [
                         "entryChunk-core",
                       ],
                     },
                   ],
                   "id": 196,
+                  "ids": Array [
+                    196,
+                  ],
+                  "name": "external-core-2",
                   "names": Array [
                     "external-core-2",
                   ],
                 },
               ],
               "id": 198,
+              "ids": Array [
+                198,
+              ],
+              "name": "external-core-1-slim",
               "names": Array [
                 "external-core-1-slim",
               ],
             },
           ],
           "id": 195,
+          "ids": Array [
+            195,
+          ],
+          "name": "vendor-react",
           "names": Array [
             "vendor-react",
           ],
         },
       ],
       "id": 203,
+      "ids": Array [
+        203,
+      ],
+      "name": "scout",
       "names": Array [
         "scout",
       ],
@@ -334,6 +518,10 @@ Object {
     Object {
       "children": Array [],
       "id": 204,
+      "ids": Array [
+        204,
+      ],
+      "name": "bundle-socialConnectPopup",
       "names": Array [
         "bundle-socialConnectPopup",
       ],
