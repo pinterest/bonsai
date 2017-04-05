@@ -78,15 +78,21 @@ export default function getExtendedModulesById(
 
   modules.forEach((module) => {
     module.reasons.forEach((reason) => {
-      // this module was added becuase $reason.
+      // this module was added becuase `reason`.
 
-      if (extendedModulesById[reason.moduleId]) {
+      const importer = extendedModulesById[reason.moduleId];
+      if (importer) {
+        if (importer.identifier.split('!').shift().indexOf('promise-loader') >= 0) {
+          // this is required by a promise-loaded thing. This is probably the thing that was loaded. Skip it.
+          return;
+        }
+
         // record that this module is required by something within our selected chunk list
         extendedModulesById[module.id].requiredBy.push(reason);
         extendedModulesById[module.id].requiredByCount += 1;
 
         // record the reason as an import on $reason.moduleId
-        extendedModulesById[reason.moduleId].requirements.push(module);
+        importer.requirements.push(module);
       }
     });
   });
