@@ -19,8 +19,17 @@ function addModuleSizes(modules: ExtendedModulesById): ExtendedModulesById {
 
     let size = eModule.size;
     eModule.requirements.forEach((rModule) => {
-      const reModule = modules[rModule.id];
-      size += (getSizeOf(reModule) / reModule.requiredByCount);
+      if (visitedIds.includes(rModule.id)) {
+        console.log(
+          'circular dependency on',
+          rModule.id,
+          visitedIds.map((id) => modules[id])
+        );
+      } else {
+        const reModule = modules[rModule.id];
+        const sizeOf = getSizeOf(reModule, visitedIds.concat(rModule.id));
+        size += (sizeOf / reModule.requiredByCount);
+      }
     });
 
     doneKeys.push(eModule.id);
