@@ -19,5 +19,5 @@ console.log('Found data files', files);
 
 fs.writeFileSync(indexFile, JSON.stringify({
     files: files,
-}));
+}, null, '\t'));
 console.log('Recorded into ', indexFile);

@@ -1,1 +1,6 @@
-{"files":["/data/stats-2017-03-13.json"]}
+{
+	"files": [
+		"/data/stats-2017-03-13.json",
+		"/data/stats-2017-04-05.json"
+	]
+}

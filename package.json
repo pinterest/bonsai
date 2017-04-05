@@ -16,6 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pull-stats": "scp dev:~/code/pinboard/webapp/build/stats/stats.json ./public/data/stats-$(date +%F).json",
+    "postpull-stats": "./src/build/writeStatsFiles.js"
   }
 }
