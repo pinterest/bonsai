@@ -6,6 +6,7 @@ import type {Reason, Module, ExtendedModule} from '../../types/Stats';
 
 import ClickToShow from '../ClickToShow';
 import React from 'react';
+import Unit from '../Unit';
 
 type Props = {
   extendedModulesById: {[key: number]: ExtendedModule},
@@ -97,8 +98,8 @@ export default function ModuleList(props: Props) {
               </ClickToShow>
             </td>
             <td>{eModule.name}</td>
-            <td>{eModule.cumulativeSize.toFixed(0)}</td>
-            <td>{eModule.size}</td>
+            <td><Unit bytes={eModule.cumulativeSize} /></td>
+            <td><Unit bytes={eModule.size} /></td>
             <td>
               <ClickToShow onRight={true} extra={moduleReasons(eModule)}>
                 <span>{eModule.reasons.length}</span>
