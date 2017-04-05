@@ -7,6 +7,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -7538,6 +7539,18 @@ Object {
         "userRequest": "react",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100007",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "react",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -7826,6 +7839,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 978,
     "depth": 2,
     "errors": 0,
     "failed": false,
@@ -7988,6 +8002,18 @@ Object {
         "userRequest": "app/common/redux/store/singleton",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "3:0-45",
+        "module": "./app/common/lib/Promise.js",
+        "moduleId": 3130,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Promise.js",
+        "moduleName": "./app/common/lib/Promise.js",
+        "type": "harmony import",
+        "userRequest": "../redux/store/singleton",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [],
     "size": 978,
     "usedExports": Array [
@@ -8002,6 +8028,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -8162,6 +8189,18 @@ Object {
         "userRequest": "react-router",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100006",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "react-router",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -8450,6 +8489,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 2,
     "errors": 0,
     "failed": false,
@@ -8763,6 +8803,27 @@ Object {
         "userRequest": "global",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "1:0-60",
+        "module": "./app/common/lib/Pc.js",
+        "moduleId": 53,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Pc.js",
+        "moduleName": "./app/common/lib/Pc.js",
+        "type": "cjs require",
+        "userRequest": "global",
+      },
+      Object {
+        "loc": "1:0-60",
+        "module": "./app/common/lib/Promise.js",
+        "moduleId": 3130,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Promise.js",
+        "moduleName": "./app/common/lib/Promise.js",
+        "type": "cjs require",
+        "userRequest": "global",
+      },
+    ],
+    "requiredByCount": 2,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -9051,6 +9112,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -9827,6 +9889,18 @@ Object {
         "userRequest": "react-redux",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100005",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "react-redux",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -10115,6 +10189,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -10869,6 +10944,18 @@ Object {
         "userRequest": "redux",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100008",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "redux",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -11157,6 +11244,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -11686,6 +11774,18 @@ Object {
         "userRequest": "react-dom",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100004",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "react-dom",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -11974,6 +12074,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 2038.3333333333335,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -11999,6 +12100,18 @@ Object {
         "userRequest": "app/common/lib/Promise.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100001",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "app/common/lib/Promise.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -12605,6 +12718,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 1323,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -12632,6 +12746,18 @@ Object {
         "userRequest": "./Lazy",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "6:0-26",
+        "module": "./app/common/lib/scout/Init.js",
+        "moduleId": 3272,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Init.js",
+        "moduleName": "./app/common/lib/scout/Init.js",
+        "type": "harmony import",
+        "userRequest": "./Lazy",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -12685,6 +12811,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 785,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -12710,6 +12837,18 @@ Object {
         "userRequest": "./ViewportScale.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "9:0-47",
+        "module": "./app/common/lib/scout/Init.js",
+        "moduleId": 3272,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Init.js",
+        "moduleName": "./app/common/lib/scout/Init.js",
+        "type": "harmony import",
+        "userRequest": "./ViewportScale.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [],
     "size": 785,
     "usedExports": Array [
@@ -12724,6 +12863,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -12749,6 +12889,18 @@ Object {
         "userRequest": "app/common/lib/Polyfills.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100000",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "app/common/lib/Polyfills.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -13037,6 +13189,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -13062,6 +13215,18 @@ Object {
         "userRequest": "intl/Intl.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100003",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "intl/Intl.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -13350,6 +13515,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 835,
     "depth": 2,
     "errors": 0,
     "failed": false,
@@ -13375,6 +13541,18 @@ Object {
         "userRequest": "./Overlap.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "1:0-35",
+        "module": "./app/common/lib/scout/Lazy.js",
+        "moduleId": 3133,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Lazy.js",
+        "moduleName": "./app/common/lib/scout/Lazy.js",
+        "type": "harmony import",
+        "userRequest": "./Overlap.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [],
     "size": 835,
     "usedExports": Array [
@@ -13389,6 +13567,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 4199.333333333334,
     "depth": 0,
     "errors": 0,
     "failed": false,
@@ -13404,6 +13583,8 @@ Object {
     "prefetched": false,
     "providedExports": null,
     "reasons": Array [],
+    "requiredBy": Array [],
+    "requiredByCount": 0,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -14077,6 +14258,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 2535.6666666666665,
     "depth": 0,
     "errors": 0,
     "failed": false,
@@ -14092,6 +14274,8 @@ Object {
     "prefetched": false,
     "providedExports": null,
     "reasons": Array [],
+    "requiredBy": Array [],
+    "requiredByCount": 0,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -25881,6 +26065,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 42,
     "depth": 2,
     "errors": 0,
     "failed": false,
@@ -26145,6 +26330,81 @@ Object {
         "userRequest": "dll-reference vendor_dev_pwb",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "module": "delegated ./node_modules/react/react.js from dll-reference vendor_dev_pwb",
+        "moduleId": 0,
+        "moduleIdentifier": "delegated 5 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/react/react.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/classnames/index.js from dll-reference vendor_dev_pwb",
+        "moduleId": 6,
+        "moduleIdentifier": "delegated 201 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/classnames/index.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/react-redux/es/index.js from dll-reference vendor_dev_pwb",
+        "moduleId": 21,
+        "moduleIdentifier": "delegated 204 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/react-redux/es/index.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/redux/lib/index.js from dll-reference vendor_dev_pwb",
+        "moduleId": 22,
+        "moduleIdentifier": "delegated 127 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/redux/lib/index.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/react-dom/index.js from dll-reference vendor_dev_pwb",
+        "moduleId": 30,
+        "moduleIdentifier": "delegated 203 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/react-dom/index.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/react-router/lib/index.js from dll-reference vendor_dev_pwb",
+        "moduleId": 149,
+        "moduleIdentifier": "delegated 205 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/react-router/lib/index.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/webpack/buildin/global.js from dll-reference vendor_dev_pwb",
+        "moduleId": 155,
+        "moduleIdentifier": "delegated 81 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/webpack/buildin/global.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./app/common/lib/Polyfills.js from dll-reference vendor_dev_pwb",
+        "moduleId": 3148,
+        "moduleIdentifier": "delegated 200 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./app/common/lib/Polyfills.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+      Object {
+        "module": "delegated ./node_modules/intl/Intl.js from dll-reference vendor_dev_pwb",
+        "moduleId": 3149,
+        "moduleIdentifier": "delegated 202 from dll-reference vendor_dev_pwb",
+        "moduleName": "delegated ./node_modules/intl/Intl.js from dll-reference vendor_dev_pwb",
+        "type": "delegated source",
+        "userRequest": "dll-reference vendor_dev_pwb",
+      },
+    ],
+    "requiredByCount": 9,
     "requirements": Array [],
     "size": 42,
     "usedExports": false,
@@ -26157,6 +26417,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 163.33333333333334,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -26506,6 +26767,18 @@ Object {
         "userRequest": "../Pc.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "7:0-26",
+        "module": "./app/common/lib/scout/Init.js",
+        "moduleId": 3272,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Init.js",
+        "moduleName": "./app/common/lib/scout/Init.js",
+        "type": "harmony import",
+        "userRequest": "../Pc.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -26845,6 +27118,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 46.666666666666664,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -28697,6 +28971,18 @@ Object {
         "userRequest": "classnames",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "vendor-react:100002",
+        "module": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleId": 3275,
+        "moduleIdentifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "moduleName": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+        "type": "single entry",
+        "userRequest": "classnames",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [
       Object {
         "assets": Array [],
@@ -28985,6 +29271,7 @@ Object {
     "chunks": Array [
       195,
     ],
+    "cumulativeSize": 108,
     "depth": 2,
     "errors": 0,
     "failed": false,
@@ -29066,6 +29353,18 @@ Object {
         "userRequest": "app/common/redux/actions/errorLog",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "2:0-49",
+        "module": "./app/common/lib/Promise.js",
+        "moduleId": 3130,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Promise.js",
+        "moduleName": "./app/common/lib/Promise.js",
+        "type": "harmony import",
+        "userRequest": "../redux/actions/errorLog",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [],
     "size": 108,
     "usedExports": Array [
@@ -29080,6 +29379,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 1183,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -29141,6 +29441,18 @@ Object {
         "userRequest": "./ClickCapturer.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "5:0-28",
+        "module": "./app/common/lib/scout/Init.js",
+        "moduleId": 3272,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Init.js",
+        "moduleName": "./app/common/lib/scout/Init.js",
+        "type": "harmony import",
+        "userRequest": "./ClickCapturer.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [],
     "size": 1183,
     "usedExports": Array [
@@ -29155,6 +29467,7 @@ Object {
     "chunks": Array [
       203,
     ],
+    "cumulativeSize": 367,
     "depth": 1,
     "errors": 0,
     "failed": false,
@@ -29288,6 +29601,18 @@ Object {
         "userRequest": "./staticFileUrls.js",
       },
     ],
+    "requiredBy": Array [
+      Object {
+        "loc": "8:0-49",
+        "module": "./app/common/lib/scout/Init.js",
+        "moduleId": 3272,
+        "moduleIdentifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Init.js",
+        "moduleName": "./app/common/lib/scout/Init.js",
+        "type": "harmony import",
+        "userRequest": "./staticFileUrls.js",
+      },
+    ],
+    "requiredByCount": 1,
     "requirements": Array [],
     "size": 367,
     "usedExports": Array [
@@ -29296,4 +29621,415 @@ Object {
     "warnings": 0,
   },
 }
+`;
+
+exports[`getExtendedModulesById should extend all the modules 2`] = `
+Array [
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 0,
+    "identifier": "delegated 5 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 6,
+    "identifier": "delegated 201 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 21,
+    "identifier": "delegated 204 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 22,
+    "identifier": "delegated 127 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 30,
+    "identifier": "delegated 203 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 42,
+    "id": 38,
+    "identifier": "external \"vendor_dev_pwb\"",
+    "requiredByCount": 9,
+    "requirements": Array [],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 163.33333333333334,
+    "id": 53,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Pc.js",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 23.333333333333332,
+        "cumulativeSize": 46.666666666666664,
+        "id": 155,
+        "identifier": "delegated 81 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 2,
+        "size": 42,
+      },
+    ],
+    "size": 140,
+  },
+  Object {
+    "cumulativeSize": 367,
+    "id": 96,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/staticFileUrls.js",
+    "requiredByCount": 1,
+    "requirements": Array [],
+    "size": 367,
+  },
+  Object {
+    "cumulativeSize": 978,
+    "id": 134,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/redux/store/singleton.js",
+    "requiredByCount": 1,
+    "requirements": Array [],
+    "size": 978,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 149,
+    "identifier": "delegated 205 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 155,
+    "identifier": "delegated 81 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 2,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 108,
+    "id": 831,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/redux/actions/errorLog.js",
+    "requiredByCount": 1,
+    "requirements": Array [],
+    "size": 108,
+  },
+  Object {
+    "cumulativeSize": 1183,
+    "id": 846,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/ClickCapturer.js",
+    "requiredByCount": 1,
+    "requirements": Array [],
+    "size": 1183,
+  },
+  Object {
+    "cumulativeSize": 2038.3333333333335,
+    "id": 3130,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Promise.js",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 23.333333333333332,
+        "cumulativeSize": 46.666666666666664,
+        "id": 155,
+        "identifier": "delegated 81 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 2,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 978,
+        "cumulativeSize": 978,
+        "id": 134,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/redux/store/singleton.js",
+        "requiredByCount": 1,
+        "size": 978,
+      },
+      Object {
+        "contributingSize": 108,
+        "cumulativeSize": 108,
+        "id": 831,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/redux/actions/errorLog.js",
+        "requiredByCount": 1,
+        "size": 108,
+      },
+    ],
+    "size": 929,
+  },
+  Object {
+    "cumulativeSize": 1323,
+    "id": 3133,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Lazy.js",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 835,
+        "cumulativeSize": 835,
+        "id": 3200,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Overlap.js",
+        "requiredByCount": 1,
+        "size": 835,
+      },
+    ],
+    "size": 488,
+  },
+  Object {
+    "cumulativeSize": 785,
+    "id": 3134,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/ViewportScale.js",
+    "requiredByCount": 1,
+    "requirements": Array [],
+    "size": 785,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 3148,
+    "identifier": "delegated 200 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 46.666666666666664,
+    "id": 3149,
+    "identifier": "delegated 202 from dll-reference vendor_dev_pwb",
+    "requiredByCount": 1,
+    "requirements": Array [
+      Object {
+        "contributingSize": 4.666666666666667,
+        "cumulativeSize": 42,
+        "id": 38,
+        "identifier": "external \"vendor_dev_pwb\"",
+        "requiredByCount": 9,
+        "size": 42,
+      },
+    ],
+    "size": 42,
+  },
+  Object {
+    "cumulativeSize": 835,
+    "id": 3200,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Overlap.js",
+    "requiredByCount": 1,
+    "requirements": Array [],
+    "size": 835,
+  },
+  Object {
+    "cumulativeSize": 4199.333333333334,
+    "id": 3272,
+    "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Init.js",
+    "requiredByCount": 0,
+    "requirements": Array [
+      Object {
+        "contributingSize": 163.33333333333334,
+        "cumulativeSize": 163.33333333333334,
+        "id": 53,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Pc.js",
+        "requiredByCount": 1,
+        "size": 140,
+      },
+      Object {
+        "contributingSize": 367,
+        "cumulativeSize": 367,
+        "id": 96,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/staticFileUrls.js",
+        "requiredByCount": 1,
+        "size": 367,
+      },
+      Object {
+        "contributingSize": 1183,
+        "cumulativeSize": 1183,
+        "id": 846,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/ClickCapturer.js",
+        "requiredByCount": 1,
+        "size": 1183,
+      },
+      Object {
+        "contributingSize": 1323,
+        "cumulativeSize": 1323,
+        "id": 3133,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/Lazy.js",
+        "requiredByCount": 1,
+        "size": 488,
+      },
+      Object {
+        "contributingSize": 785,
+        "cumulativeSize": 785,
+        "id": 3134,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/scout/ViewportScale.js",
+        "requiredByCount": 1,
+        "size": 785,
+      },
+    ],
+    "size": 378,
+  },
+  Object {
+    "cumulativeSize": 2535.6666666666665,
+    "id": 3275,
+    "identifier": "multi app/common/lib/Polyfills.js app/common/lib/Promise.js classnames intl/Intl.js react-dom react-redux react-router react redux",
+    "requiredByCount": 0,
+    "requirements": Array [
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 0,
+        "identifier": "delegated 5 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 6,
+        "identifier": "delegated 201 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 21,
+        "identifier": "delegated 204 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 22,
+        "identifier": "delegated 127 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 30,
+        "identifier": "delegated 203 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 149,
+        "identifier": "delegated 205 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 2038.3333333333335,
+        "cumulativeSize": 2038.3333333333335,
+        "id": 3130,
+        "identifier": "/mnt/pinboard/webapp/node_modules/babel-loader/lib/index.js?retainLines=true&comments=false&cacheDirectory=/mnt/pinboard/webapp/build/.babel-cache!/mnt/pinboard/webapp/app/common/lib/Promise.js",
+        "requiredByCount": 1,
+        "size": 929,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 3148,
+        "identifier": "delegated 200 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+      Object {
+        "contributingSize": 46.666666666666664,
+        "cumulativeSize": 46.666666666666664,
+        "id": 3149,
+        "identifier": "delegated 202 from dll-reference vendor_dev_pwb",
+        "requiredByCount": 1,
+        "size": 42,
+      },
+    ],
+    "size": 124,
+  },
+]
 `;

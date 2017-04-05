@@ -103,5 +103,9 @@ export type ExtendedModule = {
   reasons: Array<Reason>,
   usedExports: true | Array<string>,
   providedExports: ?Array<string>,
+
+  requiredBy: Array<Module>,
+  requiredByCount: number,
   requirements: Array<Module>,
+  cumulativeSize: number,
 };

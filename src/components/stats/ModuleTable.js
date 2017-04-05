@@ -50,7 +50,7 @@ function moduleImports(eModule: ExtendedModule): React$Element<any> {
 }
 
 export default function ModuleList(props: Props) {
-  // $FlowFixMe: Flow things that this is incompatible with mixed :(
+  // $FlowFixMe: Flow thinks the return of `values()` is `Array<mixed>`
   const extendedModules: Array<ExtendedModule> = Object.values(props.extendedModulesById);
 
   return (
@@ -60,9 +60,11 @@ export default function ModuleList(props: Props) {
           <th>Chunks</th>
           <th>Module Identifier</th>
           <th>Module Name</th>
+          <th>Cumulative Size</th>
           <th>Size</th>
           <th>Reasons</th>
           <th>Imports</th>
+
         </tr>
       </thead>
       <tbody>
@@ -71,6 +73,7 @@ export default function ModuleList(props: Props) {
             <td>{eModule.chunks.join(', ')}</td>
             <td>{moduleLabel(eModule)}</td>
             <td>{eModule.name}</td>
+            <td>{eModule.cumulativeSize}</td>
             <td>{eModule.size}</td>
             <td>
               <ClickToShow onRight={true} extra={moduleReasons(eModule)}>
