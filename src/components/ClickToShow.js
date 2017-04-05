@@ -8,8 +8,8 @@ import './css/ClickToShow.css';
 
 type Props = {
   children?: React$Element<any>,
-  extra: React$Element<any>,
-  onRight: boolean,
+  extra: ?React$Element<any>,
+  onRight?: boolean,
 };
 type State = {
   show: boolean,
@@ -21,20 +21,26 @@ export default class ClickToShow extends Component<void, Props, State> {
   };
 
   render() {
-    const panelClass = this.props.onRight
-      ? 'ClickToShow-Panel ClickToShow-Panel--right'
-      : 'ClickToShow-Panel ClickToShow-Panel--left';
+    if (!this.props.extra) {
+      return React.Children.only(this.props.children);
+    }
+
+    const panelClass = [
+      'ClickToShow-Panel',
+      this.props.onRight
+        ? 'ClickToShow-Panel--right'
+        : 'ClickToShow-Panel--left',
+    ].join(' ');
 
     return (
-      <a href="#" onClick={this.onClick} className="ClickToShow">
-        {this.props.children}
-        {this.state.show ?
-          <div className={panelClass}>
-            {this.props.extra}
-          </div>
-          : null
-        }
-      </a>
+      <div className="ClickToShow">
+        <a href="#" onClick={this.onClick}>
+          {this.props.children}
+        </a>
+        {this.state.show
+          ? <div className={panelClass}>{this.props.extra}</div>
+          : null}
+      </div>
     );
   }
 

@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {Reason, Chunk, Module, ExtendedModule} from '../../types/Stats';
+import type {Reason, Module, ExtendedModule} from '../../types/Stats';
 
 import ClickToShow from '../ClickToShow';
 import React from 'react';
@@ -15,10 +15,10 @@ function joinWithBR(nodes, label, index) {
   return nodes.concat(label, <br key={index} />);
 }
 
-function chunkLabel(chunk: Chunk): React$Element<any> {
+function chunkLabel(chunkId: number): React$Element<any> {
   return (
-    <span key={chunk.id}>
-      {chunk.identifier} ({chunk.id})
+    <span key={chunkId}>
+      {chunkId}
     </span>
   );
 }
@@ -39,7 +39,10 @@ function reasonLabel(reason: Reason): React$Element<any> {
   );
 }
 
-function moduleChunks(eModule: ExtendedModule): React$Element<any> {
+function moduleChunks(eModule: ExtendedModule): ?React$Element<any> {
+  if (!eModule.chunks.length) {
+    return null;
+  }
   return (
     <div>
       {eModule.chunks.map(chunkLabel).reduce(joinWithBR, [])}
@@ -47,7 +50,10 @@ function moduleChunks(eModule: ExtendedModule): React$Element<any> {
   );
 }
 
-function moduleReasons(eModule: ExtendedModule): React$Element<any> {
+function moduleReasons(eModule: ExtendedModule): ?React$Element<any> {
+  if (!eModule.reasons.length) {
+    return null;
+  }
   return (
     <div>
       {eModule.reasons.map(reasonLabel).reduce(joinWithBR, [])}
@@ -55,7 +61,10 @@ function moduleReasons(eModule: ExtendedModule): React$Element<any> {
   );
 }
 
-function moduleImports(eModule: ExtendedModule): React$Element<any> {
+function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
+  if (!eModule.requirements.length) {
+    return null;
+  }
   return (
     <div>
       {eModule.requirements.map(moduleLabel).reduce(joinWithBR, [])}
@@ -77,15 +86,14 @@ export default function ModuleList(props: Props) {
           <th>Size</th>
           <th>Reasons</th>
           <th>Imports</th>
-
         </tr>
       </thead>
       <tbody>
         {extendedModules.map((eModule: ExtendedModule) =>
           <tr key={eModule.identifier}>
             <td>
-              <ClickToShow extra={eModule.chunks.join(', ')}>
-                {eModule.chunks.length}
+              <ClickToShow extra={moduleChunks(eModule)}>
+                <span>{eModule.chunks.length}</span>
               </ClickToShow>
             </td>
             <td>{eModule.name}</td>
@@ -93,12 +101,12 @@ export default function ModuleList(props: Props) {
             <td>{eModule.size}</td>
             <td>
               <ClickToShow onRight={true} extra={moduleReasons(eModule)}>
-                {eModule.reasons.length}
+                <span>{eModule.reasons.length}</span>
               </ClickToShow>
             </td>
             <td>
               <ClickToShow onRight={true} extra={moduleImports(eModule)}>
-                {eModule.requirements.length}
+                <span>{eModule.requirements.length}</span>
               </ClickToShow>
             </td>
           </tr>
