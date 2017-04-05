@@ -104,7 +104,7 @@ export type ExtendedModule = {
   usedExports: true | Array<string>,
   providedExports: ?Array<string>,
 
-  requiredBy: Array<Module>,
+  requiredBy: Array<Reason>,
   requiredByCount: number,
   requirements: Array<Module>,
   cumulativeSize: number,

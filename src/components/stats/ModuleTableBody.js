@@ -12,6 +12,26 @@ type Props = {
   extendedModules: Array<ExtendedModule>,
 };
 
+function formatModuleName(name: string) {
+  const names = name.indexOf('multi ') === 0
+    ? name.split(' ')
+    : [name];
+
+  return (
+    <span>
+      {names.map((name, i) => {
+        const bits = name.split('!');
+        const niceName = bits.pop();
+        bits.push('');
+        return [
+          <span key={'a' + i} style={{color: '#aaa'}}> {bits.join('!')}</span>,
+          <span key={'b' + i}>{niceName}</span>,
+        ];
+      })}
+    </span>
+  );
+}
+
 function joinWithBR(nodes, label, index) {
   return nodes.concat(label, <br key={index} />);
 }
@@ -27,7 +47,7 @@ function chunkLabel(chunkId: number): React$Element<any> {
 function moduleLabel(module: Module | ExtendedModule): React$Element<any> {
   return (
     <span key={module.identifier}>
-      {module.identifier} ({module.id})
+      {formatModuleName(module.identifier)} ({module.id})
     </span>
   );
 }
@@ -35,7 +55,7 @@ function moduleLabel(module: Module | ExtendedModule): React$Element<any> {
 function reasonLabel(reason: Reason): React$Element<any> {
   return (
     <span key={reason.moduleId}>
-      {reason.moduleIdentifier} ({reason.moduleId})
+      {formatModuleName(reason.moduleIdentifier)} ({reason.moduleId})
     </span>
   );
 }
@@ -51,13 +71,13 @@ function moduleChunks(eModule: ExtendedModule): ?React$Element<any> {
   );
 }
 
-function moduleReasons(eModule: ExtendedModule): ?React$Element<any> {
-  if (!eModule.reasons.length) {
+function moduleDependencies(eModule: ExtendedModule): ?React$Element<any> {
+  if (!eModule.requiredBy.length) {
     return null;
   }
   return (
     <div>
-      {eModule.reasons.map(reasonLabel).reduce(joinWithBR, [])}
+      {eModule.requiredBy.map(reasonLabel).reduce(joinWithBR, [])}
     </div>
   );
 }
@@ -73,38 +93,49 @@ function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
   );
 }
 
+function ModuleTableRow(props: {eModule: ExtendedModule}) {
+  const {eModule} = props;
+  return (
+    <tr>
+      <td>
+        <ShowablePanel
+          trigger='click'
+          panel={moduleChunks(eModule)}>
+          <span>{eModule.chunks.length}</span>
+        </ShowablePanel>
+      </td>
+      <td>{formatModuleName(eModule.name)} ({eModule.id})</td>
+      <td>
+        <Unit bytes={eModule.cumulativeSize} />
+      </td>
+      <td>
+        <Unit bytes={eModule.size} />
+      </td>
+      <td>
+        <ShowablePanel
+          trigger='click'
+          onRight={true}
+          panel={moduleDependencies(eModule)}>
+          <span>{eModule.requiredBy.length}</span>
+        </ShowablePanel>
+      </td>
+      <td>
+        <ShowablePanel
+          trigger='click'
+          onRight={true}
+          panel={moduleImports(eModule)}>
+          <span>{eModule.requirements.length}</span>
+        </ShowablePanel>
+      </td>
+    </tr>
+  );
+}
+
 export default function ModuleTableBody(props: Props) {
   return (
     <tbody>
       {props.extendedModules.map((eModule: ExtendedModule) =>
-        <tr key={eModule.identifier}>
-          <td>
-            <ShowablePanel
-              trigger='click'
-              panel={moduleChunks(eModule)}>
-              <span>{eModule.chunks.length}</span>
-            </ShowablePanel>
-          </td>
-          <td>{eModule.name}</td>
-          <td><Unit bytes={eModule.cumulativeSize} /></td>
-          <td><Unit bytes={eModule.size} /></td>
-          <td>
-            <ShowablePanel
-              trigger='click'
-              onRight={true}
-              panel={moduleReasons(eModule)}>
-              <span>{eModule.reasons.length}</span>
-            </ShowablePanel>
-          </td>
-          <td>
-            <ShowablePanel
-              trigger='click'
-              onRight={true}
-              panel={moduleImports(eModule)}>
-              <span>{eModule.requirements.length}</span>
-            </ShowablePanel>
-          </td>
-        </tr>
+        <ModuleTableRow key={eModule.identifier} eModule={eModule} />
       )}
     </tbody>
   );
