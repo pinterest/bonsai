@@ -1,0 +1,23 @@
+.ModuleTable {
+  border-collapse: collapse;
+}
+
+.ModuleTable thead th,
+.ModuleTable thead td {
+  padding: 10px 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.ModuleTable tr:hover {
+  background: #ddd;
+}
+
+.ModuleTable tr:target {
+    background: #fdf5d4;
+}
+
+.ModuleTable td {
+  padding: 4px 2px;
+  border-bottom: 1px solid #eee;
+}

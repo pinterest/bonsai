@@ -18,7 +18,7 @@ function formatModuleName(name: string) {
     : [name];
 
   return (
-    <span>
+    <span style={{display:'block', padding: '5px 0'}}>
       {names.map((name, i) => {
         const bits = name.split('!');
         const niceName = bits.pop();
@@ -36,37 +36,17 @@ function joinWithBR(nodes, label, index) {
   return nodes.concat(label, <br key={index} />);
 }
 
-function chunkLabel(chunkId: number): React$Element<any> {
-  return (
-    <span key={chunkId}>
-      {chunkId}
-    </span>
-  );
-}
-
-function moduleLabel(module: Module | ExtendedModule): React$Element<any> {
-  return (
-    <span key={module.identifier}>
-      {formatModuleName(module.identifier)} ({module.id})
-    </span>
-  );
-}
-
-function reasonLabel(reason: Reason): React$Element<any> {
-  return (
-    <span key={reason.moduleId}>
-      {formatModuleName(reason.moduleIdentifier)} ({reason.moduleId})
-    </span>
-  );
-}
-
 function moduleChunks(eModule: ExtendedModule): ?React$Element<any> {
   if (!eModule.chunks.length) {
     return null;
   }
   return (
     <div>
-      {eModule.chunks.map(chunkLabel).reduce(joinWithBR, [])}
+      {eModule.chunks.map((chunkId) => (
+        <span key={chunkId}>
+          {chunkId}
+        </span>
+      )).reduce(joinWithBR, [])}
     </div>
   );
 }
@@ -77,7 +57,11 @@ function moduleDependencies(eModule: ExtendedModule): ?React$Element<any> {
   }
   return (
     <div>
-      {eModule.requiredBy.map(reasonLabel).reduce(joinWithBR, [])}
+      {eModule.requiredBy.map((reason) => (
+        <a href={'#' + reason.moduleId} key={reason.moduleId}>
+          {formatModuleName(reason.moduleIdentifier)}
+        </a>
+      ))}
     </div>
   );
 }
@@ -88,7 +72,11 @@ function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
   }
   return (
     <div>
-      {eModule.requirements.map(moduleLabel).reduce(joinWithBR, [])}
+      {eModule.requirements.map((module) => (
+        <a href={'#' + module.id} key={module.identifier}>
+          {formatModuleName(module.identifier)}
+        </a>
+      ))}
     </div>
   );
 }
@@ -96,7 +84,7 @@ function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
 function ModuleTableRow(props: {eModule: ExtendedModule}) {
   const {eModule} = props;
   return (
-    <tr>
+    <tr id={eModule.id}>
       <td>
         <ShowablePanel
           trigger='click'
@@ -104,7 +92,8 @@ function ModuleTableRow(props: {eModule: ExtendedModule}) {
           <span>{eModule.chunks.length}</span>
         </ShowablePanel>
       </td>
-      <td>{formatModuleName(eModule.name)} ({eModule.id})</td>
+      <td>{eModule.id}</td>
+      <td>{formatModuleName(eModule.name)}</td>
       <td>
         <Unit bytes={eModule.cumulativeSize} />
       </td>

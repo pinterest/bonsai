@@ -8,15 +8,17 @@ import ShowablePanel from '../ShowablePanel';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
 
+import './css/ModuleTable.css';
+
 type Props = {
   extendedModulesById: {[key: number]: ExtendedModule},
 };
 
 type State = {
   filters: {
-    moduleName: ?RegExp,
-    cumulativeSizeMin: ?number,
-    cumulativeSizeMax: ?number,
+    moduleName: RegExp | '',
+    cumulativeSizeMin: number | '',
+    cumulativeSizeMax: number | '',
   },
   sort: {
     field: string,
@@ -26,7 +28,7 @@ type State = {
 
 type Callback = Function;
 
-function makeRecordLikeRegExpFilter(field: string, re: ?RegExp) {
+function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
   return function(eModule: ExtendedModule) {
     if (re && !re.test(eModule[field])) {
       return false;
@@ -35,7 +37,7 @@ function makeRecordLikeRegExpFilter(field: string, re: ?RegExp) {
   };
 }
 
-function makeRecordRangeFilter(field: string, min: ?number, max: ?number) {
+function makeRecordRangeFilter(field: string, min: number | '', max: number | '') {
   return function(eModule: ExtendedModule) {
     if (min && max) {
       return eModule[field] >= min && eModule[field] <= max;
@@ -53,9 +55,9 @@ function makeRecordRangeFilter(field: string, min: ?number, max: ?number) {
 export default class ModuleTable extends Component<void, Props, State> {
   state = {
     filters: {
-      moduleName: null,
-      cumulativeSizeMin: null,
-      cumulativeSizeMax: null,
+      moduleName: '',
+      cumulativeSizeMin: '',
+      cumulativeSizeMax: '',
     },
     sort: {
       field: 'cumulativeSize',
@@ -95,10 +97,11 @@ export default class ModuleTable extends Component<void, Props, State> {
       });
 
     return (
-      <table cellPadding="0" cellSpacing="0">
+      <table className="ModuleTable" cellPadding="0" cellSpacing="0">
         <thead>
           <tr>
             <th>Chunks</th>
+            <th>ID</th>
             <th>
               <ShowablePanel
                 trigger='hover'
@@ -142,7 +145,7 @@ export default class ModuleTable extends Component<void, Props, State> {
           type="text"
           value={this.state.filters.moduleName
             ? this.state.filters.moduleName.source
-            : null}
+            : ''}
         />/</code>
       </div>
     );
@@ -191,13 +194,13 @@ export default class ModuleTable extends Component<void, Props, State> {
       filters: {
         moduleName: this.filterNodes.moduleName && this.filterNodes.moduleName.value
           ? new RegExp(this.filterNodes.moduleName.value)
-          : null,
+          : '',
         cumulativeSizeMin: this.filterNodes.cumulativeSizeMin && this.filterNodes.cumulativeSizeMin.value !== ''
           ? Number(this.filterNodes.cumulativeSizeMin.value)
-          : null,
+          : '',
         cumulativeSizeMax: this.filterNodes.cumulativeSizeMax && this.filterNodes.cumulativeSizeMax.value !== ''
           ? Number(this.filterNodes.cumulativeSizeMax.value)
-          : null,
+          : '',
       },
     });
   };

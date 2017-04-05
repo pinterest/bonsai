@@ -28,7 +28,6 @@ export default function ChunkGraph(props: Props) {
       );
     } else {
       const isSelected = props.selectedChunkId === chunk.id;
-      const label = `${chunk.name} (${chunk.ids.join(', ')})`;
 
       return (
         <li key={chunk.name}>
@@ -37,8 +36,8 @@ export default function ChunkGraph(props: Props) {
             props.onSelectChunkId(chunk.id);
           }}>
             {isSelected
-              ? <strong>{label}</strong>
-              : label
+              ? <strong>{chunk.name}</strong>
+              : chunk.name
             }
           </a>
           <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
