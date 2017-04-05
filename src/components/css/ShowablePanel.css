@@ -1,8 +1,8 @@
-.ClickToShow {
+.ShowablePanel {
   position: relative;
 }
 
-.ClickToShow-Panel {
+.ShowablePanel-Panel {
   background: white;
   border: 1px solid black;
   box-shadow: black 1px 1px 10px;
@@ -12,9 +12,9 @@
   z-index: 1;
 }
 
-.ClickToShow-Panel--left {
+.ShowablePanel-Panel--left {
     left: 0;
 }
-.ClickToShow-Panel--right {
+.ShowablePanel-Panel--right {
     right: 0;
 }
