@@ -14,16 +14,26 @@ function formatBytes(bytes) {
   if (bytes === 0) {
     return '0 B';
   }
-  var k = 1000;
-  var dm = 0;
-  var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-  var i = Math.floor(Math.log(bytes) / Math.log(k));
+  const k = 1024;
+  const dm = 2;
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + NBSP + sizes[i];
+}
+
+function toInt(n: number) {
+  return String(parseInt(n, 10))
+    .split('')
+    .reverse()
+    .map((s, i) => s + (i % 3 ? '' : ','))
+    .reverse()
+    .join('')
+    .slice(0, -1);
 }
 
 export default function Unit(props: Props) {
   return (
-    <span title={props.bytes}>
+    <span title={toInt(props.bytes)}>
       {formatBytes(props.bytes)}
     </span>
   );
