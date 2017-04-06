@@ -41,8 +41,8 @@ export default class ShowablePanel extends Component<void, Props, State> {
     return (
       <div
         className="ShowablePanel"
-        onMouseOut={this.onMouseOut}
-        onMouseOver={this.onMouseOver}>
+        onMouseLeave={this.onMouseOut}
+        onMouseEnter={this.onMouseOver}>
         {childrenWrapper}
         {this.state.show
           ? <div className={panelClass}>{this.props.panel}</div>
