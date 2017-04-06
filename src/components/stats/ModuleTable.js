@@ -19,6 +19,8 @@ type State = {
     moduleName: RegExp | '',
     cumulativeSizeMin: number | '',
     cumulativeSizeMax: number | '',
+    requiredByCountMin: number | '',
+    requiredByCountMax: number | '',
   },
   sort: {
     field: string,
@@ -58,6 +60,8 @@ export default class ModuleTable extends Component<void, Props, State> {
       moduleName: '',
       cumulativeSizeMin: '',
       cumulativeSizeMax: '',
+      requiredByCountMin: '',
+      requiredByCountMax: '',
     },
     sort: {
       field: 'cumulativeSize',
@@ -69,6 +73,8 @@ export default class ModuleTable extends Component<void, Props, State> {
     moduleName?: HTMLInputElement,
     cumulativeSizeMin?: HTMLInputElement,
     cumulativeSizeMax?: HTMLInputElement,
+    requiredByCountMin?: HTMLInputElement,
+    requiredByCountMax?: HTMLInputElement,
   } = {};
 
   render() {
@@ -84,6 +90,11 @@ export default class ModuleTable extends Component<void, Props, State> {
         'cumulativeSize',
         this.state.filters.cumulativeSizeMin,
         this.state.filters.cumulativeSizeMax,
+      ))
+      .filter(makeRecordRangeFilter(
+        'requiredByCount',
+        this.state.filters.requiredByCountMin,
+        this.state.filters.requiredByCountMax,
       ))
       .sort((a, b) => {
         const {field, direction} = this.state.sort;
@@ -119,7 +130,15 @@ export default class ModuleTable extends Component<void, Props, State> {
               </ShowablePanel>
             </th>
             <th>Size</th>
-            <th>Dependants</th>
+            <th>
+              <ShowablePanel
+                trigger='hover'
+                panel={this.renderRequiredByCountFilter(this.onFilter)}>
+                <a href="#" onClick={this.makeSort('requiredByCount')}>
+                  Dependants
+                </a>
+              </ShowablePanel>
+            </th>
             <th>Imports</th>
             <th>Chunks</th>
           </tr>
@@ -174,6 +193,30 @@ export default class ModuleTable extends Component<void, Props, State> {
     );
   }
 
+  renderRequiredByCountFilter(callback: Callback) {
+    return (
+      <div>
+        <label htmlFor="filter-requiredByCount-min">Min (bytes)</label>
+        <input
+          id="filter-requiredByCount-min"
+          onChange={callback}
+          ref={n => this.filterNodes.requiredByCountMin = n}
+          type="number"
+          value={this.state.filters.requiredByCountMin}
+        />
+        <br/>
+        <label htmlFor="filter-requiredByCount-max">Max (bytes)</label>
+        <input
+          id="filter-requiredByCount-max"
+          onChange={callback}
+          ref={n => this.filterNodes.requiredByCountMax = n}
+          type="number"
+          value={this.state.filters.requiredByCountMax}
+         />
+      </div>
+    );
+  }
+
   makeSort(field: string) {
     return (e: SyntheticEvent) => {
       e.preventDefault();
@@ -199,6 +242,12 @@ export default class ModuleTable extends Component<void, Props, State> {
           : '',
         cumulativeSizeMax: this.filterNodes.cumulativeSizeMax && this.filterNodes.cumulativeSizeMax.value !== ''
           ? Number(this.filterNodes.cumulativeSizeMax.value)
+          : '',
+        requiredByCountMin: this.filterNodes.requiredByCountMin && this.filterNodes.requiredByCountMin.value !== ''
+          ? Number(this.filterNodes.requiredByCountMin.value)
+          : '',
+        requiredByCountMax: this.filterNodes.requiredByCountMax && this.filterNodes.requiredByCountMax.value !== ''
+          ? Number(this.filterNodes.requiredByCountMax.value)
           : '',
       },
     });
