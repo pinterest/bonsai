@@ -111,6 +111,7 @@ function ModuleTableRow(props: {eModule: ExtendedModule}) {
       <td className="number">
         <ShowablePanel
           trigger='click'
+          onRight={true}
           panel={moduleChunks(eModule)}>
           <span>{eModule.chunks.length}</span>
         </ShowablePanel>
