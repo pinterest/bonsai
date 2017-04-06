@@ -92,7 +92,6 @@ function ModuleTableRow(props: {eModule: ExtendedModule}) {
           <span>{eModule.chunks.length}</span>
         </ShowablePanel>
       </td>
-      <td>{eModule.id}</td>
       <td>{formatModuleName(eModule.name)}</td>
       <td>
         <Unit bytes={eModule.cumulativeSize} />

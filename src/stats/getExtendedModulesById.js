@@ -2,12 +2,12 @@
  * @flow
  */
 
-import type {RawStats, ExtendedModule} from '../types/Stats';
+import type {ModuleID, RawStats, ExtendedModule} from '../types/Stats';
 
 import getModulesByChunk from './getModulesByChunk';
 import getParentChunkIds from './getParentChunkIds';
 
-export type ExtendedModulesById = {[key: number]: ExtendedModule};
+export type ExtendedModulesById = {[key: ModuleID]: ExtendedModule};
 
 function addModuleSizes(modules: ExtendedModulesById): ExtendedModulesById {
   const doneKeys = [];
@@ -38,8 +38,8 @@ function addModuleSizes(modules: ExtendedModulesById): ExtendedModulesById {
     return size;
   }
 
-  Object.keys(modules).map(Number).forEach((id) => {
-    getSizeOf(modules[Number(id)], [id]);
+  Object.keys(modules).forEach((id) => {
+    getSizeOf(modules[id], [id]);
   });
 
   return modules;

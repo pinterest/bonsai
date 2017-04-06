@@ -2,9 +2,9 @@
  * @flow
  */
 
-import type {Module} from '../types/Stats';
+import type {ModuleID, Module} from '../types/Stats';
 
-export type ModulesById = {[key: number]: Module};
+export type ModulesById = {[key: ModuleID]: Module};
 
 export default function getModulesById(modules: Array<Module>): ModulesById {
   const modulesById = {};

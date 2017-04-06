@@ -50,8 +50,10 @@ export type Chunk = {
   origins: Array<Origin>
 };
 
+export type ModuleID = string | number;
+
 export type Module = {
-  id: number,
+  id: ModuleID,
   identifier: string,
   name: string,
   index: number,
@@ -84,7 +86,7 @@ export type RawStats = {
 
 // should be ExtendedModule = Module * { requirements: Array<Module> };
 export type ExtendedModule = {
-  id: number,
+  id: ModuleID,
   identifier: string,
   name: string,
   index: number,

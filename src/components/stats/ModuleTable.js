@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {ExtendedModule} from '../../types/Stats';
+import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
 import ShowablePanel from '../ShowablePanel';
 import ModuleTableBody from './ModuleTableBody';
@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 import './css/ModuleTable.css';
 
 type Props = {
-  extendedModulesById: {[key: number]: ExtendedModule},
+  extendedModulesById: {[key: ModuleID]: ExtendedModule},
 };
 
 type State = {
@@ -101,7 +101,6 @@ export default class ModuleTable extends Component<void, Props, State> {
         <thead>
           <tr>
             <th>Chunks</th>
-            <th>ID</th>
             <th>
               <ShowablePanel
                 trigger='hover'
