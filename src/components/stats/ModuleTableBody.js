@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {Reason, Module, ExtendedModule} from '../../types/Stats';
+import type {ExtendedModule} from '../../types/Stats';
 
 import ShowablePanel from '../ShowablePanel';
 import React from 'react';

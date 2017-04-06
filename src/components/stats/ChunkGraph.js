@@ -22,7 +22,7 @@ export default function ChunkGraph(props: Props) {
     if (chunk.ids.length > 1) {
       return (
         <li key={chunk.name}>
-          {chunk.name}
+          {chunk.name} ({chunk.id})
           <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
         </li>
       );
@@ -36,8 +36,8 @@ export default function ChunkGraph(props: Props) {
             props.onSelectChunkId(chunk.id);
           }}>
             {isSelected
-              ? <strong>{chunk.name}</strong>
-              : chunk.name
+              ? <strong>{chunk.name}  ({chunk.id})</strong>
+              : `${chunk.name} (${chunk.id})`
             }
           </a>
           <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
