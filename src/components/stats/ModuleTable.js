@@ -100,7 +100,6 @@ export default class ModuleTable extends Component<void, Props, State> {
       <table className="ModuleTable" cellPadding="0" cellSpacing="0">
         <thead>
           <tr>
-            <th>Chunks</th>
             <th>
               <ShowablePanel
                 trigger='hover'
@@ -122,6 +121,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>Size</th>
             <th>Dependants</th>
             <th>Imports</th>
+            <th>Chunks</th>
           </tr>
         </thead>
         <ModuleTableBody

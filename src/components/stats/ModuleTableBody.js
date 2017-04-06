@@ -85,21 +85,14 @@ function ModuleTableRow(props: {eModule: ExtendedModule}) {
   const {eModule} = props;
   return (
     <tr id={eModule.id}>
-      <td>
-        <ShowablePanel
-          trigger='click'
-          panel={moduleChunks(eModule)}>
-          <span>{eModule.chunks.length}</span>
-        </ShowablePanel>
-      </td>
       <td>{formatModuleName(eModule.name)}</td>
-      <td>
+      <td className="number">
         <Unit bytes={eModule.cumulativeSize} />
       </td>
-      <td>
+      <td className="number">
         <Unit bytes={eModule.size} />
       </td>
-      <td>
+      <td className="number">
         <ShowablePanel
           trigger='click'
           onRight={true}
@@ -107,12 +100,19 @@ function ModuleTableRow(props: {eModule: ExtendedModule}) {
           <span>{eModule.requiredBy.length}</span>
         </ShowablePanel>
       </td>
-      <td>
+      <td className="number">
         <ShowablePanel
           trigger='click'
           onRight={true}
           panel={moduleImports(eModule)}>
           <span>{eModule.requirements.length}</span>
+        </ShowablePanel>
+      </td>
+      <td className="number">
+        <ShowablePanel
+          trigger='click'
+          panel={moduleChunks(eModule)}>
+          <span>{eModule.chunks.length}</span>
         </ShowablePanel>
       </td>
     </tr>

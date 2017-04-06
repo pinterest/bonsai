@@ -13,10 +13,14 @@
 }
 
 .ModuleTable tr:target {
-    background: #fdf5d4;
+  background: #fdf5d4;
 }
 
 .ModuleTable td {
   padding: 4px 2px;
   border-bottom: 1px solid #eee;
+}
+
+.ModuleTable td.number {
+  text-align: right;
 }
