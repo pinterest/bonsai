@@ -16,11 +16,11 @@ type Props = {
 
 type State = {
   filters: {
-    moduleName: RegExp | '',
-    cumulativeSizeMin: number | '',
-    cumulativeSizeMax: number | '',
-    requiredByCountMin: number | '',
-    requiredByCountMax: number | '',
+    moduleName: string,
+    cumulativeSizeMin: string,
+    cumulativeSizeMax: string,
+    requiredByCountMin: string,
+    requiredByCountMax: string,
   },
   sort: {
     field: string,
@@ -78,23 +78,24 @@ export default class ModuleTable extends Component<void, Props, State> {
   } = {};
 
   render() {
+    const {filters} = this.state;
     // $FlowFixMe: flow thinks `values()` returns an `Array<mixed>` here
     let extendedModules: Array<ExtendedModule> = Object.values(this.props.extendedModulesById);
 
     extendedModules = extendedModules
       .filter(makeRecordLikeRegExpFilter(
         'name',
-        this.state.filters.moduleName,
+        new RegExp(filters.moduleName),
       ))
       .filter(makeRecordRangeFilter(
         'cumulativeSize',
-        this.state.filters.cumulativeSizeMin,
-        this.state.filters.cumulativeSizeMax,
+        Number(filters.cumulativeSizeMin),
+        Number(filters.cumulativeSizeMax),
       ))
       .filter(makeRecordRangeFilter(
         'requiredByCount',
-        this.state.filters.requiredByCountMin,
-        this.state.filters.requiredByCountMax,
+        Number(filters.requiredByCountMin),
+        Number(filters.requiredByCountMax),
       ))
       .sort((a, b) => {
         const {field, direction} = this.state.sort;
@@ -114,7 +115,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>
               <ShowablePanel
                 trigger='hover'
-                panel={this.renderModuleNameFilter(this.onFilter)}>
+                panel={this.renderModuleNameFilter()}>
                 <a href="#" onClick={this.makeSort('name')}>
                   Module Name
                 </a>
@@ -123,7 +124,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>
               <ShowablePanel
                 trigger='hover'
-                panel={this.renderCumulativeSizeFilter(this.onFilter)}>
+                panel={this.renderCumulativeSizeFilter()}>
                 <a href="#" onClick={this.makeSort('cumulativeSize')}>
                   Cumulative Size
                 </a>
@@ -133,7 +134,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>
               <ShowablePanel
                 trigger='hover'
-                panel={this.renderRequiredByCountFilter(this.onFilter)}>
+                panel={this.renderRequiredByCountFilter()}>
                 <a href="#" onClick={this.makeSort('requiredByCount')}>
                   Dependants
                 </a>
@@ -141,6 +142,32 @@ export default class ModuleTable extends Component<void, Props, State> {
             </th>
             <th>Imports</th>
             <th>Chunks</th>
+          </tr>
+          <tr>
+            <td className="filter">
+              {filters.moduleName
+                ? filters.moduleName
+                : '*'}
+            </td>
+            <td className="filter">
+              {filters.cumulativeSizeMin}
+              {filters.cumulativeSizeMin !== '' || filters.cumulativeSizeMax !== ''
+                ? ' < '
+                : null
+              }
+              {filters.cumulativeSizeMax}
+            </td>
+            <td></td>
+            <td className="filter">
+              {filters.requiredByCountMin}
+              {filters.requiredByCountMin !== '' || filters.requiredByCountMax !== ''
+                ? ' < '
+                : null
+              }
+              {filters.requiredByCountMax}
+            </td>
+            <td></td>
+            <td></td>
           </tr>
         </thead>
         <ModuleTableBody
@@ -150,68 +177,65 @@ export default class ModuleTable extends Component<void, Props, State> {
     );
   }
 
-  renderModuleNameFilter(callback: Callback) {
+  renderModuleNameFilter() {
     return (
       <div>
         <label htmlFor="filter-moduleName-like">Matches RegExp</label>
         <code>/<input
           checked
           id="filter-moduleName-like"
-          onChange={callback}
-          ref={n => this.filterNodes.moduleName = n}
+          onChange={this.makeOnFilter('moduleName')}
           size="80"
           type="text"
-          value={this.state.filters.moduleName
-            ? this.state.filters.moduleName.source
-            : ''}
+          value={this.state.filters.moduleName || ''}
         />/</code>
       </div>
     );
   }
 
-  renderCumulativeSizeFilter(callback: Callback) {
+  renderCumulativeSizeFilter() {
+    const {filters} = this.state;
+
     return (
       <div>
         <label htmlFor="filter-cumulativeSize-min">Min (bytes)</label>
         <input
           id="filter-cumulativeSize-min"
-          onChange={callback}
-          ref={n => this.filterNodes.cumulativeSizeMin = n}
+          onChange={this.makeOnFilter('cumulativeSizeMin')}
           type="number"
-          value={this.state.filters.cumulativeSizeMin}
+          value={filters.cumulativeSizeMin}
         />
         <br/>
         <label htmlFor="filter-cumulativeSize-max">Max (bytes)</label>
         <input
           id="filter-cumulativeSize-max"
-          onChange={callback}
-          ref={n => this.filterNodes.cumulativeSizeMax = n}
+          onChange={this.makeOnFilter('cumulativeSizeMax')}
           type="number"
-          value={this.state.filters.cumulativeSizeMax}
+          value={filters.cumulativeSizeMax}
          />
       </div>
     );
   }
 
-  renderRequiredByCountFilter(callback: Callback) {
+  renderRequiredByCountFilter() {
+    const {filters} = this.state;
+
     return (
       <div>
         <label htmlFor="filter-requiredByCount-min">Min (bytes)</label>
         <input
           id="filter-requiredByCount-min"
-          onChange={callback}
-          ref={n => this.filterNodes.requiredByCountMin = n}
+          onChange={this.makeOnFilter('requiredByCountMin')}
           type="number"
-          value={this.state.filters.requiredByCountMin}
+          value={filters.requiredByCountMin}
         />
         <br/>
         <label htmlFor="filter-requiredByCount-max">Max (bytes)</label>
         <input
           id="filter-requiredByCount-max"
-          onChange={callback}
-          ref={n => this.filterNodes.requiredByCountMax = n}
+          onChange={this.makeOnFilter('requiredByCountMax')}
           type="number"
-          value={this.state.filters.requiredByCountMax}
+          value={filters.requiredByCountMax}
          />
       </div>
     );
@@ -231,26 +255,15 @@ export default class ModuleTable extends Component<void, Props, State> {
     };
   }
 
-  onFilter = () => {
-    this.setState({
-      filters: {
-        moduleName: this.filterNodes.moduleName && this.filterNodes.moduleName.value
-          ? new RegExp(this.filterNodes.moduleName.value)
-          : '',
-        cumulativeSizeMin: this.filterNodes.cumulativeSizeMin && this.filterNodes.cumulativeSizeMin.value !== ''
-          ? Number(this.filterNodes.cumulativeSizeMin.value)
-          : '',
-        cumulativeSizeMax: this.filterNodes.cumulativeSizeMax && this.filterNodes.cumulativeSizeMax.value !== ''
-          ? Number(this.filterNodes.cumulativeSizeMax.value)
-          : '',
-        requiredByCountMin: this.filterNodes.requiredByCountMin && this.filterNodes.requiredByCountMin.value !== ''
-          ? Number(this.filterNodes.requiredByCountMin.value)
-          : '',
-        requiredByCountMax: this.filterNodes.requiredByCountMax && this.filterNodes.requiredByCountMax.value !== ''
-          ? Number(this.filterNodes.requiredByCountMax.value)
-          : '',
-      },
-    });
-  };
+  makeOnFilter(field: string) {
+    return (event: SyntheticInputEvent) => {
+      this.setState({
+        filters: {
+          ...this.state.filters,
+          [field]: event.target.value,
+        },
+      });
+    };
+  }
 
 }

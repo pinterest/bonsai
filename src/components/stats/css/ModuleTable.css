@@ -21,6 +21,10 @@
   border-bottom: 1px solid #eee;
 }
 
+.ModuleTable td.filter {
+  text-align: center;
+}
+
 .ModuleTable td.number {
   text-align: right;
 }
