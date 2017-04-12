@@ -46,12 +46,17 @@ function getChildrenForChunk(stats, parentChunk): Array<Child> {
     }
   });
 
-  // $FlowFixMe: flow things `values` returns `Array<mixed>`
+  // $FlowFixMe: flow thinks `values` returns `Array<mixed>`
   const children: Array<Child> = Object.values(collectedChunksByName);
   return children;
 }
 
-export default function getEntryHeirarchy(stats: RawStats): {id: null, children: Array<Child>} {
+export default function getEntryHeirarchy(
+  stats: RawStats,
+): {
+  id: null,
+  children: Array<Child>,
+} {
   return {
     id: null,
     children: getEntryChunks(stats)

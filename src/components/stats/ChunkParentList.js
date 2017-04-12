@@ -27,10 +27,11 @@ export default function ParentChunkList(props: Props) {
 
   return (
     <ul>
-      {parentChunkIds.map((chunkId) => {
-        const chunk = chunksById[chunkId];
-        return <li key={chunkId}>{chunk.names.join(', ')} ({String(chunkId)})</li>;
-      })}
+      {parentChunkIds.map((chunkId) => (
+        <li key={chunkId}>
+          {chunksById[chunkId].names.join(', ')} ({String(chunkId)})
+        </li>
+      ))}
     </ul>
   )
 }

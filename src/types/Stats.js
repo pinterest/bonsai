@@ -84,7 +84,7 @@ export type RawStats = {
   modules: Array<Module>,
 };
 
-// should be ExtendedModule = Module * { requirements: Array<Module> };
+// should be ExtendedModule = Module & { requirements: Array<Module> };
 export type ExtendedModule = {
   id: ModuleID,
   identifier: string,

@@ -2,11 +2,13 @@
  * @flow
  */
 
-import type {ModuleID, Module} from '../types/Stats';
+import type {ModuleID, ExtendedModule} from '../types/Stats';
 
-export type ModulesById = {[key: ModuleID]: Module};
+export type ExtendedModulesById = {[key: ModuleID]: ExtendedModule};
 
-export default function getModulesById(modules: Array<Module>): ModulesById {
+export default function getModulesById(
+  modules: Array<ExtendedModule>,
+): {[key: ModuleID]: ExtendedModule} {
   const modulesById = {};
   modules.forEach((module) => {
     modulesById[module.id] = module;

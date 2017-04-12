@@ -28,8 +28,6 @@ type State = {
   },
 };
 
-type Callback = Function;
-
 function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
   return function(eModule: ExtendedModule) {
     if (re && !re.test(eModule[field])) {
@@ -39,7 +37,11 @@ function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
   };
 }
 
-function makeRecordRangeFilter(field: string, min: number | '', max: number | '') {
+function makeRecordRangeFilter(
+  field: string,
+  min: number | '',
+  max: number | '',
+) {
   return function(eModule: ExtendedModule) {
     if (min && max) {
       return eModule[field] >= min && eModule[field] <= max;
@@ -80,7 +82,9 @@ export default class ModuleTable extends Component<void, Props, State> {
   render() {
     const {filters} = this.state;
     // $FlowFixMe: flow thinks `values()` returns an `Array<mixed>` here
-    let extendedModules: Array<ExtendedModule> = Object.values(this.props.extendedModulesById);
+    let extendedModules: Array<ExtendedModule> = Object.values(
+      this.props.extendedModulesById,
+    );
 
     extendedModules = extendedModules
       .filter(makeRecordLikeRegExpFilter(
@@ -151,7 +155,8 @@ export default class ModuleTable extends Component<void, Props, State> {
             </td>
             <td className="filter">
               {filters.cumulativeSizeMin}
-              {filters.cumulativeSizeMin !== '' || filters.cumulativeSizeMax !== ''
+              {(filters.cumulativeSizeMin !== ''
+                || filters.cumulativeSizeMax !== '')
                 ? ' < '
                 : null
               }
@@ -160,7 +165,8 @@ export default class ModuleTable extends Component<void, Props, State> {
             <td></td>
             <td className="filter">
               {filters.requiredByCountMin}
-              {filters.requiredByCountMin !== '' || filters.requiredByCountMax !== ''
+              {(filters.requiredByCountMin !== ''
+                || filters.requiredByCountMax !== '')
                 ? ' < '
                 : null
               }
@@ -245,7 +251,9 @@ export default class ModuleTable extends Component<void, Props, State> {
     return (e: SyntheticEvent) => {
       e.preventDefault();
       const sameField = this.state.sort.field === field;
-      const otherDirection = this.state.sort.direction === 'ASC' ? 'DESC' : 'ASC';
+      const otherDirection = this.state.sort.direction === 'ASC'
+        ? 'DESC'
+        : 'ASC';
       this.setState({
         sort: {
           field,

@@ -32,7 +32,10 @@ export default class Stats extends Component<void, Props, State> {
       <div>
         <h3>Loaded: {this.props.stats.file}</h3>
         {this.state.selectedChunkId
-          ? this.renderSelectedChunk(this.props.stats.raw, this.state.selectedChunkId)
+          ? this.renderSelectedChunk(
+            this.props.stats.raw,
+            this.state.selectedChunkId,
+          )
           : this.renderChunkSelector(this.props.stats.raw)
         }
       </div>

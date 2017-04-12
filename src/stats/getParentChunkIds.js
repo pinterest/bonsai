@@ -25,6 +25,9 @@ function findChunk(root, targetID, history = []) {
   return null;
 }
 
-export default function getParentChunkIds(stats: RawStats, chunkId: number): ?Array<number> {
+export default function getParentChunkIds(
+  stats: RawStats,
+  chunkId: number,
+): ?Array<number> {
   return findChunk(getEntryHeirarchy(stats), chunkId);
 }

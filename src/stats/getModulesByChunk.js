@@ -2,9 +2,17 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {Module, RawStats} from '../types/Stats';
 
-export default function getModulesByChunk(stats: RawStats) {
+export default function getModulesByChunk(
+  stats: RawStats,
+): {
+  [key: number]: {
+    id: number,
+    length: number,
+    modules: Array<Module>,
+  },
+} {
   const map = {};
 
   stats.chunks.forEach((chunk) => {
