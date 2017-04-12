@@ -7,8 +7,6 @@ import type {ModuleID, Module} from '../../types/Stats';
 import React from 'react';
 import Unit from '../Unit';
 
-import './css/Table.css';
-
 type Props = {
   blacklistedModulesIds: Array<ModuleID>,
   removedModules: Array<Module>,
@@ -29,7 +27,7 @@ export default function ChunkGraph(props: Props) {
   );
 
   return (
-    <table className="Table" cellPadding="0" cellSpacing="0">
+    <table className="table table-hover" cellPadding="0" cellSpacing="0">
       <thead>
         <tr>
           <th>Name</th>

@@ -4,8 +4,6 @@
 
 import type {RawStats} from '../../types/Stats';
 
-import './css/ChunkGraph.css';
-
 import getEntryHeirarchy from '../../stats/getEntryHeirarchy';
 import React from 'react';
 
@@ -47,7 +45,7 @@ export default function ChunkGraph(props: Props) {
   }
 
   return (
-    <ul className="ChunkGraph">
+    <ul>
       {chunksByParent.children.map(renderChunkGraphNode)}
     </ul>
   );

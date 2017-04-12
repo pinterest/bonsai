@@ -8,8 +8,6 @@ import ShowablePanel from '../ShowablePanel';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
 
-import './css/Table.css';
-
 type Props = {
   extendedModulesById: {[key: ModuleID]: ExtendedModule},
   onRemoveModule: (moduleID: ModuleID) => void,
@@ -114,7 +112,7 @@ export default class ModuleTable extends Component<void, Props, State> {
       });
 
     return (
-      <table className="Table" cellPadding="0" cellSpacing="0">
+      <table className="table table-hover" cellPadding="0" cellSpacing="0">
         <thead>
           <tr>
             <th>
@@ -150,12 +148,12 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th></th>
           </tr>
           <tr>
-            <td className="filter">
+            <td>
               {filters.moduleName
                 ? filters.moduleName
                 : '*'}
             </td>
-            <td className="filter">
+            <td>
               {filters.cumulativeSizeMin}
               {(filters.cumulativeSizeMin !== ''
                 || filters.cumulativeSizeMax !== '')
@@ -165,7 +163,7 @@ export default class ModuleTable extends Component<void, Props, State> {
               {filters.cumulativeSizeMax}
             </td>
             <td></td>
-            <td className="filter">
+            <td>
               {filters.requiredByCountMin}
               {(filters.requiredByCountMin !== ''
                 || filters.requiredByCountMax !== '')

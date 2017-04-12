@@ -7,6 +7,8 @@ import React, { Component } from 'react';
 type JSONCallback = (fileName: string, json: Object) => void;
 
 type Props = {
+  id?: string,
+  className?: string,
   onLoading: () => void,
   onChange: JSONCallback,
 };
@@ -22,7 +24,7 @@ function fetchJSON(file: string, callback: JSONCallback) {
   });
 }
 
-export default class DataFilePicker extends Component<void, Props, State> {
+export default class JsonFilePicker extends Component<void, Props, State> {
   state: State = {
     dataFiles: [],
   };
@@ -37,7 +39,10 @@ export default class DataFilePicker extends Component<void, Props, State> {
 
   render() {
     return (
-      <select onChange={this.onChange}>
+      <select
+        id={this.props.id}
+        className={this.props.className}
+        onChange={this.onChange}>
         <option value=""></option>
         {this.state.dataFiles.map((file) =>
           <option key={file} value={file}>{file}</option>

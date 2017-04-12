@@ -88,13 +88,13 @@ function ModuleTableRow(props: TRProps) {
   return (
     <tr id={eModule.id}>
       <td>{formatModuleName(eModule.name)}</td>
-      <td className="number">
+      <td>
         <Unit bytes={eModule.cumulativeSize} />
       </td>
-      <td className="number">
+      <td>
         <Unit bytes={eModule.size} />
       </td>
-      <td className="number">
+      <td>
         <ShowablePanel
           trigger='click'
           onRight={true}
@@ -102,7 +102,7 @@ function ModuleTableRow(props: TRProps) {
           <span>{eModule.requiredBy.length}</span>
         </ShowablePanel>
       </td>
-      <td className="number">
+      <td>
         <ShowablePanel
           trigger='click'
           onRight={true}
@@ -110,7 +110,7 @@ function ModuleTableRow(props: TRProps) {
           <span>{eModule.requirements.length}</span>
         </ShowablePanel>
       </td>
-      <td className="number">
+      <td>
         <ShowablePanel
           trigger='click'
           onRight={true}

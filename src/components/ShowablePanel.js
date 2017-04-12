@@ -4,8 +4,6 @@
 
 import React, { Component } from 'react';
 
-import './css/ShowablePanel.css';
-
 type Props = {
   children?: React$Element<any>,
   panel: ?React$Element<any>,
@@ -27,12 +25,12 @@ export default class ShowablePanel extends Component<void, Props, State> {
       return React.Children.only(this.props.children);
     }
 
-    const panelClass = [
-      'ShowablePanel-Panel',
-      this.props.onRight
-        ? 'ShowablePanel-Panel--right'
-        : 'ShowablePanel-Panel--left',
-    ].join(' ');
+    // const panelClass = [
+    //   'ShowablePanel-Panel',
+    //   this.props.onRight
+    //     ? 'ShowablePanel-Panel--right'
+    //     : 'ShowablePanel-Panel--left',
+    // ].join(' ');
 
     const childrenWrapper = this.props.trigger === 'click'
       ? <a href="#" onClick={this.onClick}>{this.props.children}</a>
@@ -40,12 +38,11 @@ export default class ShowablePanel extends Component<void, Props, State> {
 
     return (
       <div
-        className="ShowablePanel"
         onMouseLeave={this.onMouseOut}
         onMouseEnter={this.onMouseOver}>
         {childrenWrapper}
         {this.state.show
-          ? <div className={panelClass}>{this.props.panel}</div>
+          ? <div>{this.props.panel}</div>
           : null}
       </div>
     );
