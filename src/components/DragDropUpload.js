@@ -10,6 +10,7 @@ type Props = {
   id?: string,
   className?: string,
   'aria-describedby'?: string,
+  style?: string,
   onDragEnter?: () => void,
   onDragLeave?: () => void,
   onLoading: () => void,
@@ -41,6 +42,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
     return (
       <div
         onClick={this.clickFileInput}
+        style={this.props.style}
         ref={(div) => {
           this._div = div;
           if (div) {
