@@ -12,6 +12,7 @@
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
+    "flow:stop": "flow stop",
     "collect-data": "./src/build/writeStatsFiles.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
