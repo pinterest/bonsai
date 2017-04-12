@@ -5,13 +5,13 @@
 import type {ModuleID, RawStats} from '../types/Stats';
 
 import BlacklistTable from './stats/BlacklistTable';
-import ChunkGraph from './stats/ChunkGraph';
-import ChunkParentList from './stats/ChunkParentList';
+import ChunkBreadcrumb from './stats/ChunkBreadcrumb';
+import ChunkDropdown from './stats/ChunkDropdown';
 import getChunkModules from '../stats/getChunkModules';
 import getExtendedModulesById, {calculateModuleSizes} from '../stats/getExtendedModulesById';
+import getModulesById from '../stats/getModulesById';
 import ModuleTable from './stats/ModuleTable';
 import React, { Component } from 'react';
-import ShowablePanel from './ShowablePanel';
 import splitUnreachableModules from '../stats/splitUnreachableModules';
 
 type Props = {
@@ -44,32 +44,38 @@ export default class Stats extends Component<void, Props, State> {
   render() {
     return (
       <div>
-        <h3>Loaded: {this.props.stats.file}</h3>
+        <div className="row">
+          <div className="col-sm-12">
+            <ChunkDropdown
+              stats={this.props.stats.raw}
+              selectedChunkId={this.state.selectedChunkId}
+              onSelectChunkId={this.onSelectChunkId}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12">
+            {this.state.selectedChunkId
+              ? <ChunkBreadcrumb
+                stats={this.props.stats.raw}
+                selectedChunkId={this.state.selectedChunkId}
+              />
+              : null}
+          </div>
+        </div>
+
         {this.state.selectedChunkId
           ? this.renderSelectedChunk(
-            this.props.stats.raw,
-            this.state.selectedChunkId,
-          )
-          : this.renderChunkSelector(this.props.stats.raw)
+              this.props.stats.raw,
+              this.state.selectedChunkId,
+            )
+          : null
         }
       </div>
     );
   }
 
-  renderChunkSelector(stats: RawStats) {
-    return (
-      <fieldset>
-        <h4>Chunk Graph</h4>
-        <ChunkGraph
-          stats={stats}
-          selectedChunkId={null}
-          onSelectChunkId={this.onSelectChunkId}
-        />
-      </fieldset>
-    );
-  }
-
-  renderSelectedChunk(stats: RawStats, selectedChunkId: number) {
+  getModuleData(stats: RawStats, selectedChunkId: number) {
     const modules = getChunkModules(
       stats,
       selectedChunkId,
@@ -85,46 +91,33 @@ export default class Stats extends Component<void, Props, State> {
       return null;
     }
 
-    const moduleData = splitUnreachableModules(
+    return splitUnreachableModules(
       extendedModulesById,
       this.state.blacklistedModuleIds,
     );
+  }
 
-    // $FlowFixMe: values strikes again
-    const removed: Array<ExtendedModule> = Object.values(moduleData.removed);
+  renderSelectedChunk(stats: RawStats, selectedChunkId: number) {
+    const moduleData = this.getModuleData(stats, selectedChunkId);
+
+    if (!moduleData) {
+      return null;
+    }
 
     return (
-      <fieldset>
-        <ShowablePanel
-          key={'showing' + selectedChunkId}
-          trigger={'click'}
-          panel={<ChunkGraph
-            stats={stats}
-            selectedChunkId={selectedChunkId}
-            onSelectChunkId={this.onSelectChunkId}
-          />}>
-          <h4>Chunk Graph - Selected {String(selectedChunkId)}</h4>
-          <ChunkParentList
-            stats={stats}
-            selectedChunkId={selectedChunkId}
-          />
-        </ShowablePanel>
-
-        <fieldset>
-          <h4>Module Table</h4>
-          {removed.length
-            ? <BlacklistTable
-              blacklistedModulesIds={this.state.blacklistedModuleIds}
-              removedModules={removed}
-              onIncludeModule={this.onIncludeModule}
-              />
-            : null}
-          <ModuleTable
-            extendedModulesById={calculateModuleSizes(moduleData.included)}
-            onRemoveModule={this.onRemoveModule}
-          />
-        </fieldset>
-      </fieldset>
+      <div>
+        {moduleData.removed.length
+          ? <BlacklistTable
+            blacklistedModulesIds={this.state.blacklistedModuleIds}
+            removedModules={moduleData.removed}
+            onIncludeModule={this.onIncludeModule}
+            />
+          : null}
+        <ModuleTable
+          extendedModulesById={calculateModuleSizes(getModulesById(moduleData.included))}
+          onRemoveModule={this.onRemoveModule}
+        />
+      </div>
     );
   }
 

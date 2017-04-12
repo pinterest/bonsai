@@ -15,7 +15,7 @@ type Props = {
   onDragLeave?: () => void,
   onLoading: () => void,
   onChange: OnChangeCallback,
-  children?: React$Element,
+  children?: React$Element<any>,
 };
 
 function readFile(
@@ -65,7 +65,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
   }
 
   clickFileInput = () => {
-    this._fileInput.click();
+    this._fileInput && this._fileInput.click();
   };
 
   onDragOver = (event: DragEventHandler) => {

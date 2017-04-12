@@ -2,14 +2,14 @@
  * @flow
  */
 
-import type {ModuleID, Module} from '../../types/Stats';
+import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
 import React from 'react';
 import Unit from '../Unit';
 
 type Props = {
   blacklistedModulesIds: Array<ModuleID>,
-  removedModules: Array<Module>,
+  removedModules: Array<ExtendedModule>,
   onIncludeModule: (moduleID: ModuleID) => void,
 };
 

@@ -8,7 +8,7 @@ import getEntryChunks from './getEntryChunks';
 
 const localeChunkName = /(.*?)locale-[a-z]{2}(_[0-9A-Z]{2,3})?-(index|lite)(.*)/;
 
-type Child = {
+export type Child = {
   id: number,
   ids: Array<number>,
   name: string,

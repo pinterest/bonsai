@@ -13,7 +13,7 @@ type Props = {
   selectedChunkId: number,
 };
 
-export default function ParentChunkList(props: Props) {
+export default function ChunkBreadcrumb(props: Props) {
   const parentChunkIds = getParentChunkIds(
     props.stats,
     props.selectedChunkId,
@@ -26,12 +26,14 @@ export default function ParentChunkList(props: Props) {
   const chunksById = getChunksById(props.stats.chunks);
 
   return (
-    <ul>
+    <ol className="breadcrumb">
       {parentChunkIds.map((chunkId) => (
-        <li key={chunkId}>
+        <li
+          key={chunkId}
+          className={props.selectedChunkId === chunkId ? 'active' : ''}>
           {chunksById[chunkId].names.join(', ')} ({String(chunkId)})
         </li>
       ))}
-    </ul>
+    </ol>
   )
 }

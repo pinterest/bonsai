@@ -20,32 +20,6 @@ type State = {
   },
 };
 
-const dropZoneContaner = {
-  backgroundColor: '#eee',
-  borderRadius: '6px',
-};
-
-const thinPadding = {
-  padding: '1em 10px 0',
-};
-
-const thickPadding = {
-  padding: '3em 20px 0',
-};
-
-const borderDropZone = {
-  border: '2px dashed #adadad',
-  borderRadius: '6px',
-  boxSizing: 'border-box',
-};
-
-const borderDropZoneDragging = {
-  border: '3px solid #adadad',
-  background: '#ddd',
-  borderRadius: '6px',
-  boxSizing: 'border-box',
-};
-
 export default class App extends Component<void, void, State> {
   state: State = {
     showHoverFilePanel: false,
@@ -57,15 +31,8 @@ export default class App extends Component<void, void, State> {
   };
 
   renderFileInputRow() {
-    const style = {
-      ...(this.state.isDragging ? borderDropZoneDragging : borderDropZone),
-      ...(this.state.stats ? thinPadding : thickPadding),
-    };
-
     return (
-      <div
-        className="clearfix"
-        style={style}>
+      <div className="well well-sm clearfix">
         <div className="form-horizontal">
           {!this.state.stats || this.state.isDragging
             ? <div className="form-group col-sm-6">
@@ -111,7 +78,6 @@ export default class App extends Component<void, void, State> {
         id="drag-drop-upload"
         aria-describedby="drag-drop-helpblock"
         className="form-control"
-        style={dropZoneContaner}
         onDragEnter={() => this.setState({ isDragging: true })}
         onDragLeave={() => this.setState({ isDragging: false })}
         onLoading={this.onLoading}
@@ -147,7 +113,7 @@ export default class App extends Component<void, void, State> {
         <main className="container-fluid">
           <div className="row">
             <div className="col-xs-12">
-              {this.state.loading ? <p><em>Loading...</em></p> : null}
+              {this.state.loading ? <p className="center-block"><em>Loading...</em></p> : null}
               {this.state.stats ? <Stats stats={this.state.stats} /> : null}
             </div>
           </div>

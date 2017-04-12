@@ -19,7 +19,7 @@ export default function ChunkGraph(props: Props) {
   function renderChunkGraphNode(chunk) {
     if (chunk.ids.length > 1) {
       return (
-        <li key={chunk.name}>
+        <li key={chunk.name} className="list-group-item">
           {chunk.name} ({chunk.id})
           <ul>{chunk.children.map(renderChunkGraphNode)}</ul>
         </li>
@@ -28,7 +28,7 @@ export default function ChunkGraph(props: Props) {
       const isSelected = props.selectedChunkId === chunk.id;
 
       return (
-        <li key={chunk.name}>
+        <li key={chunk.name} className="list-group-item">
           <a href="#" onClick={(event: Event) => {
             event.preventDefault();
             props.onSelectChunkId(chunk.id);
@@ -45,7 +45,7 @@ export default function ChunkGraph(props: Props) {
   }
 
   return (
-    <ul>
+    <ul className="list-group">
       {chunksByParent.children.map(renderChunkGraphNode)}
     </ul>
   );
