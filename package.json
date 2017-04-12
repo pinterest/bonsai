@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "pull-stats": "./build/pull-stats.sh",
-    "postpull-stats": "./build/writeStatsFiles.js"
+    "pull-stats": "./src/scripts/pull-stats.sh",
+    "postpull-stats": "./src/scripts/writeStatsFiles.js"
   }
 }
