@@ -2,67 +2,13 @@
  * @flow
  */
 
-import type {ModuleID, RawStats, ExtendedModule} from '../types/Stats';
-
-import getModulesByChunk from './getModulesByChunk';
-import getParentChunkIds from './getParentChunkIds';
+import type {ModuleID, Module, ExtendedModule} from '../types/Stats';
 
 export type ExtendedModulesById = {[key: ModuleID]: ExtendedModule};
 
-function addModuleSizes(modules: ExtendedModulesById): ExtendedModulesById {
-  const doneKeys = [];
-
-  function getSizeOf(eModule, visitedIds) {
-    if (doneKeys.includes(eModule.id)) {
-      return eModule.cumulativeSize;
-    }
-
-    let size = eModule.size;
-    eModule.requirements.forEach((rModule) => {
-      if (visitedIds.includes(rModule.id)) {
-        console.log(
-          'circular dependency on',
-          rModule.id,
-          visitedIds.map((id) => modules[id])
-        );
-      } else {
-        const reModule = modules[rModule.id];
-        const sizeOf = getSizeOf(reModule, visitedIds.concat(rModule.id));
-        size += (sizeOf / reModule.requiredByCount);
-      }
-    });
-
-    doneKeys.push(eModule.id);
-    eModule.cumulativeSize = size;
-
-    return size;
-  }
-
-  Object.keys(modules).forEach((id) => {
-    getSizeOf(modules[id], [id]);
-  });
-
-  return modules;
-}
-
 export default function getExtendedModulesById(
-  stats: RawStats,
-  selectedChunkId: number,
-): ?ExtendedModulesById {
-  const parentChunkIds = getParentChunkIds(
-    stats,
-    selectedChunkId
-  );
-  if (!parentChunkIds) {
-    return null;
-  }
-
-  const modulesByChunk = getModulesByChunk(stats);
-
-  const modules = parentChunkIds.reduce((modules, chunkId) => {
-    return modules.concat(modulesByChunk[chunkId].modules);
-  }, []);
-
+  modules: Array<Module>,
+): ExtendedModulesById {
   const extendedModulesById = modules.map((module) => {
     return {
       ...module,
@@ -82,8 +28,9 @@ export default function getExtendedModulesById(
 
       const importer = extendedModulesById[reason.moduleId];
       if (importer) {
-        if (importer.identifier.split('!').shift().indexOf('promise-loader') >= 0) {
-          // this is required by a promise-loaded thing. This is probably the thing that was loaded. Skip it.
+        const prefix = importer.identifier.split('!').shift();
+        if (prefix.indexOf('promise-loader') >= 0) {
+          // This is the thing that was promise-loaded. Skip it.
           return;
         }
 
@@ -97,7 +44,47 @@ export default function getExtendedModulesById(
     });
   });
 
-  return addModuleSizes(extendedModulesById);
+  return extendedModulesById;
 }
 
+export function calculateModuleSizes(
+  modules: ExtendedModulesById,
+): ExtendedModulesById {
+  const doneKeys = [];
 
+  function getSizeOf(eModule: ExtendedModule, visitedIds: Array<ModuleID>) {
+    if (doneKeys.includes(eModule.id)) {
+      return eModule.cumulativeSize;
+    }
+
+    let size = eModule.size;
+    eModule.requirements.forEach((rModule) => {
+      if (!modules[rModule.id]) {
+        // this module was removed via blacklist
+        return;
+      }
+      if (!visitedIds.includes(rModule.id)) {
+        const reModule = modules[rModule.id];
+        const sizeOf = getSizeOf(reModule, visitedIds.concat(rModule.id));
+        size += (sizeOf / reModule.requiredByCount);
+      } else {
+        console.log(
+          'circular dependency on',
+          rModule.id,
+          visitedIds.map((id) => modules[id])
+        );
+      }
+    });
+
+    doneKeys.push(eModule.id);
+    eModule.cumulativeSize = size;
+
+    return size;
+  }
+
+  Object.keys(modules).forEach((id) => {
+    getSizeOf(modules[id], [id]);
+  });
+
+  return modules;
+}

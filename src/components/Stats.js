@@ -2,14 +2,17 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {ModuleID, RawStats} from '../types/Stats';
 
+import BlacklistTable from './stats/BlacklistTable';
 import ChunkGraph from './stats/ChunkGraph';
 import ChunkParentList from './stats/ChunkParentList';
-import getExtendedModulesById from '../stats/getExtendedModulesById';
+import getChunkModules from '../stats/getChunkModules';
+import getExtendedModulesById, {calculateModuleSizes} from '../stats/getExtendedModulesById';
 import ModuleTable from './stats/ModuleTable';
 import React, { Component } from 'react';
 import ShowablePanel from './ShowablePanel';
+import splitUnreachableModules from '../stats/splitUnreachableModules';
 
 type Props = {
   stats: {
@@ -20,12 +23,23 @@ type Props = {
 
 type State = {
   selectedChunkId: ?number,
+  blacklistedModuleIds: Array<ModuleID>,
 };
 
 export default class Stats extends Component<void, Props, State> {
   state: State = {
     selectedChunkId: null,
+    blacklistedModuleIds: [],
   };
+
+  componentWillReceiveProps(nextProps: Props) {
+    if (this.props.stats.file !== nextProps.stats.file) {
+      this.setState({
+        selectedChunkId: null,
+        blacklistedModuleIds: [],
+      });
+    }
+  }
 
   render() {
     return (
@@ -56,11 +70,28 @@ export default class Stats extends Component<void, Props, State> {
   }
 
   renderSelectedChunk(stats: RawStats, selectedChunkId: number) {
-    const extendedModulesById = getExtendedModulesById(stats, selectedChunkId);
+    const modules = getChunkModules(
+      stats,
+      selectedChunkId,
+    );
+
+    if (!modules) {
+      return null;
+    }
+
+    const extendedModulesById = getExtendedModulesById(modules);
 
     if (!extendedModulesById) {
       return null;
     }
+
+    const moduleData = splitUnreachableModules(
+      extendedModulesById,
+      this.state.blacklistedModuleIds,
+    );
+
+    // $FlowFixMe: values strikes again
+    const removed: Array<ExtendedModule> = Object.values(moduleData.removed);
 
     return (
       <fieldset>
@@ -81,8 +112,16 @@ export default class Stats extends Component<void, Props, State> {
 
         <fieldset>
           <h4>Module Table</h4>
+          {removed.length
+            ? <BlacklistTable
+              blacklistedModulesIds={this.state.blacklistedModuleIds}
+              removedModules={removed}
+              onIncludeModule={this.onIncludeModule}
+              />
+            : null}
           <ModuleTable
-            extendedModulesById={extendedModulesById}
+            extendedModulesById={calculateModuleSizes(moduleData.included)}
+            onRemoveModule={this.onRemoveModule}
           />
         </fieldset>
       </fieldset>
@@ -92,6 +131,24 @@ export default class Stats extends Component<void, Props, State> {
   onSelectChunkId = (chunkId: number) => {
     this.setState({
       selectedChunkId: chunkId,
+      blacklistedModuleIds: [],
+    });
+  };
+
+  onRemoveModule = (moduleID: ModuleID) => {
+    this.setState({
+      blacklistedModuleIds: [
+        ...this.state.blacklistedModuleIds,
+        moduleID,
+      ],
+    });
+  };
+
+  onIncludeModule = (moduleID: ModuleID) => {
+    this.setState({
+      blacklistedModuleIds: this.state.blacklistedModuleIds.filter(
+        (id) => id !== moduleID,
+      ),
     });
   };
 

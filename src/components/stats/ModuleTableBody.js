@@ -2,34 +2,36 @@
  * @flow
  */
 
-import type {ExtendedModule} from '../../types/Stats';
+import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
 import ShowablePanel from '../ShowablePanel';
 import React from 'react';
 import Unit from '../Unit';
 
-type Props = {
+type TBodyProps = {
   extendedModules: Array<ExtendedModule>,
+  onRemoveModule: (moduleID: ModuleID) => void,
 };
+
+type TRProps = {
+  eModule: ExtendedModule,
+  onRemoveModule: (moduleID: ModuleID) => void,
+}
 
 function formatModuleName(name: string) {
   const names = name.indexOf('multi ') === 0
     ? name.split(' ')
     : [name];
 
-  return (
-    <span style={{display:'block', padding: '5px 0'}}>
-      {names.map((name, i) => {
-        const bits = name.split('!');
-        const niceName = bits.pop();
-        bits.push('');
-        return [
-          <span key={'a' + i} style={{color: '#aaa'}}> {bits.join('!')}</span>,
-          <span key={'b' + i}>{niceName}</span>,
-        ];
-      })}
-    </span>
-  );
+  return names.map((name, i) => {
+    const bits = name.split('!');
+    const niceName = bits.pop();
+    bits.push('');
+    return [
+      <span key={'a' + i} style={{color: '#aaa'}}> {bits.join('!')}</span>,
+      <span key={'b' + i}>{niceName}</span>,
+    ];
+  }).reduce(joinWithBR, []);
 }
 
 function joinWithBR(nodes, label, index) {
@@ -81,7 +83,7 @@ function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
   );
 }
 
-function ModuleTableRow(props: {eModule: ExtendedModule}) {
+function ModuleTableRow(props: TRProps) {
   const {eModule} = props;
   return (
     <tr id={eModule.id}>
@@ -116,15 +118,24 @@ function ModuleTableRow(props: {eModule: ExtendedModule}) {
           <span>{eModule.chunks.length}</span>
         </ShowablePanel>
       </td>
+      <td>
+        <a href="#" onClick={() => props.onRemoveModule(eModule.id)}>
+          Remove
+        </a>
+      </td>
     </tr>
   );
 }
 
-export default function ModuleTableBody(props: Props) {
+export default function ModuleTableBody(props: TBodyProps) {
   return (
     <tbody>
       {props.extendedModules.map((eModule: ExtendedModule) =>
-        <ModuleTableRow key={eModule.identifier} eModule={eModule} />
+        <ModuleTableRow
+          eModule={eModule}
+          key={eModule.identifier}
+          onRemoveModule={props.onRemoveModule}
+        />
       )}
     </tbody>
   );

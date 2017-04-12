@@ -2,27 +2,22 @@
  * @flow
  */
 
-import stats from '../../../public/data/stats-2017-03-13.json';
+import stats from './fixtures/stats-2017-03-13.json';
 
-import getExtendedModulesById from '../getExtendedModulesById';
+import type {ExtendedModule} from '../../types/Stats';
+
+import getChunkModules from '../getChunkModules';
+import getExtendedModulesById, {calculateModuleSizes} from '../getExtendedModulesById';
 
 describe('getExtendedModulesById', () => {
   it('should extend all the modules', () => {
-    const selectedChunkId = 195;
-    const result = getExtendedModulesById(stats, selectedChunkId);
+    const modulesById = getResults();
 
-    expect(Object.keys(result)).toHaveLength(21);
-    expect(result).toMatchSnapshot();
-  });
-
-  it('should return sizes for all the requested modules', () => {
-    const result = getResults();
-
-    expect(Object.keys(result)).toHaveLength(21);
+    expect(modulesById).toMatchSnapshot();
   });
 
   it('should return the `size` as cumulative for modules without requirements', () => {
-    const result = getResults();
+    const modulesById = getResults();
 
     const modulesWithoutRequirements = [
       831, // errorLog
@@ -31,17 +26,16 @@ describe('getExtendedModulesById', () => {
     ];
 
     modulesWithoutRequirements.forEach((id) => {
-      expect(result[id].size).toBeGreaterThan(0);
-      expect(result[id].cumulativeSize).toBe(result[id].size);
+      expect(modulesById[id].size).toBeGreaterThan(0);
+      expect(modulesById[id].cumulativeSize).toBe(modulesById[id].size);
     });
   });
 
   it('the sum of the extended modules should make sense', () => {
-    const result = getResults();
+    const modulesById = getResults();
 
-    expect(Object.keys(result)).toHaveLength(21);
-
-    const resultValues: Array<ExtendedModule> = Object.values(result);
+    // $FlowFixMe: flow thinks `values` returns `Array<mixed>`
+    const resultValues: Array<ExtendedModule> = Object.values(modulesById);
 
     const sumSizes = resultValues.reduce((sum, eModule) => {
       return sum + eModule.size;
@@ -60,11 +54,10 @@ describe('getExtendedModulesById', () => {
   });
 
   it('should extend all the modules', () => {
-    const result = getResults();
+    const modulesById = getResults();
 
-    expect(Object.keys(result)).toHaveLength(21);
-
-    const resultValues: Array<ExtendedModule> = Object.values(result);
+    // $FlowFixMe: flow thinks `values` returns `Array<mixed>`
+    const resultValues: Array<ExtendedModule> = Object.values(modulesById);
 
     const trimResults = resultValues.map((module: ExtendedModule) => {
       return {
@@ -74,7 +67,7 @@ describe('getExtendedModulesById', () => {
         cumulativeSize: module.cumulativeSize,
         requiredByCount: module.requiredByCount,
         requirements: module.requirements.map((requirement) => {
-          const rModule = result[requirement.id];
+          const rModule = modulesById[requirement.id];
           return {
             id: rModule.id,
             identifier: rModule.identifier,
@@ -93,11 +86,19 @@ describe('getExtendedModulesById', () => {
 
 function getResults() {
   const selectedChunkId = 195;
-  const testData = getExtendedModulesById(stats, selectedChunkId);
 
-  if (!testData) {
+  const modules = getChunkModules(stats, selectedChunkId, []);
+  if (!modules) {
+    throw Error('getChunkModules returned null which was not expected');
+  }
+
+  const modulesById = calculateModuleSizes(getExtendedModulesById(modules));
+  if (!modulesById) {
     throw Error('getExtendedModulesById returned null which was not expected');
   }
 
-  return testData;
+  expect(modulesById).not.toBeNull();
+  expect(Object.keys(modulesById)).toHaveLength(21);
+
+  return modulesById;
 }

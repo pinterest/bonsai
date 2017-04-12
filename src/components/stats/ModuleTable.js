@@ -8,10 +8,11 @@ import ShowablePanel from '../ShowablePanel';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
 
-import './css/ModuleTable.css';
+import './css/Table.css';
 
 type Props = {
   extendedModulesById: {[key: ModuleID]: ExtendedModule},
+  onRemoveModule: (moduleID: ModuleID) => void,
 };
 
 type State = {
@@ -113,7 +114,7 @@ export default class ModuleTable extends Component<void, Props, State> {
       });
 
     return (
-      <table className="ModuleTable" cellPadding="0" cellSpacing="0">
+      <table className="Table" cellPadding="0" cellSpacing="0">
         <thead>
           <tr>
             <th>
@@ -146,6 +147,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             </th>
             <th>Imports</th>
             <th>Chunks</th>
+            <th></th>
           </tr>
           <tr>
             <td className="filter">
@@ -174,10 +176,12 @@ export default class ModuleTable extends Component<void, Props, State> {
             </td>
             <td></td>
             <td></td>
+            <td></td>
           </tr>
         </thead>
         <ModuleTableBody
           extendedModules={extendedModules}
+          onRemoveModule={this.props.onRemoveModule}
         />
       </table>
     );
