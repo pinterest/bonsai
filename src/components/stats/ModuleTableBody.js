@@ -97,7 +97,7 @@ function ModuleTableRow(props: TRProps) {
       </td>
       <td>
         <a href="#" onClick={() => props.onRemoveModule(eModule.id)}>
-          Remove
+          Ignore
         </a>
       </td>
     </tr>
