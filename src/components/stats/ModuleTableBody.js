@@ -38,21 +38,6 @@ function joinWithBR(nodes, label, index) {
   return nodes.concat(label, <br key={index} />);
 }
 
-function moduleChunks(eModule: ExtendedModule): ?React$Element<any> {
-  if (!eModule.chunks.length) {
-    return null;
-  }
-  return (
-    <div>
-      {eModule.chunks.map((chunkId) => (
-        <span key={chunkId}>
-          {chunkId}
-        </span>
-      )).reduce(joinWithBR, [])}
-    </div>
-  );
-}
-
 function moduleDependencies(eModule: ExtendedModule): ?React$Element<any> {
   if (!eModule.requiredBy.length) {
     return null;
@@ -108,14 +93,6 @@ function ModuleTableRow(props: TRProps) {
           onRight={true}
           panel={moduleImports(eModule)}>
           <span>{eModule.requirements.length}</span>
-        </ShowablePanel>
-      </td>
-      <td>
-        <ShowablePanel
-          trigger='click'
-          onRight={true}
-          panel={moduleChunks(eModule)}>
-          <span>{eModule.chunks.length}</span>
         </ShowablePanel>
       </td>
       <td>

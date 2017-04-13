@@ -4,6 +4,7 @@
 
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
+import BlacklistTableBody from './BlacklistTableBody';
 import React from 'react';
 import Unit from '../Unit';
 
@@ -49,22 +50,18 @@ export default function ChunkGraph(props: Props) {
             </tr>
           ))
         )}
-        {removedModules.map((module, i) =>
-          <tr key={`blacklist-${i}`}>
-            <td>{module.name}</td>
-            <td><Unit bytes={module.size} /></td>
-            <td></td>
-          </tr>
-        )}
       </tbody>
+      <BlacklistTableBody removedModules={removedModules} />
       <tfoot>
         <tr>
-          <th>Modules</th>
+          <th>Removed Modules</th>
           <td>{props.removedModules.length}</td>
+          <td></td>
         </tr>
         <tr>
           <th>Total Size</th>
           <td><Unit bytes={sum} /></td>
+          <td></td>
         </tr>
       </tfoot>
     </table>

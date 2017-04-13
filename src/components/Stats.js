@@ -42,6 +42,31 @@ export default class Stats extends Component<void, Props, State> {
   }
 
   render() {
+    const moduleData = this.getModuleData(
+      this.props.stats.raw,
+      this.state.selectedChunkId,
+    );
+
+    const blackList = moduleData && moduleData.removed.length
+      ? <div className="panel panel-danger">
+          <div className="panel-heading">Ignored Modules</div>
+          <BlacklistTable
+            blacklistedModulesIds={this.state.blacklistedModuleIds}
+            removedModules={moduleData.removed}
+            onIncludeModule={this.onIncludeModule}
+          />
+        </div>
+      : null;
+    const moduleTable = moduleData
+      ? <div className="panel panel-primary">
+          <div className="panel-heading">All Modules</div>
+          <ModuleTable
+            extendedModulesById={calculateModuleSizes(getModulesById(moduleData.included))}
+            onRemoveModule={this.onRemoveModule}
+          />
+        </div>
+      : null;
+
     return (
       <div>
         <div className="row">
@@ -63,19 +88,17 @@ export default class Stats extends Component<void, Props, State> {
               : null}
           </div>
         </div>
-
-        {this.state.selectedChunkId
-          ? this.renderSelectedChunk(
-              this.props.stats.raw,
-              this.state.selectedChunkId,
-            )
-          : null
-        }
+        {blackList}
+        {moduleTable}
       </div>
     );
   }
 
   getModuleData(stats: RawStats, selectedChunkId: number) {
+    if (!selectedChunkId) {
+      return null;
+    }
+
     const modules = getChunkModules(
       stats,
       selectedChunkId,
@@ -94,30 +117,6 @@ export default class Stats extends Component<void, Props, State> {
     return splitUnreachableModules(
       extendedModulesById,
       this.state.blacklistedModuleIds,
-    );
-  }
-
-  renderSelectedChunk(stats: RawStats, selectedChunkId: number) {
-    const moduleData = this.getModuleData(stats, selectedChunkId);
-
-    if (!moduleData) {
-      return null;
-    }
-
-    return (
-      <div>
-        {moduleData.removed.length
-          ? <BlacklistTable
-            blacklistedModulesIds={this.state.blacklistedModuleIds}
-            removedModules={moduleData.removed}
-            onIncludeModule={this.onIncludeModule}
-            />
-          : null}
-        <ModuleTable
-          extendedModulesById={calculateModuleSizes(getModulesById(moduleData.included))}
-          onRemoveModule={this.onRemoveModule}
-        />
-      </div>
     );
   }
 

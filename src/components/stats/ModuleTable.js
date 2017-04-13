@@ -144,7 +144,6 @@ export default class ModuleTable extends Component<void, Props, State> {
               </ShowablePanel>
             </th>
             <th>Imports</th>
-            <th>Chunks</th>
             <th></th>
           </tr>
           <tr>
