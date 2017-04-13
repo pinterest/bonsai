@@ -11,6 +11,6 @@ fi
 
 echo "Saving to $filename"
 
-scp dev:~/code/pinboard/webapp/build/stats/stats.json ./public/data/$filename.json
+scp dev:~/code/pinboard/webapp/build/stats/stats.json $filename
 
 echo 'Done'
