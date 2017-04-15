@@ -29,7 +29,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
           {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`}>
               <td>
-                <OffsetPageAnchor anchor={eModule.id} />
+                <OffsetPageAnchor anchor={String(eModule.id)} />
                 {eModule.name}
               </td>
               <td><Unit bytes={eModule.size} /></td>

@@ -120,9 +120,9 @@ export default class Stats extends Component<void, Props, State> {
     );
   }
 
-  onSelectChunkId = (chunkId: number) => {
+  onSelectChunkId = (chunkId: string | number) => {
     this.setState({
-      selectedChunkId: chunkId,
+      selectedChunkId: Number(chunkId),
       blacklistedModuleIds: [],
     });
   };

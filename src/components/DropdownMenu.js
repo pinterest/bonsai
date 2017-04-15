@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 
-type ID = number;
+type ID = number | string;
 export type Item = {
   id: ID,
   name: string | React$Element<any> | Array<React$Element<any>>,
@@ -16,8 +16,8 @@ type Alignment = 'left' | 'right';
 type Props = {
   selectedItem: Item,
   children: Array<Item>,
-  onClick: ?(id: ID) => void,
-  align: ?Alignment,
+  onClick?: (id: ID) => void,
+  align?: Alignment,
 };
 
 type State = {
@@ -88,20 +88,18 @@ export default class DropdownMenu extends Component<void, Props, State> {
   }
 
   onButtonClick = (event: MouseEvent) => {
-    if (this.state.isOpen) {
-      this.setState({isOpen: false});
-    } else {
-      this.setState({isOpen: true});
-    }
+    this.setState({isOpen: !this.state.isOpen});
   };
 
   onDocumentClick = (event: MouseEvent) => {
-    if (this._dropDownMenu && this._dropDownMenu.contains(event.target)) {
-      // Ignore clicks coming from inside this component
-      return;
-    }
-    if (this.state.isOpen) {
-      this.setState({isOpen: false});
+    if (event.target instanceof HTMLElement) {
+      if (this._dropDownMenu && this._dropDownMenu.contains(event.target)) {
+        // Ignore clicks coming from inside this component
+        return;
+      }
+      if (this.state.isOpen) {
+        this.setState({isOpen: false});
+      }
     }
   };
 
@@ -111,8 +109,8 @@ export default class DropdownMenu extends Component<void, Props, State> {
         isOpen: false,
       });
       if (this.props.onClick) {
-        event.preventDefault();
         this.props.onClick(id);
+        event.preventDefault();
       }
     };
   }

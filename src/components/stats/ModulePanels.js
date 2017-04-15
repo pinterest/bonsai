@@ -2,6 +2,8 @@
  * @flow
  */
 
+import type {ExtendedModule} from '../../types/Stats';
+
 import DropdownMenu from '../DropdownMenu';
 import formatModuleName from './formatModuleName';
 import React from 'react';
@@ -12,7 +14,7 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
       align="right"
       selectedItem={{
         id: 0,
-        name: eModule.requiredBy.length,
+        name: String(eModule.requiredBy.length),
       }}
       children={eModule.requiredBy.map((reason) => ({
         id: module.id,
@@ -29,10 +31,10 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
       align="right"
       selectedItem={{
         id: 0,
-        name: eModule.requirements.length,
+        name: String(eModule.requirements.length),
       }}
       children={eModule.requirements.map((module) => ({
-        id: module.id,
+        id: String(module.id),
         name: formatModuleName(module.identifier),
         target: `#${module.id}`,
       }))}

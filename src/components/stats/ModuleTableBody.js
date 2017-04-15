@@ -29,7 +29,7 @@ function ModuleTableRow(props: TRProps) {
   return (
     <tr key={eModule.id}>
       <td>
-        <OffsetPageAnchor anchor={eModule.id} />
+        <OffsetPageAnchor anchor={String(eModule.id)} />
         {formatModuleName(eModule.name)}
       </td>
       <td>

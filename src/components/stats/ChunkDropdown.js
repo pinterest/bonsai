@@ -11,7 +11,7 @@ import type {RawStats} from '../../types/Stats';
 type Props = {
   stats: RawStats,
   selectedChunkId: ?number,
-  onSelectChunkId: (chunkId: number) => void,
+  onSelectChunkId: (chunkId: string | number) => void,
 };
 
 const NBSP = '\u00A0';

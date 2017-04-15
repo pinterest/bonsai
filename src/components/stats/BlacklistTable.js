@@ -48,7 +48,7 @@ export default function ChunkGraph(props: Props) {
           modules.map((eModule, ii) => (
             <tr key={eModule.id}>
               <td>
-                <OffsetPageAnchor anchor={eModule.id} />
+                <OffsetPageAnchor anchor={String(eModule.id)} />
                 {eModule.name}
               </td>
               <td><Unit bytes={eModule.size} /></td>
