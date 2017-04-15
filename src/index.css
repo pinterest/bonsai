@@ -17,3 +17,14 @@ ul, li {
 .clearfix:after {
   clear: both;
 }
+
+.App {
+  padding-top: 70px;
+}
+
+.OffsetPageAnchor {
+  position: relative;
+  top: -70px;
+  display: block;
+  visibility: hidden;
+};

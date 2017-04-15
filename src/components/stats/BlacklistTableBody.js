@@ -4,6 +4,7 @@
 
 import type {ExtendedModule} from '../../types/Stats';
 
+import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, { Component } from 'react';
 import Unit from '../Unit';
 
@@ -27,7 +28,10 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
           {this.renderHideRow()}
           {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`}>
-              <td>{eModule.name}</td>
+              <td>
+                <OffsetPageAnchor anchor={eModule.id} />
+                {eModule.name}
+              </td>
               <td><Unit bytes={eModule.size} /></td>
               <td colSpan="3"></td>
             </tr>

@@ -4,6 +4,7 @@
 
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
+import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
 import {
@@ -26,8 +27,11 @@ type TRProps = {
 function ModuleTableRow(props: TRProps) {
   const {eModule} = props;
   return (
-    <tr id={eModule.id}>
-      <td>{formatModuleName(eModule.name)}</td>
+    <tr key={eModule.id}>
+      <td>
+        <OffsetPageAnchor anchor={eModule.id} />
+        {formatModuleName(eModule.name)}
+      </td>
       <td>
         <Unit bytes={eModule.cumulativeSize} />
       </td>

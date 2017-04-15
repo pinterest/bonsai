@@ -5,6 +5,7 @@
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
 import BlacklistTableBody from './BlacklistTableBody';
+import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
 import {
@@ -45,8 +46,11 @@ export default function ChunkGraph(props: Props) {
       <tbody>
         {blacklistedModulesList.map((modules, i) =>
           modules.map((eModule, ii) => (
-            <tr id={eModule.id}>
-              <td>{eModule.name}</td>
+            <tr key={eModule.id}>
+              <td>
+                <OffsetPageAnchor anchor={eModule.id} />
+                {eModule.name}
+              </td>
               <td><Unit bytes={eModule.size} /></td>
               <td>
                 <RequiredByPanel eModule={eModule} />

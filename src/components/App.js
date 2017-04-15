@@ -88,12 +88,8 @@ export default class App extends Component<void, void, State> {
   }
 
   render() {
-    const style= {
-      paddingTop: `${50 + 20}px`,
-    };
-
     return (
-      <div style={style}>
+      <div className="App">
         <nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
