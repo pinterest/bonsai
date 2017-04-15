@@ -3,10 +3,12 @@
  */
 
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
+import type {SortProps} from '../SortLabel';
 
 import ShowablePanel from '../ShowablePanel';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
+import SortLabel from '../SortLabel';
 
 type Props = {
   extendedModulesById: {[key: ModuleID]: ExtendedModule},
@@ -21,10 +23,7 @@ type State = {
     requiredByCountMin: string,
     requiredByCountMax: string,
   },
-  sort: {
-    field: string,
-    direction: 'ASC' | 'DESC',
-  },
+  sort: SortProps,
 };
 
 function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
@@ -117,34 +116,50 @@ export default class ModuleTable extends Component<void, Props, State> {
           <tr>
             <th>
               <ShowablePanel
-                trigger='hover'
+                trigger="hover"
                 panel={this.renderModuleNameFilter()}>
-                <a href="#" onClick={this.makeSort('name')}>
+                <SortLabel
+                  sort={this.state.sort}
+                  onSortChange={this.onSortChange}
+                  type='alpha'
+                  field="name">
                   Module Name
-                </a>
+                </SortLabel>
               </ShowablePanel>
             </th>
             <th>
               <ShowablePanel
-                trigger='hover'
+                trigger="hover"
                 panel={this.renderCumulativeSizeFilter()}>
-                <a href="#" onClick={this.makeSort('cumulativeSize')}>
+                <SortLabel
+                  sort={this.state.sort}
+                  onSortChange={this.onSortChange}
+                  type='size'
+                  field="cumulativeSize">
                   Cumulative Size
-                </a>
+                </SortLabel>
               </ShowablePanel>
             </th>
             <th>
-              <a href="#" onClick={this.makeSort('size')}>
+              <SortLabel
+                sort={this.state.sort}
+                onSortChange={this.onSortChange}
+                type='size'
+                field="size">
                 Size
-              </a>
+              </SortLabel>
             </th>
             <th>
               <ShowablePanel
-                trigger='hover'
+                trigger="hover"
                 panel={this.renderRequiredByCountFilter()}>
-                <a href="#" onClick={this.makeSort('requiredByCount')}>
+                <SortLabel
+                sort={this.state.sort}
+                onSortChange={this.onSortChange}
+                type='size'
+                field="requiredByCount">
                   Dependants
-                </a>
+                </SortLabel>
               </ShowablePanel>
             </th>
             <th>Imports</th>
@@ -250,21 +265,9 @@ export default class ModuleTable extends Component<void, Props, State> {
     );
   }
 
-  makeSort(field: string) {
-    return (e: SyntheticEvent) => {
-      e.preventDefault();
-      const sameField = this.state.sort.field === field;
-      const otherDirection = this.state.sort.direction === 'ASC'
-        ? 'DESC'
-        : 'ASC';
-      this.setState({
-        sort: {
-          field,
-          direction: sameField ? otherDirection : 'DESC',
-        },
-      });
-    };
-  }
+  onSortChange = (sort: SortProps) => {
+    this.setState({sort});
+  };
 
   makeOnFilter(field: string) {
     return (event: SyntheticInputEvent) => {
