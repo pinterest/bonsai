@@ -25,11 +25,11 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
       return (
         <tbody>
           {this.renderHideRow()}
-          {this.props.removedModules.map((module, i) =>
+          {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`}>
-              <td>{module.name}</td>
-              <td><Unit bytes={module.size} /></td>
-              <td></td>
+              <td>{eModule.name}</td>
+              <td><Unit bytes={eModule.size} /></td>
+              <td colSpan="3"></td>
             </tr>
           )}
           {this.renderHideRow()}
@@ -39,7 +39,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
       return (
         <tbody>
           <tr>
-            <td colSpan="3">
+            <td colSpan="5">
               <button
                 type="button"
                 className="btn btn-default btn-xs"
@@ -57,7 +57,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
   renderHideRow() {
     return (
       <tr>
-        <td colSpan="3">
+        <td colSpan="5">
           <button
             type="button"
             className="btn btn-default btn-xs"

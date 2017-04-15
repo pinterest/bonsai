@@ -4,9 +4,14 @@
 
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
-import ShowablePanel from '../ShowablePanel';
 import React from 'react';
 import Unit from '../Unit';
+import {
+  RequiredByPanel,
+  RequirementsPanel,
+} from './ModulePanels';
+
+import formatModuleName from './formatModuleName';
 
 type TBodyProps = {
   extendedModules: Array<ExtendedModule>,
@@ -16,56 +21,6 @@ type TBodyProps = {
 type TRProps = {
   eModule: ExtendedModule,
   onRemoveModule: (moduleID: ModuleID) => void,
-}
-
-function formatModuleName(name: string) {
-  const names = name.indexOf('multi ') === 0
-    ? name.split(' ')
-    : [name];
-
-  return names.map((name, i) => {
-    const bits = name.split('!');
-    const niceName = bits.pop();
-    bits.push('');
-    return [
-      <span key={'a' + i} style={{color: '#aaa'}}> {bits.join('!')}</span>,
-      <span key={'b' + i}>{niceName}</span>,
-    ];
-  }).reduce(joinWithBR, []);
-}
-
-function joinWithBR(nodes, label, index) {
-  return nodes.concat(label, <br key={index} />);
-}
-
-function moduleDependencies(eModule: ExtendedModule): ?React$Element<any> {
-  if (!eModule.requiredBy.length) {
-    return null;
-  }
-  return (
-    <div>
-      {eModule.requiredBy.map((reason) => (
-        <a href={'#' + reason.moduleId} key={reason.moduleId}>
-          {formatModuleName(reason.moduleIdentifier)}
-        </a>
-      ))}
-    </div>
-  );
-}
-
-function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
-  if (!eModule.requirements.length) {
-    return null;
-  }
-  return (
-    <div>
-      {eModule.requirements.map((module) => (
-        <a href={'#' + module.id} key={module.identifier}>
-          {formatModuleName(module.identifier)}
-        </a>
-      ))}
-    </div>
-  );
 }
 
 function ModuleTableRow(props: TRProps) {
@@ -80,20 +35,10 @@ function ModuleTableRow(props: TRProps) {
         <Unit bytes={eModule.size} />
       </td>
       <td>
-        <ShowablePanel
-          trigger='click'
-          onRight={true}
-          panel={moduleDependencies(eModule)}>
-          <span>{eModule.requiredBy.length}</span>
-        </ShowablePanel>
+        <RequiredByPanel eModule={eModule} />
       </td>
       <td>
-        <ShowablePanel
-          trigger='click'
-          onRight={true}
-          panel={moduleImports(eModule)}>
-          <span>{eModule.requirements.length}</span>
-        </ShowablePanel>
+        <RequirementsPanel eModule={eModule} />
       </td>
       <td>
         <a href="#" onClick={() => props.onRemoveModule(eModule.id)}>

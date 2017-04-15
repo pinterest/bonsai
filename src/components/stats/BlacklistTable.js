@@ -7,6 +7,10 @@ import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import BlacklistTableBody from './BlacklistTableBody';
 import React from 'react';
 import Unit from '../Unit';
+import {
+  RequiredByPanel,
+  RequirementsPanel,
+} from './ModulePanels';
 
 type Props = {
   blacklistedModulesIds: Array<ModuleID>,
@@ -33,17 +37,25 @@ export default function ChunkGraph(props: Props) {
         <tr>
           <th>Name</th>
           <th>Size</th>
+          <th>Dependants</th>
+          <th>Imports</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         {blacklistedModulesList.map((modules, i) =>
-          modules.map((module, ii) => (
-            <tr key={`blacklist-${i}-${ii}`}>
-              <td>{module.name}</td>
-              <td><Unit bytes={module.size} /></td>
+          modules.map((eModule, ii) => (
+            <tr id={eModule.id}>
+              <td>{eModule.name}</td>
+              <td><Unit bytes={eModule.size} /></td>
               <td>
-                <a href="#" onClick={() => props.onIncludeModule(module.id)}>
+                <RequiredByPanel eModule={eModule} />
+              </td>
+              <td>
+                <RequirementsPanel eModule={eModule} />
+              </td>
+              <td>
+                <a href="#" onClick={() => props.onIncludeModule(eModule.id)}>
                   Restore
                 </a>
               </td>
@@ -56,12 +68,12 @@ export default function ChunkGraph(props: Props) {
         <tr>
           <th>Removed Modules</th>
           <td>{props.removedModules.length}</td>
-          <td></td>
+          <td colSpan="3"></td>
         </tr>
         <tr>
           <th>Total Size</th>
           <td><Unit bytes={sum} /></td>
-          <td></td>
+          <td colSpan="3"></td>
         </tr>
       </tfoot>
     </table>

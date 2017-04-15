@@ -175,9 +175,7 @@ export default class ModuleTable extends Component<void, Props, State> {
               }
               {filters.requiredByCountMax}
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colSpan="2"></td>
           </tr>
         </thead>
         <ModuleTableBody
