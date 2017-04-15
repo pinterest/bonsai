@@ -133,7 +133,11 @@ export default class ModuleTable extends Component<void, Props, State> {
                 </a>
               </ShowablePanel>
             </th>
-            <th>Size</th>
+            <th>
+              <a href="#" onClick={this.makeSort('size')}>
+                Size
+              </a>
+            </th>
             <th>
               <ShowablePanel
                 trigger='hover'
