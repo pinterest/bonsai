@@ -2,58 +2,40 @@
  * @flow
  */
 
+import DropdownMenu from '../DropdownMenu';
 import formatModuleName from './formatModuleName';
 import React from 'react';
-import ShowablePanel from '../ShowablePanel';
-
-function moduleDependencies(eModule: ExtendedModule): ?React$Element<any> {
-  if (!eModule.requiredBy.length) {
-    return null;
-  }
-  return (
-    <div>
-      {eModule.requiredBy.map((reason) => (
-        <a href={'#' + reason.moduleId} key={reason.moduleId}>
-          {formatModuleName(reason.moduleIdentifier)}
-        </a>
-      ))}
-    </div>
-  );
-}
 
 export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
   return (
-    <ShowablePanel
-      trigger='click'
-      onRight={true}
-      panel={moduleDependencies(eModule)}>
-      <span>{eModule.requiredBy.length}</span>
-    </ShowablePanel>
+    <DropdownMenu
+      align="right"
+      selectedItem={{
+        id: 0,
+        name: eModule.requiredBy.length,
+      }}
+      children={eModule.requiredBy.map((reason) => ({
+        id: module.id,
+        name: formatModuleName(reason.moduleIdentifier),
+        target: `#${reason.moduleId}`,
+      }))}
+    />
   );
 }
 
-function moduleImports(eModule: ExtendedModule): ?React$Element<any> {
-  if (!eModule.requirements.length) {
-    return null;
-  }
+export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
   return (
-    <div>
-      {eModule.requirements.map((module) => (
-        <a href={'#' + module.id} key={module.identifier}>
-          {formatModuleName(module.identifier)}
-        </a>
-      ))}
-    </div>
-  );
-}
-
-export function RequirementsPanel ({eModule}: {eModule: ExtendedModule}) {
-  return (
-    <ShowablePanel
-      trigger='click'
-      onRight={true}
-      panel={moduleImports(eModule)}>
-      <span>{eModule.requirements.length}</span>
-    </ShowablePanel>
+    <DropdownMenu
+      align="right"
+      selectedItem={{
+        id: 0,
+        name: eModule.requirements.length,
+      }}
+      children={eModule.requirements.map((module) => ({
+        id: module.id,
+        name: formatModuleName(module.identifier),
+        target: `#${module.id}`,
+      }))}
+    />
   );
 }

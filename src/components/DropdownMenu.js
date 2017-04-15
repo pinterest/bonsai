@@ -8,12 +8,16 @@ type ID = number;
 export type Item = {
   id: ID,
   name: string | React$Element<any> | Array<React$Element<any>>,
+  target?: string,
 };
+
+type Alignment = 'left' | 'right';
 
 type Props = {
   selectedItem: Item,
   children: Array<Item>,
-  onClick: (id: ID) => void,
+  onClick: ?(id: ID) => void,
+  align: ?Alignment,
 };
 
 type State = {
@@ -37,9 +41,13 @@ export default class DropdownMenu extends Component<void, Props, State> {
   }
 
   render() {
+    const isOpenClass = this.state.isOpen
+      ? 'open'
+      : '';
+
     return (
       <div
-        className={['btn-group', this.state.isOpen ? 'open' : ''].join(' ')}
+        className={['btn-group', isOpenClass].join(' ')}
         ref={(div) => this._dropDownMenu = div }>
         <button
           type="button"
@@ -58,14 +66,18 @@ export default class DropdownMenu extends Component<void, Props, State> {
   }
 
   renderChildrenAsOptions() {
+    const alignmentClass = this.props.align === 'right'
+      ? 'dropdown-menu-right'
+      : '';
+
     return (
       <ul
-        className="dropdown-menu"
+        className={['dropdown-menu', alignmentClass].join(' ')}
         ref={(ul) => this._flyout = ul }>
         {this.props.children.map((child) => (
           <li key={child.id}>
             <a
-              href="#"
+              href={child.target || '#'}
               onClick={this.makeOnItemClick(child.id)}>
               {child.name}
             </a>
@@ -95,11 +107,13 @@ export default class DropdownMenu extends Component<void, Props, State> {
 
   makeOnItemClick(id: ID) {
     return (event: SyntheticEvent) => {
-      event.preventDefault();
       this.setState({
         isOpen: false,
       });
-      this.props.onClick(id);
+      if (this.props.onClick) {
+        event.preventDefault();
+        this.props.onClick(id);
+      }
     };
   }
 }
