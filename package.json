@@ -10,7 +10,8 @@
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
     "flow-bin": "0.43.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "storyshots": "^3.2.2"
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
@@ -24,5 +25,8 @@
     "postpull-stats": "./src/scripts/writeStatsFiles.js",
     "storybook": "start-storybook -p 9006 --dont-track",
     "build-storybook": "build-storybook --dont-track"
+  },
+  "babel": {
+    "presets": ["es2015", "react"]
   }
 }
