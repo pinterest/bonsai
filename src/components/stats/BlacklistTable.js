@@ -19,7 +19,7 @@ type Props = {
   onIncludeModule: (moduleID: ModuleID) => void,
 };
 
-export default function ChunkGraph(props: Props) {
+export default function BlasklistTable(props: Props) {
   const blacklistedModulesList = props.blacklistedModulesIds.map(
     (id) => props.removedModules.filter((module) => module.id === id),
   );

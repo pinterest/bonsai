@@ -57,7 +57,7 @@ function ModuleTableRow(props: TRProps) {
   );
 }
 
-export default class ModuleTable extends PureComponent<void, TBodyProps, void> {
+export default class ModuleTableBody extends PureComponent<void, TBodyProps, void> {
   render() {
     const extendedModules = filterModules(
       this.props.extendedModules,
