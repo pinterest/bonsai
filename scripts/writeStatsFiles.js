@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+// @flow
 
 const fs = require('fs');
 const path = require('path');
 
-const dataFolder = path.resolve(`${__dirname}/../../public/data/`);
+const dataFolder = path.resolve(`${__dirname}/../public/data/`);
 const indexFile = path.resolve(`${dataFolder}/index.json`);
 const webDataFolderPrefix = '/data/';
 

@@ -9,24 +9,39 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
+    "flow-annotation-check": "^1.1.2",
     "flow-bin": "0.43.0",
+    "flow-coverage-report": "^0.3.0",
     "react-scripts": "0.9.5",
     "storyshots": "^3.2.2"
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
     "flow:stop": "flow stop",
+    "flow:annotations": "flow-annotation-check --exclude \"+(node_modules|build|flow-typed)/**/*.js\"",
+    "flow:coverage": "flow-coverage-report report",
     "collect-data": "./src/build/writeStatsFiles.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "pull-stats": "./src/scripts/pull-stats.sh",
-    "postpull-stats": "./src/scripts/writeStatsFiles.js",
+    "pull-stats": "./scripts/pull-stats.sh",
+    "postpull-stats": "./scripts/writeStatsFiles.js",
     "storybook": "start-storybook -p 9006 --dont-track",
     "build-storybook": "build-storybook --dont-track"
   },
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "flow-coverage-report": {
+    "includeGlob": [
+      "**/*.js"
+    ],
+    "excludeGlob": [
+      "+(node_modules|build|flow-typed)/**/*.js"
+    ]
   }
 }
