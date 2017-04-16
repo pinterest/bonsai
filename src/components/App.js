@@ -4,9 +4,7 @@
 
 import type {RawStats} from '../types/Stats';
 
-import DragDropUpload from './DragDropUpload';
 import FileInputRow from './FileInputRow';
-import JsonFilePicker from './JsonFilePicker';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import Stats from './Stats';
