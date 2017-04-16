@@ -21,6 +21,8 @@ function fetchJSON(file: string, callback: JSONCallback) {
     return response.json();
   }).then((json) => {
     callback(file, json);
+  }).catch((error) => {
+    console.log('Failed to fetch existing stats files');
   });
 }
 
