@@ -15,10 +15,7 @@ import React, { Component } from 'react';
 import splitUnreachableModules from '../stats/splitUnreachableModules';
 
 type Props = {
-  stats: {
-    file: string,
-    raw: RawStats,
-  },
+  json: RawStats,
 };
 
 type State = {
@@ -33,7 +30,7 @@ export default class Stats extends Component<void, Props, State> {
   };
 
   componentWillReceiveProps(nextProps: Props) {
-    if (this.props.stats.file !== nextProps.stats.file) {
+    if (this.props.json !== nextProps.json) {
       this.setState({
         selectedChunkId: null,
         blacklistedModuleIds: [],
@@ -43,7 +40,7 @@ export default class Stats extends Component<void, Props, State> {
 
   render() {
     const moduleData = this.getModuleData(
-      this.props.stats.raw,
+      this.props.json,
       this.state.selectedChunkId,
     );
 
@@ -78,7 +75,7 @@ export default class Stats extends Component<void, Props, State> {
         <div className="row">
           <div className="col-sm-12">
             <ChunkDropdown
-              stats={this.props.stats.raw}
+              stats={this.props.json}
               selectedChunkId={this.state.selectedChunkId}
               onSelectChunkId={this.onSelectChunkId}
             />
@@ -88,7 +85,7 @@ export default class Stats extends Component<void, Props, State> {
           <div className="col-sm-12">
             {this.state.selectedChunkId
               ? <ChunkBreadcrumb
-                stats={this.props.stats.raw}
+                stats={this.props.json}
                 selectedChunkId={this.state.selectedChunkId}
               />
               : null}

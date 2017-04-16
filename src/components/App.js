@@ -14,10 +14,8 @@ type State = {
   dataFiles: Array<string>,
   isDragging: boolean,
   loading: boolean,
-  stats: ?{
-    file: string,
-    raw: RawStats,
-  },
+  statsFile: ?string,
+  statsJson: ?RawStats,
 };
 
 export default class App extends Component<void, void, State> {
@@ -27,14 +25,15 @@ export default class App extends Component<void, void, State> {
     isDragging: false,
     expandUploadArea: false,
     loading: false,
-    stats: null,
+    statsFile: null,
+    statsJson: null,
   };
 
   renderFileInputRow() {
     return (
       <div className="well well-sm clearfix">
         <div className="form-horizontal">
-          {!this.state.stats || this.state.isDragging
+          {!this.state.statsFile || this.state.isDragging
             ? <div className="form-group col-sm-6">
                 <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
                 <span id="drag-drop-helpblock" className="col-sm-12 help-block">
@@ -44,7 +43,7 @@ export default class App extends Component<void, void, State> {
             : <div className="form-group col-sm-6">
                 <label className="col-sm-2 control-label">Loaded</label>
                 <div className="col-sm-10">
-                  <p className="form-control-static">{this.state.stats.file}</p>
+                  <p className="form-control-static">{this.state.statsFile}</p>
                 </div>
               </div>
           }
@@ -109,8 +108,12 @@ export default class App extends Component<void, void, State> {
         <main className="container-fluid">
           <div className="row">
             <div className="col-xs-12">
-              {this.state.loading ? <p className="center-block"><em>Loading...</em></p> : null}
-              {this.state.stats ? <Stats stats={this.state.stats} /> : null}
+              {this.state.loading
+                ? <p className="center-block"><em>Loading...</em></p>
+                : null}
+              {this.state.statsJson
+                ? <Stats json={this.state.statsJson} />
+                : null}
             </div>
           </div>
         </main>
@@ -136,10 +139,8 @@ export default class App extends Component<void, void, State> {
     this.setState({
       showHoverFilePanel: false,
       loading: false,
-      stats: {
-        file: fileName,
-        raw: JSON.parse(fileText),
-      },
+      statsFile: fileName,
+      statsJson: JSON.parse(fileText),
     });
   };
 
@@ -147,10 +148,8 @@ export default class App extends Component<void, void, State> {
     this.setState({
       showHoverFilePanel: false,
       loading: false,
-      stats: {
-        file: fileName,
-        raw: json,
-      },
+      statsFile: fileName,
+      statsJson: json,
     });
   };
 }
