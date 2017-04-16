@@ -19,7 +19,7 @@ type Props = {
   field: string,
   fieldType: ?SortType,
   sort: SortProps,
-  children?: React$Element<any>,
+  children?: string | React$Element<any>,
 };
 
 function getSortIconClass(direction: Direction, type: ?SortType) {

@@ -5,10 +5,11 @@
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import type {SortProps} from '../SortLabel';
 
+import Button, {CloseButton} from '../Bootstrap/Button';
+import Dropdown from '../Bootstrap/Dropdown';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
 import SortLabel from '../SortLabel';
-import SplitDropdownButton from '../SplitDropdownButton';
 
 type Props = {
   extendedModulesById: {[key: ModuleID]: ExtendedModule},
@@ -115,11 +116,13 @@ export default class ModuleTable extends Component<void, Props, State> {
         <thead>
           <tr>
             <th>
-              <SplitDropdownButton
-                splitLabel={'Filter by Name'}
-                splitIcon={'glyphicon glyphicon-filter'}
-                content={this.renderModuleNameFilter()}
-                onClick={this.makeOnSort('name', this.state.sort)}
+              <Dropdown
+                split={{
+                  label: 'Filter by Name',
+                  glyphicon: 'filter',
+                }}
+                getContent={this.renderModuleNameFilter}
+                onClick={this.makeOnSortClick('name', this.state.sort)}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="name"
@@ -127,14 +130,16 @@ export default class ModuleTable extends Component<void, Props, State> {
                   sort={this.state.sort}>
                   Module Name
                 </SortLabel>
-              </SplitDropdownButton>
+              </Dropdown>
             </th>
             <th>
-              <SplitDropdownButton
-                splitLabel={'Filter by Size'}
-                splitIcon={'glyphicon glyphicon-filter'}
-                content={this.renderCumulativeSizeFilter()}
-                onClick={this.makeOnSort('cumulativeSize', this.state.sort)}
+              <Dropdown
+                split={{
+                  label: 'Filter by Size',
+                  glyphicon: 'filter',
+                }}
+                getContent={this.renderCumulativeSizeFilter}
+                onClick={this.makeOnSortClick('cumulativeSize', this.state.sort)}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="cumulativeSize"
@@ -142,27 +147,26 @@ export default class ModuleTable extends Component<void, Props, State> {
                   sort={this.state.sort}>
                   Weighted
                 </SortLabel>
-              </SplitDropdownButton>
+              </Dropdown>
             </th>
             <th>
-              <button
-                href="#"
-                className="btn btn-default"
-                onClick={this.makeOnSort('size', this.state.sort)}>
+              <Button onClick={this.makeOnSortClick('size', this.state.sort)}>
                 <SortLabel
                   field="size"
                   fieldType='size'
                   sort={this.state.sort}>
                   Size
                 </SortLabel>
-              </button>
+              </Button>
             </th>
             <th style={{display: 'flex'}}>
-              <SplitDropdownButton
-                splitLabel={'Filter by Dependants'}
-                splitIcon={'glyphicon glyphicon-filter'}
-                content={this.renderRequiredByCountFilter()}
-                onClick={this.makeOnSort('requiredByCount', this.state.sort)}
+              <Dropdown
+                split={{
+                  label: 'Filter by Dependants',
+                  glyphicon: 'filter',
+                }}
+                getContent={this.renderRequiredByCountFilter}
+                onClick={this.makeOnSortClick('requiredByCount', this.state.sort)}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="requiredByCount"
@@ -170,7 +174,7 @@ export default class ModuleTable extends Component<void, Props, State> {
                   sort={this.state.sort}>
                   Dependants
                 </SortLabel>
-              </SplitDropdownButton>
+              </Dropdown>
             </th>
             <th>
               <button className="btn btn-default" disabled="disabled">
@@ -215,9 +219,10 @@ export default class ModuleTable extends Component<void, Props, State> {
     );
   }
 
-  renderModuleNameFilter() {
+  renderModuleNameFilter = (hideContent: () => void) => {
     return (
       <div className="FilterFlyout">
+        <CloseButton onClick={hideContent} />
         <label htmlFor="filter-moduleName-like">Matches RegExp</label>
         <code>/<input
           checked
@@ -229,9 +234,9 @@ export default class ModuleTable extends Component<void, Props, State> {
         />/</code>
       </div>
     );
-  }
+  };
 
-  renderCumulativeSizeFilter() {
+  renderCumulativeSizeFilter = () => {
     const {filters} = this.state;
 
     return (
@@ -253,9 +258,9 @@ export default class ModuleTable extends Component<void, Props, State> {
          />
       </div>
     );
-  }
+  };
 
-  renderRequiredByCountFilter() {
+  renderRequiredByCountFilter = () => {
     const {filters} = this.state;
 
     return (
@@ -277,10 +282,10 @@ export default class ModuleTable extends Component<void, Props, State> {
          />
       </div>
     );
-  }
+  };
 
-  makeOnSort(field: string, sort: SortProps) {
-    return (e: SyntheticEvent) => {
+  makeOnSortClick(field: string, sort: SortProps) {
+    return (e: MouseEvent) => {
       e.preventDefault();
 
       const isSameField = sort.field === field;

@@ -2,7 +2,7 @@
  * @flow
  */
 
-import DropdownMenu from '../DropdownMenu';
+import Dropdown from '../Bootstrap/Dropdown';
 import getEntryHeirarchy from '../../stats/getEntryHeirarchy';
 import React from 'react';
 import type {Child} from '../../stats/getEntryHeirarchy';
@@ -43,6 +43,7 @@ export default function ChunkDropdown(props: Props) {
           id: child.id,
           name: `${getPrefix(indent)}${child.name} (${child.id})`,
         });
+        flatChunks.push(child);
         visitedChunks[child.id] = true;
       }
 
@@ -52,24 +53,26 @@ export default function ChunkDropdown(props: Props) {
 
   appendChildren(chunksByParent.children, 0);
 
-  if (!selectedItem) {
-    selectedItem = {
-      id: -1,
-      name: '- pick a chunk -',
-    };
-    flatChunks.shift(selectedItem);
-  }
-
   return (
     <div className="form-horizontal">
       <div className="form-group">
         <label className="col-sm-1 control-label">Chunk</label>
         <div className="col-sm-11">
-          <DropdownMenu
-            selectedItem={selectedItem}
-            children={flatChunks}
-            onClick={props.onSelectChunkId}
-          />
+          <Dropdown
+            getContent={(hideContent) => flatChunks.map((chunk) => (
+              <li key={chunk.id}>
+                <a href="#" onClick={() => {
+                  hideContent();
+                  props.onSelectChunkId(chunk.id);
+                }}>
+                  {chunk.name}
+                </a>
+              </li>
+            ))}>
+            {selectedItem
+              ? selectedItem.name
+              : '- pick a chunk -'}
+          </Dropdown>
         </div>
       </div>
     </div>
