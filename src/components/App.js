@@ -17,7 +17,7 @@ type State = {
   json: ?RawStats,
 };
 
-export default class App extends Component<void, void, State> {
+export default class App extends Component<void, {}, State> {
   state: State = {
     loading: false,
     filename: null,
