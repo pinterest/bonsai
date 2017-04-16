@@ -97,3 +97,124 @@ exports[`Storyshots App Default View 1`] = `
   </main>
 </div>
 `;
+
+exports[`Storyshots FileInputRow File loaded 1`] = `
+<div
+  onClick={[Function]}
+  style={undefined}>
+  <input
+    className="form-control"
+    id="drag-drop-upload"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file" />
+  <div
+    className="well well-sm clearfix">
+    <div
+      className="form-horizontal">
+      <div
+        className="form-group col-sm-6">
+        <label
+          className="col-sm-2 control-label">
+          Loaded
+        </label>
+        <div
+          className="col-sm-10">
+          <p
+            className="form-control-static">
+            stats.json
+          </p>
+        </div>
+      </div>
+      <div
+        className="form-group col-sm-6"
+        onClick={[Function]}>
+        <label
+          className="col-sm-2 control-label"
+          htmlFor="data-file-picker">
+          File
+        </label>
+        <div
+          className="col-sm-10">
+          <select
+            className="form-control"
+            id="data-file-picker"
+            onChange={[Function]}>
+            <option
+              value="" />
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileInputRow No file 1`] = `
+<div
+  onClick={[Function]}
+  style={undefined}>
+  <input
+    className="form-control"
+    id="drag-drop-upload"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file" />
+  <div
+    className="well well-sm clearfix">
+    <div
+      className="form-horizontal">
+      <div
+        className="form-group col-sm-6">
+        <label
+          className="control-label">
+          Drag & Drop your 
+          <code>
+            stats.json
+          </code>
+           file here
+        </label>
+        <span
+          className="col-sm-12 help-block"
+          id="drag-drop-helpblock">
+          Run 
+          <kbd>
+            webpack --json > stats.json
+          </kbd>
+           to get started.
+        </span>
+      </div>
+      <div
+        className="form-group col-sm-6"
+        onClick={[Function]}>
+        <label
+          className="col-sm-2 control-label"
+          htmlFor="data-file-picker">
+          File
+        </label>
+        <div
+          className="col-sm-10">
+          <select
+            className="form-control"
+            id="data-file-picker"
+            onChange={[Function]}>
+            <option
+              value="" />
+          </select>
+        </div>
+        <span
+          className="col-sm-12 help-block"
+          id="drag-drop-helpblock">
+          or pick an existing stats file.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
