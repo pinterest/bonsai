@@ -14,6 +14,7 @@ type Alignment = 'left' | 'right';
 type Props = {
   align?: Alignment,
   color?: Color,
+  disabled?: boolean,
   style?: Object,
 
   children?: string | React$Element<any>,
@@ -51,7 +52,6 @@ export default class Dropdown extends Component<void, Props, State> {
 
   render() {
     const isOpenClass = this.state.isOpen ? 'open': '';
-
     return (
       <div
         className={['btn-group', isOpenClass].join(' ')}
@@ -60,6 +60,7 @@ export default class Dropdown extends Component<void, Props, State> {
         {this.props.split
           ? <Button
               color={this.props.color}
+              disabled={this.props.disabled}
               onClick={this.props.onClick
                 ? this.props.onClick
                 : () => void 0}>
@@ -68,6 +69,7 @@ export default class Dropdown extends Component<void, Props, State> {
           : null}
         <DropdownToggleButton
           color={this.props.color}
+          disabled={this.props.disabled}
           isOpen={this.state.isOpen}
           onClick={this.onClickToggle}>
           {this.renderToggleLabel()}

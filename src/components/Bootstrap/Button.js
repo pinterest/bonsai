@@ -10,6 +10,7 @@ import {colorToClass} from './Color';
 type ButtonProps = {
   children?: string | React$Element<any>,
   color?: Color,
+  disabled?: boolean,
   onClick: (e: MouseEvent) => void,
 };
 
@@ -23,6 +24,7 @@ export default function Button(props: ButtonProps) {
     <button
       type="button"
       className={classNames}
+      disabled={props.disabled ? 'disabed' : null}
       onClick={props.onClick}>
       {props.children}
     </button>
@@ -42,18 +44,20 @@ export function DropdownToggleButton(props: DropdownToggleProps) {
 
   return (
     <button
-      type="button"
+      aria-expanded={props.isOpen}
+      aria-haspopup="true"
       className={classNames}
       data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded={props.isOpen}
-      onClick={props.onClick}>
+      disabled={props.disabled ? 'disabed' : null}
+      onClick={props.onClick}
+      type="button">
       {props.children}
     </button>
   );
 }
 
 type CloseProps = {
+  disabled?: boolean,
   onClick: (e: MouseEvent) => void,
 };
 
@@ -62,6 +66,7 @@ export function CloseButton(props: CloseProps) {
     <button
       aria-label="Close"
       className="close"
+      disabled={props.disabled ? 'disabed' : null}
       onClick={props.onClick}
       type="button">
       <span aria-hidden="true">&times;</span>
