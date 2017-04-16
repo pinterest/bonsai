@@ -72,6 +72,8 @@ export default function ChunkDropdown(props: Props) {
             {selectedItem
               ? selectedItem.name
               : '- pick a chunk -'}
+            {' '}
+            <span className="caret"></span>
           </Dropdown>
         </div>
       </div>
