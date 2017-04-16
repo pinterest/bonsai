@@ -8,10 +8,11 @@ import React from 'react';
 import type {Child} from '../../stats/getEntryHeirarchy';
 import type {RawStats} from '../../types/Stats';
 
+type ChunkID = string | number;
 type Props = {
   stats: RawStats,
   selectedChunkId: ?number,
-  onSelectChunkId: (chunkId: string | number) => void,
+  onSelectChunkId: (chunkId: ChunkID) => void,
 };
 
 const NBSP = '\u00A0';
@@ -26,7 +27,7 @@ export default function ChunkDropdown(props: Props) {
   const chunksByParent = getEntryHeirarchy(props.stats);
 
   let selectedItem = null;
-  const flatChunks = [];
+  const flatChunks: Array<{id: ChunkID, name: string}> = [];
   const visitedChunks = {};
 
   function appendChildren(children: Array<Child>, indent: number) {
@@ -43,7 +44,6 @@ export default function ChunkDropdown(props: Props) {
           id: child.id,
           name: `${getPrefix(indent)}${child.name} (${child.id})`,
         });
-        flatChunks.push(child);
         visitedChunks[child.id] = true;
       }
 
