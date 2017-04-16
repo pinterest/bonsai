@@ -6,6 +6,8 @@ import React from 'react';
 
 import type {SortProps, SortDirection} from '../stats/filterModules';
 
+import {getClassName} from './Bootstrap/GlyphiconNames';
+
 const NBSP = '\u00A0';
 
 export type SortType = 'alpha' | 'order' | 'size';
@@ -21,18 +23,18 @@ function getSortIconClass(direction: SortDirection, type: ?SortType) {
   switch(type) {
     case 'alpha':
       return direction === 'ASC'
-        ? 'glyphicon glyphicon-sort-by-alphabet'
-        : 'glyphicon glyphicon-sort-by-alphabet-alt'
+        ? getClassName('sort-by-alphabet')
+        : getClassName('sort-by-alphabet-alt')
 
     case 'order':
       return direction === 'ASC'
-        ? 'glyphicon glyphicon-sort-by-order'
-        : 'glyphicon glyphicon-sort-by-order-alt'
+        ? getClassName('sort-by-order')
+        : getClassName('sort-by-order-alt')
     case 'size':
     default:
       return direction === 'ASC'
-        ? 'glyphicon glyphicon-sort-by-attributes'
-        : 'glyphicon glyphicon-sort-by-attributes-alt'
+        ? getClassName('sort-by-attributes')
+        : getClassName('sort-by-attributes-alt')
   }
 }
 
