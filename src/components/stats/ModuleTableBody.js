@@ -3,9 +3,11 @@
  */
 
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
+import type {FilterProps, SortProps} from '../../stats/filterModules';
 
+import filterModules from '../../stats/filterModules';
 import OffsetPageAnchor from '../OffsetPageAnchor';
-import React from 'react';
+import React, {PureComponent} from 'react';
 import Unit from '../Unit';
 import {
   RequiredByPanel,
@@ -17,6 +19,8 @@ import formatModuleName from './formatModuleName';
 type TBodyProps = {
   extendedModules: Array<ExtendedModule>,
   onRemoveModule: (moduleID: ModuleID) => void,
+  filters: FilterProps,
+  sort: SortProps,
 };
 
 type TRProps = {
@@ -53,16 +57,23 @@ function ModuleTableRow(props: TRProps) {
   );
 }
 
-export default function ModuleTableBody(props: TBodyProps) {
-  return (
-    <tbody>
-      {props.extendedModules.map((eModule: ExtendedModule) =>
-        <ModuleTableRow
-          eModule={eModule}
-          key={eModule.identifier}
-          onRemoveModule={props.onRemoveModule}
-        />
-      )}
-    </tbody>
-  );
+export default class ModuleTable extends PureComponent<void, TBodyProps, void> {
+  render() {
+    const extendedModules = filterModules(
+      this.props.extendedModules,
+      this.props.filters,
+      this.props.sort,
+    );
+    return (
+      <tbody>
+        {extendedModules.map((eModule: ExtendedModule) =>
+          <ModuleTableRow
+            eModule={eModule}
+            key={eModule.identifier}
+            onRemoveModule={this.props.onRemoveModule}
+          />
+        )}
+      </tbody>
+    );
+  }
 }

@@ -4,14 +4,9 @@
 
 import React from 'react';
 
+import type {SortProps, SortDirection} from '../stats/filterModules';
+
 const NBSP = '\u00A0';
-
-type Direction = 'ASC' | 'DESC';
-
-export type SortProps = {
-  field: string,
-  direction: Direction,
-};
 
 export type SortType = 'alpha' | 'order' | 'size';
 
@@ -22,7 +17,7 @@ type Props = {
   children?: string | React$Element<any>,
 };
 
-function getSortIconClass(direction: Direction, type: ?SortType) {
+function getSortIconClass(direction: SortDirection, type: ?SortType) {
   switch(type) {
     case 'alpha':
       return direction === 'ASC'
@@ -57,4 +52,3 @@ export default function SortLabel(props: Props) {
     </span>
   );
 }
-

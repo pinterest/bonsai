@@ -57,11 +57,17 @@ export default class Stats extends Component<void, Props, State> {
           />
         </div>
       : null;
+
+    // $FlowFixMe: flow thinks `values()` returns an `Array<mixed>` here
+    const extendedModules: Array<ExtendedModule> = moduleData
+      ? Object.values(calculateModuleSizes(getModulesById(moduleData.included)))
+      : [];
+
     const moduleTable = moduleData
       ? <div className="panel panel-primary">
           <div className="panel-heading">All Modules</div>
           <ModuleTable
-            extendedModulesById={calculateModuleSizes(getModulesById(moduleData.included))}
+            extendedModules={extendedModules}
             onRemoveModule={this.onRemoveModule}
           />
         </div>

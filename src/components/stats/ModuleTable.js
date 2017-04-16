@@ -2,10 +2,11 @@
  * @flow
  */
 
+import type {FilterProps, SortProps} from '../../stats/filterModules';
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
-import type {SortProps} from '../SortLabel';
 
-import Button, {CloseButton} from '../Bootstrap/Button';
+import Button from '../Bootstrap/Button';
+import debounce from '../../debounce';
 import Dropdown from '../Bootstrap/Dropdown';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
@@ -14,52 +15,26 @@ import SortLabel from '../SortLabel';
 const INFINITY = '\u221E';
 
 type Props = {
-  extendedModulesById: {[key: ModuleID]: ExtendedModule},
+  extendedModules: Array<ExtendedModule>,
   onRemoveModule: (moduleID: ModuleID) => void,
 };
 
 type State = {
-  filters: {
-    moduleName: string,
-    cumulativeSizeMin: string,
-    cumulativeSizeMax: string,
-    requiredByCountMin: string,
-    requiredByCountMax: string,
-  },
+  filtersValues: FilterProps,
+  filtersApplied: FilterProps,
   sort: SortProps,
 };
 
-function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
-  return function(eModule: ExtendedModule) {
-    if (re && !re.test(eModule[field])) {
-      return false;
-    }
-    return true;
-  };
-}
-
-function makeRecordRangeFilter(
-  field: string,
-  min: number | '',
-  max: number | '',
-) {
-  return function(eModule: ExtendedModule) {
-    if (min && max) {
-      return eModule[field] >= min && eModule[field] <= max;
-    }
-    if (min) {
-      return eModule[field] >= min;
-    }
-    if (max) {
-      return eModule[field] <= max;
-    }
-    return true;
-  };
-}
-
 export default class ModuleTable extends Component<void, Props, State> {
   state = {
-    filters: {
+    filtersValues: {
+      moduleName: '',
+      cumulativeSizeMin: '',
+      cumulativeSizeMax: '',
+      requiredByCountMin: '',
+      requiredByCountMax: '',
+    },
+    filtersApplied: {
       moduleName: '',
       cumulativeSizeMin: '',
       cumulativeSizeMax: '',
@@ -81,37 +56,7 @@ export default class ModuleTable extends Component<void, Props, State> {
   } = {};
 
   render() {
-    const {filters} = this.state;
-    // $FlowFixMe: flow thinks `values()` returns an `Array<mixed>` here
-    let extendedModules: Array<ExtendedModule> = Object.values(
-      this.props.extendedModulesById,
-    );
-
-    extendedModules = extendedModules
-      .filter(makeRecordLikeRegExpFilter(
-        'name',
-        new RegExp(filters.moduleName),
-      ))
-      .filter(makeRecordRangeFilter(
-        'cumulativeSize',
-        Number(filters.cumulativeSizeMin),
-        Number(filters.cumulativeSizeMax),
-      ))
-      .filter(makeRecordRangeFilter(
-        'requiredByCount',
-        Number(filters.requiredByCountMin),
-        Number(filters.requiredByCountMax),
-      ))
-      .sort((a, b) => {
-        const {field, direction} = this.state.sort;
-        if (a[field] < b[field]) {
-          return direction === 'ASC' ? -1 : 1;
-        }
-        if (a[field] > b[field]) {
-          return direction === 'DESC' ? -1 : 1;
-        }
-        return 0;
-      });
+    const filters = this.state.filtersValues;
 
     return (
       <table className="table table-hover" cellPadding="0" cellSpacing="0">
@@ -216,14 +161,18 @@ export default class ModuleTable extends Component<void, Props, State> {
           </tr>
         </thead>
         <ModuleTableBody
-          extendedModules={extendedModules}
+          extendedModules={this.props.extendedModules}
           onRemoveModule={this.props.onRemoveModule}
+          filters={this.state.filtersApplied}
+          sort={this.state.sort}
         />
       </table>
     );
   }
 
   renderModuleNameFilter = (hideContent: () => void) => {
+    const filters = this.state.filtersValues;
+
     return (
       <div className="col-sm-12">
         <label className="sr-only" htmlFor="filter-moduleName-like">Matches RegExp</label>
@@ -235,7 +184,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             onChange={this.makeOnFilter('moduleName')}
             placeholder=".*"
             type="text"
-            value={this.state.filters.moduleName || ''}
+            value={filters.moduleName || ''}
           />
           <div className="input-group-addon"><code>)</code></div>
         </div>
@@ -244,7 +193,7 @@ export default class ModuleTable extends Component<void, Props, State> {
   };
 
   renderCumulativeSizeFilter = () => {
-    const {filters} = this.state;
+    const filters = this.state.filtersValues;
 
     return (
       <div className="col-sm-12">
@@ -284,7 +233,7 @@ export default class ModuleTable extends Component<void, Props, State> {
   };
 
   renderRequiredByCountFilter = () => {
-    const {filters} = this.state;
+    const filters = this.state.filtersValues;
 
     return (
       <div className="col-sm-12">
@@ -340,14 +289,21 @@ export default class ModuleTable extends Component<void, Props, State> {
     };
   }
 
+  applyFilters = debounce(() => {
+    this.setState({
+      filtersApplied: this.state.filtersValues,
+    });
+  }, 100);
+
   makeOnFilter(field: string) {
     return (event: SyntheticInputEvent) => {
       this.setState({
-        filters: {
-          ...this.state.filters,
+        filtersValues: {
+          ...this.state.filtersValues,
           [field]: event.target.value,
         },
       });
+      this.applyFilters();
     };
   }
 
