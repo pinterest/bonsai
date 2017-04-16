@@ -17,19 +17,21 @@ export type Item = {
 type Alignment = 'left' | 'right';
 
 type Props = {
-  selectedItem: Item,
-  splitLabel?: string,
-  children: Array<Item>,
-  onClick?: (id: ID) => void,
+  children?: React$Element<any>,
+  splitLabel: string,
+  splitIcon?: string,
+  content: React$Element<any>,
+  onClick?: (e: SyntheticEvent) => void,
   align?: Alignment,
   color?: Color,
+  style?: Object,
 };
 
 type State = {
   isOpen: boolean,
 };
 
-export default class DropdownMenu extends Component<void, Props, State> {
+export default class SplitDropdownButton extends Component<void, Props, State> {
   state: State = {
     isOpen: false,
   };
@@ -51,79 +53,42 @@ export default class DropdownMenu extends Component<void, Props, State> {
     return (
       <div
         className={['btn-group', isOpenClass].join(' ')}
-        ref={(div) => this._dropDownMenu = div }>
-        {this.renderButton()}
-        {this.renderSplitButton()}
+        ref={(div) => this._dropDownMenu = div }
+        style={this.props.style}>
+        <button
+          type="button"
+          className={['btn', colorToClass('btn', this.props.color)].join(' ')}
+          onClick={this.props.onClick}>
+          {this.props.children}
+        </button>
+        <button
+          type="button"
+          className={['btn', 'dropdown-toggle', colorToClass('btn', this.props.color)].join(' ')}
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded={this.state.isOpen}
+          onClick={this.onToggleOpen}>
+          <span className={this.props.splitIcon || 'caret'} aria-hidden="true"></span>
+          <span className="sr-only">{this.props.splitLabel}</span>
+        </button>
         {this.state.isOpen
-          ? this.renderChildrenAsOptions()
+          ? this.renderContent()
           : null}
       </div>
     );
   }
 
-  renderButton() {
-    if (this.props.splitLabel) {
-      return (
-        <button
-          type="button"
-          className={['btn', colorToClass('btn', this.props.color)].join(' ')}
-          onClick={this.makeOnItemClick(this.props.selectedItem.id)}>
-          {this.props.selectedItem.name}
-        </button>
-      );
-    } else {
-      return (
-        <button
-          type="button"
-          className={['btn', 'dropdown-toggle', colorToClass('btn', this.props.color)].join(' ')}
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded={this.state.isOpen}
-          onClick={this.onToggleOpen}>
-          {this.props.selectedItem.name}{' '}<span className="caret"></span>
-        </button>
-      );
-    }
-  }
-
-  renderSplitButton() {
-    if (this.props.splitLabel) {
-      return (
-        <button
-          type="button"
-          className={['btn', 'dropdown-toggle', colorToClass('btn', this.props.color)].join(' ')}
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded={this.state.isOpen}
-          onClick={this.onToggleOpen}>
-          <span className="caret"></span>
-          <span className="sr-only">{this.props.splitLabel}</span>
-        </button>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  renderChildrenAsOptions() {
+  renderContent() {
     const alignmentClass = this.props.align === 'right'
       ? 'dropdown-menu-right'
       : '';
 
     return (
-      <ul
+      <div
         className={['dropdown-menu', alignmentClass].join(' ')}
-        ref={(ul) => this._flyout = ul }>
-        {this.props.children.map((child) => (
-          <li key={child.id}>
-            <a
-              href={child.target || '#'}
-              onClick={this.makeOnItemClick(child.id)}>
-              {child.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+        ref={(div) => this._flyout = div }>
+        {this.props.content}
+      </div>
     );
   }
 
@@ -142,16 +107,4 @@ export default class DropdownMenu extends Component<void, Props, State> {
       }
     }
   };
-
-  makeOnItemClick(id: ID) {
-    return (event: SyntheticEvent) => {
-      this.setState({
-        isOpen: false,
-      });
-      if (this.props.onClick) {
-        this.props.onClick(id);
-        event.preventDefault();
-      }
-    };
-  }
 }

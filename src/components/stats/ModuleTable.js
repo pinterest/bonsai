@@ -5,10 +5,10 @@
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import type {SortProps} from '../SortLabel';
 
-import ShowablePanel from '../ShowablePanel';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
 import SortLabel from '../SortLabel';
+import SplitDropdownButton from '../SplitDropdownButton';
 
 type Props = {
   extendedModulesById: {[key: ModuleID]: ExtendedModule},
@@ -115,54 +115,68 @@ export default class ModuleTable extends Component<void, Props, State> {
         <thead>
           <tr>
             <th>
-              <ShowablePanel
-                trigger="hover"
-                panel={this.renderModuleNameFilter()}>
+              <SplitDropdownButton
+                splitLabel={'Filter by Name'}
+                splitIcon={'glyphicon glyphicon-filter'}
+                content={this.renderModuleNameFilter()}
+                onClick={this.makeOnSort('name', this.state.sort)}
+                style={{display: 'flex'}}>
                 <SortLabel
-                  sort={this.state.sort}
-                  onSortChange={this.onSortChange}
-                  type='alpha'
-                  field="name">
+                  field="name"
+                  fieldType='alpha'
+                  sort={this.state.sort}>
                   Module Name
                 </SortLabel>
-              </ShowablePanel>
+              </SplitDropdownButton>
             </th>
             <th>
-              <ShowablePanel
-                trigger="hover"
-                panel={this.renderCumulativeSizeFilter()}>
+              <SplitDropdownButton
+                splitLabel={'Filter by Size'}
+                splitIcon={'glyphicon glyphicon-filter'}
+                content={this.renderCumulativeSizeFilter()}
+                onClick={this.makeOnSort('cumulativeSize', this.state.sort)}
+                style={{display: 'flex'}}>
                 <SortLabel
-                  sort={this.state.sort}
-                  onSortChange={this.onSortChange}
-                  type='size'
-                  field="cumulativeSize">
-                  Cumulative Size
+                  field="cumulativeSize"
+                  fieldType='size'
+                  sort={this.state.sort}>
+                  Weighted
                 </SortLabel>
-              </ShowablePanel>
+              </SplitDropdownButton>
             </th>
             <th>
-              <SortLabel
-                sort={this.state.sort}
-                onSortChange={this.onSortChange}
-                type='size'
-                field="size">
-                Size
-              </SortLabel>
-            </th>
-            <th>
-              <ShowablePanel
-                trigger="hover"
-                panel={this.renderRequiredByCountFilter()}>
+              <button
+                href="#"
+                className="btn btn-default"
+                onClick={this.makeOnSort('size', this.state.sort)}>
                 <SortLabel
-                sort={this.state.sort}
-                onSortChange={this.onSortChange}
-                type='size'
-                field="requiredByCount">
+                  field="size"
+                  fieldType='size'
+                  sort={this.state.sort}>
+                  Size
+                </SortLabel>
+              </button>
+            </th>
+            <th style={{display: 'flex'}}>
+              <SplitDropdownButton
+                splitLabel={'Filter by Dependants'}
+                splitIcon={'glyphicon glyphicon-filter'}
+                content={this.renderRequiredByCountFilter()}
+                onClick={this.makeOnSort('requiredByCount', this.state.sort)}
+                style={{display: 'flex'}}>
+                <SortLabel
+                  field="requiredByCount"
+                  fieldType='size'
+                  sort={this.state.sort}>
                   Dependants
                 </SortLabel>
-              </ShowablePanel>
+              </SplitDropdownButton>
             </th>
-            <th>Imports</th>
+            <th>
+              <button className="btn btn-default" disabled="disabled">
+                Imports
+              </button>
+            </th>
             <th></th>
           </tr>
           <tr>
@@ -203,7 +217,7 @@ export default class ModuleTable extends Component<void, Props, State> {
 
   renderModuleNameFilter() {
     return (
-      <div>
+      <div className="FilterFlyout">
         <label htmlFor="filter-moduleName-like">Matches RegExp</label>
         <code>/<input
           checked
@@ -221,7 +235,7 @@ export default class ModuleTable extends Component<void, Props, State> {
     const {filters} = this.state;
 
     return (
-      <div>
+      <div className="FilterFlyout">
         <label htmlFor="filter-cumulativeSize-min">Min (bytes)</label>
         <input
           id="filter-cumulativeSize-min"
@@ -245,7 +259,7 @@ export default class ModuleTable extends Component<void, Props, State> {
     const {filters} = this.state;
 
     return (
-      <div>
+      <div className="FilterFlyout">
         <label htmlFor="filter-requiredByCount-min">Min (bytes)</label>
         <input
           id="filter-requiredByCount-min"
@@ -265,9 +279,22 @@ export default class ModuleTable extends Component<void, Props, State> {
     );
   }
 
-  onSortChange = (sort: SortProps) => {
-    this.setState({sort});
-  };
+  makeOnSort(field: string, sort: SortProps) {
+    return (e: SyntheticEvent) => {
+      e.preventDefault();
+
+      const isSameField = sort.field === field;
+      const invertedDir = sort.direction === 'ASC' ? 'DESC': 'ASC';
+      const nextDirection = isSameField ? invertedDir : 'DESC';
+
+      this.setState({
+        sort: {
+          field: field,
+          direction: nextDirection,
+        },
+      });
+    };
+  }
 
   makeOnFilter(field: string) {
     return (event: SyntheticInputEvent) => {

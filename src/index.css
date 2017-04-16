@@ -27,4 +27,8 @@ ul, li {
   top: -70px;
   display: block;
   visibility: hidden;
-};
+}
+
+.FilterFlyout {
+  padding: 8px;
+}

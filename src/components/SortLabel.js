@@ -17,9 +17,8 @@ export type SortType = 'alpha' | 'order' | 'size';
 
 type Props = {
   field: string,
+  fieldType: ?SortType,
   sort: SortProps,
-  onSortChange: (sort: SortProps) => void,
-  type: ?SortType,
   children?: React$Element<any>,
 };
 
@@ -46,28 +45,16 @@ export default function SortLabel(props: Props) {
   const isSameField = props.sort.field === props.field;
 
   return (
-    <a
-      href="#"
-      onClick={(e: SyntheticEvent) => {
-        e.preventDefault();
-
-        const invertedDir = props.sort.direction === 'ASC' ? 'DESC': 'ASC';
-        const nextDirection = isSameField ? invertedDir : 'DESC';
-
-        props.onSortChange({
-          field: props.field,
-          direction: nextDirection,
-        });
-      }}>
+    <span>
       {isSameField
         ? <span
             aria-hidden="true"
-            className={getSortIconClass(props.sort.direction, props.type)}
+            className={getSortIconClass(props.sort.direction, props.fieldType)}
           />
         : null}
       {isSameField ? NBSP : null}
       {props.children}
-    </a>
+    </span>
   );
 }
 
