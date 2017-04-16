@@ -8,6 +8,7 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "flow-bin": "0.43.0",
     "react-scripts": "0.9.5"
   },
@@ -20,6 +21,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "pull-stats": "./src/scripts/pull-stats.sh",
-    "postpull-stats": "./src/scripts/writeStatsFiles.js"
+    "postpull-stats": "./src/scripts/writeStatsFiles.js",
+    "storybook": "start-storybook -p 9006 --dont-track",
+    "build-storybook": "build-storybook --dont-track"
   }
 }

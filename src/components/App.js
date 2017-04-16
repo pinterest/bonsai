@@ -9,6 +9,9 @@ import DragDropUpload from './DragDropUpload';
 import React, { Component } from 'react';
 import Stats from './Stats';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
+
 type State = {
   showHoverFilePanel: boolean,
   dataFiles: Array<string>,
