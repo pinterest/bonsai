@@ -267,3 +267,196 @@ exports[`Storyshots SortLabel This field is type size 1`] = `
    
 </span>
 `;
+
+exports[`Storyshots Unit  1`] = `
+<span>
+  Size
+</span>
+`;
+
+exports[`Storyshots Unit 2 Bytes (b) 1`] = `
+<span
+  title="2">
+  2.4 B
+</span>
+`;
+
+exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
+<span
+  title="2">
+  2.4 B
+</span>
+`;
+
+exports[`Storyshots Unit 2.4 Gigabytes (GB) 1`] = `
+<span
+  title="2,400,000,000">
+  2.4 GB
+</span>
+`;
+
+exports[`Storyshots Unit 2.4 Kilobytes (KB) 1`] = `
+<span
+  title="2,400">
+  2.4 KB
+</span>
+`;
+
+exports[`Storyshots Unit 2.4 Megabytes (MB) 1`] = `
+<span
+  title="2,400,000">
+  2.4 MB
+</span>
+`;
+
+exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
+<span
+  title="2,400,000,000,000">
+  2.4 TB
+</span>
+`;
+
+exports[`Storyshots Unit Something else is sorted 1`] = `
+<span>
+  Size
+</span>
+`;
+
+exports[`Storyshots Unit This field is sorted ASC 1`] = `
+<span>
+  <span
+    aria-hidden="true"
+    className="glyphicon glyphicon-sort-by-attributes" />
+   
+  Size
+</span>
+`;
+
+exports[`Storyshots Unit This field is sorted DESC 1`] = `
+<span>
+  <span
+    aria-hidden="true"
+    className="glyphicon glyphicon-sort-by-attributes-alt" />
+   
+  Name
+</span>
+`;
+
+exports[`Storyshots Unit This field is type \`alpha\` 1`] = `
+<span>
+  <span
+    aria-hidden="true"
+    className="glyphicon glyphicon-sort-by-alphabet" />
+   
+  Name
+</span>
+`;
+
+exports[`Storyshots Unit This field is type \`order\` 1`] = `
+<span>
+  <span
+    aria-hidden="true"
+    className="glyphicon glyphicon-sort-by-order" />
+   
+  Rank
+</span>
+`;
+
+exports[`Storyshots Unit Two  1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Bytes (b) 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Gigabytes (GB) 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Kilobytes ( 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Kilobytes (KB) 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Megabytes (MB) 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Megabytes 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two Terabytes (TB) 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two bytes 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit Two kilobytes 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
+
+exports[`Storyshots Unit bytes 1`] = `
+<span>
+  Size
+</span>
+`;
+
+exports[`Storyshots Unit kilobytes 1`] = `
+<span>
+  <span
+    aria-hidden="true"
+    className="glyphicon glyphicon-sort-by-attributes" />
+   
+  Size
+</span>
+`;
+
+exports[`Storyshots Unit two bytes 1`] = `
+<span>
+  Size
+</span>
+`;
+
+exports[`Storyshots Unit two kilobytes 1`] = `
+<span
+  title="100">
+  100 B
+</span>
+`;
