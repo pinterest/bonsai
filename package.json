@@ -25,6 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "stats:self:dev": "./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.dev.js > ./public/data/self.json",
     "pull-stats": "./scripts/pull-stats.sh",
     "postpull-stats": "./scripts/writeStatsFiles.js",
     "storybook": "start-storybook -p 9006 --dont-track",

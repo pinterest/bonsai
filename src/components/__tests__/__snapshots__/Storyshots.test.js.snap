@@ -600,3 +600,214 @@ exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
   2.4 TB
 </span>
 `;
+
+exports[`Storyshots formatModuleName delegated dll 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    
+  </span>
+  <span>
+    delegated ./node_modules/classnames/index.js from dll-reference vendor
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName dll 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    
+  </span>
+  <span>
+    delegated ./node_modules/classnames/index.js from dll-reference vendor_pwb
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName loader 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    /Users/ryan/code/webpack-dependency-size-2/node_modules/babel-loader/lib/index.js?{"babelrc":false,"presets":["/Users/ryan/code/webpack-dependency-size-2/node_modules/react-scripts/node_modules/babel-preset-react-app/index.js"],"cacheDirectory":true}!/Users/ryan/code/webpack-dependency-size-2/node_modules/eslint-loader/index.js!
+  </span>
+  <span>
+    /Users/ryan/code/webpack-dependency-size-2/src/index.js
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName loader with query 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    ./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}!./node_modules/eslint-loader/index.js!
+  </span>
+  <span>
+    ./src/index.js
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName loader2 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    ./~/html-webpack-plugin/lib/loader.js!
+  </span>
+  <span>
+    ./public/index.html
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName main + loader 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    main /Users/ryan/code/webpack-dependency-size-2/node_modules/babel-loader/lib/index.js?{"babelrc":false,"presets":["/Users/ryan/code/webpack-dependency-size-2/node_modules/react-scripts/node_modules/babel-preset-react-app/index.js"],"cacheDirectory":true}!/Users/ryan/code/webpack-dependency-size-2/node_modules/eslint-loader/index.js!
+  </span>
+  <span>
+    /Users/ryan/code/webpack-dependency-size-2/src/index.js
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName main and loader with query 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    main ./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}!./node_modules/eslint-loader/index.js!
+  </span>
+  <span>
+    ./src/index.js
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName main with query loader 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    main ./node_modules/babel-loader/lib/index.js?{"babelrc":false,"presets":["./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js"],"cacheDirectory":true}!./node_modules/eslint-loader/index.js!
+  </span>
+  <span>
+    ./src/index.js
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName multi 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    
+  </span>
+  <span>
+    multi
+  </span>
+  <br />
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    
+  </span>
+  <span>
+    main
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName node module 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    
+  </span>
+  <span>
+    ./~/react-dev-utils/webpackHotDevClient.js
+  </span>
+  <br />
+</span>
+`;
+
+exports[`Storyshots formatModuleName plain filepath 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }>
+     
+    
+  </span>
+  <span>
+    components/stats/__stories__/formatModuleName.stories.js
+  </span>
+  <br />
+</span>
+`;
