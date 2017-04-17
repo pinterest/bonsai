@@ -5,6 +5,7 @@
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
 import BlacklistTableBody from './BlacklistTableBody';
+import Button from '../Bootstrap/Button';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
@@ -47,21 +48,27 @@ export default function BlasklistTable(props: Props) {
         {blacklistedModulesList.map((modules, i) =>
           modules.map((eModule, ii) => (
             <tr key={eModule.id}>
-              <td>
+              <td className="vert-align">
                 <OffsetPageAnchor anchor={String(eModule.id)} />
-                {eModule.name}
+                <span className="help-block">
+                  {eModule.name}
+                </span>
               </td>
-              <td><Unit bytes={eModule.size} /></td>
-              <td>
+              <td className="vert-align">
+                <Unit bytes={eModule.size} />
+              </td>
+              <td className="vert-align">
                 <RequiredByPanel eModule={eModule} />
               </td>
-              <td>
+              <td className="vert-align">
                 <RequirementsPanel eModule={eModule} />
               </td>
-              <td>
-                <a href="#" onClick={() => props.onIncludeModule(eModule.id)}>
+              <td className="vert-align">
+                <Button
+                  color="danger"
+                  onClick={() => props.onIncludeModule(eModule.id)}>
                   Restore
-                </a>
+                </Button>
               </td>
             </tr>
           ))

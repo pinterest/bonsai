@@ -64,6 +64,7 @@ export default class ModuleTable extends Component<void, Props, State> {
           <tr>
             <th>
               <Dropdown
+                color="link"
                 split={{
                   primaryOnClick: this.makeOnSortClick(
                     'name',
@@ -84,6 +85,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             </th>
             <th>
               <Dropdown
+                color="link"
                 split={{
                   primaryOnClick: this.makeOnSortClick(
                     'cumulativeSize',
@@ -103,7 +105,7 @@ export default class ModuleTable extends Component<void, Props, State> {
               </Dropdown>
             </th>
             <th>
-              <Button onClick={this.makeOnSortClick('size', this.state.sort)}>
+              <Button color="link" onClick={this.makeOnSortClick('size', this.state.sort)}>
                 <SortLabel
                   field="size"
                   fieldType='size'
@@ -114,6 +116,7 @@ export default class ModuleTable extends Component<void, Props, State> {
             </th>
             <th>
               <Dropdown
+                color="link"
                 split={{
                   primaryOnClick: this.makeOnSortClick(
                     'requiredByCount',
@@ -133,9 +136,9 @@ export default class ModuleTable extends Component<void, Props, State> {
               </Dropdown>
             </th>
             <th>
-              <button className="btn btn-default" disabled="disabled">
+              <Button color="link" onClick={() => undefined} disabled={true}>
                 Imports
-              </button>
+              </Button>
             </th>
             <th></th>
           </tr>
@@ -186,7 +189,7 @@ export default class ModuleTable extends Component<void, Props, State> {
       <div className="col-sm-12">
         <label className="sr-only" htmlFor="filter-moduleName-like">Matches RegExp</label>
         <div className="input-group">
-          <div className="input-group-addon"><code>new Regexp(</code></div>
+          <div className="input-group-addon"><code>new RegExp(</code></div>
           <input
             className="form-control"
             id="filter-moduleName-like"

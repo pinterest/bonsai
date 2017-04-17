@@ -100,7 +100,7 @@ exports[`Storyshots App Default View 1`] = `
 
 exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 <button
-  className="btn btn-default"
+  className="btn btn-default "
   disabled="disabed"
   onClick={[Function]}
   type="button">
@@ -110,8 +110,18 @@ exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 <button
-  className="btn btn-success"
+  className="btn btn-success "
   disabled="disabed"
+  onClick={[Function]}
+  type="button">
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/Button Large 1`] = `
+<button
+  className="btn btn-default btn-lg"
+  disabled={null}
   onClick={[Function]}
   type="button">
   Click Me!
@@ -120,7 +130,7 @@ exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button Success 1`] = `
 <button
-  className="btn btn-success"
+  className="btn btn-success "
   disabled={null}
   onClick={[Function]}
   type="button">
@@ -130,7 +140,7 @@ exports[`Storyshots Bootstrap/Button Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button With onClick 1`] = `
 <button
-  className="btn btn-default"
+  className="btn btn-default "
   disabled={null}
   onClick={[Function]}
   type="button">
@@ -314,7 +324,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
   className="btn-group "
   style={undefined}>
   <button
-    className="btn btn-default"
+    className="btn btn-default "
     disabled={null}
     onClick={[Function]}
     type="button">
@@ -339,12 +349,42 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 </div>
 `;
 
+exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
+<div
+  className="btn-group "
+  style={undefined}>
+  <button
+    className="btn btn-success "
+    disabled={null}
+    onClick={[Function]}
+    type="button">
+    Show list
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-success dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button">
+    <span
+      aria-hidden="true"
+      className="caret" />
+    <span
+      className="sr-only">
+      expand
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 <div
   className="btn-group "
   style={undefined}>
   <button
-    className="btn btn-default"
+    className="btn btn-default "
     disabled={null}
     onClick={[Function]}
     type="button">
@@ -374,7 +414,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
   className="btn-group "
   style={undefined}>
   <button
-    className="btn btn-default"
+    className="btn btn-default "
     disabled={null}
     onClick={[Function]}
     type="button">
@@ -619,24 +659,6 @@ exports[`Storyshots formatModuleName delegated dll 1`] = `
 </span>
 `;
 
-exports[`Storyshots formatModuleName dll 1`] = `
-<span>
-  <span
-    style={
-      Object {
-        "color": "#aaa",
-      }
-    }>
-     
-    
-  </span>
-  <span>
-    delegated ./node_modules/classnames/index.js from dll-reference vendor_pwb
-  </span>
-  <br />
-</span>
-`;
-
 exports[`Storyshots formatModuleName loader 1`] = `
 <span>
   <span
@@ -646,10 +668,10 @@ exports[`Storyshots formatModuleName loader 1`] = `
       }
     }>
      
-    /Users/ryan/code/webpack-dependency-size-2/node_modules/babel-loader/lib/index.js?{"babelrc":false,"presets":["/Users/ryan/code/webpack-dependency-size-2/node_modules/react-scripts/node_modules/babel-preset-react-app/index.js"],"cacheDirectory":true}!/Users/ryan/code/webpack-dependency-size-2/node_modules/eslint-loader/index.js!
+    ./~/html-webpack-plugin/lib/loader.js!
   </span>
   <span>
-    /Users/ryan/code/webpack-dependency-size-2/src/index.js
+    ./public/index.html
   </span>
   <br />
 </span>
@@ -673,42 +695,6 @@ exports[`Storyshots formatModuleName loader with query 1`] = `
 </span>
 `;
 
-exports[`Storyshots formatModuleName loader2 1`] = `
-<span>
-  <span
-    style={
-      Object {
-        "color": "#aaa",
-      }
-    }>
-     
-    ./~/html-webpack-plugin/lib/loader.js!
-  </span>
-  <span>
-    ./public/index.html
-  </span>
-  <br />
-</span>
-`;
-
-exports[`Storyshots formatModuleName main + loader 1`] = `
-<span>
-  <span
-    style={
-      Object {
-        "color": "#aaa",
-      }
-    }>
-     
-    main /Users/ryan/code/webpack-dependency-size-2/node_modules/babel-loader/lib/index.js?{"babelrc":false,"presets":["/Users/ryan/code/webpack-dependency-size-2/node_modules/react-scripts/node_modules/babel-preset-react-app/index.js"],"cacheDirectory":true}!/Users/ryan/code/webpack-dependency-size-2/node_modules/eslint-loader/index.js!
-  </span>
-  <span>
-    /Users/ryan/code/webpack-dependency-size-2/src/index.js
-  </span>
-  <br />
-</span>
-`;
-
 exports[`Storyshots formatModuleName main and loader with query 1`] = `
 <span>
   <span
@@ -719,24 +705,6 @@ exports[`Storyshots formatModuleName main and loader with query 1`] = `
     }>
      
     main ./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}!./node_modules/eslint-loader/index.js!
-  </span>
-  <span>
-    ./src/index.js
-  </span>
-  <br />
-</span>
-`;
-
-exports[`Storyshots formatModuleName main with query loader 1`] = `
-<span>
-  <span
-    style={
-      Object {
-        "color": "#aaa",
-      }
-    }>
-     
-    main ./node_modules/babel-loader/lib/index.js?{"babelrc":false,"presets":["./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js"],"cacheDirectory":true}!./node_modules/eslint-loader/index.js!
   </span>
   <span>
     ./src/index.js

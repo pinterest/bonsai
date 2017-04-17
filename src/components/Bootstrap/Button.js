@@ -7,17 +7,33 @@ import type {Color} from './Color';
 import React from 'react';
 import {colorToClass} from './Color';
 
+type Size =
+  | 'lg'
+  | 'sm'
+  | 'xs'
+  | 'block'
+
 type ButtonProps = {
   children?: string | React$Element<any>,
   color?: Color,
   disabled?: boolean,
+  size?: Size,
   onClick: (e: MouseEvent) => void,
 };
+
+function sizeToClass(size: ?Size) {
+  if (!size) {
+    return null;
+  }
+  return `btn-${size}`;
+}
+
 
 export default function Button(props: ButtonProps) {
   const classNames = [
     'btn',
     colorToClass('btn', props.color),
+    sizeToClass(props.size),
   ].join(' ');
 
   return (

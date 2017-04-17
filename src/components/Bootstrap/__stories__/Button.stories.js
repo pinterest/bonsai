@@ -25,6 +25,11 @@ storiesOf('Bootstrap/Button', module)
       Click Me!
     </Button>
   ))
+  .add('Large', () => (
+    <Button onClick={alertOnClick} size="lg">
+      Click Me!
+    </Button>
+  ))
   .add('Disabled Success', () => (
     <Button onClick={alertOnClick} disabled={true} color="success">
       Click Me!

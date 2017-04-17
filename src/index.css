@@ -18,6 +18,10 @@ ul, li {
   clear: both;
 }
 
+.table tbody > tr > td.vert-align {
+  vertical-align: middle;
+}
+
 .App {
   padding-top: 70px;
 }

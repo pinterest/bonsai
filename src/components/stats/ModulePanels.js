@@ -12,6 +12,7 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
   return (
     <Dropdown
       align="right"
+      color="link"
       disabled={eModule.requiredBy.length === 0}
       getContent={(hideContent: () => void) =>
         eModule.requiredBy.map((reason) => (
@@ -33,6 +34,7 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
   return (
     <Dropdown
       align="right"
+      color="link"
       disabled={eModule.requirements.length === 0}
       getContent={(hideContent: () => void) =>
         eModule.requirements.map((module) => (

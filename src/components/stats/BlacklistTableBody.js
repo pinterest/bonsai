@@ -4,6 +4,7 @@
 
 import type {ExtendedModule} from '../../types/Stats';
 
+import Button from '../Bootstrap/Button';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, { Component } from 'react';
 import Unit from '../Unit';
@@ -28,11 +29,13 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
           {this.renderHideRow()}
           {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`}>
-              <td>
+              <td className="vert-align">
                 <OffsetPageAnchor anchor={String(eModule.id)} />
                 {eModule.name}
               </td>
-              <td><Unit bytes={eModule.size} /></td>
+              <td className="vert-align">
+                <Unit bytes={eModule.size} />
+              </td>
               <td colSpan="3"></td>
             </tr>
           )}
@@ -44,13 +47,12 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
         <tbody>
           <tr>
             <td colSpan="5">
-              <button
-                type="button"
-                className="btn btn-default btn-xs"
+              <Button
+                size="xs"
                 onClick={() => this.setState({ isOpen: true })}>
                 <span className="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                 Show {this.props.removedModules.length} more removed modules
-              </button>
+              </Button>
             </td>
           </tr>
         </tbody>
@@ -62,13 +64,12 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
     return (
       <tr>
         <td colSpan="5">
-          <button
-            type="button"
-            className="btn btn-default btn-xs"
+          <Button
+            size="xs"
             onClick={() => this.setState({ isOpen: false })}>
             <span className="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
             Hide extra modules
-          </button>
+          </Button>
         </td>
       </tr>
     );

@@ -106,6 +106,17 @@ storiesOf('Bootstrap/Dropdown', module)
       Show list
     </Dropdown>
   ))
+  .add('Split Button w/ Color', () => (
+    <Dropdown
+      color="success"
+      getContent={getContent}
+      split={{
+        label: 'expand',
+        primaryOnClick: alertOnClick,
+      }}>
+      Show list
+    </Dropdown>
+  ))
   .add('Split Button w/ Glyph', () => (
     <Dropdown
       getContent={getContent}

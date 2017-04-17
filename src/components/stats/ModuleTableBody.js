@@ -5,6 +5,7 @@
 import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import type {FilterProps, SortProps} from '../../stats/filterModules';
 
+import Button from '../Bootstrap/Button';
 import filterModules from '../../stats/filterModules';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, {PureComponent} from 'react';
@@ -32,26 +33,26 @@ function ModuleTableRow(props: TRProps) {
   const {eModule} = props;
   return (
     <tr key={eModule.id}>
-      <td>
+      <td className="vert-align">
         <OffsetPageAnchor anchor={String(eModule.id)} />
         {formatModuleName(eModule.name)}
       </td>
-      <td>
+      <td className="vert-align">
         <Unit bytes={eModule.cumulativeSize} />
       </td>
-      <td>
+      <td className="vert-align">
         <Unit bytes={eModule.size} />
       </td>
-      <td>
+      <td className="vert-align">
         <RequiredByPanel eModule={eModule} />
       </td>
-      <td>
+      <td className="vert-align">
         <RequirementsPanel eModule={eModule} />
       </td>
-      <td>
-        <a href="#" onClick={() => props.onRemoveModule(eModule.id)}>
+      <td className="vert-align">
+        <Button onClick={() => props.onRemoveModule(eModule.id)}>
           Ignore
-        </a>
+        </Button>
       </td>
     </tr>
   );
