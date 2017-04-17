@@ -11,6 +11,7 @@ import '../index.css';
 import '../components/__stories__/App.stories';
 import '../components/__stories__/FileInputRow.stories';
 import '../components/__stories__/SortLabel.stories';
+import '../components/__stories__/Stats.stories';
 import '../components/__stories__/Unit.stories';
 
 import '../components/Bootstrap/__stories__/Button.stories';

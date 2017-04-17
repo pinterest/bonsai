@@ -606,6 +606,52 @@ exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 </span>
 `;
 
+exports[`Storyshots Stats Shows stats for stats-2017-03-13.json 1`] = `
+<div>
+  <div
+    className="row">
+    <div
+      className="col-sm-12">
+      <div
+        className="form-horizontal">
+        <div
+          className="form-group">
+          <label
+            className="col-sm-1 control-label">
+            Chunk
+          </label>
+          <div
+            className="col-sm-11">
+            <div
+              className="btn-group "
+              style={undefined}>
+              <button
+                aria-expanded={false}
+                aria-haspopup="true"
+                className="btn btn-default dropdown-toggle"
+                data-toggle="dropdown"
+                disabled={null}
+                onClick={[Function]}
+                type="button">
+                - pick a chunk -
+                 
+                <span
+                  className="caret" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row">
+    <div
+      className="col-sm-12" />
+  </div>
+</div>
+`;
+
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
 <span
   title="2">
