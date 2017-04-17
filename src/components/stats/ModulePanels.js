@@ -7,6 +7,7 @@ import type {ExtendedModule} from '../../types/Stats';
 import Dropdown from '../Bootstrap/Dropdown';
 import formatModuleName from './formatModuleName';
 import React from 'react';
+import scrollTo from '../../scrollTo';
 
 export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
   return (
@@ -17,7 +18,11 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
       getContent={(hideContent: () => void) =>
         eModule.requiredBy.map((reason) => (
           <li key={reason.moduleId}>
-            <a href={`#${reason.moduleId}`} onClick={hideContent}>
+            <a href="#" onClick={(e) => {
+              e.preventDefault();
+              hideContent();
+              scrollTo(String(reason.moduleId));
+            }}>
               {formatModuleName(reason.moduleIdentifier)}
             </a>
           </li>
@@ -39,7 +44,11 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
       getContent={(hideContent: () => void) =>
         eModule.requirements.map((module) => (
           <li key={module.id}>
-            <a href={`#${module.id}`} onClick={hideContent}>
+            <a href="#" onClick={(e) => {
+              e.preventDefault();
+              hideContent();
+              scrollTo(String(module.id));
+            }}>
               {formatModuleName(module.identifier)}
             </a>
           </li>
