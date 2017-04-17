@@ -50,9 +50,7 @@ export default function BlasklistTable(props: Props) {
             <tr key={eModule.id}>
               <td className="vert-align">
                 <OffsetPageAnchor anchor={String(eModule.id)} />
-                <span className="help-block">
-                  {eModule.name}
-                </span>
+                {eModule.name}
               </td>
               <td className="vert-align">
                 <Unit bytes={eModule.size} />
