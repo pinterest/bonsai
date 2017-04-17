@@ -65,11 +65,14 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>
               <Dropdown
                 split={{
+                  primaryOnClick: this.makeOnSortClick(
+                    'name',
+                    this.state.sort,
+                  ),
                   label: 'Filter by Name',
                   glyphicon: 'filter',
                 }}
                 getContent={this.renderModuleNameFilter}
-                onClick={this.makeOnSortClick('name', this.state.sort)}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="name"
@@ -82,11 +85,14 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>
               <Dropdown
                 split={{
+                  primaryOnClick: this.makeOnSortClick(
+                    'cumulativeSize',
+                    this.state.sort,
+                  ),
                   label: 'Filter by Size',
                   glyphicon: 'filter',
                 }}
                 getContent={this.renderCumulativeSizeFilter}
-                onClick={this.makeOnSortClick('cumulativeSize', this.state.sort)}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="cumulativeSize"
@@ -109,11 +115,14 @@ export default class ModuleTable extends Component<void, Props, State> {
             <th>
               <Dropdown
                 split={{
+                  primaryOnClick: this.makeOnSortClick(
+                    'requiredByCount',
+                    this.state.sort,
+                  ),
                   label: 'Filter by Dependants',
                   glyphicon: 'filter',
                 }}
                 getContent={this.renderRequiredByCountFilter}
-                onClick={this.makeOnSortClick('requiredByCount', this.state.sort)}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="requiredByCount"

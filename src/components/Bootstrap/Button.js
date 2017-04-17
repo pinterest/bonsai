@@ -25,7 +25,7 @@ export default function Button(props: ButtonProps) {
       type="button"
       className={classNames}
       disabled={props.disabled ? 'disabed' : null}
-      onClick={props.onClick}>
+      onClick={props.disabed ? null : props.onClick}>
       {props.children}
     </button>
   );
@@ -67,7 +67,7 @@ export function CloseButton(props: CloseProps) {
       aria-label="Close"
       className="close"
       disabled={props.disabled ? 'disabed' : null}
-      onClick={props.onClick}
+      onClick={props.disabed ? null : props.onClick}
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>

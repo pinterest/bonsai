@@ -14,7 +14,7 @@ export type SortType = 'alpha' | 'order' | 'size';
 
 type Props = {
   field: string,
-  fieldType: ?SortType,
+  fieldType?: SortType,
   sort: SortProps,
   children?: string | React$Element<any>,
 };

@@ -18,13 +18,13 @@ type Props = {
   style?: Object,
 
   children?: string | React$Element<any>,
-  onClick?: (e: MouseEvent) => void,
 
   getContent: (
     hideContent: () => void,
   ) => React$Element<any> | Array<React$Element<any>>,
 
   split?: {
+    primaryOnClick: (e: MouseEvent) => void,
     label: string | React$Element<any>,
     glyphicon?: GlyphiconName,
   },
@@ -61,9 +61,7 @@ export default class Dropdown extends Component<void, Props, State> {
           ? <Button
               color={this.props.color}
               disabled={this.props.disabled}
-              onClick={this.props.onClick
-                ? this.props.onClick
-                : () => void 0}>
+              onClick={this.props.split.primaryOnClick}>
               {this.props.children}
             </Button>
           : null}
