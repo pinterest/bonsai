@@ -83,11 +83,13 @@ export default function BlasklistTable(props: Props) {
       <BlacklistTableBody removedModules={removedModules} />
       <tfoot>
         <tr>
+          <th></th>
           <th>Removed Modules</th>
           <td>{props.removedModules.length}</td>
           <td colSpan="3"></td>
         </tr>
         <tr>
+          <th></th>
           <th>Total Size</th>
           <td><Unit bytes={sum} /></td>
           <td colSpan="3"></td>

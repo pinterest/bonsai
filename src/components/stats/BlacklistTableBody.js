@@ -53,7 +53,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
       return (
         <tbody>
           <tr>
-            <td colSpan="5">
+            <td colSpan="6">
               <Button
                 size="xs"
                 onClick={() => this.setState({ isOpen: true })}>
@@ -70,7 +70,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
   renderHideRow() {
     return (
       <tr>
-        <td colSpan="5">
+        <td colSpan="6">
           <Button
             size="xs"
             onClick={() => this.setState({ isOpen: false })}>
