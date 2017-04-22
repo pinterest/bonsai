@@ -8,7 +8,7 @@ import type {
   SortProps,
 } from '../../stats/filterModules';
 
-import Button from '../Bootstrap/Button';
+import Button, { CloseButton } from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import FilterCumulativeSizeForm from './FilterCumulativeSizeForm';
 import FilterModuleNameForm from './FilterModuleNameForm';
@@ -24,6 +24,21 @@ type Props = {
   onSort: (field: string) => void,
   onFilter: (field: FilterableFields, value: string) => void,
 };
+
+function FilterDisplay(props) {
+  return (
+    <span style={{display: 'inline-block'}}>
+      <kbd>
+        {props.children}
+      </kbd>
+      {props.isFiltered ?
+        <span style={{marginLeft: '5px'}}>
+          <CloseButton label="Clear" onClick={props.onClick} />
+        </span>
+        : null}
+    </span>
+  );
+}
 
 export default function ModuleTableHead(props: Props) {
   return (
@@ -119,30 +134,44 @@ export default function ModuleTableHead(props: Props) {
       </tr>
       <tr>
         <td>
-          <kbd>
-          {'new RegExp('}
-          {props.filters.moduleName
-            ? props.filters.moduleName
-            : '.*'}
-          {')'}
-          </kbd>
+          <FilterDisplay
+            onClick={() => props.onFilter('moduleName', '')}
+            isFiltered={!!props.filters.moduleName}>
+            <kbd>
+              {'new RegExp('}
+              {props.filters.moduleName
+                ? props.filters.moduleName
+                : '.*'}
+              {')'}
+            </kbd>
+          </FilterDisplay>
         </td>
         <td>
-          <kbd>
+          <FilterDisplay
+            onClick={() => {
+              props.onFilter('cumulativeSizeMin', '');
+              props.onFilter('cumulativeSizeMax', '');
+            }}
+            isFiltered={!!(props.filters.cumulativeSizeMin || props.filters.cumulativeSizeMax)}>
             {props.filters.cumulativeSizeMin || 0}
             {' < '}
             {props.filters.cumulativeSizeMax || INFINITY}
             {' bytes'}
-          </kbd>
+          </FilterDisplay>
         </td>
         <td></td>
         <td>
-          <kbd>
+          <FilterDisplay
+            onClick={() => {
+              props.onFilter('requiredByCountMin', '');
+              props.onFilter('requiredByCountMax', '');
+            }}
+            isFiltered={!!(props.filters.requiredByCountMin || props.filters.requiredByCountMax)}>
             {props.filters.requiredByCountMin || 0}
             {' < '}
             {props.filters.requiredByCountMax || INFINITY}
             {' modules'}
-          </kbd>
+          </FilterDisplay>
         </td>
         <td colSpan="2"></td>
       </tr>

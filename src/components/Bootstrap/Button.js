@@ -74,13 +74,14 @@ export function DropdownToggleButton(props: DropdownToggleProps) {
 
 type CloseProps = {
   disabled?: boolean,
+  label?: string,
   onClick: (e: MouseEvent) => void,
 };
 
 export function CloseButton(props: CloseProps) {
   return (
     <button
-      aria-label="Close"
+      aria-label={props.label || 'Close'}
       className="close"
       disabled={props.disabled ? 'disabed' : null}
       onClick={props.disabed ? null : props.onClick}
