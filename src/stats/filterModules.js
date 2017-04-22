@@ -12,7 +12,10 @@ export type FilterProps = {
   requiredByCountMax: string,
 };
 
+export type FilterableFields = $Keys<FilterProps>;
+
 export type SortDirection = 'ASC' | 'DESC';
+
 export type SortProps = {
   field: string,
   direction: SortDirection,
