@@ -27,7 +27,6 @@ function sizeToClass(size: ?Size) {
   return `btn-${size}`;
 }
 
-
 export default function Button(props: ButtonProps) {
   const classNames = [
     'btn',
@@ -49,8 +48,9 @@ export default function Button(props: ButtonProps) {
 type LinkProps = {
   children?: string | React$Element<any> | Array<React$Element<any>>,
   color?: Color,
-  size?: Size,
   href: ?string,
+  newtab?: boolean,
+  size?: Size,
 };
 
 export function Link(props: LinkProps) {
@@ -65,6 +65,7 @@ export function Link(props: LinkProps) {
       className={classNames}
       href={props.href || '#'}
       disabled={props.href ? null : 'disabled'}
+      target={props.newtab ? '_blank' : null}
       role="button">
       {props.children}
     </a>

@@ -6,6 +6,7 @@ import type {ModuleID, ExtendedModule} from '../../types/Stats';
 
 import BlacklistTableBody from './BlacklistTableBody';
 import Button from '../Bootstrap/Button';
+import ExternalModuleLink from './ExternalModuleLink';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
@@ -37,6 +38,7 @@ export default function BlasklistTable(props: Props) {
     <table className="table table-hover" cellPadding="0" cellSpacing="0">
       <thead>
         <tr>
+          <th></th>
           <th>Name</th>
           <th>Size</th>
           <th>Dependants</th>
@@ -48,6 +50,12 @@ export default function BlasklistTable(props: Props) {
         {blacklistedModulesList.map((modules, i) =>
           modules.map((eModule, ii) => (
             <tr key={eModule.id}>
+              <td className="vert-align">
+                <ExternalModuleLink
+                  prefix={process.env.REACT_APP_FILE_URL_PREFIX}
+                  module={eModule}
+                />
+              </td>
               <td className="vert-align">
                 <OffsetPageAnchor anchor={String(eModule.id)} />
                 {eModule.name}

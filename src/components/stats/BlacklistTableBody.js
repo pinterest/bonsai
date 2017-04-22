@@ -5,6 +5,7 @@
 import type {ExtendedModule} from '../../types/Stats';
 
 import Button from '../Bootstrap/Button';
+import ExternalModuleLink from './ExternalModuleLink';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, { Component } from 'react';
 import Unit from '../Unit';
@@ -29,6 +30,12 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
           {this.renderHideRow()}
           {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`}>
+              <td className="vert-align">
+                <ExternalModuleLink
+                  prefix={process.env.REACT_APP_FILE_URL_PREFIX}
+                  module={eModule}
+                />
+              </td>
               <td className="vert-align">
                 <OffsetPageAnchor anchor={String(eModule.id)} />
                 {eModule.name}

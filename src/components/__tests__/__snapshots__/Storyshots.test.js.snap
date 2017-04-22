@@ -543,6 +543,88 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 </div>
 `;
 
+exports[`Storyshots Bootstrap/Link Disabled 1`] = `
+<a
+  className="btn btn-link "
+  disabled="disabled"
+  href="#"
+  role="button"
+  target={null}>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Disabled Success 1`] = `
+<a
+  className="btn btn-success "
+  disabled="disabled"
+  href="#"
+  role="button"
+  target={null}>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Large 1`] = `
+<a
+  className="btn btn-link btn-lg"
+  disabled={null}
+  href="javascript: alert(\'Linked!\');"
+  role="button"
+  target={null}>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
+<a
+  className="btn btn-link "
+  disabled={null}
+  href="example.com"
+  role="button"
+  target="_blank">
+  <span
+    className="glyphicon glyphicon-new-window" />
+   Open External Site
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Success 1`] = `
+<a
+  className="btn btn-success "
+  disabled={null}
+  href="javascript: alert(\'Linked!\');"
+  role="button"
+  target={null}>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link With href 1`] = `
+<a
+  className="btn btn-link "
+  disabled={null}
+  href="javascript: alert(\'Linked!\');"
+  role="button"
+  target={null}>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots ExternalModuleLink Default 1`] = `
+<a
+  className="btn btn-link "
+  disabled={null}
+  href="http://example.com/./app/analytics/modules/AnalyticsMetric/AnalyticsMetric.js"
+  role="button"
+  target="_blank">
+  <span
+    className="glyphicon glyphicon-new-window" />
+</a>
+`;
+
+exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
+
 exports[`Storyshots FileInputRow File loaded 1`] = `
 <div
   onClick={[Function]}

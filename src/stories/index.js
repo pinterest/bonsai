@@ -17,4 +17,5 @@ import '../components/__stories__/Unit.stories';
 import '../components/Bootstrap/__stories__/Button.stories';
 import '../components/Bootstrap/__stories__/Dropdown.stories';
 
+import '../components/stats/__stories__/ExternalModuleLink.stories.js';
 import '../components/stats/__stories__/formatModuleName.stories';

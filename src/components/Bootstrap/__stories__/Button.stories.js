@@ -6,6 +6,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
 import Button, {Link, CloseButton} from '../Button';
+import {getClassName} from '../GlyphiconNames';
 
 storiesOf('Bootstrap/Button', module)
   .add('With onClick', () => (
@@ -36,20 +37,35 @@ storiesOf('Bootstrap/Button', module)
 
 storiesOf('Bootstrap/Link', module)
   .add('With href', () => (
-    <Link href="javascript: alert('Linked!');">Click Me!</Link>
+    <Link href="javascript: alert('Linked!');">
+      Click Me!
+    </Link>
   ))
   .add('Disabled', () => (
-    <Link href={null}>Click Me!</Link>
+    <Link href={null}>
+      Click Me!
+    </Link>
   ))
   .add('Success', () => (
-    <Link href="javascript: alert('Linked!');" color="success">Click Me!</Link>
+    <Link href="javascript: alert('Linked!');" color="success">
+      Click Me!
+    </Link>
   ))
   .add('Large', () => (
-    <Link href="javascript: alert('Linked!');" size="lg">Click Me!</Link>
+    <Link href="javascript: alert('Linked!');" size="lg">
+      Click Me!
+    </Link>
   ))
   .add('Disabled Success', () => (
-    <Link href={null} color="success">Click Me!</Link>
-  ));
+    <Link href={null} color="success">
+      Click Me!
+    </Link>
+  ))
+  .add('Opens new tab', () => (
+    <Link href="example.com" newtab={true}>
+      <span className={getClassName('new-window')} /> Open External Site
+    </Link>
+  ));;
 
 const closeContainerStyle = {
   background: '#ddd',

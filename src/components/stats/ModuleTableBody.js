@@ -6,6 +6,7 @@ import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import type {FilterProps, SortProps} from '../../stats/filterModules';
 
 import Button from '../Bootstrap/Button';
+import ExternalModuleLink from './ExternalModuleLink';
 import filterModules from '../../stats/filterModules';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, {PureComponent} from 'react';
@@ -33,6 +34,12 @@ function ModuleTableRow(props: TRProps) {
   const {eModule} = props;
   return (
     <tr key={eModule.id}>
+      <td className="vert-align">
+        <ExternalModuleLink
+          prefix={process.env.REACT_APP_FILE_URL_PREFIX}
+          module={eModule}
+        />
+      </td>
       <td className="vert-align">
         <OffsetPageAnchor anchor={String(eModule.id)} />
         {formatModuleName(eModule.name)}

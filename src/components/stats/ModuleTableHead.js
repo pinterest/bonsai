@@ -44,6 +44,7 @@ export default function ModuleTableHead(props: Props) {
   return (
     <thead>
       <tr>
+        <th></th>
         <th>
           <Dropdown
             color="link"
@@ -133,6 +134,7 @@ export default function ModuleTableHead(props: Props) {
         <th></th>
       </tr>
       <tr>
+        <td></td>
         <td>
           <FilterDisplay
             onClick={() => props.onFilter('moduleName', '')}
