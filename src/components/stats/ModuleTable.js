@@ -8,6 +8,9 @@ import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import Button from '../Bootstrap/Button';
 import debounce from '../../debounce';
 import Dropdown from '../Bootstrap/Dropdown';
+import FilterCumulativeSizeForm from './FilterCumulativeSizeForm';
+import FilterModuleNameForm from './FilterModuleNameForm';
+import FilterRequiredByCountForm from './FilterRequiredByCountForm';
 import ModuleTableBody from './ModuleTableBody';
 import React, { Component } from 'react';
 import SortLabel from '../SortLabel';
@@ -73,7 +76,12 @@ export default class ModuleTable extends Component<void, Props, State> {
                   label: 'Filter by Name',
                   glyphicon: 'filter',
                 }}
-                getContent={this.renderModuleNameFilter}
+                getContent={() => (
+                  <FilterModuleNameForm
+                    filters={this.state.filtersValues}
+                    onChange={this.makeOnFilter('moduleName')}
+                  />
+                )}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="name"
@@ -94,7 +102,13 @@ export default class ModuleTable extends Component<void, Props, State> {
                   label: 'Filter by Size',
                   glyphicon: 'filter',
                 }}
-                getContent={this.renderCumulativeSizeFilter}
+                getContent={() => (
+                  <FilterCumulativeSizeForm
+                    filters={this.state.filtersValues}
+                    onChangeMin={this.makeOnFilter('cumulativeSizeMin')}
+                    onChangeMax={this.makeOnFilter('cumulativeSizeMax')}
+                  />
+                )}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="cumulativeSize"
@@ -125,7 +139,13 @@ export default class ModuleTable extends Component<void, Props, State> {
                   label: 'Filter by Dependants',
                   glyphicon: 'filter',
                 }}
-                getContent={this.renderRequiredByCountFilter}
+                getContent={() => (
+                  <FilterRequiredByCountForm
+                    filters={this.state.filtersValues}
+                    onChangeMin={this.makeOnFilter('requiredByCountMin')}
+                    onChangeMax={this.makeOnFilter('requiredByCountMax')}
+                  />
+                )}
                 style={{display: 'flex'}}>
                 <SortLabel
                   field="requiredByCount"
@@ -181,108 +201,6 @@ export default class ModuleTable extends Component<void, Props, State> {
       </table>
     );
   }
-
-  renderModuleNameFilter = (hideContent: () => void) => {
-    const filters = this.state.filtersValues;
-
-    return (
-      <div className="col-sm-12">
-        <label className="sr-only" htmlFor="filter-moduleName-like">Matches RegExp</label>
-        <div className="input-group">
-          <div className="input-group-addon"><code>new RegExp(</code></div>
-          <input
-            className="form-control"
-            id="filter-moduleName-like"
-            onChange={this.makeOnFilter('moduleName')}
-            placeholder=".*"
-            type="text"
-            value={filters.moduleName || ''}
-          />
-          <div className="input-group-addon"><code>)</code></div>
-        </div>
-      </div>
-    );
-  };
-
-  renderCumulativeSizeFilter = () => {
-    const filters = this.state.filtersValues;
-
-    return (
-      <div className="col-sm-12">
-        <label
-          className="sr-only"
-          htmlFor="filter-cumulativeSize-min">
-          Min (bytes)
-        </label>
-        <label
-          className="sr-only"
-          htmlFor="filter-cumulativeSize-max">
-          Max (bytes)
-        </label>
-        <div className="input-group">
-          <input
-            className="form-control"
-            style={{width: '100px'}}
-            id="filter-cumulativeSize-min"
-            onChange={this.makeOnFilter('cumulativeSizeMin')}
-            placeholder="0 bytes"
-            type="text"
-            value={filters.cumulativeSizeMin}
-          />
-          <div className="input-group-addon"><code>&lt;</code></div>
-          <input
-            className="form-control"
-            style={{width: '100px'}}
-            id="filter-cumulativeSize-max"
-            onChange={this.makeOnFilter('cumulativeSizeMax')}
-            placeholder={`${INFINITY} bytes`}
-            type="text"
-            value={filters.cumulativeSizeMax}
-           />
-        </div>
-      </div>
-    );
-  };
-
-  renderRequiredByCountFilter = () => {
-    const filters = this.state.filtersValues;
-
-    return (
-      <div className="col-sm-12">
-        <label
-          className="sr-only"
-          htmlFor="filter-requiredByCount-min">
-          Min (bytes)
-        </label>
-        <label
-          className="sr-only"
-          htmlFor="filter-requiredByCount-max">
-          Max (bytes)
-        </label>
-        <div className="input-group">
-          <input
-            className="form-control"
-            style={{width: '100px'}}
-            id="filter-requiredByCount-min"
-            onChange={this.makeOnFilter('requiredByCountMin')}
-            placeholder="0"
-            type="text"
-            value={filters.requiredByCountMin}
-          />
-          <div className="input-group-addon"><code>&lt;</code></div>
-          <input
-            className="form-control"
-            style={{width: '100px'}}
-            id="filter-requiredByCount-max"
-            onChange={this.makeOnFilter('requiredByCountMax')}
-            placeholder={INFINITY}
-            type="text"
-            value={filters.requiredByCountMax}
-           />
-        </div>
-      </div>
-    );
-  };
 
   makeOnSortClick(field: string, sort: SortProps) {
     return (e: MouseEvent) => {
