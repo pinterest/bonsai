@@ -60,16 +60,18 @@ export default class Dropdown extends Component<void, Props, State> {
         {this.props.split
           ? <Button
               color={this.props.color}
-              disabled={this.props.disabled}
-              onClick={this.props.split.primaryOnClick}>
+              onClick={this.props.disabled
+                ? null
+                : this.props.split.primaryOnClick}>
               {this.props.children}
             </Button>
           : null}
         <DropdownToggleButton
           color={this.props.color}
-          disabled={this.props.disabled}
           isOpen={this.state.isOpen}
-          onClick={this.onClickToggle}>
+          onClick={this.props.disabled
+            ? null
+            : this.onClickToggle}>
           {this.renderToggleLabel()}
         </DropdownToggleButton>
         {this.state.isOpen

@@ -126,7 +126,7 @@ export default function ModuleTableHead(props: Props) {
           </Dropdown>
         </th>
         <th>
-          <Button color="link" onClick={() => undefined} disabled={true}>
+          <Button color="link" onClick={null}>
             Imports
           </Button>
         </th>

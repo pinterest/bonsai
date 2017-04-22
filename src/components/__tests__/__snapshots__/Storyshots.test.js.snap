@@ -102,7 +102,7 @@ exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 <button
   className="btn btn-default "
   disabled="disabed"
-  onClick={[Function]}
+  onClick={null}
   type="button">
   Click Me!
 </button>
@@ -112,7 +112,7 @@ exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 <button
   className="btn btn-success "
   disabled="disabed"
-  onClick={[Function]}
+  onClick={null}
   type="button">
   Click Me!
 </button>
@@ -161,7 +161,7 @@ exports[`Storyshots Bootstrap/CloseButton Disabled 1`] = `
     aria-label="Close"
     className="close"
     disabled="disabed"
-    onClick={[Function]}
+    onClick={null}
     type="button">
     <span
       aria-hidden="true">
@@ -289,7 +289,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
     className="btn btn-default dropdown-toggle"
     data-toggle="dropdown"
     disabled="disabed"
-    onClick={[Function]}
+    onClick={null}
     type="button">
     Show flyout
      

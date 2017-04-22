@@ -16,9 +16,8 @@ type Size =
 type ButtonProps = {
   children?: string | React$Element<any>,
   color?: Color,
-  disabled?: boolean,
   size?: Size,
-  onClick: (e: MouseEvent) => void,
+  onClick: ?(e: MouseEvent) => void,
 };
 
 function sizeToClass(size: ?Size) {
@@ -40,8 +39,8 @@ export default function Button(props: ButtonProps) {
     <button
       type="button"
       className={classNames}
-      disabled={props.disabled ? 'disabed' : null}
-      onClick={props.disabed ? null : props.onClick}>
+      disabled={props.onClick ? null : 'disabed'}
+      onClick={props.onClick}>
       {props.children}
     </button>
   );
@@ -64,7 +63,7 @@ export function DropdownToggleButton(props: DropdownToggleProps) {
       aria-haspopup="true"
       className={classNames}
       data-toggle="dropdown"
-      disabled={props.disabled ? 'disabed' : null}
+      disabled={props.onClick ? null : 'disabed'}
       onClick={props.onClick}
       type="button">
       {props.children}
@@ -73,9 +72,8 @@ export function DropdownToggleButton(props: DropdownToggleProps) {
 }
 
 type CloseProps = {
-  disabled?: boolean,
   label?: string,
-  onClick: (e: MouseEvent) => void,
+  onClick: ?(e: MouseEvent) => void,
 };
 
 export function CloseButton(props: CloseProps) {
@@ -83,8 +81,8 @@ export function CloseButton(props: CloseProps) {
     <button
       aria-label={props.label || 'Close'}
       className="close"
-      disabled={props.disabled ? 'disabed' : null}
-      onClick={props.disabed ? null : props.onClick}
+      disabled={props.onClick ? null : 'disabed'}
+      onClick={props.onClick}
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>

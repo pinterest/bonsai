@@ -16,7 +16,7 @@ storiesOf('Bootstrap/Button', module)
     </Button>
   ))
   .add('Disabled', () => (
-    <Button onClick={alertOnClick} disabled={true}>
+    <Button onClick={null}>
       Click Me!
     </Button>
   ))
@@ -31,7 +31,7 @@ storiesOf('Bootstrap/Button', module)
     </Button>
   ))
   .add('Disabled Success', () => (
-    <Button onClick={alertOnClick} disabled={true} color="success">
+    <Button onClick={null} color="success">
       Click Me!
     </Button>
   ));
@@ -50,6 +50,6 @@ storiesOf('Bootstrap/CloseButton', module)
   ))
   .add('Disabled', () => (
     <div style={closeContainerStyle}>
-      <CloseButton onClick={alertOnClick} disabled={true} />
+      <CloseButton onClick={null} />
     </div>
   ));
