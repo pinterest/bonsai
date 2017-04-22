@@ -82,7 +82,7 @@ export default class Stats extends Component<void, Props, State> {
           </div>
         </div>
         <div className="row">
-          <div className="col-sm-12">
+          <div className="col-sm-11 col-sm-push-1">
             {this.state.selectedChunkId
               ? <ChunkBreadcrumb
                 stats={this.props.json}

@@ -40,6 +40,24 @@ export default class App extends Component<void, Props, State> {
   }
 
   renderFileInputRow(filename: ?string, isDragging: boolean) {
+    if (filename) {
+      return (
+        <div>
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="form-horizontal">
+                <div className="form-group">
+                  <label className="col-sm-1 control-label">Filename</label>
+                  <div className="col-sm-11">
+                    <p className="form-control-static">{filename}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="well well-sm clearfix">
         <div className="form-horizontal">
