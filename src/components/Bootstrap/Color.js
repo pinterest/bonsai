@@ -13,6 +13,10 @@ export type Color =
 
 export type Prefixes = 'btn';
 
-export function colorToClass(prefix: Prefixes, color: ?Color) {
-  return `${prefix}-${color || 'default'}`;
+export function colorToClass(
+  prefix: Prefixes,
+  color: ?Color,
+  fallback: Color = 'default',
+) {
+  return `${prefix}-${color || fallback}`;
 }

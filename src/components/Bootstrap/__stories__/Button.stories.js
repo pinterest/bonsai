@@ -5,13 +5,11 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import Button, {DropdownToggleButton, CloseButton} from '../Button';
-
-const alertOnClick = (e) => alert('Clicked me!');
+import Button, {Link, CloseButton} from '../Button';
 
 storiesOf('Bootstrap/Button', module)
   .add('With onClick', () => (
-    <Button onClick={alertOnClick}>
+    <Button onClick={(e) => alert('Clicked!')}>
       Click Me!
     </Button>
   ))
@@ -21,12 +19,12 @@ storiesOf('Bootstrap/Button', module)
     </Button>
   ))
   .add('Success', () => (
-    <Button onClick={alertOnClick} color="success">
+    <Button onClick={(e) => alert('Clicked!')} color="success">
       Click Me!
     </Button>
   ))
   .add('Large', () => (
-    <Button onClick={alertOnClick} size="lg">
+    <Button onClick={(e) => alert('Clicked!')} size="lg">
       Click Me!
     </Button>
   ))
@@ -34,6 +32,23 @@ storiesOf('Bootstrap/Button', module)
     <Button onClick={null} color="success">
       Click Me!
     </Button>
+  ));
+
+storiesOf('Bootstrap/Link', module)
+  .add('With href', () => (
+    <Link href="javascript: alert('Linked!');">Click Me!</Link>
+  ))
+  .add('Disabled', () => (
+    <Link href={null}>Click Me!</Link>
+  ))
+  .add('Success', () => (
+    <Link href="javascript: alert('Linked!');" color="success">Click Me!</Link>
+  ))
+  .add('Large', () => (
+    <Link href="javascript: alert('Linked!');" size="lg">Click Me!</Link>
+  ))
+  .add('Disabled Success', () => (
+    <Link href={null} color="success">Click Me!</Link>
   ));
 
 const closeContainerStyle = {

@@ -14,7 +14,7 @@ type Size =
   | 'block'
 
 type ButtonProps = {
-  children?: string | React$Element<any>,
+  children?: string | React$Element<any> | Array<React$Element<any>>,
   color?: Color,
   size?: Size,
   onClick: ?(e: MouseEvent) => void,
@@ -31,7 +31,7 @@ function sizeToClass(size: ?Size) {
 export default function Button(props: ButtonProps) {
   const classNames = [
     'btn',
-    colorToClass('btn', props.color),
+    colorToClass('btn', props.color, 'default'),
     sizeToClass(props.size),
   ].join(' ');
 
@@ -46,6 +46,31 @@ export default function Button(props: ButtonProps) {
   );
 }
 
+type LinkProps = {
+  children?: string | React$Element<any> | Array<React$Element<any>>,
+  color?: Color,
+  size?: Size,
+  href: ?string,
+};
+
+export function Link(props: LinkProps) {
+  const classNames = [
+    'btn',
+    colorToClass('btn', props.color, 'link'),
+    sizeToClass(props.size),
+  ].join(' ');
+
+  return (
+    <a
+      className={classNames}
+      href={props.href || '#'}
+      disabled={props.href ? null : 'disabled'}
+      role="button">
+      {props.children}
+    </a>
+  );
+}
+
 type DropdownToggleProps = ButtonProps & {
   isOpen: boolean,
 };
@@ -53,7 +78,7 @@ type DropdownToggleProps = ButtonProps & {
 export function DropdownToggleButton(props: DropdownToggleProps) {
   const classNames = [
     'btn',
-    colorToClass('btn', props.color),
+    colorToClass('btn', props.color, 'default'),
     'dropdown-toggle',
   ].join(' ');
 
