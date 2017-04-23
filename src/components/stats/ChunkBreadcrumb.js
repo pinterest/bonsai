@@ -11,6 +11,7 @@ import React from 'react';
 type Props = {
   stats: RawStats,
   selectedChunkId: number,
+  totalModules: number,
 };
 
 export default function ChunkBreadcrumb(props: Props) {
@@ -34,6 +35,9 @@ export default function ChunkBreadcrumb(props: Props) {
           {chunksById[chunkId].names.join(', ')} ({String(chunkId)})
         </li>
       ))}
+      <li className="active">
+        showing {props.totalModules} modules
+      </li>
     </ol>
   )
 }

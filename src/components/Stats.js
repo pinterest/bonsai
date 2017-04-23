@@ -46,7 +46,9 @@ export default class Stats extends Component<void, Props, State> {
 
     const blackList = moduleData && moduleData.removed.length
       ? <div className="panel panel-danger">
-          <div className="panel-heading">Ignored Modules</div>
+          <div className="panel-heading">
+            {moduleData.removed.length} Modules Ignored
+          </div>
           <BlacklistTable
             blacklistedModulesIds={this.state.blacklistedModuleIds}
             removedModules={moduleData.removed}
@@ -62,7 +64,11 @@ export default class Stats extends Component<void, Props, State> {
 
     const moduleTable = moduleData
       ? <div className="panel panel-primary">
-          <div className="panel-heading">All Modules</div>
+          <div className="panel-heading">
+            {moduleData.removed.length === 0
+              ? 'All'
+              : moduleData.included.length} Modules Included
+          </div>
           <ModuleTable
             extendedModules={extendedModules}
             onRemoveModule={this.onRemoveModule}
@@ -87,6 +93,9 @@ export default class Stats extends Component<void, Props, State> {
               ? <ChunkBreadcrumb
                 stats={this.props.json}
                 selectedChunkId={this.state.selectedChunkId}
+                totalModules={
+                  moduleData.included.length + moduleData.removed.length
+                }
               />
               : null}
           </div>
