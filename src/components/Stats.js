@@ -45,15 +45,19 @@ export default class Stats extends Component<void, Props, State> {
     );
 
     const blackList = moduleData && moduleData.removed.length
-      ? <div className="panel panel-danger">
-          <div className="panel-heading">
-            {moduleData.removed.length} Modules Ignored
+      ? <div className="row">
+          <div className="col-sm-12">
+            <div className="panel panel-danger">
+              <div className="panel-heading">
+                {moduleData.removed.length} Modules Ignored
+              </div>
+              <BlacklistTable
+                blacklistedModulesIds={this.state.blacklistedModuleIds}
+                removedModules={moduleData.removed}
+                onIncludeModule={this.onIncludeModule}
+              />
+            </div>
           </div>
-          <BlacklistTable
-            blacklistedModulesIds={this.state.blacklistedModuleIds}
-            removedModules={moduleData.removed}
-            onIncludeModule={this.onIncludeModule}
-          />
         </div>
       : null;
 
@@ -63,21 +67,25 @@ export default class Stats extends Component<void, Props, State> {
       : [];
 
     const moduleTable = moduleData
-      ? <div className="panel panel-primary">
-          <div className="panel-heading">
-            {moduleData.removed.length === 0
-              ? 'All'
-              : moduleData.included.length} Modules Included
+      ? <div className="row">
+          <div className="col-sm-12">
+            <div className="panel panel-primary">
+              <div className="panel-heading">
+                {moduleData.removed.length === 0
+                  ? 'All'
+                  : moduleData.included.length} Modules Included
+              </div>
+              <ModuleTable
+                extendedModules={extendedModules}
+                onRemoveModule={this.onRemoveModule}
+              />
+            </div>
           </div>
-          <ModuleTable
-            extendedModules={extendedModules}
-            onRemoveModule={this.onRemoveModule}
-          />
         </div>
       : null;
 
     return (
-      <div>
+      <main className="container-fluid">
         <div className="row">
           <div className="col-sm-12">
             <ChunkDropdown
@@ -87,23 +95,23 @@ export default class Stats extends Component<void, Props, State> {
             />
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-11 col-sm-push-1">
-            {this.state.selectedChunkId
-              ? <ChunkBreadcrumb
-                stats={this.props.json}
-                selectedChunkId={this.state.selectedChunkId}
-                totalModules={
-                  (moduleData ? moduleData.included.length : 0) +
-                  (moduleData ? moduleData.removed.length : 0)
-                }
-              />
-              : null}
-          </div>
-        </div>
+        {this.state.selectedChunkId
+          ? <div className="row">
+              <div className="col-sm-11 col-sm-push-1">
+                <ChunkBreadcrumb
+                  stats={this.props.json}
+                  selectedChunkId={this.state.selectedChunkId}
+                  totalModules={
+                    (moduleData ? moduleData.included.length : 0) +
+                    (moduleData ? moduleData.removed.length : 0)
+                  }
+                />
+              </div>
+            </div>
+          : null}
         {blackList}
         {moduleTable}
-      </div>
+      </main>
     );
   }
 

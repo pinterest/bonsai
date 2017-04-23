@@ -23,36 +23,34 @@ export default class App extends Component<void, Props, State> {
 
   render() {
     return (
-      <DragDropUpload
-        id="drag-drop-upload"
-        aria-describedby="drag-drop-helpblock"
-        className="form-control"
-        onDragEnter={() => this.setState({ isDragging: true })}
-        onDragLeave={() => this.setState({ isDragging: false })}
-        onLoading={this.onLoading}
-        onChange={this.onFileUploaded}>
-        {this.renderFileInputRow(
-          this.props.filename,
-          this.state.isDragging,
-        )}
-      </DragDropUpload>
+      <div className="row">
+        <div className="col-sm-12">
+          <DragDropUpload
+            id="drag-drop-upload"
+            aria-describedby="drag-drop-helpblock"
+            className="form-control"
+            onDragEnter={() => this.setState({ isDragging: true })}
+            onDragLeave={() => this.setState({ isDragging: false })}
+            onLoading={this.onLoading}
+            onChange={this.onFileUploaded}>
+            {this.renderFileInputRow(
+              this.props.filename,
+              this.state.isDragging,
+            )}
+          </DragDropUpload>
+        </div>
+      </div>
     );
   }
 
   renderFileInputRow(filename: ?string, isDragging: boolean) {
     if (filename) {
       return (
-        <div>
-          <div className="row">
-            <div className="col-sm-12">
-              <div className="form-horizontal">
-                <div className="form-group">
-                  <label className="col-sm-1 control-label">Filename</label>
-                  <div className="col-sm-11">
-                    <p className="form-control-static">{filename}</p>
-                  </div>
-                </div>
-              </div>
+        <div className="form-horizontal">
+          <div className="form-group">
+            <label className="col-sm-1 control-label">Filename</label>
+            <div className="col-sm-11">
+              <p className="form-control-static">{filename}</p>
             </div>
           </div>
         </div>

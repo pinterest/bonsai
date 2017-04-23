@@ -7,7 +7,6 @@ import type {RawStats} from '../types/Stats';
 import FileInputRow from './FileInputRow';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
-import Section from './Section';
 import Stats from './Stats';
 
 import './App.css';
@@ -29,21 +28,19 @@ export default class App extends Component<void, {}, State> {
     return (
       <div className="App">
         <Navbar />
-        <Section>
+        <aside className="container-fluid">
           <FileInputRow
             filename={this.state.filename}
             onLoading={this.onLoading}
             onLoaded={this.onLoaded}
           />
-        </Section>
-        <Section>
+        </aside>
           {this.state.loading
             ? <p className="center-block"><em>Loading...</em></p>
             : null}
           {this.state.json
             ? <Stats json={this.state.json} />
             : null}
-        </Section>
       </div>
     );
   }
