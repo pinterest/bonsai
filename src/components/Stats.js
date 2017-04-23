@@ -94,7 +94,8 @@ export default class Stats extends Component<void, Props, State> {
                 stats={this.props.json}
                 selectedChunkId={this.state.selectedChunkId}
                 totalModules={
-                  moduleData.included.length + moduleData.removed.length
+                  (moduleData ? moduleData.included.length : 0) +
+                  (moduleData ? moduleData.removed.length : 0)
                 }
               />
               : null}

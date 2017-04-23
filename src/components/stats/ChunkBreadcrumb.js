@@ -35,9 +35,11 @@ export default function ChunkBreadcrumb(props: Props) {
           {chunksById[chunkId].names.join(', ')} ({String(chunkId)})
         </li>
       ))}
-      <li className="active">
-        showing {props.totalModules} modules
-      </li>
+      {props.totalModules
+        ? <li className="active">
+            showing {props.totalModules} modules
+          </li>
+        : null}
     </ol>
   )
 }
