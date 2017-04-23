@@ -4,6 +4,8 @@
 
 import React from 'react';
 
+import './OffsetPageAnchor.css';
+
 type Props = {
   anchor: string,
 };

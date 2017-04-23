@@ -10,6 +10,8 @@ import React, { Component } from 'react';
 import Section from './Section';
 import Stats from './Stats';
 
+import './App.css';
+
 type State = {
   loading: boolean,
   filename: ?string,
