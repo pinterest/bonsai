@@ -58,6 +58,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
           className={this.props.className}
           type="file"
           ref={(input) => { this._fileInput = input; }}
+          onChange={this.onChangeFileInput}
         />
         {React.Children.only(this.props.children)}
       </div>
@@ -66,6 +67,16 @@ export default class DragDropUpload extends Component<void, Props, void> {
 
   clickFileInput = () => {
     this._fileInput && this._fileInput.click();
+  };
+
+  onChangeFileInput = (event) => {
+    if (
+      this._fileInput &&
+      this._fileInput.files &&
+      this._fileInput.files[0]
+    ) {
+      readFile(this._fileInput.files[0], this.props.onChange);
+    }
   };
 
   onDragOver = (event: DragEventHandler) => {
