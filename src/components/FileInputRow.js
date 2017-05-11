@@ -13,13 +13,33 @@ type Props = {
 };
 
 type State = {
+  dataFiles: ?Array<string>,
   isDragging: boolean,
 };
 
+function fetchJSON(file: string, callback: JSONCallback) {
+  fetch(file).then((response) => {
+    return response.json();
+  }).then((json) => {
+    callback(file, json);
+  }).catch((error) => {
+    console.log('Failed to fetch existing stats files');
+  });
+}
+
 export default class App extends Component<void, Props, State> {
   state: State = {
+    dataFiles: null,
     isDragging: false,
   };
+
+  componentDidMount() {
+    fetchJSON('/data/index.json', (fileName, json) => {
+      this.setState({
+        dataFiles: json.files,
+      });
+    });
+  }
 
   render() {
     return (
@@ -74,24 +94,26 @@ export default class App extends Component<void, Props, State> {
               </div>
           }
 
-          <div
-            className="form-group col-sm-6"
-            onClick={(event: SyntheticEvent) => event.stopPropagation() }>
-            <label className="col-sm-2 control-label" htmlFor="data-file-picker">File</label>
-              <div className="col-sm-10">
-                <JsonFilePicker
-                  id="data-file-picker"
-                  className="form-control"
-                  onLoading={this.onLoading}
-                  onChange={this.onDataFilePicked}
-                />
+          {this.state.dataFiles
+            ? <div
+                className="form-group col-sm-6"
+                onClick={(event: SyntheticEvent) => event.stopPropagation() }>
+                <label className="col-sm-2 control-label" htmlFor="data-file-picker">File</label>
+                  <div className="col-sm-10">
+                    <JsonFilePicker
+                      id="data-file-picker"
+                      className="form-control"
+                      dataFiles={this.state.dataFiles}
+                      onChange={this.onDataFilePicked}
+                    />
+                  </div>
+                {!filename || isDragging
+                  ? <span id="drag-drop-helpblock" className="col-sm-12 help-block">
+                      or pick an existing stats file.
+                    </span>
+                  : null}
               </div>
-            {!filename || isDragging
-              ? <span id="drag-drop-helpblock" className="col-sm-12 help-block">
-                  or pick an existing stats file.
-                </span>
-              : null}
-          </div>
+            : null}
         </div>
       </div>
     );
@@ -111,10 +133,15 @@ export default class App extends Component<void, Props, State> {
     );
   };
 
-  onDataFilePicked = (filename: string, json: Object) => {
-    this.props.onLoaded(
-      filename,
-      json,
-    );
+  onDataFilePicked = (event: SyntheticInputEvent) => {
+    if (event.target.value) {
+      this.onLoading();
+      fetchJSON(String(event.target.value), (filename, json) => {
+        this.props.onLoaded(
+          filename,
+          json,
+        );
+      });
+    }
   };
 }
