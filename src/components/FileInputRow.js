@@ -17,6 +17,8 @@ type State = {
   isDragging: boolean,
 };
 
+type JSONCallback = (file: string, json: Object) => void
+
 function fetchJSON(file: string, callback: JSONCallback) {
   fetch(file).then((response) => {
     return response.json();

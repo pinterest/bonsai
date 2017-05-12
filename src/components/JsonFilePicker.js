@@ -21,7 +21,7 @@ export default class JsonFilePicker extends Component<void, Props, void> {
       <select
         id={this.props.id}
         className={this.props.className}
-        onChange={this.onChange}>
+        onChange={this.props.onChange}>
         <option value=""></option>
         {this.props.dataFiles.map((file) =>
           <option key={file} value={file}>{file}</option>

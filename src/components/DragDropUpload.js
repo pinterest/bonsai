@@ -69,7 +69,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
     this._fileInput && this._fileInput.click();
   };
 
-  onChangeFileInput = (event) => {
+  onChangeFileInput = (event: SyntheticInputEvent) => {
     if (
       this._fileInput &&
       this._fileInput.files &&
@@ -79,23 +79,23 @@ export default class DragDropUpload extends Component<void, Props, void> {
     }
   };
 
-  onDragOver = (event: DragEventHandler) => {
+  onDragOver = (event: SyntheticDragEvent) => {
     event.preventDefault();
   };
 
-  onDragEnter = (event: DragEventHandler) => {
+  onDragEnter = (event: SyntheticDragEvent) => {
     this._dragEntered += 1;
     this.props.onDragEnter && this.props.onDragEnter();
   };
 
-  onDragLeave = (event: DragEventHandler) => {
+  onDragLeave = (event: SyntheticDragEvent) => {
     this._dragEntered -= 1;
     if (this._dragEntered === 0) {
       this.props.onDragLeave && this.props.onDragLeave();
     }
   };
 
-  onDrop = (event: DragEventHandler) => {
+  onDrop = (event: SyntheticDragEvent) => {
     event.preventDefault();
     this.props.onLoading();
     readFile(event.dataTransfer.files[0], this.props.onChange);
