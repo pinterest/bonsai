@@ -116,7 +116,7 @@ export default class Stats extends Component<void, Props, State> {
   }
 
   getModuleData(stats: RawStats, selectedChunkId: ?number) {
-    if (!selectedChunkId) {
+    if (selectedChunkId === null || selectedChunkId === undefined) {
       return null;
     }
 
