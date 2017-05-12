@@ -32,7 +32,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
             <tr key={`blacklist-${i}`}>
               <td className="vert-align">
                 <ExternalModuleLink
-                  prefix={process.env.REACT_APP_FILE_URL_PREFIX}
+                  prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
                   module={eModule}
                 />
               </td>
