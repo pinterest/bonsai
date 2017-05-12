@@ -13,34 +13,44 @@ type Props = {
 };
 
 type State = {
-  dataFiles: ?Array<string>,
+  dataPaths: ?Array<string>,
   isDragging: boolean,
 };
 
-type JSONCallback = (file: string, json: Object) => void
-
-function fetchJSON(file: string, callback: JSONCallback) {
-  fetch(file).then((response) => {
+function fetchJSON(
+  endpoint: string,
+  callback: (endpoint: string, paths: Array<string>) => void
+) {
+  fetch(endpoint).then((response) => {
     return response.json();
   }).then((json) => {
-    callback(file, json);
+    if (!json.paths) {
+      console.error('Missing field. `REACT_APP_LIST_ENDPOINT` should return `paths` key. Got:', Object.keys(json));
+    } else if (!Array.isArray(json.paths)) {
+      console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
+    } else {
+      callback(endpoint, json.paths.map(String));
+    }
   }).catch((error) => {
-    console.log('Failed to fetch existing stats files');
+    console.error('Failed to fetch existing stats paths.');
   });
 }
 
 export default class App extends Component<void, Props, State> {
   state: State = {
-    dataFiles: null,
+    dataPaths: null,
     isDragging: false,
   };
 
   componentDidMount() {
-    fetchJSON('/data/index.json', (fileName, json) => {
-      this.setState({
-        dataFiles: json.files,
+    const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
+    if (endpoint) {
+      fetchJSON(endpoint, (fileName, paths) => {
+        this.setState({
+          dataPaths: paths,
+        });
       });
-    });
+    }
   }
 
   render() {
@@ -96,7 +106,7 @@ export default class App extends Component<void, Props, State> {
               </div>
           }
 
-          {this.state.dataFiles
+          {this.state.dataPaths
             ? <div
                 className="form-group col-sm-6"
                 onClick={(event: SyntheticEvent) => event.stopPropagation() }>
@@ -105,7 +115,7 @@ export default class App extends Component<void, Props, State> {
                     <JsonFilePicker
                       id="data-file-picker"
                       className="form-control"
-                      dataFiles={this.state.dataFiles}
+                      dataPaths={this.state.dataPaths}
                       onChange={this.onDataFilePicked}
                     />
                   </div>

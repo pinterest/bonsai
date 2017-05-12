@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 
 type Props = {
-  dataFiles: ?Array<string>,
+  dataPaths: ?Array<string>,
   id?: string,
   className?: string,
   onChange: (event: SyntheticInputEvent) => void,
@@ -13,7 +13,7 @@ type Props = {
 
 export default class JsonFilePicker extends Component<void, Props, void> {
   render() {
-    if (!this.props.dataFiles) {
+    if (!this.props.dataPaths) {
       return null;
     }
 
@@ -23,7 +23,7 @@ export default class JsonFilePicker extends Component<void, Props, void> {
         className={this.props.className}
         onChange={this.props.onChange}>
         <option value=""></option>
-        {this.props.dataFiles.map((file) =>
+        {this.props.dataPaths.map((file) =>
           <option key={file} value={file}>{file}</option>
         )}
       </select>

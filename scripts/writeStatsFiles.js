@@ -10,15 +10,15 @@ const webDataFolderPrefix = '/data/';
 
 console.log('Reading from', dataFolder);
 
-const files = fs.readdirSync(dataFolder)
+const paths = fs.readdirSync(dataFolder)
   .filter((file) => file !== 'index.json')
   .filter((file) => file.endsWith('.json'))
   .map((file) => webDataFolderPrefix + file);
 
-console.log('Found data files', files);
+console.log('Found data files.', paths);
 
 fs.writeFileSync(indexFile, JSON.stringify({
-  files: files,
+  paths: paths,
 }, null, '\t'));
 
 console.log('Recorded into ', indexFile);
