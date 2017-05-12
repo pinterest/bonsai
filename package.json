@@ -9,27 +9,36 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
-    "flow-annotation-check": "^1.1.2",
+    "flow-annotation-check": "^1.2.0",
     "flow-bin": "0.43.0",
     "flow-coverage-report": "^0.3.0",
     "react-scripts": "0.9.5",
     "storyshots": "^3.2.2"
   },
   "scripts": {
+    "flow:check": "flow check",
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
     "flow:stop": "flow stop",
-    "flow:annotations": "flow-annotation-check --exclude \"+(node_modules|build|flow-typed)/**/*.js\"",
+    "flow:annotations": "flow-annotation-check",
     "flow:coverage": "flow-coverage-report report",
-    "collect-data": "./src/build/writeStatsFiles.js",
+
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "storybook": "start-storybook -p 9006 --dont-track",
+    "build-storybook": "build-storybook --dont-track",
+    "pretest": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "stats:self:dev": "./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.dev.js > ./public/data/self.json",
+    "build": "react-scripts build",
+
+    "clean": "rm -Rf npm-debug.log lib flow-coverage",
+    "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
+    "postversion": "git push && git push --tags && npm publish",
+
+    "stats:self:dev": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.dev.js > ./public/data/self.json",
+    "poststats:self:dev": "./scripts/writeStatsFiles.js",
     "pull-stats": "./scripts/pull-stats.sh",
     "postpull-stats": "./scripts/writeStatsFiles.js",
-    "storybook": "start-storybook -p 9006 --dont-track",
-    "build-storybook": "build-storybook --dont-track"
+
+    "eject": "react-scripts eject"
   },
   "babel": {
     "presets": [
