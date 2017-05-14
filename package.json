@@ -46,9 +46,17 @@
       "react"
     ]
   },
+  "flow-annotation-check": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "+(node_modules|build|flow-typed)/**/*.js"
+    ]
+  },
   "flow-coverage-report": {
     "includeGlob": [
-      "**/*.js"
+      "src/**/*.js"
     ],
     "excludeGlob": [
       "+(node_modules|build|flow-typed)/**/*.js"
