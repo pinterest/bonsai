@@ -7,12 +7,9 @@ import type {ModuleID, RawStats} from '../types/Stats';
 import BlacklistTable from './stats/BlacklistTable';
 import ChunkBreadcrumb from './stats/ChunkBreadcrumb';
 import ChunkDropdown from './stats/ChunkDropdown';
-import getChunkModules from '../stats/getChunkModules';
-import getExtendedModulesById, {calculateModuleSizes} from '../stats/getExtendedModulesById';
-import getModulesById from '../stats/getModulesById';
+import fullModuleData from '../stats/fullModuleData';
 import ModuleTable from './stats/ModuleTable';
 import React, { Component } from 'react';
-import splitUnreachableModules from '../stats/splitUnreachableModules';
 
 type Props = {
   json: RawStats,
@@ -39,9 +36,13 @@ export default class Stats extends Component<void, Props, State> {
   }
 
   render() {
-    const moduleData = this.getModuleData(
+    const {
+      moduleData,
+      extendedModules,
+    } = fullModuleData(
       this.props.json,
       this.state.selectedChunkId,
+      this.state.blacklistedModuleIds,
     );
 
     const blackList = moduleData && moduleData.removed.length
@@ -60,11 +61,6 @@ export default class Stats extends Component<void, Props, State> {
           </div>
         </div>
       : null;
-
-    // $FlowFixMe: flow thinks `values()` returns an `Array<mixed>` here
-    const extendedModules: Array<ExtendedModule> = moduleData
-      ? Object.values(calculateModuleSizes(getModulesById(moduleData.included)))
-      : [];
 
     const moduleTable = moduleData
       ? <div className="row">
@@ -112,32 +108,6 @@ export default class Stats extends Component<void, Props, State> {
         {blackList}
         {moduleTable}
       </main>
-    );
-  }
-
-  getModuleData(stats: RawStats, selectedChunkId: ?number) {
-    if (selectedChunkId === null || selectedChunkId === undefined) {
-      return null;
-    }
-
-    const modules = getChunkModules(
-      stats,
-      selectedChunkId,
-    );
-
-    if (!modules) {
-      return null;
-    }
-
-    const extendedModulesById = getExtendedModulesById(modules);
-
-    if (!extendedModulesById) {
-      return null;
-    }
-
-    return splitUnreachableModules(
-      extendedModulesById,
-      this.state.blacklistedModuleIds,
     );
   }
 
