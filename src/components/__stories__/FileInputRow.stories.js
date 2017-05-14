@@ -12,13 +12,13 @@ storiesOf('FileInputRow', module)
     <FileInputRow
       filename={null}
       onLoading={() => undefined}
-      onLoaded={(s: string, o: Object) => undefined}
+      onLoaded={(s: ?string, o: ?Object) => undefined}
     />
   ))
   .add('File loaded', () => (
     <FileInputRow
       filename={'stats.json'}
       onLoading={() => undefined}
-      onLoaded={(s: string, o: Object) => undefined}
+      onLoaded={(s: ?string, o: ?Object) => undefined}
     />
   ));

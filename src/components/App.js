@@ -51,11 +51,11 @@ export default class App extends Component<void, {}, State> {
     });
   };
 
-  onLoaded = (filename: string, json: Object) => {
+  onLoaded = (filename: ?string, stats: ?RawStats) => {
     this.setState({
       loading: false,
       filename: filename,
-      json: json,
+      json: stats,
     });
   };
 }

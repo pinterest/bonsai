@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 type Props = {
   filename: ?string,
   onLoading: () => void,
-  onLoaded: (filename: string, json: Object) => void,
+  onLoaded: (filename: ?string, stats: ?Object) => void,
 };
 
 type State = {
@@ -19,20 +19,12 @@ type State = {
 
 function fetchJSON(
   endpoint: string,
-  callback: (endpoint: string, paths: Array<string>) => void
+  callback: (endpoint: string, json: Object) => void
 ) {
-  fetch(endpoint).then((response) => {
+  return fetch(endpoint).then((response) => {
     return response.json();
   }).then((json) => {
-    if (!json.paths) {
-      console.error('Missing field. `REACT_APP_LIST_ENDPOINT` should return `paths` key. Got:', Object.keys(json));
-    } else if (!Array.isArray(json.paths)) {
-      console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
-    } else {
-      callback(endpoint, json.paths.map(String));
-    }
-  }).catch((error) => {
-    console.error('Failed to fetch existing stats paths.');
+    callback(endpoint, json);
   });
 }
 
@@ -44,13 +36,24 @@ export default class App extends Component<void, Props, State> {
 
   componentDidMount() {
     const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
-    if (endpoint) {
-      fetchJSON(endpoint, (fileName, paths) => {
-        this.setState({
-          dataPaths: paths,
-        });
-      });
+    if (!endpoint) {
+      console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
+      return;
     }
+
+    fetchJSON(endpoint, (fileName, json) => {
+      if (!json.paths) {
+        console.error(`Missing field. '${endpoint}' should return '{"paths": []}' key. Got: ${String(Object.keys(json))}`);
+      } else if (!Array.isArray(json.paths)) {
+        console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
+      } else {
+        this.setState({
+          dataPaths: json.paths.map(String),
+        });
+      }
+    }).catch((error) => {
+      console.error(`Failed to fetch json from '${endpoint}'.`);
+    });
   }
 
   render() {
@@ -64,7 +67,7 @@ export default class App extends Component<void, Props, State> {
             onDragEnter={() => this.setState({ isDragging: true })}
             onDragLeave={() => this.setState({ isDragging: false })}
             onLoading={this.onLoading}
-            onChange={this.onFileUploaded}>
+            onChange={this.onStatsFileUploaded}>
             {this.renderFileInputRow(
               this.props.filename,
               this.state.isDragging,
@@ -116,7 +119,7 @@ export default class App extends Component<void, Props, State> {
                       id="data-file-picker"
                       className="form-control"
                       dataPaths={this.state.dataPaths}
-                      onChange={this.onDataFilePicked}
+                      onChange={this.onStatsFilePicked}
                     />
                   </div>
                 {!filename || isDragging
@@ -138,14 +141,19 @@ export default class App extends Component<void, Props, State> {
     this.props.onLoading();
   };
 
-  onFileUploaded = (filename: string, fileText: string) => {
-    this.props.onLoaded(
-      filename,
-      JSON.parse(fileText),
-    );
+  onStatsFileUploaded = (filename: string, fileText: string) => {
+    try {
+      const json = JSON.parse(fileText);
+      this.props.onLoaded(
+        filename,
+        json,
+      );
+    } catch (error) {
+      this.props.onLoaded(null, null);
+    }
   };
 
-  onDataFilePicked = (event: SyntheticInputEvent) => {
+  onStatsFilePicked = (event: SyntheticInputEvent) => {
     if (event.target.value) {
       this.onLoading();
       fetchJSON(String(event.target.value), (filename, json) => {
@@ -153,6 +161,9 @@ export default class App extends Component<void, Props, State> {
           filename,
           json,
         );
+      }).catch(() => {
+        console.error(`Failed to fetch json from '${String(event.target.value)}'.`);
+        this.props.onLoaded(null, null);
       });
     }
   };
