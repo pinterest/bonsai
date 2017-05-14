@@ -15,18 +15,19 @@ exports[`Storyshots App Default View 1`] = `
       </div>
     </div>
   </nav>
-  <section
+  <aside
     className="container-fluid">
     <div
       className="row">
       <div
-        className="col-xs-12">
+        className="col-sm-12">
         <div
           onClick={[Function]}
           style={undefined}>
           <input
             className="form-control"
             id="drag-drop-upload"
+            onChange={[Function]}
             style={
               Object {
                 "display": "none",
@@ -57,148 +58,96 @@ exports[`Storyshots App Default View 1`] = `
                    to get started.
                 </span>
               </div>
-              <div
-                className="form-group col-sm-6"
-                onClick={[Function]}>
-                <label
-                  className="col-sm-2 control-label"
-                  htmlFor="data-file-picker">
-                  File
-                </label>
-                <div
-                  className="col-sm-10">
-                  <select
-                    className="form-control"
-                    id="data-file-picker"
-                    onChange={[Function]}>
-                    <option
-                      value="" />
-                  </select>
-                </div>
-                <span
-                  className="col-sm-12 help-block"
-                  id="drag-drop-helpblock">
-                  or pick an existing stats file.
-                </span>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section
-    className="container-fluid">
-    <div
-      className="row">
-      <div
-        className="col-xs-12" />
-    </div>
-  </section>
+  </aside>
 </div>
 `;
 
 exports[`Storyshots App FileInput stacked on Stats 1`] = `
 <div>
-  <section
+  <aside
     className="container-fluid">
     <div
       className="row">
       <div
-        className="col-xs-12">
+        className="col-sm-12">
         <div
           onClick={[Function]}
           style={undefined}>
           <input
             className="form-control"
             id="drag-drop-upload"
+            onChange={[Function]}
             style={
               Object {
                 "display": "none",
               }
             }
             type="file" />
-          <div>
+          <div
+            className="form-horizontal">
             <div
-              className="row">
+              className="form-group">
+              <label
+                className="col-sm-1 control-label">
+                Filename
+              </label>
               <div
-                className="col-sm-12">
-                <div
-                  className="form-horizontal">
-                  <div
-                    className="form-group">
-                    <label
-                      className="col-sm-1 control-label">
-                      Filename
-                    </label>
-                    <div
-                      className="col-sm-11">
-                      <p
-                        className="form-control-static">
-                        stats.json
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                className="col-sm-11">
+                <p
+                  className="form-control-static">
+                  stats.json
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section
+  </aside>
+  <main
     className="container-fluid">
     <div
       className="row">
       <div
-        className="col-xs-12">
-        <div>
+        className="col-sm-12">
+        <div
+          className="form-horizontal">
           <div
-            className="row">
+            className="form-group">
+            <label
+              className="col-sm-1 control-label">
+              Chunk
+            </label>
             <div
-              className="col-sm-12">
+              className="col-sm-11">
               <div
-                className="form-horizontal">
-                <div
-                  className="form-group">
-                  <label
-                    className="col-sm-1 control-label">
-                    Chunk
-                  </label>
-                  <div
-                    className="col-sm-11">
-                    <div
-                      className="btn-group "
-                      style={undefined}>
-                      <button
-                        aria-expanded={false}
-                        aria-haspopup="true"
-                        className="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown"
-                        disabled={null}
-                        onClick={[Function]}
-                        type="button">
-                        - pick a chunk -
-                         
-                        <span
-                          className="caret" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                className="btn-group "
+                style={undefined}>
+                <button
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="btn btn-default dropdown-toggle"
+                  data-toggle="dropdown"
+                  disabled={null}
+                  onClick={[Function]}
+                  type="button">
+                  - pick a chunk -
+                   
+                  <span
+                    className="caret" />
+                </button>
               </div>
             </div>
-          </div>
-          <div
-            className="row">
-            <div
-              className="col-sm-11 col-sm-push-1" />
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </main>
 </div>
 `;
 
@@ -619,6 +568,7 @@ exports[`Storyshots ExternalModuleLink Default 1`] = `
   role="button"
   target="_blank">
   <span
+    aria-label="Open in new window"
     className="glyphicon glyphicon-new-window" />
 </a>
 `;
@@ -627,37 +577,36 @@ exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
 
 exports[`Storyshots FileInputRow File loaded 1`] = `
 <div
-  onClick={[Function]}
-  style={undefined}>
-  <input
-    className="form-control"
-    id="drag-drop-upload"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
-    type="file" />
-  <div>
+  className="row">
+  <div
+    className="col-sm-12">
     <div
-      className="row">
+      onClick={[Function]}
+      style={undefined}>
+      <input
+        className="form-control"
+        id="drag-drop-upload"
+        onChange={[Function]}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="file" />
       <div
-        className="col-sm-12">
+        className="form-horizontal">
         <div
-          className="form-horizontal">
+          className="form-group">
+          <label
+            className="col-sm-1 control-label">
+            Filename
+          </label>
           <div
-            className="form-group">
-            <label
-              className="col-sm-1 control-label">
-              Filename
-            </label>
-            <div
-              className="col-sm-11">
-              <p
-                className="form-control-static">
-                stats.json
-              </p>
-            </div>
+            className="col-sm-11">
+            <p
+              className="form-control-static">
+              stats.json
+            </p>
           </div>
         </div>
       </div>
@@ -668,64 +617,47 @@ exports[`Storyshots FileInputRow File loaded 1`] = `
 
 exports[`Storyshots FileInputRow No file 1`] = `
 <div
-  onClick={[Function]}
-  style={undefined}>
-  <input
-    className="form-control"
-    id="drag-drop-upload"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
-    type="file" />
+  className="row">
   <div
-    className="well well-sm clearfix">
+    className="col-sm-12">
     <div
-      className="form-horizontal">
+      onClick={[Function]}
+      style={undefined}>
+      <input
+        className="form-control"
+        id="drag-drop-upload"
+        onChange={[Function]}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="file" />
       <div
-        className="form-group col-sm-6">
-        <label
-          className="control-label">
-          Drag & Drop your 
-          <code>
-            stats.json
-          </code>
-           file here
-        </label>
-        <span
-          className="col-sm-12 help-block"
-          id="drag-drop-helpblock">
-          Run 
-          <kbd>
-            webpack --json > stats.json
-          </kbd>
-           to get started.
-        </span>
-      </div>
-      <div
-        className="form-group col-sm-6"
-        onClick={[Function]}>
-        <label
-          className="col-sm-2 control-label"
-          htmlFor="data-file-picker">
-          File
-        </label>
+        className="well well-sm clearfix">
         <div
-          className="col-sm-10">
-          <select
-            className="form-control"
-            id="data-file-picker"
-            onChange={[Function]}>
-            <option
-              value="" />
-          </select>
+          className="form-horizontal">
+          <div
+            className="form-group col-sm-6">
+            <label
+              className="control-label">
+              Drag & Drop your 
+              <code>
+                stats.json
+              </code>
+               file here
+            </label>
+            <span
+              className="col-sm-12 help-block"
+              id="drag-drop-helpblock">
+              Run 
+              <kbd>
+                webpack --json > stats.json
+              </kbd>
+               to get started.
+            </span>
+          </div>
         </div>
-        <span
-          className="col-sm-12 help-block"
-          id="drag-drop-helpblock">
-          or pick an existing stats file.
-        </span>
       </div>
     </div>
   </div>
@@ -779,7 +711,8 @@ exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 `;
 
 exports[`Storyshots Stats Shows stats for stats-2017-03-13.json 1`] = `
-<div>
+<main
+  className="container-fluid">
   <div
     className="row">
     <div
@@ -816,12 +749,7 @@ exports[`Storyshots Stats Shows stats for stats-2017-03-13.json 1`] = `
       </div>
     </div>
   </div>
-  <div
-    className="row">
-    <div
-      className="col-sm-11 col-sm-push-1" />
-  </div>
-</div>
+</main>
 `;
 
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
