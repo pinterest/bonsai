@@ -21,18 +21,16 @@
     "flow:stop": "flow stop",
     "flow:annotations": "flow-annotation-check",
     "flow:coverage": "flow-coverage-report report",
-
+    "flow": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9006 --dont-track",
     "build-storybook": "build-storybook --dont-track",
-    "pretest": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run flow && react-scripts test --env=jsdom",
+    "test:ci": "npm run flow && react-scripts test --env=jsdom --coverage",
     "build": "react-scripts build",
-
     "clean": "rm -Rf npm-debug.log lib flow-coverage",
     "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
     "postversion": "git push && git push --tags && npm publish",
-
     "stats:self:dev": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.dev.js > ./public/data/self.json",
     "poststats:self:dev": "./scripts/writeStatsFiles.js",
     "pull-stats": "./scripts/pull-stats.sh",
