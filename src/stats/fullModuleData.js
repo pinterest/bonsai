@@ -14,6 +14,7 @@ import getChunkModules from './getChunkModules';
 import getEntryHeirarchy from './getEntryHeirarchy';
 import getExtendedModulesById, {calculateModuleSizes} from './getExtendedModulesById';
 import getModulesById from './getModulesById';
+import getParentChunks from './getParentChunks';
 import splitUnreachableModules from './splitUnreachableModules';
 
 export default function fullModuleData(
@@ -27,15 +28,21 @@ export default function fullModuleData(
   },
   extendedModules: Array<ExtendedModule>,
   chunksByParent: Array<Child>,
+  parentChunks: ?Array<Child>,
 } {
+
+  const chunksByParent = getEntryHeirarchy(stats).children;
+
   if (selectedChunkId === null || selectedChunkId === undefined) {
     return {
       moduleData: null,
       extendedModules: [],
-      chunksByParent: [],
+      chunksByParent: chunksByParent,
+      parentChunks: null,
     };
   }
 
+  const parentChunks = getParentChunks(stats, selectedChunkId);
   const modules = getChunkModules(
     stats,
     selectedChunkId,
@@ -45,7 +52,8 @@ export default function fullModuleData(
     return {
       moduleData: null,
       extendedModules: [],
-      chunksByParent: [],
+      chunksByParent: chunksByParent,
+      parentChunks: parentChunks,
     };
   }
 
@@ -55,7 +63,8 @@ export default function fullModuleData(
     return {
       moduleData: null,
       extendedModules: [],
-      chunksByParent: [],
+      chunksByParent: chunksByParent,
+      parentChunks: parentChunks,
     };
   }
 
@@ -72,6 +81,7 @@ export default function fullModuleData(
   return {
     moduleData: splitModules,
     extendedModules: extendedModules,
-    chunksByParent: getEntryHeirarchy(stats).children,
+    chunksByParent: chunksByParent,
+    parentChunks: parentChunks,
   };
 }

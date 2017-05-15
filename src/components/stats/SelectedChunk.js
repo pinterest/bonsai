@@ -25,6 +25,7 @@ export default function SelectedChunk(props: Props) {
     moduleData,
     extendedModules,
     chunksByParent,
+    parentChunks,
   } = fullModuleData(
     props.json,
     props.selectedChunkId,
@@ -77,11 +78,11 @@ export default function SelectedChunk(props: Props) {
           />
         </div>
       </div>
-      {props.selectedChunkId
+      {parentChunks && props.selectedChunkId
         ? <div className="row">
             <div className="col-sm-11 col-sm-push-1">
               <ChunkBreadcrumb
-                stats={props.json}
+                parentChunks={parentChunks}
                 selectedChunkId={props.selectedChunkId}
                 totalModules={
                   (moduleData ? moduleData.included.length : 0) +

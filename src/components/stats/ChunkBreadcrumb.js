@@ -2,30 +2,20 @@
  * @flow
  */
 
-import type {RawStats} from '../../types/Stats';
+import type {Child} from '../../stats/getEntryHeirarchy';
 
-import getParentChunks from '../../stats/getParentChunks';
 import React from 'react';
 
 type Props = {
-  stats: RawStats,
+  parentChunks: Array<Child>,
   selectedChunkId: number,
   totalModules: number,
 };
 
 export default function ChunkBreadcrumb(props: Props) {
-  const parentChunks = getParentChunks(
-    props.stats,
-    props.selectedChunkId,
-  );
-
-  if (!parentChunks) {
-    return null;
-  }
-
   return (
     <ol className="breadcrumb">
-      {parentChunks.map((chunk) => (
+      {props.parentChunks.map((chunk) => (
         <li
           key={chunk.id}
           className={props.selectedChunkId === chunk.id ? 'active' : ''}>
