@@ -24,6 +24,7 @@ export default function SelectedChunk(props: Props) {
   const {
     moduleData,
     extendedModules,
+    chunksByParent,
   } = fullModuleData(
     props.json,
     props.selectedChunkId,
@@ -70,7 +71,7 @@ export default function SelectedChunk(props: Props) {
       <div className="row">
         <div className="col-sm-12">
           <ChunkDropdown
-            stats={props.json}
+            chunksByParent={chunksByParent}
             selectedChunkId={props.selectedChunkId}
             onSelectChunkId={props.onSelectChunkId}
           />

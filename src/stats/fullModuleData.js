@@ -8,7 +8,10 @@ import type {
   RawStats,
 } from '../types/Stats';
 
+import type {Child} from './getEntryHeirarchy';
+
 import getChunkModules from './getChunkModules';
+import getEntryHeirarchy from './getEntryHeirarchy';
 import getExtendedModulesById, {calculateModuleSizes} from './getExtendedModulesById';
 import getModulesById from './getModulesById';
 import splitUnreachableModules from './splitUnreachableModules';
@@ -23,11 +26,13 @@ export default function fullModuleData(
     removed: Array<ExtendedModule>,
   },
   extendedModules: Array<ExtendedModule>,
+  chunksByParent: Array<Child>,
 } {
   if (selectedChunkId === null || selectedChunkId === undefined) {
     return {
       moduleData: null,
       extendedModules: [],
+      chunksByParent: [],
     };
   }
 
@@ -40,6 +45,7 @@ export default function fullModuleData(
     return {
       moduleData: null,
       extendedModules: [],
+      chunksByParent: [],
     };
   }
 
@@ -49,6 +55,7 @@ export default function fullModuleData(
     return {
       moduleData: null,
       extendedModules: [],
+      chunksByParent: [],
     };
   }
 
@@ -65,5 +72,6 @@ export default function fullModuleData(
   return {
     moduleData: splitModules,
     extendedModules: extendedModules,
+    chunksByParent: getEntryHeirarchy(stats).children,
   };
 }

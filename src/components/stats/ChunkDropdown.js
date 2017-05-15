@@ -3,14 +3,12 @@
  */
 
 import Dropdown from '../Bootstrap/Dropdown';
-import getEntryHeirarchy from '../../stats/getEntryHeirarchy';
 import React from 'react';
 import type {Child} from '../../stats/getEntryHeirarchy';
-import type {RawStats} from '../../types/Stats';
 
 type ChunkID = string | number;
 type Props = {
-  stats: RawStats,
+  chunksByParent: Array<Child>,
   selectedChunkId: ?number,
   onSelectChunkId: (chunkId: ChunkID) => void,
 };
@@ -24,8 +22,6 @@ function getPrefix(indent) {
 }
 
 export default function ChunkDropdown(props: Props) {
-  const chunksByParent = getEntryHeirarchy(props.stats);
-
   let selectedItem = null;
   const flatChunks: Array<{id: ChunkID, name: string}> = [];
   const visitedChunks = {};
@@ -51,7 +47,7 @@ export default function ChunkDropdown(props: Props) {
     });
   }
 
-  appendChildren(chunksByParent.children, 0);
+  appendChildren(props.chunksByParent, 0);
 
   return (
     <div className="form-horizontal">
