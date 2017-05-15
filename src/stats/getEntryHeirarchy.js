@@ -51,14 +51,16 @@ function getChildrenForChunk(stats, parentChunk): Array<Child> {
   return children;
 }
 
+export const ROOT_ID = Number.MIN_SAFE_INTEGER;
+
 export default function getEntryHeirarchy(
   stats: RawStats,
-): {
-  id: null,
-  children: Array<Child>,
-} {
+): Child {
   return {
-    id: null,
+    id: ROOT_ID,
+    ids: [],
+    name: '',
+    names: [],
     children: getEntryChunks(stats)
       .filter((chunk) => chunk.parents.length === 0)
       .map((chunk) => ({

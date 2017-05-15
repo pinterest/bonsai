@@ -4,18 +4,24 @@
 
 import type {RawStats} from '../types/Stats';
 
-import getEntryHeirarchy from './getEntryHeirarchy';
+import type {Child} from './getEntryHeirarchy';
 
-function findChunk(root, targetID, history = []) {
+import getEntryHeirarchy, {ROOT_ID} from './getEntryHeirarchy';
+
+function findChunk(
+  root: Child,
+  targetID: number,
+  history: Array<Child> = [],
+): ?Array<Child> {
   if (targetID === null) {
     return null;
   }
 
   if (root.id === targetID) {
-    return history.concat(targetID);
+    return history.concat(root);
   } else {
     for (let i = 0; i < root.children.length; i++) {
-      const nextHistory = root.id !== null ? history.concat(root.id) : history;
+      const nextHistory = root.id !== ROOT_ID ? history.concat(root) : history;
       const found = findChunk(root.children[i], targetID, nextHistory);
       if (found) {
           return found;
@@ -25,9 +31,9 @@ function findChunk(root, targetID, history = []) {
   return null;
 }
 
-export default function getParentChunkIds(
+export default function getParentChunks(
   stats: RawStats,
   chunkId: number,
-): ?Array<number> {
+): ?Array<Child> {
   return findChunk(getEntryHeirarchy(stats), chunkId);
 }

@@ -527,6 +527,9 @@ Object {
       ],
     },
   ],
-  "id": null,
+  "id": -9007199254740991,
+  "ids": Array [],
+  "name": "",
+  "names": Array [],
 }
 `;

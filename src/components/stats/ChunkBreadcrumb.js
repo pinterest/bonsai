@@ -4,8 +4,7 @@
 
 import type {RawStats} from '../../types/Stats';
 
-import getChunksById from '../../stats/getChunksById';
-import getParentChunkIds from '../../stats/getParentChunkIds';
+import getParentChunks from '../../stats/getParentChunks';
 import React from 'react';
 
 type Props = {
@@ -15,24 +14,22 @@ type Props = {
 };
 
 export default function ChunkBreadcrumb(props: Props) {
-  const parentChunkIds = getParentChunkIds(
+  const parentChunks = getParentChunks(
     props.stats,
     props.selectedChunkId,
   );
 
-  if (!parentChunkIds) {
+  if (!parentChunks) {
     return null;
   }
 
-  const chunksById = getChunksById(props.stats.chunks);
-
   return (
     <ol className="breadcrumb">
-      {parentChunkIds.map((chunkId) => (
+      {parentChunks.map((chunk) => (
         <li
-          key={chunkId}
-          className={props.selectedChunkId === chunkId ? 'active' : ''}>
-          {chunksById[chunkId].names.join(', ')} ({String(chunkId)})
+          key={chunk.id}
+          className={props.selectedChunkId === chunk.id ? 'active' : ''}>
+          {chunk.names.join(', ')} ({String(chunk.id)})
         </li>
       ))}
       {props.totalModules

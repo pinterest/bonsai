@@ -5,21 +5,21 @@
 import type {RawStats, Module} from '../types/Stats';
 
 import getModulesByChunk from './getModulesByChunk';
-import getParentChunkIds from './getParentChunkIds';
+import getParentChunks from './getParentChunks';
 
 export default function getChunkModules(
   stats: RawStats,
   selectedChunkId: number,
 ): ?Array<Module> {
-  const parentChunkIds = getParentChunkIds(stats, selectedChunkId);
-  if (!parentChunkIds) {
+  const parentChunks = getParentChunks(stats, selectedChunkId);
+  if (!parentChunks) {
     return null;
   }
 
   const modulesByChunk = getModulesByChunk(stats);
 
-  return parentChunkIds.reduce(
-    (modules, chunkId) => modules.concat(modulesByChunk[chunkId].modules),
+  return parentChunks.reduce(
+    (modules, chunk) => modules.concat(modulesByChunk[chunk.id].modules),
     [],
   );
 }
