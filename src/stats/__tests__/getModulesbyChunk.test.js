@@ -8,7 +8,10 @@ import getModulesByChunk from '../getModulesByChunk';
 
 describe('getModulesByChunk', () => {
   it('should list all the chunks', () => {
-    const result = getModulesByChunk(stats);
+    const result = getModulesByChunk(
+      stats,
+      stats.chunks.map((chunk) => chunk.id),
+    );
 
     // Snapshot formatting dies on the whole `result` object.
     expect(Object.keys(result)).toMatchSnapshot();

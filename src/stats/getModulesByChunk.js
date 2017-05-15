@@ -6,6 +6,7 @@ import type {Module, RawStats} from '../types/Stats';
 
 export default function getModulesByChunk(
   stats: RawStats,
+  chunkWhitelist: Array<number>,
 ): {
   [key: number]: {
     id: number,
@@ -16,16 +17,20 @@ export default function getModulesByChunk(
   const map = {};
 
   stats.chunks.forEach((chunk) => {
-    map[chunk.id] = {
-      id: chunk.id,
-      length: 0,
-      modules: [],
-    };
+    if (chunkWhitelist.includes(chunk.id)) {
+      map[chunk.id] = {
+        id: chunk.id,
+        length: 0,
+        modules: [],
+      };
+    }
   });
 
   stats.modules.forEach((module) => {
     module.chunks.forEach((chunk) => {
-      map[chunk].modules = map[chunk].modules.concat(module);
+      if (map[chunk]) {
+        map[chunk].modules = map[chunk].modules.concat(module);
+      }
     });
   });
 

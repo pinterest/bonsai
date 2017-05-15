@@ -16,7 +16,10 @@ export default function getChunkModules(
     return null;
   }
 
-  const modulesByChunk = getModulesByChunk(stats);
+  const modulesByChunk = getModulesByChunk(
+    stats,
+    parentChunks.map((chunk) => chunk.id),
+  );
 
   return parentChunks.reduce(
     (modules, chunk) => modules.concat(modulesByChunk[chunk.id].modules),
