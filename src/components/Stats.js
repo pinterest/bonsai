@@ -4,6 +4,7 @@
 
 import type {ModuleID, RawStats} from '../types/Stats';
 
+import fullModuleData from '../stats/fullModuleData';
 import SelectedChunk from './stats/SelectedChunk';
 import React, { Component } from 'react';
 
@@ -32,12 +33,25 @@ export default class Stats extends Component<void, Props, State> {
   }
 
   render() {
+    const {
+      moduleData,
+      extendedModules,
+      chunksByParent,
+      parentChunks,
+    } = fullModuleData(
+      this.props.json,
+      this.state.selectedChunkId,
+      this.state.blacklistedModuleIds,
+    );
+
     return (
       <SelectedChunk
-        json={this.props.json}
         selectedChunkId={this.state.selectedChunkId}
         blacklistedModuleIds={this.state.blacklistedModuleIds}
-
+        moduleData={moduleData}
+        extendedModules={extendedModules}
+        chunksByParent={chunksByParent}
+        parentChunks={parentChunks}
         onSelectChunkId={this.onSelectChunkId}
         onRemoveModule={this.onRemoveModule}
         onIncludeModule={this.onIncludeModule}
