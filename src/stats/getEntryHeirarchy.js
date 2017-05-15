@@ -30,19 +30,19 @@ function getChildrenForChunk(stats, parentChunk): Array<Child> {
 
   getEntryChunks(stats).filter(
     (chunk) => chunk.parents.includes(parentChunk.id)
-  ).map(
-    (chunk) => ({
-      id: chunk.id,
-      ids: [chunk.id],
-      name: chunk.names.map(squashLocaleChunks).join(', '),
-      names: chunk.names,
-      children: getChildrenForChunk(stats, chunk),
-    })
   ).forEach((chunk) => {
-    if (!collectedChunksByName[chunk.name]) {
-      collectedChunksByName[chunk.name] = chunk;
+    const name = chunk.names.map(squashLocaleChunks).join(', ');
+
+    if (!collectedChunksByName[name]) {
+      collectedChunksByName[name] = {
+        id: chunk.id,
+        ids: [chunk.id],
+        name: name,
+        names: chunk.names,
+        children: getChildrenForChunk(stats, chunk),
+      };
     } else {
-      collectedChunksByName[chunk.name].ids.push(chunk.ids);
+      collectedChunksByName[name].ids.push(chunk.id);
     }
   });
 
