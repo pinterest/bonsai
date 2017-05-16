@@ -1,11 +1,12 @@
 .AppFixed {
   height: 100vh;
-  padding-top: 70px;
+  padding-top: 50px;
   width: 100vw;
 }
 
 .AppView {
   height: 100%;
   overflow: scroll;
+  padding-top: 20px;
   transform: translateZ(0);
 }
