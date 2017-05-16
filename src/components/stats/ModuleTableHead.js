@@ -18,6 +18,7 @@ import React from 'react';
 import SortLabel from '../SortLabel';
 
 const INFINITY = '\u221E';
+const NBSP = '\u00A0';
 
 type Props = {
   filters: FilterProps,
@@ -33,7 +34,7 @@ function FilterDisplay(props) {
         {props.children}
       </kbd>
       {props.isFiltered ?
-        <span style={{marginLeft: '5px'}}>
+        <span style={{position: 'absolute', right: '-10px'}}>
           <CloseButton label="Clear" onClick={props.onClick} />
         </span>
         : null}
@@ -178,9 +179,9 @@ export default function ModuleTableHead(props: Props) {
             }}
             isFiltered={!!(props.filters.cumulativeSizeMin || props.filters.cumulativeSizeMax)}>
             {props.filters.cumulativeSizeMin || 0}
-            {' < '}
+            {NBSP + '<' + NBSP}
             {props.filters.cumulativeSizeMax || INFINITY}
-            {' bytes'}
+            {NBSP + 'bytes'}
           </FilterDisplay>
         </td>
         <td></td>
@@ -194,9 +195,9 @@ export default function ModuleTableHead(props: Props) {
             }}
             isFiltered={!!(props.filters.requiredByCountMin || props.filters.requiredByCountMax)}>
             {props.filters.requiredByCountMin || 0}
-            {' < '}
+            {NBSP + '<' + NBSP}
             {props.filters.requiredByCountMax || INFINITY}
-            {' modules'}
+            {NBSP + 'modules'}
           </FilterDisplay>
         </td>
         <td>
@@ -209,9 +210,9 @@ export default function ModuleTableHead(props: Props) {
             }}
             isFiltered={!!(props.filters.requirementsCountMin || props.filters.requirementsCountMax)}>
             {props.filters.requirementsCountMin || 0}
-            {' < '}
+            {NBSP + '<' + NBSP}
             {props.filters.requirementsCountMax || INFINITY}
-            {' modules'}
+            {NBSP + 'modules'}
           </FilterDisplay>
         </td>
         <td></td>
