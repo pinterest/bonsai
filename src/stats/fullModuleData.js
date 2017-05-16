@@ -3,6 +3,7 @@
  */
 
 import type {
+  ChunkID,
   ExtendedModule,
   ModuleID,
   RawStats,
@@ -19,7 +20,7 @@ import splitUnreachableModules from './splitUnreachableModules';
 
 export default function fullModuleData(
   stats: RawStats,
-  selectedChunkId: ?number,
+  selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
 ): {
   moduleData: ?{

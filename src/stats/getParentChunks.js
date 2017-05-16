@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {ChunkID, RawStats} from '../types/Stats';
 
 import type {Child} from './getEntryHeirarchy';
 
@@ -10,7 +10,7 @@ import getEntryHeirarchy, {ROOT_ID} from './getEntryHeirarchy';
 
 function findChunk(
   root: Child,
-  targetID: number,
+  targetID: ChunkID,
   history: Array<Child> = [],
 ): ?Array<Child> {
   if (targetID === null) {
@@ -33,7 +33,7 @@ function findChunk(
 
 export default function getParentChunks(
   stats: RawStats,
-  chunkId: number,
+  chunkId: ChunkID,
 ): ?Array<Child> {
   return findChunk(getEntryHeirarchy(stats), chunkId);
 }

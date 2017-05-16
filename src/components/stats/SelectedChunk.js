@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {ModuleID, ExtendedModule} from '../../types/Stats';
+import type {ChunkID, ModuleID, ExtendedModule} from '../../types/Stats';
 import type {Child} from '../../stats/getEntryHeirarchy';
 
 import BlacklistTable from './BlacklistTable';
@@ -12,7 +12,7 @@ import ModuleTable from './ModuleTable';
 import React from 'react';
 
 type Props = {
-  selectedChunkId: ?number,
+  selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
 
   moduleData: ?{
@@ -23,7 +23,7 @@ type Props = {
   chunksByParent: Array<Child>,
   parentChunks: ?Array<Child>,
 
-  onSelectChunkId: (chunkId: string | number) => void,
+  onSelectChunkId: (chunkId: ChunkID) => void,
   onRemoveModule: (moduleID: ModuleID) => void,
   onIncludeModule: (moduleID: ModuleID) => void,
 };

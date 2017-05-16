@@ -2,14 +2,15 @@
  * @flow
  */
 
+import type {Child} from '../../stats/getEntryHeirarchy';
+import type {ChunkID} from '../../types/Stats';
+
 import Dropdown from '../Bootstrap/Dropdown';
 import React from 'react';
-import type {Child} from '../../stats/getEntryHeirarchy';
 
-type ChunkID = string | number;
 type Props = {
   chunksByParent: Array<Child>,
-  selectedChunkId: ?number,
+  selectedChunkId: ?ChunkID,
   onSelectChunkId: (chunkId: ChunkID) => void,
 };
 

@@ -3,12 +3,13 @@
  */
 
 import type {Child} from '../../stats/getEntryHeirarchy';
+import type {ChunkID} from '../../types/Stats';
 
 import React from 'react';
 
 type Props = {
   parentChunks: Array<Child>,
-  selectedChunkId: number,
+  selectedChunkId: ChunkID,
   totalModules: number,
 };
 

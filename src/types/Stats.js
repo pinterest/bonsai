@@ -2,6 +2,8 @@
  * @flow
  */
 
+export type ChunkID = string | number;
+
 export type Asset = {
   name: string,
   size: number,
@@ -36,7 +38,7 @@ export type Origin = {
 };
 
 export type Chunk = {
-  id: number,
+  id: ChunkID,
   rendered: boolean,
   initial: boolean,
   entry: boolean,
@@ -46,7 +48,7 @@ export type Chunk = {
   names: Array<string>,
   files: Array<string>,
   hash: string,
-  parents: Array<number>,
+  parents: Array<ChunkID>,
   origins: Array<Origin>
 };
 

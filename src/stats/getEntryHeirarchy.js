@@ -2,15 +2,15 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {ChunkID, RawStats} from '../types/Stats';
 
 import getEntryChunks from './getEntryChunks';
 
 const localeChunkName = /(.*?)locale-[a-z]{2}(_[0-9A-Z]{2,3})?-(index|lite)(.*)/;
 
 export type Child = {
-  id: number,
-  ids: Array<number>,
+  id: ChunkID,
+  ids: Array<ChunkID>,
   name: string,
   names: Array<string>,
   children: Array<Child>,

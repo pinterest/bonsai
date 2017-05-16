@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {ModuleID, RawStats} from '../types/Stats';
+import type {ChunkID, ModuleID, RawStats} from '../types/Stats';
 
 import fullModuleData from '../stats/fullModuleData';
 import SelectedChunk from './stats/SelectedChunk';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 type State = {
-  selectedChunkId: ?number,
+  selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
 };
 
@@ -59,9 +59,9 @@ export default class Stats extends Component<void, Props, State> {
     );
   }
 
-  onSelectChunkId = (chunkId: string | number) => {
+  onSelectChunkId = (chunkId: ChunkID) => {
     this.setState({
-      selectedChunkId: Number(chunkId),
+      selectedChunkId: chunkId,
       blacklistedModuleIds: [],
     });
   };

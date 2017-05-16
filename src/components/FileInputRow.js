@@ -52,7 +52,7 @@ export default class App extends Component<void, Props, State> {
         });
       }
     }).catch((error) => {
-      console.error(`Failed to fetch json from '${endpoint}'.`);
+      console.error(`Failed while fetching json from '${endpoint}'.`, error);
     });
   }
 
@@ -154,15 +154,16 @@ export default class App extends Component<void, Props, State> {
   };
 
   onStatsFilePicked = (event: SyntheticInputEvent) => {
-    if (event.target.value) {
+    const path = String(event.target.value);
+    if (path) {
       this.onLoading();
-      fetchJSON(String(event.target.value), (filename, json) => {
+      fetchJSON(path, (filename, json) => {
         this.props.onLoaded(
           filename,
           json,
         );
-      }).catch(() => {
-        console.error(`Failed to fetch json from '${String(event.target.value)}'.`);
+      }).catch((error) => {
+        console.error(`Failed while fetching json from '${path}'.`, error);
         this.props.onLoaded(null, null);
       });
     }

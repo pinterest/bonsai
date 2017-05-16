@@ -2,14 +2,14 @@
  * @flow
  */
 
-import type {Module, RawStats} from '../types/Stats';
+import type {ChunkID, Module, RawStats} from '../types/Stats';
 
 export default function getModulesByChunk(
   stats: RawStats,
-  chunkWhitelist: Array<number>,
+  chunkWhitelist: Array<ChunkID>,
 ): {
-  [key: number]: {
-    id: number,
+  [key: ChunkID]: {
+    id: ChunkID,
     length: number,
     modules: Array<Module>,
   },
