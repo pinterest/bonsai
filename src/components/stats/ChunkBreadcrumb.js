@@ -25,7 +25,7 @@ export default function ChunkBreadcrumb(props: Props) {
       ))}
       {props.totalModules
         ? <li className="active">
-            showing {props.totalModules} modules
+            {props.totalModules} modules
           </li>
         : null}
     </ol>

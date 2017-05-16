@@ -754,35 +754,35 @@ exports[`Storyshots Stats Shows stats for stats-2017-03-13.json 1`] = `
 
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
 <span
-  title="2">
+  title="2 bytes">
   2.4 B
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Gigabytes (GB) 1`] = `
 <span
-  title="2,400,000,000">
+  title="2,400,000,000 bytes">
   2.4 GB
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Kilobytes (KB) 1`] = `
 <span
-  title="2,400">
+  title="2,400 bytes">
   2.4 KB
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Megabytes (MB) 1`] = `
 <span
-  title="2,400,000">
+  title="2,400,000 bytes">
   2.4 MB
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
 <span
-  title="2,400,000,000,000">
+  title="2,400,000,000,000 bytes">
   2.4 TB
 </span>
 `;

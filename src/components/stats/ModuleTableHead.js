@@ -100,8 +100,8 @@ export default function ModuleTableHead(props: Props) {
         <th></th>
       </tr>
       <tr>
-        <td></td>
-        <td>
+        <th></th>
+        <th>
           <Dropdown
             color="link"
             getContent={() => (
@@ -120,8 +120,8 @@ export default function ModuleTableHead(props: Props) {
               {')'}
             </FilterDisplay>
           </Dropdown>
-        </td>
-        <td>
+        </th>
+        <th>
           <Dropdown
             color="link"
             getContent={() => (
@@ -145,9 +145,9 @@ export default function ModuleTableHead(props: Props) {
               {NBSP + 'bytes'}
             </FilterDisplay>
           </Dropdown>
-        </td>
-        <td></td>
-        <td>
+        </th>
+        <th></th>
+        <th>
           <Dropdown
             color="link"
             getContent={() => (
@@ -171,8 +171,8 @@ export default function ModuleTableHead(props: Props) {
               {NBSP + 'modules'}
             </FilterDisplay>
           </Dropdown>
-        </td>
-        <td>
+        </th>
+        <th>
           <Dropdown
             color="link"
             getContent={() => (
@@ -196,8 +196,8 @@ export default function ModuleTableHead(props: Props) {
               {NBSP + 'modules'}
             </FilterDisplay>
           </Dropdown>
-        </td>
-        <td></td>
+        </th>
+        <th></th>
       </tr>
     </thead>
   );

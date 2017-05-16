@@ -18,6 +18,13 @@ ul, li {
   clear: both;
 }
 
+.table thead > tr:first-child > th {
+  border-bottom: none;
+}
+.table thead > tr:last-child > th {
+  border-top: none;
+}
+
 .table tbody > tr > td.vert-align {
   vertical-align: middle;
 }

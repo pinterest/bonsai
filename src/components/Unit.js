@@ -33,7 +33,7 @@ function toInt(n: number) {
 
 export default function Unit(props: Props) {
   return (
-    <span title={toInt(props.bytes)}>
+    <span title={toInt(props.bytes) + ' bytes'}>
       {formatBytes(props.bytes)}
     </span>
   );
