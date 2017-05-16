@@ -28,3 +28,7 @@ ul, li {
 .table tbody > tr > td.vert-align {
   vertical-align: middle;
 }
+
+.dropdown-menu {
+  margin-bottom: 20px;
+}
