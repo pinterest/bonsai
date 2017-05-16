@@ -28,7 +28,7 @@ type TBodyProps = {
 type TRProps = {
   eModule: ExtendedModule,
   onRemoveModule: (moduleID: ModuleID) => void,
-}
+};
 
 function ModuleTableRow(props: TRProps) {
   const {eModule} = props;

@@ -28,7 +28,7 @@ function fetchJSON(
   });
 }
 
-export default class App extends Component<void, Props, State> {
+export default class FileInputRow extends Component<void, Props, State> {
   state: State = {
     dataPaths: null,
     isDragging: false,
@@ -38,6 +38,10 @@ export default class App extends Component<void, Props, State> {
     const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
     if (!endpoint) {
       console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
+      return;
+    }
+    if (process.env.NODE_ENV === 'test') {
+      console.info('NODE_ENV is \'test\'. Skipping fetchJSON() in FileInputRow::componentDidMount');
       return;
     }
 
