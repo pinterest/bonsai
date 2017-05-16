@@ -29,12 +29,12 @@ type Props = {
 
 function FilterDisplay(props) {
   return (
-    <span style={{display: 'inline-block'}}>
+    <span>
       <kbd>
         {props.children}
       </kbd>
       {props.isFiltered ?
-        <span style={{position: 'absolute', right: '-10px'}}>
+        <span style={{position: 'absolute', right: '-5px'}}>
           <CloseButton label="Clear" onClick={props.onClick} />
         </span>
         : null}
@@ -48,51 +48,24 @@ export default function ModuleTableHead(props: Props) {
       <tr>
         <th></th>
         <th>
-          <Dropdown
-            color="link"
-            split={{
-              primaryOnClick: () => props.onSort('name'),
-              label: 'Filter by Name',
-              glyphicon: 'filter',
-            }}
-            getContent={() => (
-              <FilterModuleNameForm
-                filters={props.filters}
-                onChange={(e) => props.onFilter({moduleName: e.target.value})}
-              />
-            )}
-            style={{display: 'flex'}}>
+          <Button color="link" onClick={() => props.onSort('name')}>
             <SortLabel
               field="name"
               fieldType='alpha'
               sort={props.sort}>
               Module Name
             </SortLabel>
-          </Dropdown>
+          </Button>
         </th>
         <th>
-          <Dropdown
-            color="link"
-            split={{
-              primaryOnClick: () => props.onSort('cumulativeSize'),
-              label: 'Filter by Size',
-              glyphicon: 'filter',
-            }}
-            getContent={() => (
-              <FilterCumulativeSizeForm
-                filters={props.filters}
-                onChangeMin={(e) => props.onFilter({cumulativeSizeMin: e.target.value})}
-                onChangeMax={(e) => props.onFilter({cumulativeSizeMax: e.target.value})}
-              />
-            )}
-            style={{display: 'flex'}}>
+          <Button color="link" onClick={() => props.onSort('cumulativeSize')}>
             <SortLabel
               field="cumulativeSize"
               fieldType='size'
               sort={props.sort}>
               Weighted
             </SortLabel>
-          </Dropdown>
+          </Button>
         </th>
         <th>
           <Button color="link" onClick={() => props.onSort('size')}>
@@ -105,115 +78,124 @@ export default function ModuleTableHead(props: Props) {
           </Button>
         </th>
         <th>
-          <Dropdown
-            color="link"
-            split={{
-              primaryOnClick: () => props.onSort('requiredByCount'),
-              label: 'Filter by Dependants',
-              glyphicon: 'filter',
-            }}
-            getContent={() => (
-              <FilterRequiredByCountForm
-                filters={props.filters}
-                onChangeMin={(e) => props.onFilter({requiredByCountMin: e.target.value})}
-                onChangeMax={(e) => props.onFilter({requiredByCountMax: e.target.value})}
-              />
-            )}
-            style={{display: 'flex'}}>
+          <Button color="link" onClick={() => props.onSort('requiredByCount')}>
             <SortLabel
               field="requiredByCount"
               fieldType='size'
               sort={props.sort}>
               Dependants
             </SortLabel>
-          </Dropdown>
+          </Button>
         </th>
         <th>
-          <Dropdown
-            color="link"
-            split={{
-              primaryOnClick: () => props.onSort('requirementsCount'),
-              label: 'Filter by Imports',
-              glyphicon: 'filter',
-            }}
-            getContent={() => (
-              <FilterRequirementsCountForm
-                filters={props.filters}
-                onChangeMin={(e) => props.onFilter({requirementsCountMin: e.target.value})}
-                onChangeMax={(e) => props.onFilter({requirementsCountMax: e.target.value})}
-              />
-            )}
-            style={{display: 'flex'}}>
+          <Button color="link" onClick={() => props.onSort('requirementsCount')}>
             <SortLabel
               field="requirementsCount"
               fieldType='size'
               sort={props.sort}>
               Imports
             </SortLabel>
-          </Dropdown>
+          </Button>
         </th>
         <th></th>
       </tr>
       <tr>
         <td></td>
         <td>
-          <FilterDisplay
-            onClick={() => props.onFilter({moduleName: ''})}
-            isFiltered={!!props.filters.moduleName}>
-            <kbd>
+          <Dropdown
+            color="link"
+            getContent={() => (
+              <FilterModuleNameForm
+                filters={props.filters}
+                onChange={(e) => props.onFilter({moduleName: e.target.value})}
+              />
+            )}>
+            <FilterDisplay
+              onClick={() => props.onFilter({moduleName: ''})}
+              isFiltered={!!props.filters.moduleName}>
               {'new RegExp('}
               {props.filters.moduleName
                 ? props.filters.moduleName
                 : '.*'}
               {')'}
-            </kbd>
-          </FilterDisplay>
+            </FilterDisplay>
+          </Dropdown>
         </td>
         <td>
-          <FilterDisplay
-            onClick={() => {
-              props.onFilter({
-                cumulativeSizeMin: '',
-                cumulativeSizeMax: '',
-              });
-            }}
-            isFiltered={!!(props.filters.cumulativeSizeMin || props.filters.cumulativeSizeMax)}>
-            {props.filters.cumulativeSizeMin || 0}
-            {NBSP + '<' + NBSP}
-            {props.filters.cumulativeSizeMax || INFINITY}
-            {NBSP + 'bytes'}
-          </FilterDisplay>
+          <Dropdown
+            color="link"
+            getContent={() => (
+              <FilterCumulativeSizeForm
+                filters={props.filters}
+                onChangeMin={(e) => props.onFilter({cumulativeSizeMin: e.target.value})}
+                onChangeMax={(e) => props.onFilter({cumulativeSizeMax: e.target.value})}
+              />
+            )}>
+            <FilterDisplay
+              onClick={() => {
+                props.onFilter({
+                  cumulativeSizeMin: '',
+                  cumulativeSizeMax: '',
+                });
+              }}
+              isFiltered={!!(props.filters.cumulativeSizeMin || props.filters.cumulativeSizeMax)}>
+              {props.filters.cumulativeSizeMin || 0}
+              {NBSP + '<' + NBSP}
+              {props.filters.cumulativeSizeMax || INFINITY}
+              {NBSP + 'bytes'}
+            </FilterDisplay>
+          </Dropdown>
         </td>
         <td></td>
         <td>
-          <FilterDisplay
-            onClick={() => {
-              props.onFilter({
-                requiredByCountMin: '',
-                requiredByCountMax: '',
-              });
-            }}
-            isFiltered={!!(props.filters.requiredByCountMin || props.filters.requiredByCountMax)}>
-            {props.filters.requiredByCountMin || 0}
-            {NBSP + '<' + NBSP}
-            {props.filters.requiredByCountMax || INFINITY}
-            {NBSP + 'modules'}
-          </FilterDisplay>
+          <Dropdown
+            color="link"
+            getContent={() => (
+              <FilterRequiredByCountForm
+                filters={props.filters}
+                onChangeMin={(e) => props.onFilter({requiredByCountMin: e.target.value})}
+                onChangeMax={(e) => props.onFilter({requiredByCountMax: e.target.value})}
+              />
+            )}>
+            <FilterDisplay
+              onClick={() => {
+                props.onFilter({
+                  requiredByCountMin: '',
+                  requiredByCountMax: '',
+                });
+              }}
+              isFiltered={!!(props.filters.requiredByCountMin || props.filters.requiredByCountMax)}>
+              {props.filters.requiredByCountMin || 0}
+              {NBSP + '<' + NBSP}
+              {props.filters.requiredByCountMax || INFINITY}
+              {NBSP + 'modules'}
+            </FilterDisplay>
+          </Dropdown>
         </td>
         <td>
-          <FilterDisplay
-            onClick={() => {
-              props.onFilter({
-                requirementsCountMin: '',
-                requirementsCountMax: '',
-              });
-            }}
-            isFiltered={!!(props.filters.requirementsCountMin || props.filters.requirementsCountMax)}>
-            {props.filters.requirementsCountMin || 0}
-            {NBSP + '<' + NBSP}
-            {props.filters.requirementsCountMax || INFINITY}
-            {NBSP + 'modules'}
-          </FilterDisplay>
+          <Dropdown
+            color="link"
+            getContent={() => (
+              <FilterRequirementsCountForm
+                filters={props.filters}
+                onChangeMin={(e) => props.onFilter({requirementsCountMin: e.target.value})}
+                onChangeMax={(e) => props.onFilter({requirementsCountMax: e.target.value})}
+              />
+            )}>
+            <FilterDisplay
+              onClick={() => {
+                props.onFilter({
+                  requirementsCountMin: '',
+                  requirementsCountMax: '',
+                });
+              }}
+              isFiltered={!!(props.filters.requirementsCountMin || props.filters.requirementsCountMax)}>
+              {props.filters.requirementsCountMin || 0}
+              {NBSP + '<' + NBSP}
+              {props.filters.requirementsCountMax || INFINITY}
+              {NBSP + 'modules'}
+            </FilterDisplay>
+          </Dropdown>
         </td>
         <td></td>
       </tr>
