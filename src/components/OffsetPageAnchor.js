@@ -2,17 +2,17 @@
  * @flow
  */
 
-import React from 'react';
-
 import './OffsetPageAnchor.css';
 
-type Props = {
-  anchor: string,
+type MergeProps = {
+  className?: string,
 };
 
-export default function OffsetPageAnchor(props: Props) {
-  return (
-    <span className="OffsetPageAnchor" id={props.anchor} />
-  );
+export default function OffsetPageAnchor(anchor: string, props: MergeProps = {}) {
+  return {
+    ...props,
+    className: ['OffsetPageSection', props.className].join(' '),
+    tabIndex: -1,
+    id: anchor,
+  };
 }
-

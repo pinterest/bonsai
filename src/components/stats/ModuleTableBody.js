@@ -33,7 +33,7 @@ type TRProps = {
 function ModuleTableRow(props: TRProps) {
   const {eModule} = props;
   return (
-    <tr key={eModule.id}>
+    <tr key={eModule.id} {...OffsetPageAnchor(String(eModule.id))}>
       <td className="vert-align">
         <ExternalModuleLink
           prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
@@ -41,7 +41,6 @@ function ModuleTableRow(props: TRProps) {
         />
       </td>
       <td className="vert-align">
-        <OffsetPageAnchor anchor={String(eModule.id)} />
         {formatModuleName(eModule.name)}
       </td>
       <td className="vert-align">

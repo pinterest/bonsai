@@ -4,3 +4,17 @@
   display: block;
   visibility: hidden;
 }
+
+.OffsetPageSection:focus {
+  outline: 0;
+  animation: yellowfade 3s forwards;
+}
+
+@keyframes yellowfade {
+  from {
+    background: lightYellow;
+  }
+  to {
+    background: white;
+  }
+}

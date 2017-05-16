@@ -1,3 +1,11 @@
-.App {
+.AppFixed {
+  height: 100vh;
   padding-top: 70px;
+  width: 100vw;
+}
+
+.AppView {
+  height: 100%;
+  overflow: scroll;
+  transform: translateZ(0);
 }

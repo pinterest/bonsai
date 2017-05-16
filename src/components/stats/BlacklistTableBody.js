@@ -29,7 +29,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
         <tbody>
           {this.renderHideRow()}
           {this.props.removedModules.map((eModule, i) =>
-            <tr key={`blacklist-${i}`}>
+            <tr key={`blacklist-${i}`} {...OffsetPageAnchor(String(eModule.id))}>
               <td className="vert-align">
                 <ExternalModuleLink
                   prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
@@ -37,7 +37,6 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
                 />
               </td>
               <td className="vert-align">
-                <OffsetPageAnchor anchor={String(eModule.id)} />
                 {eModule.name}
               </td>
               <td className="vert-align">

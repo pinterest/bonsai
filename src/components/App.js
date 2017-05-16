@@ -28,19 +28,23 @@ export default class App extends Component<void, {}, State> {
     return (
       <div className="App">
         <Navbar />
-        <aside className="container-fluid">
-          <FileInputRow
-            filename={this.state.filename}
-            onLoading={this.onLoading}
-            onLoaded={this.onLoaded}
-          />
-        </aside>
-          {this.state.loading
-            ? <p className="center-block"><em>Loading...</em></p>
-            : null}
-          {this.state.json
-            ? <Stats json={this.state.json} />
-            : null}
+        <div className="AppFixed">
+          <div className="AppView">
+            <aside className="container-fluid">
+              <FileInputRow
+                filename={this.state.filename}
+                onLoading={this.onLoading}
+                onLoaded={this.onLoaded}
+              />
+            </aside>
+              {this.state.loading
+                ? <p className="center-block"><em>Loading...</em></p>
+                : null}
+              {this.state.json
+                ? <Stats json={this.state.json} />
+                : null}
+          </div>
+        </div>
       </div>
     );
   }

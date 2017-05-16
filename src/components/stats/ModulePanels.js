@@ -7,7 +7,7 @@ import type {ExtendedModule} from '../../types/Stats';
 import Dropdown from '../Bootstrap/Dropdown';
 import formatModuleName from './formatModuleName';
 import React from 'react';
-import scrollTo from '../../scrollTo';
+import scrollToAndFocus from '../../scrollToAndFocus';
 
 export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
   return (
@@ -21,7 +21,7 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
             <a href="#" onClick={(e) => {
               e.preventDefault();
               hideContent();
-              scrollTo(String(reason.moduleId));
+              scrollToAndFocus(String(reason.moduleId));
             }}>
               {formatModuleName(reason.moduleIdentifier)}
             </a>
@@ -47,7 +47,7 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
             <a href="#" onClick={(e) => {
               e.preventDefault();
               hideContent();
-              scrollTo(String(module.id));
+              scrollToAndFocus(String(module.id));
             }}>
               {formatModuleName(module.identifier)}
             </a>

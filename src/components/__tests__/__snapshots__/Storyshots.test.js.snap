@@ -15,55 +15,61 @@ exports[`Storyshots App Default View 1`] = `
       </div>
     </div>
   </nav>
-  <aside
-    className="container-fluid">
+  <div
+    className="AppFixed">
     <div
-      className="row">
-      <div
-        className="col-sm-12">
+      className="AppView">
+      <aside
+        className="container-fluid">
         <div
-          onClick={[Function]}
-          style={undefined}>
-          <input
-            className="form-control"
-            id="drag-drop-upload"
-            onChange={[Function]}
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-            type="file" />
+          className="row">
           <div
-            className="well well-sm clearfix">
+            className="col-sm-12">
             <div
-              className="form-horizontal">
+              onClick={[Function]}
+              style={undefined}>
+              <input
+                className="form-control"
+                id="drag-drop-upload"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file" />
               <div
-                className="form-group col-sm-6">
-                <label
-                  className="control-label">
-                  Drag & Drop your 
-                  <code>
-                    stats.json
-                  </code>
-                   file here
-                </label>
-                <span
-                  className="col-sm-12 help-block"
-                  id="drag-drop-helpblock">
-                  Run 
-                  <kbd>
-                    webpack --json > stats.json
-                  </kbd>
-                   to get started.
-                </span>
+                className="well well-sm clearfix">
+                <div
+                  className="form-horizontal">
+                  <div
+                    className="form-group col-sm-6">
+                    <label
+                      className="control-label">
+                      Drag & Drop your 
+                      <code>
+                        stats.json
+                      </code>
+                       file here
+                    </label>
+                    <span
+                      className="col-sm-12 help-block"
+                      id="drag-drop-helpblock">
+                      Run 
+                      <kbd>
+                        webpack --json > stats.json
+                      </kbd>
+                       to get started.
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </aside>
     </div>
-  </aside>
+  </div>
 </div>
 `;
 
