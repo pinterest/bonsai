@@ -15,6 +15,7 @@ export default function getExtendedModulesById(
       requiredBy: [],
       requiredByCount: 0,
       requirements: [],
+      requirementsCount: 0,
       cumulativeSize: 0,
     };
   }).reduce((map, module) => {
@@ -40,6 +41,7 @@ export default function getExtendedModulesById(
 
         // record the reason as an import on $reason.moduleId
         importer.requirements.push(module);
+        importer.requirementsCount += 1;
       }
     });
   });

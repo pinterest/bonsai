@@ -13,6 +13,7 @@ import Dropdown from '../Bootstrap/Dropdown';
 import FilterCumulativeSizeForm from './FilterCumulativeSizeForm';
 import FilterModuleNameForm from './FilterModuleNameForm';
 import FilterRequiredByCountForm from './FilterRequiredByCountForm';
+import FilterRequirementsCountForm from './FilterRequirementsCountForm';
 import React from 'react';
 import SortLabel from '../SortLabel';
 
@@ -22,7 +23,7 @@ type Props = {
   filters: FilterProps,
   sort: SortProps,
   onSort: (field: string) => void,
-  onFilter: (field: FilterableFields, value: string) => void,
+  onFilter: (changes: {[key: FilterableFields]: string}) => void,
 };
 
 function FilterDisplay(props) {
@@ -56,7 +57,7 @@ export default function ModuleTableHead(props: Props) {
             getContent={() => (
               <FilterModuleNameForm
                 filters={props.filters}
-                onChange={(e) => props.onFilter('moduleName', e.target.value)}
+                onChange={(e) => props.onFilter({moduleName: e.target.value})}
               />
             )}
             style={{display: 'flex'}}>
@@ -79,8 +80,8 @@ export default function ModuleTableHead(props: Props) {
             getContent={() => (
               <FilterCumulativeSizeForm
                 filters={props.filters}
-                onChangeMin={(e) => props.onFilter('cumulativeSizeMin', e.target.value)}
-                onChangeMax={(e) => props.onFilter('cumulativeSizeMax', e.target.value)}
+                onChangeMin={(e) => props.onFilter({cumulativeSizeMin: e.target.value})}
+                onChangeMax={(e) => props.onFilter({cumulativeSizeMax: e.target.value})}
               />
             )}
             style={{display: 'flex'}}>
@@ -113,8 +114,8 @@ export default function ModuleTableHead(props: Props) {
             getContent={() => (
               <FilterRequiredByCountForm
                 filters={props.filters}
-                onChangeMin={(e) => props.onFilter('requiredByCountMin', e.target.value)}
-                onChangeMax={(e) => props.onFilter('requiredByCountMax', e.target.value)}
+                onChangeMin={(e) => props.onFilter({requiredByCountMin: e.target.value})}
+                onChangeMax={(e) => props.onFilter({requiredByCountMax: e.target.value})}
               />
             )}
             style={{display: 'flex'}}>
@@ -127,9 +128,28 @@ export default function ModuleTableHead(props: Props) {
           </Dropdown>
         </th>
         <th>
-          <Button color="link" onClick={null}>
-            Imports
-          </Button>
+          <Dropdown
+            color="link"
+            split={{
+              primaryOnClick: () => props.onSort('requirementsCount'),
+              label: 'Filter by Imports',
+              glyphicon: 'filter',
+            }}
+            getContent={() => (
+              <FilterRequirementsCountForm
+                filters={props.filters}
+                onChangeMin={(e) => props.onFilter({requirementsCountMin: e.target.value})}
+                onChangeMax={(e) => props.onFilter({requirementsCountMax: e.target.value})}
+              />
+            )}
+            style={{display: 'flex'}}>
+            <SortLabel
+              field="requirementsCount"
+              fieldType='size'
+              sort={props.sort}>
+              Imports
+            </SortLabel>
+          </Dropdown>
         </th>
         <th></th>
       </tr>
@@ -137,7 +157,7 @@ export default function ModuleTableHead(props: Props) {
         <td></td>
         <td>
           <FilterDisplay
-            onClick={() => props.onFilter('moduleName', '')}
+            onClick={() => props.onFilter({moduleName: ''})}
             isFiltered={!!props.filters.moduleName}>
             <kbd>
               {'new RegExp('}
@@ -151,8 +171,10 @@ export default function ModuleTableHead(props: Props) {
         <td>
           <FilterDisplay
             onClick={() => {
-              props.onFilter('cumulativeSizeMin', '');
-              props.onFilter('cumulativeSizeMax', '');
+              props.onFilter({
+                cumulativeSizeMin: '',
+                cumulativeSizeMax: '',
+              });
             }}
             isFiltered={!!(props.filters.cumulativeSizeMin || props.filters.cumulativeSizeMax)}>
             {props.filters.cumulativeSizeMin || 0}
@@ -165,8 +187,10 @@ export default function ModuleTableHead(props: Props) {
         <td>
           <FilterDisplay
             onClick={() => {
-              props.onFilter('requiredByCountMin', '');
-              props.onFilter('requiredByCountMax', '');
+              props.onFilter({
+                requiredByCountMin: '',
+                requiredByCountMax: '',
+              });
             }}
             isFiltered={!!(props.filters.requiredByCountMin || props.filters.requiredByCountMax)}>
             {props.filters.requiredByCountMin || 0}
@@ -175,7 +199,22 @@ export default function ModuleTableHead(props: Props) {
             {' modules'}
           </FilterDisplay>
         </td>
-        <td colSpan="2"></td>
+        <td>
+          <FilterDisplay
+            onClick={() => {
+              props.onFilter({
+                requirementsCountMin: '',
+                requirementsCountMax: '',
+              });
+            }}
+            isFiltered={!!(props.filters.requirementsCountMin || props.filters.requirementsCountMax)}>
+            {props.filters.requirementsCountMin || 0}
+            {' < '}
+            {props.filters.requirementsCountMax || INFINITY}
+            {' modules'}
+          </FilterDisplay>
+        </td>
+        <td></td>
       </tr>
     </thead>
   );

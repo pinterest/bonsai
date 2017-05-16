@@ -36,6 +36,8 @@ export default class ModuleTable extends Component<void, Props, State> {
       cumulativeSizeMax: '',
       requiredByCountMin: '',
       requiredByCountMax: '',
+      requirementsCountMin: '',
+      requirementsCountMax: '',
     },
     filtersApplied: {
       moduleName: '',
@@ -43,6 +45,8 @@ export default class ModuleTable extends Component<void, Props, State> {
       cumulativeSizeMax: '',
       requiredByCountMin: '',
       requiredByCountMax: '',
+      requirementsCountMin: '',
+      requirementsCountMax: '',
     },
     sort: {
       field: 'cumulativeSize',
@@ -82,11 +86,11 @@ export default class ModuleTable extends Component<void, Props, State> {
     });
   };
 
-  onFilterChanged = (field: FilterableFields, value: string) => {
+  onFilterChanged = (changes: {[key: FilterableFields]: string}) => {
     this.setState({
       filtersValues: {
         ...this.state.filtersValues,
-        [field]: value,
+        ...changes,
       },
     });
     this.applyFilters();

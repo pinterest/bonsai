@@ -10,6 +10,8 @@ export type FilterProps = {
   cumulativeSizeMax: string,
   requiredByCountMin: string,
   requiredByCountMax: string,
+  requirementsCountMin: string,
+  requirementsCountMax: string,
 };
 
 export type FilterableFields = $Keys<FilterProps>;
@@ -68,6 +70,11 @@ export default function filterModules(
       'requiredByCount',
       Number(filters.requiredByCountMin),
       Number(filters.requiredByCountMax),
+    ))
+    .filter(makeRecordRangeFilter(
+      'requirementsCount',
+      Number(filters.requirementsCountMin),
+      Number(filters.requirementsCountMax),
     ))
     .sort((a, b) => {
       const {field, direction} = sort;
