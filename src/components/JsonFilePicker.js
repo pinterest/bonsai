@@ -11,22 +11,20 @@ type Props = {
   onChange: (event: SyntheticInputEvent) => void,
 };
 
-export default class JsonFilePicker extends Component<void, Props, void> {
-  render() {
-    if (!this.props.dataPaths) {
-      return null;
-    }
-
-    return (
-      <select
-        id={this.props.id}
-        className={this.props.className}
-        onChange={this.props.onChange}>
-        <option value=""></option>
-        {this.props.dataPaths.map((file) =>
-          <option key={file} value={file}>{file}</option>
-        )}
-      </select>
-    );
+export default function JsonFilePicker(props: Props) {
+  if (!props.dataPaths) {
+    return null;
   }
+
+  return (
+    <select
+      id={props.id}
+      className={props.className}
+      onChange={props.onChange}>
+      <option value=""></option>
+      {props.dataPaths.map((file) =>
+        <option key={file} value={file}>{file}</option>
+      )}
+    </select>
+  );
 }
