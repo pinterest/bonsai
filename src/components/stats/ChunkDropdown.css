@@ -1,0 +1,8 @@
+.ChunkDropdownPrefix {
+  position: relative;
+}
+.ChunkDropdownPrefix:before {
+  content: '↳';
+  left: -2em;
+  padding: 0 4px;
+}

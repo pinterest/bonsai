@@ -8,23 +8,17 @@ import type {ChunkID} from '../../types/Stats';
 import Dropdown from '../Bootstrap/Dropdown';
 import React from 'react';
 
+import './ChunkDropdown.css';
+
 type Props = {
   chunksByParent: Array<Child>,
   selectedChunkId: ?ChunkID,
   onSelectChunkId: (chunkId: ChunkID) => void,
 };
 
-const NBSP = '\u00A0';
-
-function getPrefix(indent) {
-  return indent === 0
-    ? ''
-    : NBSP.repeat((indent - 1) * 2) + '↳';
-}
-
 export default function ChunkDropdown(props: Props) {
   let selectedItem = null;
-  const flatChunks: Array<{id: ChunkID, name: string}> = [];
+  const flatChunks: Array<{id: ChunkID, name: string, indent: number}> = [];
   const visitedChunks = {};
 
   function appendChildren(children: Array<Child>, indent: number) {
@@ -32,14 +26,16 @@ export default function ChunkDropdown(props: Props) {
       if (child.id === props.selectedChunkId) {
         selectedItem = {
           id: child.id,
-          name: `${child.name} (${child.id})`,
+          name: child.name,
+          indent: indent,
         };
       }
 
       if (!visitedChunks[child.id]) {
         flatChunks.push({
           id: child.id,
-          name: `${getPrefix(indent)}${child.name} (${child.id})`,
+          name: child.name,
+          indent: indent,
         });
         visitedChunks[child.id] = true;
       }
@@ -58,12 +54,21 @@ export default function ChunkDropdown(props: Props) {
           <Dropdown
             getContent={(hideContent) => flatChunks.map((chunk) => (
               <li key={chunk.id}>
-                <a href="#" onClick={() => {
-                  hideContent();
-                  props.onSelectChunkId(chunk.id);
-                }}>
-                  {chunk.name}
-                </a>
+                <button
+                  className="btn btn-link btn-block"
+                  style={chunk.indent ? {paddingLeft: chunk.indent + 'em'} : {}}
+                  onClick={() => {
+                    hideContent();
+                    props.onSelectChunkId(chunk.id);
+                  }}>
+                  <div
+                    className={[
+                      'text-left',
+                      chunk.indent ? 'ChunkDropdownPrefix' : '',
+                    ].join(' ')}>
+                    {chunk.name} ({chunk.id})
+                  </div>
+                </button>
               </li>
             ))}>
             {selectedItem
