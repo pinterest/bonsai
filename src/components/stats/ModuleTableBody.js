@@ -8,15 +8,15 @@ import type {FilterProps, SortProps} from '../../stats/filterModules';
 import Button from '../Bootstrap/Button';
 import ExternalModuleLink from './ExternalModuleLink';
 import filterModules from '../../stats/filterModules';
+import formatModuleName from './formatModuleName';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, {PureComponent} from 'react';
 import Unit from '../Unit';
+import {getClassName} from '../Bootstrap/GlyphiconNames';
 import {
   RequiredByPanel,
   RequirementsPanel,
 } from './ModulePanels';
-
-import formatModuleName from './formatModuleName';
 
 type TBodyProps = {
   extendedModules: Array<ExtendedModule>,
@@ -41,6 +41,12 @@ function ModuleTableRow(props: TRProps) {
         />
       </td>
       <td className="vert-align">
+        {eModule.loops.length
+          ? <span
+              className={['pull-right', getClassName('repeat')].join(' ')}
+              title="Circular Dependencies Detected"
+            />
+          : null}
         {formatModuleName(eModule.name)}
       </td>
       <td className="vert-align">

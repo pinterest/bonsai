@@ -48,5 +48,5 @@ export default function formatModuleName(name: string) {
           {moduleName}
         </span>,
     ];
-  }).reduce(joinWithBR, []);
+  }).filter(_ => _).reduce(joinWithBR, []);
 }

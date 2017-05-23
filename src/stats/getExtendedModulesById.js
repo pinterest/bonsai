@@ -17,6 +17,7 @@ export default function getExtendedModulesById(
       requirements: [],
       requirementsCount: 0,
       cumulativeSize: 0,
+      loops: [],
     };
   }).reduce((map, module) => {
     map[module.id] = module;
@@ -75,6 +76,7 @@ export function calculateModuleSizes(
           rModule.id,
           visitedIds.map((id) => modules[id])
         );
+        eModule.loops.push(visitedIds);
       }
     });
 

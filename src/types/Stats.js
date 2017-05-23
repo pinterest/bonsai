@@ -113,4 +113,5 @@ export type ExtendedModule = {
   requiredByCount: number,
   requirements: Array<Module>,
   cumulativeSize: number,
+  loops: Array<Array<ModuleID>>,
 };
