@@ -2,11 +2,11 @@
  * @flow
  */
 
-import stats from './fixtures/stats-2017-03-13.json';
+import stats from './__fixtures__/stats.json';
 
 import getParentChunks from '../getParentChunks';
 
-describe('getParentChunks', () => {
+describe.skip('getParentChunks', () => {
   it('should list some for a chunk in the middle', () => {
     const result = getParentChunks(stats, 198);
 

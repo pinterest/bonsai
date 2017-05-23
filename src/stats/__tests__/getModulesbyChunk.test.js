@@ -2,11 +2,11 @@
  * @flow
  */
 
-import stats from './fixtures/stats-2017-03-13.json';
+import stats from './__fixtures__/stats.json';
 
 import getModulesByChunk from '../getModulesByChunk';
 
-describe('getModulesByChunk', () => {
+describe.skip('getModulesByChunk', () => {
   it('should list all the chunks', () => {
     const result = getModulesByChunk(
       stats,

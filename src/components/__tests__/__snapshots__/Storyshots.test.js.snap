@@ -1,168 +1,12 @@
-exports[`Storyshots App Default View 1`] = `
-<div
-  className="App">
-  <nav
-    className="navbar navbar-default navbar-fixed-top navbar-inverse">
-    <div
-      className="container-fluid">
-      <div
-        className="navbar-header">
-        <a
-          className="navbar-brand"
-          href="/">
-          Webpack Dependency Size
-        </a>
-      </div>
-    </div>
-  </nav>
-  <div
-    className="AppFixed">
-    <div
-      className="AppView">
-      <aside
-        className="container-fluid">
-        <div
-          className="row">
-          <div
-            className="col-sm-12">
-            <div
-              onClick={[Function]}
-              style={undefined}>
-              <input
-                className="form-control"
-                id="drag-drop-upload"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                type="file" />
-              <div
-                className="well well-sm clearfix">
-                <div
-                  className="form-horizontal">
-                  <div
-                    className="form-group col-sm-6">
-                    <label
-                      className="control-label">
-                      Drag & Drop your 
-                      <code>
-                        stats.json
-                      </code>
-                       file here
-                    </label>
-                    <span
-                      className="col-sm-12 help-block"
-                      id="drag-drop-helpblock">
-                      Run 
-                      <kbd>
-                        webpack --json > stats.json
-                      </kbd>
-                       to get started.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots App FileInput stacked on Stats 1`] = `
-<div>
-  <aside
-    className="container-fluid">
-    <div
-      className="row">
-      <div
-        className="col-sm-12">
-        <div
-          onClick={[Function]}
-          style={undefined}>
-          <input
-            className="form-control"
-            id="drag-drop-upload"
-            onChange={[Function]}
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-            type="file" />
-          <div
-            className="form-horizontal">
-            <div
-              className="form-group">
-              <label
-                className="col-sm-1 control-label">
-                Filename
-              </label>
-              <div
-                className="col-sm-11">
-                <p
-                  className="form-control-static">
-                  stats.json
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <main
-    className="container-fluid">
-    <div
-      className="row">
-      <div
-        className="col-sm-12">
-        <div
-          className="form-horizontal">
-          <div
-            className="form-group">
-            <label
-              className="col-sm-1 control-label">
-              Chunk
-            </label>
-            <div
-              className="col-sm-11">
-              <div
-                className="btn-group "
-                style={undefined}>
-                <button
-                  aria-expanded={false}
-                  aria-haspopup="true"
-                  className="btn btn-default dropdown-toggle"
-                  data-toggle="dropdown"
-                  disabled={null}
-                  onClick={[Function]}
-                  type="button">
-                  - pick a chunk -
-                   
-                  <span
-                    className="caret" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 <button
   className="btn btn-default "
   disabled="disabed"
   onClick={null}
-  type="button">
+  type="button"
+>
   Click Me!
 </button>
 `;
@@ -172,7 +16,8 @@ exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
   className="btn btn-success "
   disabled="disabed"
   onClick={null}
-  type="button">
+  type="button"
+>
   Click Me!
 </button>
 `;
@@ -182,7 +27,8 @@ exports[`Storyshots Bootstrap/Button Large 1`] = `
   className="btn btn-default btn-lg"
   disabled={null}
   onClick={[Function]}
-  type="button">
+  type="button"
+>
   Click Me!
 </button>
 `;
@@ -192,7 +38,8 @@ exports[`Storyshots Bootstrap/Button Success 1`] = `
   className="btn btn-success "
   disabled={null}
   onClick={[Function]}
-  type="button">
+  type="button"
+>
   Click Me!
 </button>
 `;
@@ -202,7 +49,8 @@ exports[`Storyshots Bootstrap/Button With onClick 1`] = `
   className="btn btn-default "
   disabled={null}
   onClick={[Function]}
-  type="button">
+  type="button"
+>
   Click Me!
 </button>
 `;
@@ -215,15 +63,18 @@ exports[`Storyshots Bootstrap/CloseButton Disabled 1`] = `
       "height": "100px",
       "width": "100px",
     }
-  }>
+  }
+>
   <button
     aria-label="Close"
     className="close"
     disabled="disabed"
     onClick={null}
-    type="button">
+    type="button"
+  >
     <span
-      aria-hidden="true">
+      aria-hidden="true"
+    >
       ×
     </span>
   </button>
@@ -238,15 +89,18 @@ exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
       "height": "100px",
       "width": "100px",
     }
-  }>
+  }
+>
   <button
     aria-label="Close"
     className="close"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     <span
-      aria-hidden="true">
+      aria-hidden="true"
+    >
       ×
     </span>
   </button>
@@ -256,7 +110,8 @@ exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     aria-expanded={false}
     aria-haspopup="true"
@@ -264,11 +119,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show flyout
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
 </div>
 `;
@@ -276,7 +133,8 @@ exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     aria-expanded={false}
     aria-haspopup="true"
@@ -284,11 +142,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show flyout
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
 </div>
 `;
@@ -296,7 +156,8 @@ exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     aria-expanded={false}
     aria-haspopup="true"
@@ -304,11 +165,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show flyout
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
 </div>
 `;
@@ -321,7 +184,8 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
       "background": "red",
       "padding": "10px",
     }
-  }>
+  }
+>
   <button
     aria-expanded={false}
     aria-haspopup="true"
@@ -329,11 +193,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show flyout
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
 </div>
 `;
@@ -341,7 +207,8 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     aria-expanded={false}
     aria-haspopup="true"
@@ -349,11 +216,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
     data-toggle="dropdown"
     disabled="disabed"
     onClick={null}
-    type="button">
+    type="button"
+  >
     Show flyout
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
 </div>
 `;
@@ -361,7 +230,8 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     aria-expanded={false}
     aria-haspopup="true"
@@ -369,11 +239,13 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show list
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
 </div>
 `;
@@ -381,12 +253,14 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     className="btn btn-default "
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show list
   </button>
   <button
@@ -396,12 +270,15 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     <span
       aria-hidden="true"
-      className="caret" />
+      className="caret"
+    />
     <span
-      className="sr-only">
+      className="sr-only"
+    >
       expand
     </span>
   </button>
@@ -411,12 +288,14 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     className="btn btn-success "
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show list
   </button>
   <button
@@ -426,12 +305,15 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     <span
       aria-hidden="true"
-      className="caret" />
+      className="caret"
+    />
     <span
-      className="sr-only">
+      className="sr-only"
+    >
       expand
     </span>
   </button>
@@ -441,12 +323,14 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     className="btn btn-default "
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show list
   </button>
   <button
@@ -456,12 +340,15 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     <span
       aria-hidden="true"
-      className="glyphicon glyphicon-star" />
+      className="glyphicon glyphicon-star"
+    />
     <span
-      className="sr-only">
+      className="sr-only"
+    >
       expand
     </span>
   </button>
@@ -471,12 +358,14 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 <div
   className="btn-group "
-  style={undefined}>
+  style={undefined}
+>
   <button
     className="btn btn-default "
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     Show list
   </button>
   <button
@@ -486,12 +375,15 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
-    type="button">
+    type="button"
+  >
     <span
       aria-hidden="true"
-      className="caret" />
+      className="caret"
+    />
     <span
-      className="sr-only">
+      className="sr-only"
+    >
       expand
     </span>
   </button>
@@ -504,7 +396,8 @@ exports[`Storyshots Bootstrap/Link Disabled 1`] = `
   disabled="disabled"
   href="#"
   role="button"
-  target={null}>
+  target={null}
+>
   Click Me!
 </a>
 `;
@@ -515,7 +408,8 @@ exports[`Storyshots Bootstrap/Link Disabled Success 1`] = `
   disabled="disabled"
   href="#"
   role="button"
-  target={null}>
+  target={null}
+>
   Click Me!
 </a>
 `;
@@ -524,9 +418,10 @@ exports[`Storyshots Bootstrap/Link Large 1`] = `
 <a
   className="btn btn-link btn-lg"
   disabled={null}
-  href="javascript: alert(\'Linked!\');"
+  href="javascript: alert('Linked!');"
   role="button"
-  target={null}>
+  target={null}
+>
   Click Me!
 </a>
 `;
@@ -537,9 +432,11 @@ exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
   disabled={null}
   href="example.com"
   role="button"
-  target="_blank">
+  target="_blank"
+>
   <span
-    className="glyphicon glyphicon-new-window" />
+    className="glyphicon glyphicon-new-window"
+  />
    Open External Site
 </a>
 `;
@@ -548,9 +445,10 @@ exports[`Storyshots Bootstrap/Link Success 1`] = `
 <a
   className="btn btn-success "
   disabled={null}
-  href="javascript: alert(\'Linked!\');"
+  href="javascript: alert('Linked!');"
   role="button"
-  target={null}>
+  target={null}
+>
   Click Me!
 </a>
 `;
@@ -559,9 +457,10 @@ exports[`Storyshots Bootstrap/Link With href 1`] = `
 <a
   className="btn btn-link "
   disabled={null}
-  href="javascript: alert(\'Linked!\');"
+  href="javascript: alert('Linked!');"
   role="button"
-  target={null}>
+  target={null}
+>
   Click Me!
 </a>
 `;
@@ -572,10 +471,12 @@ exports[`Storyshots ExternalModuleLink Default 1`] = `
   disabled={null}
   href="http://example.com/./app/analytics/modules/AnalyticsMetric/AnalyticsMetric.js"
   role="button"
-  target="_blank">
+  target="_blank"
+>
   <span
     aria-label="Open in new window"
-    className="glyphicon glyphicon-new-window" />
+    className="glyphicon glyphicon-new-window"
+  />
 </a>
 `;
 
@@ -583,12 +484,15 @@ exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
 
 exports[`Storyshots FileInputRow File loaded 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-sm-12">
+    className="col-sm-12"
+  >
     <div
       onClick={[Function]}
-      style={undefined}>
+      style={undefined}
+    >
       <input
         className="form-control"
         id="drag-drop-upload"
@@ -598,19 +502,25 @@ exports[`Storyshots FileInputRow File loaded 1`] = `
             "display": "none",
           }
         }
-        type="file" />
+        type="file"
+      />
       <div
-        className="form-horizontal">
+        className="form-horizontal"
+      >
         <div
-          className="form-group">
+          className="form-group"
+        >
           <label
-            className="col-sm-1 control-label">
+            className="col-sm-1 control-label"
+          >
             Filename
           </label>
           <div
-            className="col-sm-11">
+            className="col-sm-11"
+          >
             <p
-              className="form-control-static">
+              className="form-control-static"
+            >
               stats.json
             </p>
           </div>
@@ -623,12 +533,15 @@ exports[`Storyshots FileInputRow File loaded 1`] = `
 
 exports[`Storyshots FileInputRow No file 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-sm-12">
+    className="col-sm-12"
+  >
     <div
       onClick={[Function]}
-      style={undefined}>
+      style={undefined}
+    >
       <input
         className="form-control"
         id="drag-drop-upload"
@@ -638,15 +551,20 @@ exports[`Storyshots FileInputRow No file 1`] = `
             "display": "none",
           }
         }
-        type="file" />
+        type="file"
+      />
       <div
-        className="well well-sm clearfix">
+        className="well well-sm clearfix"
+      >
         <div
-          className="form-horizontal">
+          className="form-horizontal"
+        >
           <div
-            className="form-group col-sm-6">
+            className="form-group col-sm-6"
+          >
             <label
-              className="control-label">
+              className="control-label"
+            >
               Drag & Drop your 
               <code>
                 stats.json
@@ -655,10 +573,11 @@ exports[`Storyshots FileInputRow No file 1`] = `
             </label>
             <span
               className="col-sm-12 help-block"
-              id="drag-drop-helpblock">
+              id="drag-drop-helpblock"
+            >
               Run 
               <kbd>
-                webpack --json > stats.json
+                webpack --json &gt; stats.json
               </kbd>
                to get started.
             </span>
@@ -680,7 +599,8 @@ exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
 <span>
   <span
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-attributes" />
+    className="glyphicon glyphicon-sort-by-attributes"
+  />
    
   Size
 </span>
@@ -690,7 +610,8 @@ exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
 <span>
   <span
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-attributes-alt" />
+    className="glyphicon glyphicon-sort-by-attributes-alt"
+  />
    
   Name
 </span>
@@ -700,7 +621,8 @@ exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
 <span>
   <span
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-alphabet" />
+    className="glyphicon glyphicon-sort-by-alphabet"
+  />
    
   Name
 </span>
@@ -710,85 +632,49 @@ exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 <span>
   <span
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-order" />
+    className="glyphicon glyphicon-sort-by-order"
+  />
    
   Rank
 </span>
 `;
 
-exports[`Storyshots Stats Shows stats for stats-2017-03-13.json 1`] = `
-<main
-  className="container-fluid">
-  <div
-    className="row">
-    <div
-      className="col-sm-12">
-      <div
-        className="form-horizontal">
-        <div
-          className="form-group">
-          <label
-            className="col-sm-1 control-label">
-            Chunk
-          </label>
-          <div
-            className="col-sm-11">
-            <div
-              className="btn-group "
-              style={undefined}>
-              <button
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="btn btn-default dropdown-toggle"
-                data-toggle="dropdown"
-                disabled={null}
-                onClick={[Function]}
-                type="button">
-                - pick a chunk -
-                 
-                <span
-                  className="caret" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-`;
-
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
 <span
-  title="2 bytes">
+  title="2 bytes"
+>
   2.4 B
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Gigabytes (GB) 1`] = `
 <span
-  title="2,400,000,000 bytes">
+  title="2,400,000,000 bytes"
+>
   2.4 GB
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Kilobytes (KB) 1`] = `
 <span
-  title="2,400 bytes">
+  title="2,400 bytes"
+>
   2.4 KB
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Megabytes (MB) 1`] = `
 <span
-  title="2,400,000 bytes">
+  title="2,400,000 bytes"
+>
   2.4 MB
 </span>
 `;
 
 exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
 <span
-  title="2,400,000,000,000 bytes">
+  title="2,400,000,000,000 bytes"
+>
   2.4 TB
 </span>
 `;
@@ -796,7 +682,8 @@ exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
 exports[`Storyshots formatModuleName delegated dll 1`] = `
 <span>
   <span
-    title="">
+    title=""
+  >
     delegated ./node_modules/classnames/index.js from dll-reference vendor
   </span>
   <br />
@@ -811,12 +698,14 @@ exports[`Storyshots formatModuleName loader 1`] = `
         "color": "#aaa",
       }
     }
-    title="./~/html-webpack-plugin/lib/loader.js!./public/index.html">
+    title="./~/html-webpack-plugin/lib/loader.js!./public/index.html"
+  >
      
     ./~/html-webpack-plugin/lib/loader.js!
   </span>
   <span
-    title="./~/html-webpack-plugin/lib/loader.js!./public/index.html">
+    title="./~/html-webpack-plugin/lib/loader.js!./public/index.html"
+  >
     ./public/index.html
   </span>
   <br />
@@ -831,12 +720,14 @@ exports[`Storyshots formatModuleName loader with query 1`] = `
         "color": "#aaa",
       }
     }
-    title="./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}./node_modules/eslint-loader/index.js!./src/index.js">
+    title="./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
      
-    ./node_modules/babel-loader/lib/index.js?{\"babel…\":true}!./node_modules/eslint-loader/index.js!
+    ./node_modules/babel-loader/lib/index.js?{"babel…":true}!./node_modules/eslint-loader/index.js!
   </span>
   <span
-    title="./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}./node_modules/eslint-loader/index.js!./src/index.js">
+    title="./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
     ./src/index.js
   </span>
   <br />
@@ -851,12 +742,14 @@ exports[`Storyshots formatModuleName main and loader with query 1`] = `
         "color": "#aaa",
       }
     }
-    title="main ./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}./node_modules/eslint-loader/index.js!./src/index.js">
+    title="main ./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
      
-    main ./node_modules/babel-loader/lib/index.js?{\"babel…\":true}!./node_modules/eslint-loader/index.js!
+    main ./node_modules/babel-loader/lib/index.js?{"babel…":true}!./node_modules/eslint-loader/index.js!
   </span>
   <span
-    title="main ./node_modules/babel-loader/lib/index.js?{\"babelrc\":false,\"presets\":[\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\"],\"cacheDirectory\":true}./node_modules/eslint-loader/index.js!./src/index.js">
+    title="main ./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
     ./src/index.js
   </span>
   <br />
@@ -866,12 +759,14 @@ exports[`Storyshots formatModuleName main and loader with query 1`] = `
 exports[`Storyshots formatModuleName multi 1`] = `
 <span>
   <span
-    title="">
+    title=""
+  >
     multi
   </span>
   <br />
   <span
-    title="">
+    title=""
+  >
     main
   </span>
   <br />
@@ -881,7 +776,8 @@ exports[`Storyshots formatModuleName multi 1`] = `
 exports[`Storyshots formatModuleName node module 1`] = `
 <span>
   <span
-    title="">
+    title=""
+  >
     ./~/react-dev-utils/webpackHotDevClient.js
   </span>
   <br />
@@ -891,7 +787,8 @@ exports[`Storyshots formatModuleName node module 1`] = `
 exports[`Storyshots formatModuleName plain filepath 1`] = `
 <span>
   <span
-    title="">
+    title=""
+  >
     components/stats/__stories__/formatModuleName.stories.js
   </span>
   <br />

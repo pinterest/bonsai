@@ -8,23 +8,6 @@ import { storiesOf, action } from '@kadira/storybook';
 import Button from '../Button';
 import Dropdown from '../Dropdown';
 
-// align?: Alignment,
-// color?: Color,
-// disabled?: boolean,
-// style?: Object,
-
-// children?: string | React$Element<any>,
-
-// getContent: (
-//   hideContent: () => void,
-// ) => React$Element<any> | Array<React$Element<any>>,
-
-// split?: {
-//.  primaryOnClick: (e: MouseEvent) => void,
-//   label: string | React$Element<any>,
-//   glyphicon?: GlyphiconName,
-// },
-
 const alertOnClick = (e) => { alert('Clicked me'); };
 
 const getContent = (hideContent: () => void) => {
