@@ -4,6 +4,7 @@
 
 import type {ExtendedModule} from '../../types/Stats';
 
+import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import formatModuleName from './formatModuleName';
 import React from 'react';
@@ -18,13 +19,18 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
       getContent={(hideContent: () => void) =>
         eModule.requiredBy.map((reason) => (
           <li key={reason.moduleId}>
-            <a href="#" onClick={(e) => {
+            <Button
+              color="link"
+              display="block"
+              onClick={(e) => {
               e.preventDefault();
               hideContent();
               scrollToAndFocus(String(reason.moduleId));
             }}>
-              {formatModuleName(reason.moduleIdentifier)}
-            </a>
+              <div className="text-left">
+                {formatModuleName(reason.moduleIdentifier)}
+              </div>
+            </Button>
           </li>
         ))
       }>
@@ -44,13 +50,18 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
       getContent={(hideContent: () => void) =>
         eModule.requirements.map((module) => (
           <li key={module.id}>
-            <a href="#" onClick={(e) => {
+            <Button
+              color="link"
+              display="block"
+              onClick={(e) => {
               e.preventDefault();
               hideContent();
               scrollToAndFocus(String(module.id));
             }}>
-              {formatModuleName(module.identifier)}
-            </a>
+              <div className="text-left">
+                {formatModuleName(module.identifier)}
+              </div>
+            </Button>
           </li>
         ))
       }>

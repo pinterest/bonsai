@@ -1,10 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Bootstrap/Button Block 1`] = `
+<button
+  className="btn btn-default btn-block"
+  disabled={null}
+  onClick={[Function]}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
 exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 <button
-  className="btn btn-default "
+  className="btn btn-default"
   disabled="disabed"
   onClick={null}
+  style={null}
   type="button"
 >
   Click Me!
@@ -13,9 +26,10 @@ exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 <button
-  className="btn btn-success "
+  className="btn btn-success"
   disabled="disabed"
   onClick={null}
+  style={null}
   type="button"
 >
   Click Me!
@@ -27,6 +41,7 @@ exports[`Storyshots Bootstrap/Button Large 1`] = `
   className="btn btn-default btn-lg"
   disabled={null}
   onClick={[Function]}
+  style={null}
   type="button"
 >
   Click Me!
@@ -35,9 +50,10 @@ exports[`Storyshots Bootstrap/Button Large 1`] = `
 
 exports[`Storyshots Bootstrap/Button Success 1`] = `
 <button
-  className="btn btn-success "
+  className="btn btn-success"
   disabled={null}
   onClick={[Function]}
+  style={null}
   type="button"
 >
   Click Me!
@@ -46,9 +62,10 @@ exports[`Storyshots Bootstrap/Button Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button With onClick 1`] = `
 <button
-  className="btn btn-default "
+  className="btn btn-default"
   disabled={null}
   onClick={[Function]}
+  style={null}
   type="button"
 >
   Click Me!
@@ -256,9 +273,10 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
   style={undefined}
 >
   <button
-    className="btn btn-default "
+    className="btn btn-default"
     disabled={null}
     onClick={[Function]}
+    style={null}
     type="button"
   >
     Show list
@@ -291,9 +309,10 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
   style={undefined}
 >
   <button
-    className="btn btn-success "
+    className="btn btn-success"
     disabled={null}
     onClick={[Function]}
+    style={null}
     type="button"
   >
     Show list
@@ -326,9 +345,10 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
   style={undefined}
 >
   <button
-    className="btn btn-default "
+    className="btn btn-default"
     disabled={null}
     onClick={[Function]}
+    style={null}
     type="button"
   >
     Show list
@@ -361,9 +381,10 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
   style={undefined}
 >
   <button
-    className="btn btn-default "
+    className="btn btn-default"
     disabled={null}
     onClick={[Function]}
+    style={null}
     type="button"
   >
     Show list

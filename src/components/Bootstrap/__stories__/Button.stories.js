@@ -29,6 +29,11 @@ storiesOf('Bootstrap/Button', module)
       Click Me!
     </Button>
   ))
+  .add('Block', () => (
+    <Button onClick={(e) => alert('Clicked!')} display="block">
+      Click Me!
+    </Button>
+  ))
   .add('Disabled Success', () => (
     <Button onClick={null} color="success">
       Click Me!

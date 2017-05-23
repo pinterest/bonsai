@@ -5,6 +5,7 @@
 import type {Child} from '../../stats/getEntryHeirarchy';
 import type {ChunkID} from '../../types/Stats';
 
+import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import React from 'react';
 
@@ -54,8 +55,9 @@ export default function ChunkDropdown(props: Props) {
           <Dropdown
             getContent={(hideContent) => flatChunks.map((chunk) => (
               <li key={chunk.id}>
-                <button
-                  className="btn btn-link btn-block"
+                <Button
+                  color="link"
+                  display="block"
                   style={chunk.indent ? {paddingLeft: chunk.indent + 'em'} : {}}
                   onClick={() => {
                     hideContent();
@@ -68,7 +70,7 @@ export default function ChunkDropdown(props: Props) {
                     ].join(' ')}>
                     {chunk.name} ({chunk.id})
                   </div>
-                </button>
+                </Button>
               </li>
             ))}>
             {selectedItem

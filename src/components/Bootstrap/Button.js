@@ -11,13 +11,16 @@ type Size =
   | 'lg'
   | 'sm'
   | 'xs'
-  | 'block'
+  | 'block';
+
+type Display = 'block' | 'inline';
 
 type ButtonProps = {
   children?: string | React$Element<any> | Array<React$Element<any>>,
   color?: Color,
   size?: Size,
   onClick: ?(e: MouseEvent) => void,
+  display?: Display,
 };
 
 function sizeToClass(size: ?Size) {
@@ -27,19 +30,28 @@ function sizeToClass(size: ?Size) {
   return `btn-${size}`;
 }
 
+function displayToClass(display: ?Display) {
+  if (!display || display === 'inline') {
+    return null;
+  }
+  return `btn-${display}`;
+}
+
 export default function Button(props: ButtonProps) {
   const classNames = [
     'btn',
     colorToClass('btn', props.color, 'default'),
+    displayToClass(props.display),
     sizeToClass(props.size),
-  ].join(' ');
+  ].filter(_ => _).join(' ');
 
   return (
     <button
       type="button"
       className={classNames}
       disabled={props.onClick ? null : 'disabed'}
-      onClick={props.onClick}>
+      onClick={props.onClick}
+      style={props.style ? props.style : null}>
       {props.children}
     </button>
   );
