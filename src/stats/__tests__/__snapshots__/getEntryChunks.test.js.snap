@@ -1,0 +1,59 @@
+exports[`getEntryChunks should list all the chunks 1`] = `
+Array [
+  Object {
+    "entry": false,
+    "extraAsync": false,
+    "files": Array [],
+    "hash": "",
+    "id": 0,
+    "initial": false,
+    "name": "",
+    "names": Array [
+      "chunk-zero",
+    ],
+    "origins": Array [],
+    "parents": Array [
+      0,
+    ],
+    "rendered": false,
+    "size": 0,
+  },
+  Object {
+    "entry": false,
+    "extraAsync": false,
+    "files": Array [],
+    "hash": "",
+    "id": 1,
+    "initial": false,
+    "name": "",
+    "names": Array [
+      "chunk-one",
+    ],
+    "origins": Array [],
+    "parents": Array [
+      0,
+      1,
+    ],
+    "rendered": false,
+    "size": 0,
+  },
+  Object {
+    "entry": false,
+    "extraAsync": false,
+    "files": Array [],
+    "hash": "",
+    "id": 2,
+    "initial": false,
+    "name": "",
+    "names": Array [
+      "chunk-two",
+    ],
+    "origins": Array [],
+    "parents": Array [
+      2,
+    ],
+    "rendered": false,
+    "size": 0,
+  },
+]
+`;
