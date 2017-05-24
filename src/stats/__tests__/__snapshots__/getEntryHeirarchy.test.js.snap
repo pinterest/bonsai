@@ -1,0 +1,44 @@
+exports[`getEntryHeirarchy should list all the chunks 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "id": 1,
+          "ids": Array [
+            1,
+          ],
+          "name": "chunk-one",
+          "names": Array [
+            "chunk-one",
+          ],
+        },
+      ],
+      "id": 0,
+      "ids": Array [
+        0,
+      ],
+      "name": "chunk-zero",
+      "names": Array [
+        "chunk-zero",
+      ],
+    },
+    Object {
+      "children": Array [],
+      "id": 2,
+      "ids": Array [
+        2,
+      ],
+      "name": "chunk-two",
+      "names": Array [
+        "chunk-two",
+      ],
+    },
+  ],
+  "id": -9007199254740991,
+  "ids": Array [],
+  "name": "",
+  "names": Array [],
+}
+`;

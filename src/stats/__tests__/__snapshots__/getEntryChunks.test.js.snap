@@ -12,9 +12,7 @@ Array [
       "chunk-zero",
     ],
     "origins": Array [],
-    "parents": Array [
-      0,
-    ],
+    "parents": Array [],
     "rendered": false,
     "size": 0,
   },
@@ -49,9 +47,7 @@ Array [
       "chunk-two",
     ],
     "origins": Array [],
-    "parents": Array [
-      2,
-    ],
+    "parents": Array [],
     "rendered": false,
     "size": 0,
   },

@@ -50,7 +50,7 @@ export function defaultChunk(fields: {
     names: [],
     files: [],
     hash: '',
-    parents: [fields.id],
+    parents: [],
     origins: [],
     ...fields,
   };
