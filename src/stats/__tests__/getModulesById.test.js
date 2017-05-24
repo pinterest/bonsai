@@ -2,15 +2,21 @@
  * @flow
  */
 
-import stats from './__fixtures__/stats.json';
-
+import {defaultExtendedModule} from '../../__test_helpers__/defaults';
 import getModulesById from '../getModulesById';
 
-describe.skip('getModulesById', () => {
-  it('should list all the chunks', () => {
-    const result = getModulesById(stats.modules.slice(0, 10));
+const stats = {
+  modules: [
+    defaultExtendedModule({id: 1}),
+    defaultExtendedModule({id: 2}),
+  ],
+};
 
-    expect(Object.keys(result)).toHaveLength(10);
+describe('getModulesById', () => {
+  it('should list all the chunks', () => {
+    const result = getModulesById(stats.modules);
+
+    expect(Object.keys(result)).toHaveLength(2);
     expect(result).toMatchSnapshot();
   });
 });
