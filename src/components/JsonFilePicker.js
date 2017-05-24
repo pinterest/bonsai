@@ -2,7 +2,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 
 type Props = {
   dataPaths: ?Array<string>,
