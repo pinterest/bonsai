@@ -2,20 +2,37 @@
  * @flow
  */
 
-import stats from './__fixtures__/stats.json';
-
-import type {ExtendedModule} from '../../types/Stats';
-
+import {defaultChunk, defaultExtendedModule} from '../../__test_helpers__/defaults';
 import getChunkModules from '../getChunkModules';
 
-const selectedChunkId = 195;
+const stats = {
+  chunks: [
+    defaultChunk({id: 0}),
+    defaultChunk({id: 1}),
+  ],
+  modules: [
+    defaultExtendedModule({
+      id: 1,
+      chunks: [0],
+    }),
+    defaultExtendedModule({
+      id: 2,
+      chunks: [0, 1],
+    }),
+      defaultExtendedModule({
+      id: 2,
+      chunks: [1],
+    }),
+  ],
+};
 
-describe.skip('getChunkModules', () => {
+describe('getChunkModules', () => {
   it('should extend all the modules', () => {
-    const selectedChunkId = 195;
+    const selectedChunkId = 1;
     const modules = getChunkModules(stats, selectedChunkId);
 
     expect(modules).not.toBeNull();
-    expect(modules).toHaveLength(21);
+    expect(modules).toHaveLength(2);
+    expect(modules).toMatchSnapshot();
   });
 });
