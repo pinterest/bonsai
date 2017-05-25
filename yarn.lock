@@ -2848,9 +2848,9 @@ flow-annotation-check@^1.2.0:
     find-package-json "^1.0.0"
     glob "7.1.1"
 
-flow-bin@0.43.0:
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.43.0.tgz#5cd16696be4311c0b14f0932e89ba8661a39b1c1"
+flow-bin@^0.46.0:
+  version "0.46.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.46.0.tgz#06ad7fe19dddb1042264438064a2a32fee12b872"
 
 flow-coverage-report@^0.3.0:
   version "0.3.0"
