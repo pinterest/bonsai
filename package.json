@@ -10,7 +10,7 @@
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
     "flow-annotation-check": "^1.2.0",
-    "flow-bin": "0.43.0",
+    "flow-bin": "^0.46.0",
     "flow-coverage-report": "^0.3.0",
     "react-scripts": "0.9.5",
     "storyshots": "^3.2.2"
@@ -35,7 +35,6 @@
     "poststats:self:dev": "./scripts/writeStatsFiles.js",
     "pull-stats": "./scripts/pull-stats.sh",
     "postpull-stats": "./scripts/writeStatsFiles.js",
-
     "eject": "react-scripts eject"
   },
   "babel": {
