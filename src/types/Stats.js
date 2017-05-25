@@ -18,7 +18,7 @@ export type EntryPoint = {
 };
 
 export type Reason = {
-  moduleId: number,
+  moduleId: ModuleID,
   moduleIdentifier: string,
   module: string,
   moduleName: string,
@@ -112,6 +112,7 @@ export type ExtendedModule = {
   requiredBy: Array<Reason>,
   requiredByCount: number,
   requirements: Array<Module>,
+  requirementsCount: number,
   cumulativeSize: number,
   loops: Array<Array<ModuleID>>,
 };
