@@ -48,10 +48,6 @@
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage",
     "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
     "postversion": "git push && git push --tags && npm publish",
-    "stats:self:dev": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.dev.js",
-    "poststats:self:dev": "./scripts/writeStatsFiles.js",
-    "pull-stats": "./scripts/pull-stats.sh",
-    "postpull-stats": "./scripts/writeStatsFiles.js",
     "eject": "react-scripts eject"
   },
   "babel": {
