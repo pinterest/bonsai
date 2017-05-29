@@ -1,7 +1,24 @@
 {
-  "name": "webpack-dependency-size-2",
+  "name": "bonsai",
+  "description": "Trim your dependency tree.",
+  "keywords": [
+    "webpack",
+    "tool",
+    "analyse",
+    "bundle",
+    "dependencies"
+  ],
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Ryan Albrecht",
+    "email": "ryan@ryanalbrecht.ca"
+  },
+  "contributors": [],
+  "homepage": "https://pinterest.github.io/bonsai",
+  "repository": "https://github.com/pinterest/bonsai",
+  "bugs": "https://github.com/pinterest/bonsai/issues",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^15.4.2",
@@ -31,10 +48,6 @@
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage",
     "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
     "postversion": "git push && git push --tags && npm publish",
-    "stats:self:dev": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.dev.js > ./public/data/self.json",
-    "poststats:self:dev": "./scripts/writeStatsFiles.js",
-    "pull-stats": "./scripts/pull-stats.sh",
-    "postpull-stats": "./scripts/writeStatsFiles.js",
     "eject": "react-scripts eject"
   },
   "babel": {
