@@ -16,7 +16,7 @@ Read more about [generating a stats file](`stats-files.md`).
 
 ### Taking Action
 
-Using your knowledge of your project Bonsai will help you can sort, filter, and identify large modules that might not be needed on initial render. Click 'Remove' to simulate how many dependany bytes will be removed because of one module.
+Using your knowledge of your project Bonsai will help you can sort, filter, and identify large modules that might not be needed on initial render. Click 'Ignore' to simulate how many dependany bytes will be removed because of one module.
 
 Read more about [analysing your project](analysing.md).
 
@@ -30,6 +30,6 @@ See also [build options](build-options.md).
 
 You can file bugs on github at [bonsai/issues](https://github.com/pinterest/bonsai/issues) or better yet contribute fixes and new features by submitting a [pull request](https://github.com/pinterest/bonsai/pulls).
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Contributors can execute `npm start` to quickly create a development build. There are other helpful scripts listed in [package.json](https://github.com/pinterest/bonsai/blob/master/package.json#L18-L39) to build the project for production and prevent accidental breakages.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Contributors can execute `yarn start` to quickly create a development build. There are other helpful scripts listed in [package.json](https://github.com/pinterest/bonsai/blob/master/package.json#L18-L39) to build the project for production and prevent accidental breakages.
 
 The most recent version of the Create React App guide is [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Bonsai is not ejected yet and try to track the latest releases as appropriate.
