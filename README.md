@@ -2,6 +2,8 @@
 
 Trim your javascript dependency tree.
 
+![What Bonsai looks like](https://pinterest.github.io/bonsai/bonsai-interface.png)
+
 ## Users guide
 
 The quickest way to get started is to generate a Webpack stats file, and then drag and drop it into https://pinterest.github.io/bonsai/analyse.
