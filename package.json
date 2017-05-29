@@ -1,6 +1,6 @@
 {
   "name": "bonsai",
-  "description": "Trim your javascript dependency tree.",
+  "description": "Trim your dependency tree.",
   "keywords": [
     "webpack",
     "tool",
