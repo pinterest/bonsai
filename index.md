@@ -2,6 +2,8 @@
 
 Trim your javascript dependencies
 
+![What Bonsai looks like](bonsai-interface.png)
+
 Bonsai is an analyser that helps speed up your website by looking at not just module size, but also the size of all the dependencies.
 
 ## Getting Started
