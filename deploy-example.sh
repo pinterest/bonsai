@@ -2,6 +2,8 @@
 
 set -x
 
+git fetch origin master:master
+
 stashed=$(git stash -u)
 echo $stashed
 
