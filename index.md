@@ -30,8 +30,8 @@ See also [build options](build-options.md).
 
 ## Contributing
 
-You can file bugs on github at [bonsai/issues](https://github.com/pinterest/bonsai/issues) or better yet contribute fixes and new features by submitting a [pull request](https://github.com/pinterest/bonsai/pulls).
+You can file [issues](https://github.com/pinterest/bonsai/issues) or better yet contribute fixes and new features by submitting [pull requests](https://github.com/pinterest/bonsai/pulls).
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Contributors can execute `yarn start` to quickly create a development build. There are other helpful scripts listed in [package.json](https://github.com/pinterest/bonsai/blob/master/package.json#L18-L39) to build the project for production and prevent accidental breakages.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Contributors can execute `yarn start` to quickly create a development build. There are other helpful scripts listed in [package.json](https://github.com/pinterest/bonsai/blob/master/package.json) to build the project for production and prevent accidental breakages.
 
 The most recent version of the Create React App guide is [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Bonsai is not ejected yet and try to track the latest releases as appropriate.
