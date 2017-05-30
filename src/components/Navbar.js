@@ -9,7 +9,10 @@ export default function Navbar() {
     <nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/" onClick={(e) => {
+            event.preventDefault();
+            window.location.reload();
+          }}>
             Bonsai - Trim your dependency trees
           </a>
         </div>
