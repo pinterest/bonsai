@@ -2,6 +2,7 @@
   "name": "bonsai",
   "description": "Trim your dependency tree.",
   "keywords": [
+    "bonsai",
     "webpack",
     "tool",
     "analyse",
