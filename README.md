@@ -1,5 +1,7 @@
 # Bonsai
 
+[![Build Status](https://travis-ci.org/pinterest/bonsai.svg?branch=master)](https://travis-ci.org/pinterest/bonsai)
+
 Trim your javascript dependency tree.
 
 ![What Bonsai looks like](https://pinterest.github.io/bonsai/bonsai-interface.png)
