@@ -14,7 +14,7 @@ You can generate a stats file by running `webpack --json > stats.json`. Checkout
 
 Then all you need to to is drag+drop that `stats.json` file into the online tool.
 
-Read more about [generating a stats file](stats-files.md).
+Read more about [generating a stats file](`stats-files.md`).
 
 ### Taking Action
 
