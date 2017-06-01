@@ -1,25 +1,25 @@
 # Manual Analysis
 
-How about an example. Say you are building a photo gallery website using React and bundling it together with webpage. Here are 4 files you might have:
+Say you are building a photo gallery website using React and bundling it together with webpa. Here are 4 files you might have:
 
-- index.js
-- big-photo.js
+- photo-list.js
+- photo-zoom.js
 - react-dom
 - reactjs/react-modal
 
-and here is a snippet of each, describing how these files might work:
+and here is a snippet of each file,
 
 ```javascript
-# index.js
+# photo-list.js
 
 import React from 'react';
-import PhotoModal from './photo-modal.js';
+import PhotoZoom from './photo-zoom.js';
 
-class Page extends React.Component {
+export default class PhotoList extends React.Component {
   render() {
     return (
       <div>
-        <PhotoModal photo={this.state.selectedPhoto} />
+        <PhotoZoom photo={this.state.selectedPhoto} />
         {photos.map((photo) =>
           <button onClick={(e) => this.onClickPhoto(photo)}>
             <img
@@ -40,4 +40,32 @@ class Page extends React.Component {
     });
   }
 }
+
+
+# photo-zoom.js
+
+import React from 'react';
+import ReactModal from 'react-modal';
+
+export default class PhotoZoom extends React.Component {
+  render() {
+    const photo = this.props.photo;
+    const hasPhoto = photo !== null;
+    return (
+      <ReactModal
+        isOpen={hasPhoto}>
+        <img
+          width={photo.full.width}
+          height={photo.full.height}
+          src={photo.full.src}
+          alt={photo.alt}
+        />
+      </ReactModal>
+    );
+  }
+}
 ```
+
+We can see that, if no photo is picked the PhotoZoom component will render ReactModal with `isOpen=false`, so nothing gets displayed. `photo-zoom.js` itself is a really small file, so it might not seem like a great win to lazy load it. But if we consider that it's the only module that uses react-modal then all of a sudden one change will result in much more code saved.
+
+In a simple example this is obvious, but in a larger codebase where things are very complex and change very fast using a tool to help with this analysis is invaluable.

@@ -8,4 +8,4 @@ There are a few special environment variables that Bonsai understands. These ext
   Example:`REACT_APP_EXTERNAL_URL_PREFIX=https://github.com/pinterest/bonsai/blob/master/ npm run build`
 
 - `REACT_APP_API_LIST_ENDPOINT`
-  If the list endpoint is not empty then Bonsai will fetch from that url on pageload. It expects the endpoint to return a json object with the `paths` field set to an array of urls where stats files can be found. This list of paths will appear in a dropdown and when a path is picked Bonsai will fetch from the url and try to load the resulting stats file into the analyser.
+  If the list endpoint is not empty then Bonsai will fetch from that url on pageload. It expects the endpoint to return a json object with the `paths` field set to an array of urls where stats files can be found. This list of paths will appear in a dropdown and when a path is picked Bonsai will fetch from the url and try to load the resulting stats file into the analyzer.

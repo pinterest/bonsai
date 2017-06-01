@@ -15,13 +15,13 @@ git clone $pages_folder . --branch master
 yarn install --pure-lockfile
 
 NODE_ENV=production \
-    PUBLIC_URL=https://pinterest.github.io/bonsai/analyse/ \
+    PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ \
     REACT_APP_API_LIST_ENDPOINT=/bonsai/stats-index.json \
     REACT_APP_EXTERNAL_URL_PREFIX=https://github.com/pinterest/bonsai/blob/master/ \
     yarn run build
 
-rm -rf "$pages_folder/analyse"
-mv build "$pages_folder/analyse"
+rm -rf "$pages_folder/analyze"
+mv build "$pages_folder/analyze"
 
 ./node_modules/webpack/bin/webpack.js --json \
     --config ./node_modules/react-scripts/config/webpack.config.dev.js > "$pages_folder/stats.json"
