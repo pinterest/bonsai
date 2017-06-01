@@ -48,7 +48,7 @@ export default function ModuleTableHead(props: Props) {
       <tr>
         <th></th>
         <th>
-          <Button color="link" onClick={() => props.onSort('name')}>
+          <Button color="link" display="block" onClick={() => props.onSort('name')}>
             <SortLabel
               field="name"
               fieldType='alpha'
@@ -56,52 +56,6 @@ export default function ModuleTableHead(props: Props) {
               Module Name
             </SortLabel>
           </Button>
-        </th>
-        <th>
-          <Button color="link" onClick={() => props.onSort('cumulativeSize')}>
-            <SortLabel
-              field="cumulativeSize"
-              fieldType='size'
-              sort={props.sort}>
-              Weighted
-            </SortLabel>
-          </Button>
-        </th>
-        <th>
-          <Button color="link" onClick={() => props.onSort('size')}>
-            <SortLabel
-              field="size"
-              fieldType='size'
-              sort={props.sort}>
-              Size
-            </SortLabel>
-          </Button>
-        </th>
-        <th>
-          <Button color="link" onClick={() => props.onSort('requiredByCount')}>
-            <SortLabel
-              field="requiredByCount"
-              fieldType='size'
-              sort={props.sort}>
-              Dependants
-            </SortLabel>
-          </Button>
-        </th>
-        <th>
-          <Button color="link" onClick={() => props.onSort('requirementsCount')}>
-            <SortLabel
-              field="requirementsCount"
-              fieldType='size'
-              sort={props.sort}>
-              Imports
-            </SortLabel>
-          </Button>
-        </th>
-        <th></th>
-      </tr>
-      <tr>
-        <th></th>
-        <th>
           <Dropdown
             color="link"
             getContent={() => (
@@ -122,6 +76,14 @@ export default function ModuleTableHead(props: Props) {
           </Dropdown>
         </th>
         <th>
+          <Button color="link" display="block" onClick={() => props.onSort('cumulativeSize')}>
+            <SortLabel
+              field="cumulativeSize"
+              fieldType='size'
+              sort={props.sort}>
+              Weighted
+            </SortLabel>
+          </Button>
           <Dropdown
             color="link"
             getContent={() => (
@@ -142,12 +104,28 @@ export default function ModuleTableHead(props: Props) {
               {props.filters.cumulativeSizeMin || 0}
               {NBSP + '<' + NBSP}
               {props.filters.cumulativeSizeMax || INFINITY}
-              {NBSP + 'bytes'}
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th></th>
         <th>
+          <Button color="link" display="block" onClick={() => props.onSort('size')}>
+            <SortLabel
+              field="size"
+              fieldType='size'
+              sort={props.sort}>
+              Size
+            </SortLabel>
+          </Button>
+        </th>
+        <th>
+          <Button color="link" display="block" onClick={() => props.onSort('requiredByCount')}>
+            <SortLabel
+              field="requiredByCount"
+              fieldType='size'
+              sort={props.sort}>
+              Dependants
+            </SortLabel>
+          </Button>
           <Dropdown
             color="link"
             getContent={() => (
@@ -168,11 +146,18 @@ export default function ModuleTableHead(props: Props) {
               {props.filters.requiredByCountMin || 0}
               {NBSP + '<' + NBSP}
               {props.filters.requiredByCountMax || INFINITY}
-              {NBSP + 'modules'}
             </FilterDisplay>
           </Dropdown>
         </th>
         <th>
+          <Button color="link" display="block" onClick={() => props.onSort('requirementsCount')}>
+            <SortLabel
+              field="requirementsCount"
+              fieldType='size'
+              sort={props.sort}>
+              Imports
+            </SortLabel>
+          </Button>
           <Dropdown
             color="link"
             getContent={() => (
@@ -193,7 +178,6 @@ export default function ModuleTableHead(props: Props) {
               {props.filters.requirementsCountMin || 0}
               {NBSP + '<' + NBSP}
               {props.filters.requirementsCountMax || INFINITY}
-              {NBSP + 'modules'}
             </FilterDisplay>
           </Dropdown>
         </th>

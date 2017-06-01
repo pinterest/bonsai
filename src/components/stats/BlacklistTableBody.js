@@ -48,7 +48,7 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
           {this.renderHideRow()}
         </tbody>
       );
-    } else {
+    } else if (this.props.removedModules.length > 0) {
       return (
         <tbody>
           <tr>
@@ -63,6 +63,8 @@ export default class BlacklistTableBody extends Component<void, Props, State> {
           </tr>
         </tbody>
       );
+    } else {
+      return null;
     }
   }
 

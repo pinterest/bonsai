@@ -532,49 +532,54 @@ exports[`Storyshots FileInputRow No file 1`] = `
 `;
 
 exports[`Storyshots SortLabel Something else is sorted 1`] = `
-<span>
+<div
+  className="text-left">
   Size
-</span>
+</div>
 `;
 
 exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
-<span>
+<div
+  className="text-left">
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-attributes" />
    
   Size
-</span>
+</div>
 `;
 
 exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
-<span>
+<div
+  className="text-left">
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-attributes-alt" />
    
   Name
-</span>
+</div>
 `;
 
 exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
-<span>
+<div
+  className="text-left">
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-alphabet" />
    
   Name
-</span>
+</div>
 `;
 
 exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
-<span>
+<div
+  className="text-left">
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-order" />
    
   Rank
-</span>
+</div>
 `;
 
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
