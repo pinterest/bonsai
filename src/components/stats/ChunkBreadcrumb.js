@@ -20,7 +20,7 @@ export default function ChunkBreadcrumb(props: Props) {
         <li
           key={chunk.id}
           className={props.selectedChunkId === chunk.id ? 'active' : ''}>
-          {chunk.names.join(', ')} ({String(chunk.id)})
+          {chunk.name} ({String(chunk.id)})
         </li>
       ))}
       {props.totalModules
