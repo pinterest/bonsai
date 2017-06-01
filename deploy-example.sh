@@ -23,8 +23,9 @@ NODE_ENV=production \
 rm -rf "$pages_folder/analyze"
 mv build "$pages_folder/analyze"
 
-./node_modules/webpack/bin/webpack.js --json \
-    --config ./node_modules/react-scripts/config/webpack.config.dev.js > "$pages_folder/stats.json"
+NODE_ENV=production \
+    ./node_modules/webpack/bin/webpack.js --json \
+    --config ./node_modules/react-scripts/config/webpack.config.prod.js > "$pages_folder/stats.json"
 
 rm -rf $(pwd)
 
