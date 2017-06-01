@@ -32,18 +32,21 @@ export default function fullModuleData(
   parentChunks: ?Array<Child>,
 } {
 
-  const chunksByParent = getEntryHeirarchy(stats).children;
+  const chunksByParent = getEntryHeirarchy(stats);
 
   if (selectedChunkId === null || selectedChunkId === undefined) {
     return {
       moduleData: null,
       extendedModules: [],
-      chunksByParent: chunksByParent,
+      chunksByParent: chunksByParent.children,
       parentChunks: null,
     };
   }
 
-  const parentChunks = getParentChunks(stats, selectedChunkId);
+  const parentChunks = getParentChunks(
+    chunksByParent,
+    selectedChunkId,
+  );
   const modules = getChunkModules(
     stats,
     parentChunks,
@@ -53,7 +56,7 @@ export default function fullModuleData(
     return {
       moduleData: null,
       extendedModules: [],
-      chunksByParent: chunksByParent,
+      chunksByParent: chunksByParent.children,
       parentChunks: parentChunks,
     };
   }
@@ -64,7 +67,7 @@ export default function fullModuleData(
     return {
       moduleData: null,
       extendedModules: [],
-      chunksByParent: chunksByParent,
+      chunksByParent: chunksByParent.children,
       parentChunks: parentChunks,
     };
   }
@@ -82,7 +85,7 @@ export default function fullModuleData(
   return {
     moduleData: splitModules,
     extendedModules: extendedModules,
-    chunksByParent: chunksByParent,
+    chunksByParent: chunksByParent.children,
     parentChunks: parentChunks,
   };
 }
