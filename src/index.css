@@ -18,6 +18,11 @@ ul, li {
   clear: both;
 }
 
+/* override default bootstrap `v-align: bottom` */
+.table>thead>tr>th {
+  vertical-align: top;
+}
+
 .table thead > tr:first-child > th {
   border-bottom: none;
 }
