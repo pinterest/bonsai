@@ -11,7 +11,7 @@ import {
   defaultExtendedModule,
   reasonFromModule,
 } from '../../__test_helpers__/defaults';
-import getChunkModules from '../getChunkModules';
+
 import getExtendedModulesById, {
   calculateModuleSizes
 } from '../getExtendedModulesById';

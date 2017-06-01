@@ -2,8 +2,9 @@
  * @flow
  */
 
-import {defaultChunk} from '../../__test_helpers__/defaults';
+import getEntryHeirarchy from '../getEntryHeirarchy';
 import getParentChunks from '../getParentChunks';
+import {defaultChunk} from '../../__test_helpers__/defaults';
 
 const stats = {
   chunks: [
@@ -39,9 +40,11 @@ const stats = {
   ],
 };
 
+const chunksByParent = getEntryHeirarchy(stats);
+
 describe('getParentChunks', () => {
   it('should list some for a chunk in the middle', () => {
-    const result = getParentChunks(stats, 1);
+    const result = getParentChunks(chunksByParent, 1);
 
     expect(result).toEqual([
       expect.objectContaining({id: 0}),
@@ -50,7 +53,7 @@ describe('getParentChunks', () => {
   });
 
   it('should dive down to the bottom chunkIds', () => {
-    const result = getParentChunks(stats, 5);
+    const result = getParentChunks(chunksByParent, 5);
 
     expect(result).toEqual([
       expect.objectContaining({id: 0}),
@@ -61,17 +64,17 @@ describe('getParentChunks', () => {
   });
 
   it('should list just one for the top-level chunkId', () => {
-    expect(getParentChunks(stats, 0)).toEqual([
+    expect(getParentChunks(chunksByParent, 0)).toEqual([
       expect.objectContaining({id: 0}),
     ]);
 
-    expect(getParentChunks(stats, 3)).toEqual([
+    expect(getParentChunks(chunksByParent, 3)).toEqual([
       expect.objectContaining({id: 3}),
     ]);
   });
 
   it('should list nothing for a bad chunkId', () => {
-    const result = getParentChunks(stats, -100);
+    const result = getParentChunks(chunksByParent, -100);
 
     expect(result).toEqual(null);
   });

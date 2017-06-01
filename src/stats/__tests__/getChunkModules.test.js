@@ -28,8 +28,18 @@ const stats = {
 
 describe('getChunkModules', () => {
   it('should extend all the modules', () => {
-    const selectedChunkId = 1;
-    const modules = getChunkModules(stats, selectedChunkId);
+    const modules = getChunkModules(
+      stats,
+      [
+        {
+          id: 1,
+          ids: [1],
+          name: '',
+          names: [],
+          children: [],
+        },
+      ],
+    );
 
     expect(modules).not.toBeNull();
     expect(modules).toHaveLength(2);

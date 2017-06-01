@@ -2,16 +2,16 @@
  * @flow
  */
 
-import type {ChunkID, RawStats, Module} from '../types/Stats';
+import type {RawStats, Module} from '../types/Stats';
+
+import type {Child} from './getEntryHeirarchy';
 
 import getModulesByChunk from './getModulesByChunk';
-import getParentChunks from './getParentChunks';
 
 export default function getChunkModules(
   stats: RawStats,
-  selectedChunkId: ChunkID,
+  parentChunks: ?Array<Child>,
 ): ?Array<Module> {
-  const parentChunks = getParentChunks(stats, selectedChunkId);
   if (!parentChunks) {
     return null;
   }
