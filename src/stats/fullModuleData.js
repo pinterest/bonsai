@@ -46,7 +46,7 @@ export default function fullModuleData(
   const parentChunks = getParentChunks(stats, selectedChunkId);
   const modules = getChunkModules(
     stats,
-    selectedChunkId,
+    parentChunks,
   );
 
   if (!modules) {
