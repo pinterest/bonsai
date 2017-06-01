@@ -42,7 +42,7 @@ export default function SortLabel(props: Props) {
   const isSameField = props.sort.field === props.field;
 
   return (
-    <span>
+    <div className="text-left">
       {isSameField
         ? <span
             aria-hidden="true"
@@ -51,6 +51,6 @@ export default function SortLabel(props: Props) {
         : null}
       {isSameField ? NBSP : null}
       {props.children}
-    </span>
+    </div>
   );
 }

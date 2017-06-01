@@ -48,7 +48,7 @@ export default function ModuleTableHead(props: Props) {
       <tr>
         <th></th>
         <th>
-          <Button color="link" onClick={() => props.onSort('name')}>
+          <Button color="link" display="block" onClick={() => props.onSort('name')}>
             <SortLabel
               field="name"
               fieldType='alpha'
@@ -58,7 +58,7 @@ export default function ModuleTableHead(props: Props) {
           </Button>
         </th>
         <th>
-          <Button color="link" onClick={() => props.onSort('cumulativeSize')}>
+          <Button color="link" display="block" onClick={() => props.onSort('cumulativeSize')}>
             <SortLabel
               field="cumulativeSize"
               fieldType='size'
@@ -68,7 +68,7 @@ export default function ModuleTableHead(props: Props) {
           </Button>
         </th>
         <th>
-          <Button color="link" onClick={() => props.onSort('size')}>
+          <Button color="link" display="block" onClick={() => props.onSort('size')}>
             <SortLabel
               field="size"
               fieldType='size'
@@ -78,7 +78,7 @@ export default function ModuleTableHead(props: Props) {
           </Button>
         </th>
         <th>
-          <Button color="link" onClick={() => props.onSort('requiredByCount')}>
+          <Button color="link" display="block" onClick={() => props.onSort('requiredByCount')}>
             <SortLabel
               field="requiredByCount"
               fieldType='size'
@@ -88,7 +88,7 @@ export default function ModuleTableHead(props: Props) {
           </Button>
         </th>
         <th>
-          <Button color="link" onClick={() => props.onSort('requirementsCount')}>
+          <Button color="link" display="block" onClick={() => props.onSort('requirementsCount')}>
             <SortLabel
               field="requirementsCount"
               fieldType='size'
@@ -142,7 +142,6 @@ export default function ModuleTableHead(props: Props) {
               {props.filters.cumulativeSizeMin || 0}
               {NBSP + '<' + NBSP}
               {props.filters.cumulativeSizeMax || INFINITY}
-              {NBSP + 'bytes'}
             </FilterDisplay>
           </Dropdown>
         </th>
@@ -168,7 +167,6 @@ export default function ModuleTableHead(props: Props) {
               {props.filters.requiredByCountMin || 0}
               {NBSP + '<' + NBSP}
               {props.filters.requiredByCountMax || INFINITY}
-              {NBSP + 'modules'}
             </FilterDisplay>
           </Dropdown>
         </th>
@@ -193,7 +191,6 @@ export default function ModuleTableHead(props: Props) {
               {props.filters.requirementsCountMin || 0}
               {NBSP + '<' + NBSP}
               {props.filters.requirementsCountMax || INFINITY}
-              {NBSP + 'modules'}
             </FilterDisplay>
           </Dropdown>
         </th>
