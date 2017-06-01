@@ -57,10 +57,10 @@ function getChunkNamesFromImportedModules(
 function getChunkName(chunk, importedChunkNames) {
   return (
     chunk.names.join(', ') ||
-    [
-      chunk.origins.map((origin) => origin.moduleName).join(', '),
-      importedChunkNames[chunk.id]
-    ].join('!')
+    (importedChunkNames[chunk.id]
+      ? `import('${importedChunkNames[chunk.id]}')`
+      : null) ||
+    chunk.origins.map((origin) => origin.moduleName).join(', ')
   );
 }
 
