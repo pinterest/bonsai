@@ -21,6 +21,7 @@ const stats = {
       names: ['chunk-two'],
     }),
   ],
+  modules: [],
 };
 
 describe('getEntryHeirarchy', () => {

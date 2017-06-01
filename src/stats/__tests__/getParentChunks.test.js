@@ -38,6 +38,7 @@ const stats = {
       parents: [4],
     }),
   ],
+  modules: [],
 };
 
 const chunksByParent = getEntryHeirarchy(stats);
