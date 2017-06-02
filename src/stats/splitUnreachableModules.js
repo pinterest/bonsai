@@ -2,6 +2,12 @@
  * @flow
  */
 
+import values from 'object.values';
+
+if (!Object.values) {
+  values.shim();
+}
+
 import type {ModuleID, ExtendedModule} from '../types/Stats';
 import type {ExtendedModulesById} from './getExtendedModulesById';
 
