@@ -22,6 +22,7 @@
   "bugs": "https://github.com/pinterest/bonsai/issues",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "object.values": "^1.0.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
