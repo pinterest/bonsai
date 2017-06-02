@@ -21,6 +21,7 @@
   "repository": "https://github.com/pinterest/bonsai",
   "bugs": "https://github.com/pinterest/bonsai/issues",
   "dependencies": {
+    "array-includes": "^3.0.3",
     "bootstrap": "^3.3.7",
     "object.values": "^1.0.4",
     "react": "^15.4.2",
