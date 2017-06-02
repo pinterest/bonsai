@@ -32,19 +32,23 @@ function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
   };
 }
 
+function toNumber(value: number | ''): number | '' {
+  return value === '' ? '' : Number(value)
+}
+
 function makeRecordRangeFilter(
   field: string,
   min: number | '',
   max: number | '',
 ) {
   return function(eModule: ExtendedModule) {
-    if (min && max) {
+    if (min !== '' && max !== '') {
       return eModule[field] >= min && eModule[field] <= max;
     }
-    if (min) {
+    if (min !== '') {
       return eModule[field] >= min;
     }
-    if (max) {
+    if (max !== '') {
       return eModule[field] <= max;
     }
     return true;
@@ -63,18 +67,18 @@ export default function filterModules(
     ))
     .filter(makeRecordRangeFilter(
       'cumulativeSize',
-      Number(filters.cumulativeSizeMin),
-      Number(filters.cumulativeSizeMax),
+      toNumber(filters.cumulativeSizeMin),
+      toNumber(filters.cumulativeSizeMax),
     ))
     .filter(makeRecordRangeFilter(
       'requiredByCount',
-      Number(filters.requiredByCountMin),
-      Number(filters.requiredByCountMax),
+      toNumber(filters.requiredByCountMin),
+      toNumber(filters.requiredByCountMax),
     ))
     .filter(makeRecordRangeFilter(
       'requirementsCount',
-      Number(filters.requirementsCountMin),
-      Number(filters.requirementsCountMax),
+      toNumber(filters.requirementsCountMin),
+      toNumber(filters.requirementsCountMax),
     ))
     .sort((a, b) => {
       const {field, direction} = sort;
