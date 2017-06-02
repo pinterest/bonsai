@@ -1,10 +1,5 @@
-import values from 'object.values';
-import includes from 'array-includes';
+/**
+ * @flow
+ */
 
-if (!Object.values) {
-  values.shim();
-}
-
-if (!Array.prototype.includes) {
-  includes.shim();
-}
+import './shims';
