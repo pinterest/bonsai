@@ -18,7 +18,6 @@
     "email": "ryan@ryanalbrecht.ca"
   },
   "contributors": [],
-  "homepage": "https://pinterest.github.io/bonsai",
   "repository": "https://github.com/pinterest/bonsai",
   "bugs": "https://github.com/pinterest/bonsai/issues",
   "dependencies": {
