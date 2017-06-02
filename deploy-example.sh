@@ -15,7 +15,6 @@ git clone $pages_folder . --branch master
 yarn install --pure-lockfile
 
 NODE_ENV=production \
-    PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ \
     REACT_APP_API_LIST_ENDPOINT=/bonsai/stats-index.json \
     REACT_APP_EXTERNAL_URL_PREFIX=https://github.com/pinterest/bonsai/blob/master/ \
     yarn run build
