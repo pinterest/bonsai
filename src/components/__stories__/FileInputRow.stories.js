@@ -23,4 +23,20 @@ storiesOf('FileInputRow', module)
       isDragging={false}
       onStatsFilePicked={(path: string | null) => undefined}
     />
+  ))
+  .add('With dataPaths', () => (
+    <FileInputRow
+      filename={null}
+      dataPaths={['example.json']}
+      isDragging={false}
+      onStatsFilePicked={(path: string | null) => undefined}
+    />
+  ))
+  .add('With dataPaths and a file picked', () => (
+    <FileInputRow
+      filename={'stats.json'}
+      dataPaths={['example.json']}
+      isDragging={false}
+      onStatsFilePicked={(path: string | null) => undefined}
+    />
   ));
