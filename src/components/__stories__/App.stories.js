@@ -6,7 +6,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
 import App from '../App';
-import FileInputRow from '../FileInputRow';
+import FileInputContainer from '../FileInputContainer';
 import Stats from '../Stats';
 
 const stats = {
@@ -23,7 +23,7 @@ storiesOf('App', module)
   .add('FileInput stacked on Stats', () => (
     <div>
       <aside className="container-fluid">
-        <FileInputRow
+        <FileInputContainer
           filename={'stats.json'}
           onLoading={() => undefined}
           onLoaded={() => undefined}

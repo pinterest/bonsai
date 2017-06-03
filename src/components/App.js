@@ -4,7 +4,7 @@
 
 import type {RawStats} from '../types/Stats';
 
-import FileInputRow from './FileInputRow';
+import FileInputContainer from './FileInputContainer';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import Stats from './Stats';
@@ -31,7 +31,7 @@ export default class App extends Component<void, {}, State> {
         <div className="AppFixed">
           <div className="AppView">
             <aside className="container-fluid">
-              <FileInputRow
+              <FileInputContainer
                 filename={this.state.filename}
                 onLoading={this.onLoading}
                 onLoaded={this.onLoaded}
