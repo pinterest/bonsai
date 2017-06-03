@@ -24,14 +24,15 @@
     "array-includes": "^3.0.3",
     "bootstrap": "^3.3.7",
     "object.values": "^1.0.4",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "15.5.4",
+    "react-dom": "15.5.4"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
     "flow-annotation-check": "^1.2.0",
     "flow-bin": "^0.46.0",
     "flow-coverage-report": "^0.3.0",
+    "react-addons-test-utils": "15.5.1",
     "react-scripts": "0.9.5",
     "storyshots": "^3.2.2"
   },
