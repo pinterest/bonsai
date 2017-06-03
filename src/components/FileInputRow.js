@@ -34,6 +34,12 @@ export default class FileInputRow extends Component<void, Props, State> {
     isDragging: false,
   };
 
+  constructor(props: Props) {
+    super(props);
+
+    this.loadPath(process.env.REACT_APP_STATS_URL || null);
+  }
+
   componentDidMount() {
     const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
     if (!endpoint) {
@@ -158,7 +164,10 @@ export default class FileInputRow extends Component<void, Props, State> {
   };
 
   onStatsFilePicked = (event: SyntheticInputEvent) => {
-    const path = String(event.target.value);
+    this.loadPath(event.target.value);
+  };
+
+  loadPath(path: string | null): void {
     if (path) {
       this.onLoading();
       fetchJSON(path, (filename, json) => {
@@ -167,9 +176,9 @@ export default class FileInputRow extends Component<void, Props, State> {
           json,
         );
       }).catch((error) => {
-        console.error(`Failed while fetching json from '${path}'.`, error);
+        console.error(`Failed while fetching json from '${String(path)}'.`, error);
         this.props.onLoaded(null, null);
       });
     }
-  };
+  }
 }

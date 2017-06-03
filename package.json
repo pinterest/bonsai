@@ -43,6 +43,7 @@
     "flow:coverage": "flow-coverage-report report",
     "flow": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
     "start": "react-scripts start",
+    "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
     "storybook": "start-storybook -p 9006 --dont-track",
     "build-storybook": "build-storybook --dont-track",
     "test": "npm run flow && react-scripts test --env=jsdom",
