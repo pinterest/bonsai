@@ -34,13 +34,11 @@ export default class FileInputContainer extends Component<void, Props, State> {
     isDragging: false,
   };
 
-  constructor(props: Props) {
-    super(props);
-
-    this.loadPath(process.env.REACT_APP_STATS_URL || null);
-  }
-
   componentDidMount() {
+    if (process.env.REACT_APP_STATS_URL) {
+      this.loadPath(process.env.REACT_APP_STATS_URL);
+    }
+
     const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
     if (!endpoint) {
       console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
@@ -98,15 +96,20 @@ export default class FileInputContainer extends Component<void, Props, State> {
   };
 
   onStatsFileUploaded = (filename: string, fileText: string) => {
+    let json;
     try {
-      const json = JSON.parse(fileText);
-      this.props.onLoaded(
-        filename,
-        json,
-      );
+      json = JSON.parse(fileText);
     } catch (error) {
+      alert(`JSON parse error. Unable to load stats file.\n\n${error}\n\nCheck the console for full details.`);
+      console.error(error);
       this.props.onLoaded(null, null);
+      return;
     }
+
+    this.props.onLoaded(
+      filename,
+      json,
+    );
   };
 
   loadPath = (path: string | null) => {
