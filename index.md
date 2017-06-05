@@ -27,7 +27,7 @@ Once you clone Bonsai, it can run from your filesystem or anywhere you have a we
 ```
 git clone https://github.com/pinterest/bonsai.git
 cd bonsai && yarn install && yarn run build
-yarn install -g serve
+yarn global add serve
 serve ./build
 ```
 
