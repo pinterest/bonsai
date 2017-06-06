@@ -75,7 +75,7 @@ export default function SelectedChunk(props: Props) {
           />
         </div>
       </div>
-      {props.parentChunks && props.selectedChunkId
+      {props.parentChunks && props.selectedChunkId !== null && props.selectedChunkId !== undefined
         ? <div className="row">
             <div className="col-sm-11 col-sm-push-1">
               <ChunkBreadcrumb
