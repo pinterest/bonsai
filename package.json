@@ -73,11 +73,16 @@
   },
   "flow-coverage-report": {
     "threshold": 85,
+    "type": [
+      "html",
+      "text"
+    ],
     "includeGlob": [
       "src/**/*.js"
     ],
     "excludeGlob": [
-      "+(node_modules|build|flow-typed)/**/*.js"
+      "+(node_modules|build|flow-typed)/**/*.js",
+      "src/components/__tests__/Storyshots.test.js"
     ]
   }
 }
