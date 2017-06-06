@@ -1,6 +1,6 @@
 # Manual Analysis
 
-Say you are building a photo gallery website using React and bundling it together with webpa. Here are 4 files you might have:
+Say you are building a photo gallery website using React and bundling it together with webpack. Here are 4 files you might have:
 
 - photo-list.js
 - photo-zoom.js
