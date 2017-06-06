@@ -54,7 +54,7 @@ export default class FileInputContainer extends Component<void, Props, State> {
         console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
       } else {
         this.setState({
-          dataPaths: json.paths.map(String).map(
+          dataPaths: json.paths.map(String).reduce(
             concatItemToSet,
             this.state.dataPaths || [],
           ),
