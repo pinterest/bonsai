@@ -8,7 +8,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import FileInputRow from '../FileInputRow';
 
 storiesOf('FileInputRow', module)
-  .add('No file', () => (
+  .add('No file picked', () => (
     <FileInputRow
       filename={null}
       dataPaths={null}
@@ -16,7 +16,8 @@ storiesOf('FileInputRow', module)
       onStatsFilePicked={(path: string | null) => undefined}
     />
   ))
-  .add('File loaded', () => (
+  .add('File picked, no data paths', () => (
+    // This never happens in practice
     <FileInputRow
       filename={'stats.json'}
       dataPaths={null}
@@ -24,7 +25,7 @@ storiesOf('FileInputRow', module)
       onStatsFilePicked={(path: string | null) => undefined}
     />
   ))
-  .add('With dataPaths', () => (
+  .add('No file picked, but has dataPaths', () => (
     <FileInputRow
       filename={null}
       dataPaths={['example.json']}
@@ -34,9 +35,33 @@ storiesOf('FileInputRow', module)
   ))
   .add('With dataPaths and a file picked', () => (
     <FileInputRow
-      filename={'stats.json'}
+      filename={'example.json'}
       dataPaths={['example.json']}
       isDragging={false}
+      onStatsFilePicked={(path: string | null) => undefined}
+    />
+  ))
+  .add('No file picked - dragging', () => (
+    <FileInputRow
+      filename={null}
+      dataPaths={null}
+      isDragging={true}
+      onStatsFilePicked={(path: string | null) => undefined}
+    />
+  ))
+  .add('No file picked, but has dataPaths - dragging', () => (
+    <FileInputRow
+      filename={null}
+      dataPaths={['example.json']}
+      isDragging={true}
+      onStatsFilePicked={(path: string | null) => undefined}
+    />
+  ))
+  .add('With dataPaths and a file picked - dragging', () => (
+    <FileInputRow
+      filename={'example.json'}
+      dataPaths={['example.json']}
+      isDragging={true}
       onStatsFilePicked={(path: string | null) => undefined}
     />
   ));

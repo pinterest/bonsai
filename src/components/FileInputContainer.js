@@ -3,6 +3,7 @@
  */
 
 import DragDropUpload from './DragDropUpload';
+import fetchJSON from '../fetchJSON';
 import FileInputRow from './FileInputRow';
 import React, { Component } from 'react';
 
@@ -15,28 +16,25 @@ type Props = {
 type State = {
   dataPaths: ?Array<string>,
   isDragging: boolean,
+  filesSeen: {[name: string]: Object},
 };
 
-function fetchJSON(
-  endpoint: string,
-  callback: (endpoint: string, json: Object) => void
-) {
-  return fetch(endpoint).then((response) => {
-    return response.json();
-  }).then((json) => {
-    callback(endpoint, json);
-  });
+function concatItemToSet(list: Array<string>, item: string): Array<string> {
+  return list.includes(item)
+    ? list
+    : list.concat(item);
 }
 
 export default class FileInputContainer extends Component<void, Props, State> {
   state: State = {
     dataPaths: null,
     isDragging: false,
+    filesSeen: {},
   };
 
   componentDidMount() {
     if (process.env.REACT_APP_STATS_URL) {
-      this.loadPath(process.env.REACT_APP_STATS_URL);
+      this.loadURL(process.env.REACT_APP_STATS_URL);
     }
 
     const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
@@ -49,14 +47,17 @@ export default class FileInputContainer extends Component<void, Props, State> {
       return;
     }
 
-    fetchJSON(endpoint, (fileName, json) => {
+    fetchJSON(endpoint).then((json) => {
       if (!json.paths) {
         console.error(`Missing field. '${endpoint}' should return '{"paths": []}' key. Got: ${String(Object.keys(json))}`);
       } else if (!Array.isArray(json.paths)) {
         console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
       } else {
         this.setState({
-          dataPaths: json.paths.map(String),
+          dataPaths: json.paths.map(String).map(
+            concatItemToSet,
+            this.state.dataPaths || [],
+          ),
         });
       }
     }).catch((error) => {
@@ -80,7 +81,7 @@ export default class FileInputContainer extends Component<void, Props, State> {
               filename={this.props.filename}
               dataPaths={this.state.dataPaths}
               isDragging={this.state.isDragging}
-              onStatsFilePicked={this.loadPath}
+              onStatsFilePicked={this.loadURL}
             />
           </DragDropUpload>
         </div>
@@ -95,6 +96,22 @@ export default class FileInputContainer extends Component<void, Props, State> {
     this.props.onLoading();
   };
 
+  didLoad(filename: string, json: Object) {
+    this.props.onLoaded(
+      filename,
+      json,
+    );
+
+    this.setState({
+      isDragging: false,
+      dataPaths: concatItemToSet(this.state.dataPaths || [], filename),
+      filesSeen: {
+        ...this.state.filesSeen,
+        [filename]: json,
+      },
+    });
+  }
+
   onStatsFileUploaded = (filename: string, fileText: string) => {
     let json;
     try {
@@ -106,22 +123,27 @@ export default class FileInputContainer extends Component<void, Props, State> {
       return;
     }
 
-    this.props.onLoaded(
+    this.didLoad(
       filename,
       json,
     );
   };
 
-  loadPath = (path: string | null) => {
-    if (path) {
+  loadURL = (url: string) => {
+    if (Object.keys(this.state.filesSeen).includes(url)) {
+      this.setState({
+        isDragging: false,
+      });
+      this.props.onLoaded(
+        url,
+        this.state.filesSeen[url],
+      );
+    } else {
       this.onLoading();
-      fetchJSON(path, (filename, json) => {
-        this.props.onLoaded(
-          filename,
-          json,
-        );
+      fetchJSON(url).then((json) => {
+        this.didLoad(url, json);
       }).catch((error) => {
-        console.error(`Failed while fetching json from '${String(path)}'.`, error);
+        console.error(`Failed while fetching json from '${url}'.`, error);
         this.props.onLoaded(null, null);
       });
     }

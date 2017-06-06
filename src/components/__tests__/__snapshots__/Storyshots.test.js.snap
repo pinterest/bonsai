@@ -442,94 +442,101 @@ exports[`Storyshots ExternalModuleLink Default 1`] = `
 
 exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
 
-exports[`Storyshots FileInputRow File loaded 1`] = `
+exports[`Storyshots FileInputRow File picked, no data paths 1`] = `
 <div
-  className="form-horizontal">
-  <div
-    className="form-group">
-    <label
-      className="col-sm-1 control-label">
-      Filename
-    </label>
-    <div
-      className="col-sm-11">
-      <p
-        className="form-control-static">
-        stats.json
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots FileInputRow No file 1`] = `
-<div
-  className="well well-sm clearfix">
+  className="clearfix">
   <div
     className="form-horizontal">
     <div
-      className="form-group col-sm-6">
+      className="form-group">
       <label
-        className="control-label">
-        Drag & Drop your 
-        <code>
-          stats.json
-        </code>
-         file here
-      </label>
-      <span
-        className="col-sm-12 help-block"
-        id="drag-drop-helpblock">
-        Run 
-        <kbd>
-          webpack --json > stats.json
-        </kbd>
-         to get started.
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots FileInputRow With dataPaths 1`] = `
-<div
-  className="well well-sm clearfix">
-  <div
-    className="form-horizontal">
-    <div
-      className="form-group col-sm-6">
-      <label
-        className="control-label">
-        Drag & Drop your 
-        <code>
-          stats.json
-        </code>
-         file here
-      </label>
-      <span
-        className="col-sm-12 help-block"
-        id="drag-drop-helpblock">
-        Run 
-        <kbd>
-          webpack --json > stats.json
-        </kbd>
-         to get started.
-      </span>
-    </div>
-    <div
-      className="form-group col-sm-6"
-      onClick={[Function]}>
-      <label
-        className="col-sm-2 control-label"
-        htmlFor="data-file-picker">
-        File
+        className="col-sm-1 control-label">
+        Filename
       </label>
       <div
-        className="col-sm-10">
+        className="col-sm-11"
+        onClick={[Function]}>
+        <p
+          className="form-control-static">
+          stats.json
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileInputRow No file picked - dragging 1`] = `
+<div
+  className="well well-sm clearfix">
+  <div
+    className="form-group col-sm-12">
+    <label
+      className="control-label">
+      Drag & Drop your 
+      <code>
+        stats.json
+      </code>
+       file here
+    </label>
+    <span
+      className="col-sm-12 help-block"
+      id="drag-drop-helpblock">
+      Run 
+      <kbd>
+        webpack --json > stats.json
+      </kbd>
+       to get started.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileInputRow No file picked 1`] = `
+<div
+  className="well well-sm clearfix">
+  <div
+    className="form-group col-sm-12">
+    <label
+      className="control-label">
+      Drag & Drop your 
+      <code>
+        stats.json
+      </code>
+       file here
+    </label>
+    <span
+      className="col-sm-12 help-block"
+      id="drag-drop-helpblock">
+      Run 
+      <kbd>
+        webpack --json > stats.json
+      </kbd>
+       to get started.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileInputRow No file picked, but has dataPaths - dragging 1`] = `
+<div
+  className="well well-sm clearfix">
+  <div
+    className="form-horizontal">
+    <div
+      className="form-group">
+      <label
+        className="col-sm-1 control-label">
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}>
         <select
           className="form-control"
           id="data-file-picker"
-          onChange={[Function]}>
+          onChange={[Function]}
+          value="">
           <option
             value="" />
           <option
@@ -538,31 +545,162 @@ exports[`Storyshots FileInputRow With dataPaths 1`] = `
           </option>
         </select>
       </div>
-      <span
-        className="col-sm-12 help-block"
-        id="drag-drop-helpblock">
-        or pick an existing stats file.
-      </span>
     </div>
+  </div>
+  <div
+    className="form-group col-sm-12">
+    <label
+      className="control-label">
+      Drag & Drop your 
+      <code>
+        stats.json
+      </code>
+       file here
+    </label>
+    <span
+      className="col-sm-12 help-block"
+      id="drag-drop-helpblock">
+      Run 
+      <kbd>
+        webpack --json > stats.json
+      </kbd>
+       to get started.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileInputRow No file picked, but has dataPaths 1`] = `
+<div
+  className="well well-sm clearfix">
+  <div
+    className="form-horizontal">
+    <div
+      className="form-group">
+      <label
+        className="col-sm-1 control-label">
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}>
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="">
+          <option
+            value="" />
+          <option
+            value="example.json">
+            example.json
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group col-sm-12">
+    <label
+      className="control-label">
+      Drag & Drop your 
+      <code>
+        stats.json
+      </code>
+       file here
+    </label>
+    <span
+      className="col-sm-12 help-block"
+      id="drag-drop-helpblock">
+      Run 
+      <kbd>
+        webpack --json > stats.json
+      </kbd>
+       to get started.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileInputRow With dataPaths and a file picked - dragging 1`] = `
+<div
+  className="well well-sm clearfix">
+  <div
+    className="form-horizontal">
+    <div
+      className="form-group">
+      <label
+        className="col-sm-1 control-label">
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}>
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="example.json">
+          <option
+            value="" />
+          <option
+            value="example.json">
+            example.json
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group col-sm-12">
+    <label
+      className="control-label">
+      Drag & Drop your 
+      <code>
+        stats.json
+      </code>
+       file here
+    </label>
+    <span
+      className="col-sm-12 help-block"
+      id="drag-drop-helpblock">
+      Run 
+      <kbd>
+        webpack --json > stats.json
+      </kbd>
+       to get started.
+    </span>
   </div>
 </div>
 `;
 
 exports[`Storyshots FileInputRow With dataPaths and a file picked 1`] = `
 <div
-  className="form-horizontal">
+  className="clearfix">
   <div
-    className="form-group">
-    <label
-      className="col-sm-1 control-label">
-      Filename
-    </label>
+    className="form-horizontal">
     <div
-      className="col-sm-11">
-      <p
-        className="form-control-static">
-        stats.json
-      </p>
+      className="form-group">
+      <label
+        className="col-sm-1 control-label">
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}>
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="example.json">
+          <option
+            value="" />
+          <option
+            value="example.json">
+            example.json
+          </option>
+        </select>
+      </div>
     </div>
   </div>
 </div>
