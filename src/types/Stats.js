@@ -2,6 +2,8 @@
  * @flow
  */
 
+export type ParsedJSON = any;
+
 export type ChunkID = string | number;
 
 export type Asset = {
