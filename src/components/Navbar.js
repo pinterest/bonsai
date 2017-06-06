@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/" onClick={(e) => {
+          <a className="navbar-brand" href="/" onClick={(e: SyntheticEvent) => {
             event.preventDefault();
             window.location.reload();
           }}>

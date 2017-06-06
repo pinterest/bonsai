@@ -23,6 +23,7 @@
   "dependencies": {
     "array-includes": "^3.0.3",
     "bootstrap": "^3.3.7",
+    "flow-typed": "^2.1.2",
     "object.values": "^1.0.4",
     "react": "15.5.4",
     "react-dom": "15.5.4"
@@ -43,6 +44,7 @@
     "flow:annotations": "flow-annotation-check",
     "flow:coverage": "flow-coverage-report report",
     "flow": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
+    "flow:update-dfns": "flow-typed update",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
     "storybook": "start-storybook -p 9006 --dont-track",
@@ -70,11 +72,17 @@
     ]
   },
   "flow-coverage-report": {
+    "threshold": 85,
+    "type": [
+      "html",
+      "text"
+    ],
     "includeGlob": [
       "src/**/*.js"
     ],
     "excludeGlob": [
-      "+(node_modules|build|flow-typed)/**/*.js"
+      "+(node_modules|build|flow-typed)/**/*.js",
+      "src/components/__tests__/Storyshots.test.js"
     ]
   }
 }
