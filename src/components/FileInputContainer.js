@@ -2,10 +2,13 @@
  * @flow
  */
 
+import type {ParsedJSON, RawStats} from '../types/Stats';
+
 import DragDropUpload from './DragDropUpload';
 import fetchJSON from '../fetchJSON';
 import FileInputRow from './FileInputRow';
 import React, { Component } from 'react';
+import shapeGuard from '../types/shapeGuard';
 
 type Props = {
   filename: ?string,
@@ -16,7 +19,7 @@ type Props = {
 type State = {
   dataPaths: ?Array<string>,
   isDragging: boolean,
-  filesSeen: {[name: string]: Object},
+  filesSeen: {[name: string]: RawStats},
 };
 
 function concatItemToSet(list: Array<string>, item: string): Array<string> {
@@ -96,11 +99,15 @@ export default class FileInputContainer extends Component<void, Props, State> {
     this.props.onLoading();
   };
 
-  didLoad(filename: string, json: Object) {
-    this.props.onLoaded(
-      filename,
-      json,
-    );
+  didLoad(filename: string, json: ParsedJSON) {
+    try {
+      this.props.onLoaded(filename, shapeGuard(json));
+    } catch (error) {
+      alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
+      console.error(error);
+      this.props.onLoaded(null, null);
+      return;
+    }
 
     this.setState({
       isDragging: false,
@@ -113,37 +120,28 @@ export default class FileInputContainer extends Component<void, Props, State> {
   }
 
   onStatsFileUploaded = (filename: string, fileText: string) => {
-    let json;
     try {
-      json = JSON.parse(fileText);
+      this.didLoad(filename, JSON.parse(fileText));
     } catch (error) {
-      alert(`JSON parse error. Unable to load stats file.\n\n${error}\n\nCheck the console for full details.`);
+      alert(`JSON parse error. Unable to load stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
       console.error(error);
       this.props.onLoaded(null, null);
       return;
     }
-
-    this.didLoad(
-      filename,
-      json,
-    );
   };
 
   loadURL = (url: string) => {
     if (Object.keys(this.state.filesSeen).includes(url)) {
+      this.props.onLoaded(url, this.state.filesSeen[url]);
       this.setState({
         isDragging: false,
       });
-      this.props.onLoaded(
-        url,
-        this.state.filesSeen[url],
-      );
     } else {
       this.onLoading();
-      fetchJSON(url).then((json) => {
+      fetchJSON(url).then((json: ParsedJSON) => {
         this.didLoad(url, json);
       }).catch((error) => {
-        console.error(`Failed while fetching json from '${url}'.`, error);
+        console.error(`Failed while fetching json from '${String(url)}'.`, error);
         this.props.onLoaded(null, null);
       });
     }

@@ -22,7 +22,10 @@ export default function getChunkModules(
   );
 
   return parentChunks.reduce(
-    (modules, chunk) => modules.concat(modulesByChunk[chunk.id].modules),
+    (modules, chunk) => {
+      const chunkWithModules = modulesByChunk[chunk.id] || {modules: []};
+      return modules.concat(chunkWithModules.modules);
+    },
     [],
   );
 }
