@@ -1,7 +1,5 @@
 [ignore]
 .*/__tests__/.*
-.*/node_modules/find-package-json/fixture/broken/.*
-.*/node_modules/eslint-plugin-jsx-a11y
 
 [include]
 
