@@ -8,8 +8,6 @@ import { storiesOf, action } from '@kadira/storybook';
 import Stats from '../Stats';
 
 const stats = {
-  assets: [],
-  entrypoints: {},
   chunks: [],
   modules: [],
 };

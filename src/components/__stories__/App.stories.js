@@ -10,8 +10,6 @@ import FileInputContainer from '../FileInputContainer';
 import Stats from '../Stats';
 
 const stats = {
-  assets: [],
-  entrypoints: {},
   chunks: [],
   modules: [],
 };

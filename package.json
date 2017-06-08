@@ -49,10 +49,10 @@
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
     "storybook": "start-storybook -p 9006 --dont-track",
     "build-storybook": "build-storybook --dont-track",
-    "test": "npm run flow && react-scripts test --env=jsdom",
-    "test:ci": "npm run flow && react-scripts test --env=jsdom --coverage && react-scripts build",
+    "test": "npm run flow && react-scripts test --env=jsdom --testPathPattern='src\/(?!integration)'",
+    "test:ci": "npm run test -- --coverage && ./src/__test_helpers__/build-fixtures.sh && react-scripts build",
     "build": "react-scripts build",
-    "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage",
+    "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp",
     "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
     "postversion": "git push && git push --tags && npm publish",
     "eject": "react-scripts eject"

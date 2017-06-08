@@ -7,6 +7,9 @@
 /coverage
 /flow-coverage
 
+# integration testing
+/src/integration/tmp/
+
 # production
 /build
 

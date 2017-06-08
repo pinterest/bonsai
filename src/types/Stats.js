@@ -80,8 +80,8 @@ export type Module = {
 };
 
 export type RawStats = {
-  assets: Array<Asset>,
-  entrypoints: {
+  assets?: Array<Asset>,
+  entrypoints?: {
     [key: string]: EntryPoint,
   },
   chunks: Array<Chunk>,
