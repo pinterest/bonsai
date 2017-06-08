@@ -8,9 +8,10 @@ import type {
   SortProps,
 } from '../../stats/filterModules';
 
-import Button, { CloseButton } from '../Bootstrap/Button';
+import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import FilterCumulativeSizeForm from './FilterCumulativeSizeForm';
+import FilterDisplay from './FilterDisplay';
 import FilterModuleNameForm from './FilterModuleNameForm';
 import FilterRequiredByCountForm from './FilterRequiredByCountForm';
 import FilterRequirementsCountForm from './FilterRequirementsCountForm';
@@ -26,21 +27,6 @@ type Props = {
   onSort: (field: string) => void,
   onFilter: (changes: {[key: FilterableFields]: string}) => void,
 };
-
-function FilterDisplay(props) {
-  return (
-    <span>
-      <kbd>
-        {props.children}
-      </kbd>
-      {props.isFiltered ?
-        <span style={{position: 'absolute', right: '-5px'}}>
-          <CloseButton label="Clear" onClick={props.onClick} />
-        </span>
-        : null}
-    </span>
-  );
-}
 
 export default function ModuleTableHead(props: Props) {
   return (
@@ -65,7 +51,8 @@ export default function ModuleTableHead(props: Props) {
               />
             )}>
             <FilterDisplay
-              onClick={() => props.onFilter({moduleName: ''})}
+              title="Click to filter by module name"
+              onClear={() => props.onFilter({moduleName: ''})}
               isFiltered={!!props.filters.moduleName}>
               {'new RegExp('}
               {props.filters.moduleName
@@ -94,7 +81,8 @@ export default function ModuleTableHead(props: Props) {
               />
             )}>
             <FilterDisplay
-              onClick={() => {
+              title="Click to filter by weighted score"
+              onClear={() => {
                 props.onFilter({
                   cumulativeSizeMin: '',
                   cumulativeSizeMax: '',
@@ -136,7 +124,8 @@ export default function ModuleTableHead(props: Props) {
               />
             )}>
             <FilterDisplay
-              onClick={() => {
+              title="Click to filter by dependants"
+              onClear={() => {
                 props.onFilter({
                   requiredByCountMin: '',
                   requiredByCountMax: '',
@@ -168,7 +157,8 @@ export default function ModuleTableHead(props: Props) {
               />
             )}>
             <FilterDisplay
-              onClick={() => {
+              title="Click to filter by requirements"
+              onClear={() => {
                 props.onFilter({
                   requirementsCountMin: '',
                   requirementsCountMax: '',
