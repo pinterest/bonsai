@@ -111,7 +111,9 @@ export default class FileInputContainer extends Component<void, Props, State> {
     }
 
     const keys = Object.keys(files);
-    this.props.onLoaded(keys[0], files[keys[0]]);
+    const firstKey = keys[0];
+    const firstJson = files[firstKey];
+    this.props.onLoaded(firstKey, firstJson);
 
     this.setState({
       isDragging: false,
