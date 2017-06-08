@@ -19,6 +19,7 @@ export default function FilterModuleNameForm(props: Props) {
         <div className="input-group-addon"><code>new RegExp(</code></div>
         <input
           className="form-control"
+          style={{width: '100px'}}
           id="filter-moduleName-like"
           onChange={props.onChange}
           placeholder=".*"
