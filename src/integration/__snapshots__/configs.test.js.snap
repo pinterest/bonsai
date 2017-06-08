@@ -1,0 +1,62 @@
+exports[`Integration tests Multi Entry Suite should match fullModuleData 1`] = `
+Object {
+  "chunksByParent": Array [
+    Object {
+      "children": Array [],
+      "id": 0,
+      "ids": Array [
+        0,
+      ],
+      "name": "main",
+      "names": Array [
+        "main",
+      ],
+    },
+  ],
+  "extendedModules": Array [],
+  "moduleData": null,
+  "parentChunks": null,
+}
+`;
+
+exports[`Integration tests Multi Entry Suite should match fullModuleData 2`] = `
+Object {
+  "chunksByParent": Array [
+    Object {
+      "children": Array [],
+      "id": 0,
+      "ids": Array [
+        0,
+      ],
+      "name": "main",
+      "names": Array [
+        "main",
+      ],
+    },
+  ],
+  "extendedModules": Array [],
+  "moduleData": null,
+  "parentChunks": null,
+}
+`;
+
+exports[`Integration tests Single Entry Suite should match fullModuleData 1`] = `
+Object {
+  "chunksByParent": Array [
+    Object {
+      "children": Array [],
+      "id": 0,
+      "ids": Array [
+        0,
+      ],
+      "name": "main",
+      "names": Array [
+        "main",
+      ],
+    },
+  ],
+  "extendedModules": Array [],
+  "moduleData": null,
+  "parentChunks": null,
+}
+`;

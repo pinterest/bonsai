@@ -8,7 +8,7 @@ import DragDropUpload from './DragDropUpload';
 import fetchJSON from '../fetchJSON';
 import FileInputRow from './FileInputRow';
 import React, { Component } from 'react';
-import shapeGuard from '../types/shapeGuard';
+import getRawStatsFiles from '../types/getRawStatsFiles';
 
 type Props = {
   filename: ?string,
@@ -100,8 +100,9 @@ export default class FileInputContainer extends Component<void, Props, State> {
   };
 
   didLoad(filename: string, json: ParsedJSON) {
+    let files;
     try {
-      this.props.onLoaded(filename, shapeGuard(json));
+      files = getRawStatsFiles(filename, json);
     } catch (error) {
       alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
       console.error(error);
@@ -109,12 +110,18 @@ export default class FileInputContainer extends Component<void, Props, State> {
       return;
     }
 
+    const keys = Object.keys(files);
+    this.props.onLoaded(keys[0], files[keys[0]]);
+
     this.setState({
       isDragging: false,
-      dataPaths: concatItemToSet(this.state.dataPaths || [], filename),
+      dataPaths: keys.reduce(
+        concatItemToSet,
+        this.state.dataPaths || [],
+      ),
       filesSeen: {
         ...this.state.filesSeen,
-        [filename]: json,
+        ...files,
       },
     });
   }
