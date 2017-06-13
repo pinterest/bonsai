@@ -8,6 +8,7 @@ import type {Child} from '../../stats/getEntryHeirarchy';
 import BlacklistTable from './BlacklistTable';
 import ChunkBreadcrumb from './ChunkBreadcrumb';
 import ChunkDropdown from './ChunkDropdown';
+import LoopTable from './LoopTable';
 import ModuleTable from './ModuleTable';
 import React from 'react';
 
@@ -45,6 +46,14 @@ export default function SelectedChunk(props: Props) {
         </div>
       </div>
     : null;
+
+  const loopList = props.extendedModules
+    ? <div className="row">
+        <div className="col-sm-12">
+          <LoopTable extendedModules={props.extendedModules} />
+        </div>
+      </div>
+    : null
 
   const moduleTable = props.moduleData
     ? <div className="row">
@@ -90,6 +99,7 @@ export default function SelectedChunk(props: Props) {
           </div>
         : null}
       {blackList}
+      {loopList}
       {moduleTable}
     </main>
   );
