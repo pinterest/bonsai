@@ -71,12 +71,7 @@ export function calculateModuleSizes(
         const sizeOf = getSizeOf(reModule, visitedIds.concat(rModule.id));
         size += (sizeOf / reModule.requiredByCount);
       } else {
-        console.log(
-          'circular dependency on',
-          rModule.id,
-          visitedIds.map((id) => modules[id])
-        );
-        eModule.loops.push(visitedIds);
+        eModule.loops.push(visitedIds.map((id) => modules[id]));
       }
     });
 
