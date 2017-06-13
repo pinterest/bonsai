@@ -13,8 +13,11 @@ export default function Navbar() {
             event.preventDefault();
             window.location.reload();
           }}>
-            Bonsai - Trim your dependency trees
+            Bonsai
           </a>
+          <p className="navbar-text">
+            Trim your dependency trees
+          </p>
         </div>
         <ul className="nav navbar-nav navbar-right">
           <li>
