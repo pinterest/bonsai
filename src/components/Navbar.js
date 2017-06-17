@@ -10,7 +10,7 @@ export default function Navbar() {
       <div className="container-fluid">
         <div className="navbar-header">
           <a className="navbar-brand" href="/" onClick={(e: SyntheticEvent) => {
-            event.preventDefault();
+            e.preventDefault();
             window.location.reload();
           }}>
             Bonsai

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`getEntryHeirarchy should list all the chunks 1`] = `
 Object {
   "children": Array [
