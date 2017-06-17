@@ -25,17 +25,18 @@
     "bootstrap": "^3.3.7",
     "flow-typed": "^2.1.2",
     "object.values": "^1.0.4",
-    "react": "15.5.4",
-    "react-dom": "15.5.4"
+    "react": "15.6.1",
+    "react-dom": "15.6.1"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
-    "flow-annotation-check": "1.3.0",
-    "flow-bin": "0.47.0",
+    "@storybook/addon-storyshots": "3.0.0",
+    "@storybook/react": "^3.1.3",
+    "flow-annotation-check": "1.4.1",
+    "flow-bin": "0.48.0",
     "flow-coverage-report": "^0.3.0",
-    "react-addons-test-utils": "15.5.1",
-    "react-scripts": "0.9.5",
-    "storyshots": "^3.2.2"
+    "react-addons-test-utils": "15.6.0",
+    "react-scripts": "1.0.7",
+    "react-test-renderer": "^15.6.1"
   },
   "scripts": {
     "flow:check": "flow check",
@@ -47,10 +48,12 @@
     "flow:update-dfns": "flow-typed update",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
-    "storybook": "start-storybook -p 9006 --dont-track",
-    "build-storybook": "build-storybook --dont-track",
-    "test": "npm run flow && react-scripts test --env=jsdom --testPathPattern='src\/(?!integration)'",
-    "test:ci": "npm run test -- --coverage && ./src/__test_helpers__/build-fixtures.sh && react-scripts build",
+    "storybook": "start-storybook -p 9006",
+    "build-storybook": "build-storybook",
+    "test": "npm run flow && npm run test:jest",
+    "test:jest": "react-scripts test --env=jsdom --testPathPattern='src/(?!integration)'",
+    "test:integration": "./src/__test_helpers__/build-fixtures.sh && react-scripts test --env=jsdom integration",
+    "test:ci": "CI=true npm run test -- --coverage && CI=true npm run test:integration && react-scripts build",
     "build": "react-scripts build",
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp",
     "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
@@ -59,7 +62,7 @@
   },
   "babel": {
     "presets": [
-      "es2015",
+      "env",
       "react"
     ]
   },

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`getExtendedModulesById should extend all the modules 1`] = `
 Object {
   "0": Object {

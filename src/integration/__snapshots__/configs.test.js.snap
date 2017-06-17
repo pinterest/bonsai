@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Integration tests Multi Entry Suite should match fullModuleData 1`] = `
 Object {
   "chunksByParent": Array [

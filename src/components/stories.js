@@ -3,15 +3,14 @@
  */
 
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
 
-// import './__stories__/App.stories';
+import './__stories__/App.stories';
 import './__stories__/FileInputRow.stories';
 import './__stories__/SortLabel.stories';
-// import './__stories__/Stats.stories';
 import './__stories__/Unit.stories';
 
 import './Bootstrap/__stories__/Button.stories';
