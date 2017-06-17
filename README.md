@@ -1,5 +1,7 @@
 # Bonsai
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/bonsai.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/pinterest/bonsai.svg?branch=master)](https://travis-ci.org/pinterest/bonsai)
 
 Trim your javascript dependency tree.
