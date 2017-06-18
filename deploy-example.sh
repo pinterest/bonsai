@@ -20,8 +20,11 @@ NODE_ENV=production \
     REACT_APP_EXTERNAL_URL_PREFIX= \
     yarn run build
 
-rm -rf "$pages_folder/analyze"
+rm -Rf "$pages_folder/analyze"
 mv build "$pages_folder/analyze"
+
+rm -Rf "$pages_folder/storybook"
+yarn run build-storybook -- -o "$pages_folder/storybook"
 
 NODE_ENV=production \
     ./node_modules/webpack/bin/webpack.js --json \
