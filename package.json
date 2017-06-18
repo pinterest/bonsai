@@ -71,7 +71,8 @@
       "src/**/*.js"
     ],
     "exclude": [
-      "+(node_modules|build|flow-typed)/**/*.js"
+      "+(node_modules|build|flow-typed)/**/*.js",
+      "src/registerServiceWorker.js"
     ]
   },
   "flow-coverage-report": {
