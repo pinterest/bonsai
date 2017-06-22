@@ -1,0 +1,6 @@
+{
+    "paths": [
+        "/api/one.json",
+        "/api/two.json"
+    ]
+}
