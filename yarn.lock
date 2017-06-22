@@ -18,9 +18,9 @@
   dependencies:
     "@storybook/addons" "^3.1.2"
 
-"@storybook/addon-storyshots@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.0.0.tgz#ea6239a83aa317b664b203af5e228997534ac140"
+"@storybook/addon-storyshots@3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.1.5.tgz#b47accc8d76b3328ba8311dcb1a37dc5a9a112ff"
   dependencies:
     babel-runtime "^6.23.0"
     global "^4.3.2"
