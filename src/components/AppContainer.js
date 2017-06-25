@@ -9,25 +9,57 @@ import App from './App';
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state: State) => {
-  return {
-    loading: state.isLoading,
-    filename: state.selectedFilename,
-    json: state.selectedFilename
-      ? state.json[state.selectedFilename]
-      : null,
-  };
+  if (state.selectedFilename) {
+    if (state.json[state.selectedFilename]) {
+      return {
+        dataPaths: state.dataPaths,
+        filename: state.selectedFilename,
+        loading: false,
+        json: state.json[state.selectedFilename],
+      };
+    } else {
+      return {
+        dataPaths: state.dataPaths,
+        filename: state.selectedFilename,
+        loading: true,
+        json: null,
+      };
+    }
+  } else {
+    return {
+      dataPaths: state.dataPaths,
+      filename: null,
+      loading: false,
+      json: null,
+    };
+  }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    onLoading: () => {
+    onInitDataPaths(paths: Array<string>) {
       dispatch({
-        type: 'startLoading',
+        type: 'initDataPaths',
+        paths,
       });
     },
-    onLoaded: (filename: ?string, stats: ?RawStats) => {
+
+    onPickedFile(filename: ?string) {
       dispatch({
-        type: 'finishedLoading',
+        type: 'pickedFile',
+        filename: filename,
+      });
+    },
+
+    onLoadingFailed() {
+      dispatch({
+        type: 'loadingFailed',
+      });
+    },
+
+    onLoaded(filename: string, stats: RawStats) {
+      dispatch({
+        type: 'loadingFinished',
         filename,
         stats,
       });

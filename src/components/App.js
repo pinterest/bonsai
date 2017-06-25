@@ -2,8 +2,9 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {ParsedJSON, RawStats} from '../types/Stats';
 
+import fetchJSON from '../fetchJSON';
 import FileInputContainer from './FileInputContainer';
 import Navbar from './Navbar';
 import React from 'react';
@@ -11,14 +12,27 @@ import Stats from './Stats';
 import './App.css'
 
 type Props = {
-  loading: boolean,
+  dataPaths: Array<string>,
   filename: ?string,
+  loading: boolean,
   json: ?RawStats,
-  onLoading: () => void,
+  onInitDataPaths: (paths: Array<string>) => void,
+  onPickedFile: (filename: ?string) => void,
+  onLoadingFailed: () => void,
   onLoaded: (filename: ?string, stats: ?RawStats) => void,
 };
 
 export default function App(props: Props) {
+  if (props.filename && !props.json) {
+    const url = props.filename;
+    fetchJSON(url).then((json: ParsedJSON) => {
+      props.onLoaded(url, json);
+    }).catch((error) => {
+      console.error(`Failed while fetching json from '${String(url)}'.`, error);
+      props.onLoadingFailed();
+    });
+  }
+
   return (
     <div className="App">
       <Navbar />
@@ -27,7 +41,10 @@ export default function App(props: Props) {
           <aside className="container-fluid">
             <FileInputContainer
               filename={props.filename}
-              onLoading={props.onLoading}
+              dataPaths={props.dataPaths}
+              onInitDataPaths={props.onInitDataPaths}
+              onPickedFile={props.onPickedFile}
+              onLoadingFailed={props.onLoadingFailed}
               onLoaded={props.onLoaded}
             />
           </aside>

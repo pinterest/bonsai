@@ -19,20 +19,26 @@ const stats = {
 storiesOf('App', module)
   .add('Default View', () => (
     <App
-      loading={false}
+      dataPaths={[]}
       filename={null}
+      loading={false}
       json={null}
-      onLoading={function() {}}
-      onLoaded={function(filename: ?string, stats: ?RawStats) {}}
+      onInitDataPaths={(paths) => undefined}
+      onPickedFile={() => undefined}
+      onLoadingFailed={() => undefined}
+      onLoaded={function(filename, stats) {}}
     />
   ))
   .add('FileInput stacked on Stats', () => (
     <div>
       <aside className="container-fluid">
         <FileInputContainer
+          dataPaths={[]}
           filename={'stats.json'}
-          onLoading={() => undefined}
-          onLoaded={() => undefined}
+          onInitDataPaths={(paths) => undefined}
+          onPickedFile={() => undefined}
+          onLoadingFailed={() => undefined}
+          onLoaded={function(filename, stats) {}}
         />
       </aside>
       <Stats json={stats} />
