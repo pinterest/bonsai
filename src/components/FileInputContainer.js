@@ -5,7 +5,7 @@
 import type {ParsedJSON, RawStats} from '../types/Stats';
 
 import DragDropUpload from './DragDropUpload';
-import fetchJSON from '../fetchJSON';
+import fetchJSON, {fetchApiListEndpoint} from '../fetchJSON';
 import FileInputRow from './FileInputRow';
 import React, { Component } from 'react';
 import getRawStatsFiles from '../types/getRawStatsFiles';
@@ -40,32 +40,17 @@ export default class FileInputContainer extends Component<void, Props, State> {
       this.loadURL(process.env.REACT_APP_STATS_URL);
     }
 
-    const endpoint = process.env.REACT_APP_API_LIST_ENDPOINT;
-    if (!endpoint) {
-      console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
-      return;
-    }
-    if (process.env.NODE_ENV === 'test') {
-      console.info('NODE_ENV is \'test\'. Skipping fetchJSON() in FileInputRow::componentDidMount');
-      return;
-    }
-
-    fetchJSON(endpoint).then((json) => {
-      if (!json.paths) {
-        console.error(`Missing field. '${endpoint}' should return '{"paths": []}' key. Got: ${String(Object.keys(json))}`);
-      } else if (!Array.isArray(json.paths)) {
-        console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
-      } else {
+    fetchApiListEndpoint(
+      process.env.REACT_APP_API_LIST_ENDPOINT,
+      (paths: Array<string>) => {
         this.setState({
-          dataPaths: json.paths.map(String).reduce(
+          dataPaths: paths.reduce(
             concatItemToSet,
             this.state.dataPaths || [],
           ),
         });
-      }
-    }).catch((error) => {
-      console.error(`Failed while fetching json from '${endpoint}'.`, error);
-    });
+      },
+    );
   }
 
   render() {
