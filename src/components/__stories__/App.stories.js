@@ -27,6 +27,7 @@ storiesOf('App', module)
       onPickedFile={() => undefined}
       onLoadingFailed={() => undefined}
       onLoaded={function(filename, stats) {}}
+      onDroppedFile={function(filename, fileText) {}}
     />
   ))
   .add('FileInput stacked on Stats', () => (
@@ -39,6 +40,7 @@ storiesOf('App', module)
           onPickedFile={() => undefined}
           onLoadingFailed={() => undefined}
           onLoaded={function(filename, stats) {}}
+          onDroppedFile={function(filename, fileText) {}}
         />
       </aside>
       <Stats json={stats} />

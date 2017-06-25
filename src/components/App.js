@@ -16,10 +16,10 @@ type Props = {
   filename: ?string,
   loading: boolean,
   json: ?RawStats,
-  onInitDataPaths: (paths: Array<string>) => void,
   onPickedFile: (filename: ?string) => void,
   onLoadingFailed: () => void,
   onLoaded: (filename: ?string, stats: ?RawStats) => void,
+  onDroppedFile: (filename: string, fileText: string) => void,
 };
 
 export default function App(props: Props) {
@@ -42,18 +42,18 @@ export default function App(props: Props) {
             <FileInputContainer
               filename={props.filename}
               dataPaths={props.dataPaths}
-              onInitDataPaths={props.onInitDataPaths}
               onPickedFile={props.onPickedFile}
               onLoadingFailed={props.onLoadingFailed}
               onLoaded={props.onLoaded}
+              onDroppedFile={props.onDroppedFile}
             />
           </aside>
-            {props.loading
-              ? <p className="center-block"><em>Loading...</em></p>
-              : null}
-            {props.json
-              ? <Stats json={props.json} />
-              : null}
+          {props.loading
+            ? <p className="center-block"><em>Loading...</em></p>
+            : null}
+          {props.json
+            ? <Stats json={props.json} />
+            : null}
         </div>
       </div>
     </div>

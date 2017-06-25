@@ -2,11 +2,16 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
 import type {Dispatch, State} from '../reducer';
 
 import App from './App';
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+import {
+  PickedFile,
+  LoadingFailed,
+  Loaded,
+  DroppedFile,
+} from '../actions';
 
 const mapStateToProps = (state: State) => {
   if (state.selectedFilename) {
@@ -37,37 +42,10 @@ const mapStateToProps = (state: State) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    onInitDataPaths(paths: Array<string>) {
-      dispatch({
-        type: 'initDataPaths',
-        paths,
-      });
-    },
-
-    onPickedFile(filename: ?string) {
-      dispatch({
-        type: 'pickedFile',
-        filename: filename,
-      });
-    },
-
-    onLoadingFailed() {
-      dispatch({
-        type: 'loadingFailed',
-      });
-    },
-
-    onLoaded(filename: string, stats: RawStats) {
-      dispatch({
-        type: 'loadingFinished',
-        filename,
-        stats,
-      });
-      dispatch({
-        type: 'pickedFile',
-        filename,
-      });
-    },
+    onPickedFile: PickedFile(dispatch),
+    onLoadingFailed: LoadingFailed(dispatch),
+    onLoaded: Loaded(dispatch),
+    onDroppedFile: DroppedFile(dispatch),
   };
 };
 
