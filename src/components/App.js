@@ -6,60 +6,39 @@ import type {RawStats} from '../types/Stats';
 
 import FileInputContainer from './FileInputContainer';
 import Navbar from './Navbar';
-import React, { Component } from 'react';
+import React from 'react';
 import Stats from './Stats';
+import './App.css'
 
-import './App.css';
-
-type State = {
+type Props = {
   loading: boolean,
   filename: ?string,
   json: ?RawStats,
+  onLoading: () => void,
+  onLoaded: (filename: ?string, stats: ?RawStats) => void,
 };
 
-export default class App extends Component<void, {}, State> {
-  state: State = {
-    loading: false,
-    filename: null,
-    json: null,
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <div className="AppFixed">
-          <div className="AppView">
-            <aside className="container-fluid">
-              <FileInputContainer
-                filename={this.state.filename}
-                onLoading={this.onLoading}
-                onLoaded={this.onLoaded}
-              />
-            </aside>
-              {this.state.loading
-                ? <p className="center-block"><em>Loading...</em></p>
-                : null}
-              {this.state.json
-                ? <Stats json={this.state.json} />
-                : null}
-          </div>
+export default function App(props: Props) {
+  return (
+    <div className="App">
+      <Navbar />
+      <div className="AppFixed">
+        <div className="AppView">
+          <aside className="container-fluid">
+            <FileInputContainer
+              filename={props.filename}
+              onLoading={props.onLoading}
+              onLoaded={props.onLoaded}
+            />
+          </aside>
+            {props.loading
+              ? <p className="center-block"><em>Loading...</em></p>
+              : null}
+            {props.json
+              ? <Stats json={props.json} />
+              : null}
         </div>
       </div>
-    );
-  }
-
-  onLoading = () => {
-    this.setState({
-      loading: true,
-    });
-  };
-
-  onLoaded = (filename: ?string, stats: ?RawStats) => {
-    this.setState({
-      loading: false,
-      filename: filename,
-      json: stats,
-    });
-  };
+    </div>
+  );
 }

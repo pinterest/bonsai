@@ -2,6 +2,8 @@
  * @flow
  */
 
+import type {RawStats} from '../../types/Stats';
+
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -16,7 +18,13 @@ const stats = {
 
 storiesOf('App', module)
   .add('Default View', () => (
-    <App />
+    <App
+      loading={false}
+      filename={null}
+      json={null}
+      onLoading={function() {}}
+      onLoaded={function(filename: ?string, stats: ?RawStats) {}}
+    />
   ))
   .add('FileInput stacked on Stats', () => (
     <div>
