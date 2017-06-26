@@ -36,7 +36,8 @@
     "flow-coverage-report": "^0.3.0",
     "react-addons-test-utils": "15.6.0",
     "react-scripts": "1.0.7",
-    "react-test-renderer": "^15.6.1"
+    "react-test-renderer": "^15.6.1",
+    "serve": "^5.2.3"
   },
   "scripts": {
     "flow:check": "flow check",
@@ -48,6 +49,7 @@
     "flow:update-dfns": "flow-typed update",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
+    "start:with-server": "serve -n -p 9007 dev-server & REACT_APP_API_LIST_ENDPOINT=/api/index.json react-scripts start",
     "storybook": "start-storybook -p 9006",
     "build-storybook": "build-storybook",
     "test": "npm run flow && npm run test:jest",
@@ -60,6 +62,7 @@
     "postversion": "git push && git push --tags && npm publish",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:9007",
   "babel": {
     "presets": [
       "env",
