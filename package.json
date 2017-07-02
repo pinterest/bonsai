@@ -35,7 +35,7 @@
     "flow-bin": "0.48.0",
     "flow-coverage-report": "^0.3.0",
     "react-addons-test-utils": "15.6.0",
-    "react-scripts": "1.0.7",
+    "react-scripts": "1.0.10",
     "react-test-renderer": "^15.6.1",
     "serve": "^6.0.1"
   },
