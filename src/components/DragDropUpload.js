@@ -23,13 +23,9 @@ function readFile(
   callback: OnChangeCallback,
 ) {
   const reader = new FileReader();
-
-  reader.onloadend = function(event) {
-    if (event.target.readyState === reader.DONE) {
-      callback(file.name, reader.result);
-    }
+  reader.onload = function(event: {target: {result: string}}) {
+    callback(file.name, event.target.result);
   };
-
   reader.readAsText(file);
 }
 
