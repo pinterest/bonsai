@@ -37,7 +37,7 @@
     "react-addons-test-utils": "15.6.0",
     "react-scripts": "1.0.7",
     "react-test-renderer": "^15.6.1",
-    "serve": "^5.2.3"
+    "serve": "^6.0.1"
   },
   "scripts": {
     "flow:check": "flow check",
