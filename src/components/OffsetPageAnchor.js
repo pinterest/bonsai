@@ -8,10 +8,13 @@ type MergeProps = {
   className?: string,
 };
 
-export default function OffsetPageAnchor(anchor: string, props: MergeProps = {}) {
+export default function OffsetPageAnchor(
+  anchor: string,
+  props: MergeProps = {},
+) {
   return {
     ...props,
-    className: ['OffsetPageSection', props.className].join(' '),
+    className: ['OffsetPageSection', props.className].join(' ').trim(),
     tabIndex: -1,
     id: anchor,
   };
