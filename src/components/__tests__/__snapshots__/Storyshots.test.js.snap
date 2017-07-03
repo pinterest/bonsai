@@ -115,33 +115,122 @@ exports[`Storyshots App Default View 1`] = `
 `;
 
 exports[`Storyshots App FileInput stacked on Stats 1`] = `
-<div>
-  <aside
-    className="container-fluid"
+<div
+  className="App"
+>
+  <nav
+    className="navbar navbar-default navbar-fixed-top navbar-inverse"
   >
     <div
-      className="row"
+      className="container-fluid"
     >
       <div
-        className="col-sm-12"
+        className="navbar-header"
+      >
+        <a
+          className="navbar-brand"
+          href="/"
+          onClick={[Function]}
+        >
+          Bonsai
+        </a>
+        <p
+          className="navbar-text"
+        >
+          Trim your dependency trees
+        </p>
+      </div>
+      <ul
+        className="nav navbar-nav navbar-right"
+      >
+        <li>
+          <a
+            className="navbar-link"
+            href="https://pinterest.github.io/bonsai/"
+          >
+            Docs
+          </a>
+        </li>
+        <li>
+          <a
+            className="navbar-link"
+            href="https://github.com/pinterest/bonsai"
+          >
+            Github
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div
+    className="AppFixed"
+  >
+    <div
+      className="AppView"
+    >
+      <aside
+        className="container-fluid"
       >
         <div
-          onClick={[Function]}
-          style={undefined}
+          className="row"
         >
-          <input
-            className="form-control"
-            id="drag-drop-upload"
-            onChange={[Function]}
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-            type="file"
-          />
           <div
-            className="clearfix"
+            className="col-sm-12"
+          >
+            <div
+              onClick={[Function]}
+              style={undefined}
+            >
+              <input
+                className="form-control"
+                id="drag-drop-upload"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+              <div
+                className="clearfix"
+              >
+                <div
+                  className="form-horizontal"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="col-sm-1 control-label"
+                    >
+                      Filename
+                    </label>
+                    <div
+                      className="col-sm-11"
+                      onClick={[Function]}
+                    >
+                      <p
+                        className="form-control-static"
+                      >
+                        stats.json
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <main
+        className="container-fluid"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-sm-12"
           >
             <div
               className="form-horizontal"
@@ -152,81 +241,46 @@ exports[`Storyshots App FileInput stacked on Stats 1`] = `
                 <label
                   className="col-sm-1 control-label"
                 >
-                  Filename
+                  Chunk
                 </label>
                 <div
                   className="col-sm-11"
-                  onClick={[Function]}
                 >
-                  <p
-                    className="form-control-static"
+                  <div
+                    className="btn-group "
+                    style={undefined}
                   >
-                    stats.json
-                  </p>
+                    <button
+                      aria-expanded={false}
+                      aria-haspopup="true"
+                      className="btn btn-default dropdown-toggle"
+                      data-toggle="dropdown"
+                      disabled={null}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      - pick a chunk -
+                       
+                      <span
+                        className="caret"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </aside>
-  <main
-    className="container-fluid"
-  >
-    <div
-      className="row"
-    >
-      <div
-        className="col-sm-12"
-      >
         <div
-          className="form-horizontal"
+          className="row"
         >
           <div
-            className="form-group"
-          >
-            <label
-              className="col-sm-1 control-label"
-            >
-              Chunk
-            </label>
-            <div
-              className="col-sm-11"
-            >
-              <div
-                className="btn-group "
-                style={undefined}
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup="true"
-                  className="btn btn-default dropdown-toggle"
-                  data-toggle="dropdown"
-                  disabled={null}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  - pick a chunk -
-                   
-                  <span
-                    className="caret"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
+            className="col-sm-12"
+          />
         </div>
-      </div>
+      </main>
     </div>
-    <div
-      className="row"
-    >
-      <div
-        className="col-sm-12"
-      />
-    </div>
-  </main>
+  </div>
 </div>
 `;
 
