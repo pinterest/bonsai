@@ -8,7 +8,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import App from '../App';
-import Stats from '../Stats';
 
 const stats = {
   chunks: [],

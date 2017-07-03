@@ -9,7 +9,7 @@ import fetchJSON from '../fetchJSON';
 import FileInputRow from './FileInputRow';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
-import Stats from './Stats';
+import SelectedChunkContainer from './SelectedChunkContainer';
 
 import './App.css'
 
@@ -91,7 +91,7 @@ export default class App extends Component<void, Props, State> {
               ? <p className="center-block"><em>Loading...</em></p>
               : null}
             {props.json
-              ? <Stats json={props.json} />
+              ? <SelectedChunkContainer json={props.json} />
               : null}
           </div>
         </div>
