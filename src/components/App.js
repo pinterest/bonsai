@@ -13,16 +13,21 @@ import Stats from './Stats';
 
 import './App.css'
 
-type Props = {
+export type StateProps = {
   dataPaths: Array<string>,
   filename: ?string,
   loading: boolean,
   json: ?RawStats,
+};
+
+export type DispatchProps = {
   onPickedFile: (filename: ?string) => void,
   onLoadingFailed: () => void,
-  onLoaded: (filename: ?string, stats: ?RawStats) => void,
+  onLoaded: (filename: string, stats: RawStats) => void,
   onDroppedFile: (filename: string, fileText: string) => void,
 };
+
+type Props = StateProps & DispatchProps;
 
 type State = {
   isDragging: boolean,
