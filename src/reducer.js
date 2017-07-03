@@ -31,7 +31,6 @@ export type Action =
   ;
 
 export type Dispatch = (action: Action) => void;
-// export type Thunk = (dispatch: Dispatch) => void;
 
 const initialState = {
   isLoading: false,
