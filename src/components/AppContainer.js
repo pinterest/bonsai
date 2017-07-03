@@ -10,7 +10,7 @@ import {connect} from 'react-redux'
 import {
   PickedFile,
   LoadingFailed,
-  Loaded,
+  LoadingFinished,
   DroppedFile,
 } from '../actions';
 
@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onPickedFile: PickedFile(dispatch),
     onLoadingFailed: LoadingFailed(dispatch),
-    onLoaded: Loaded(dispatch),
+    onLoaded: LoadingFinished(dispatch),
     onDroppedFile: DroppedFile(dispatch),
   };
 };

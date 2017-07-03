@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
