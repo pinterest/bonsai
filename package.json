@@ -26,7 +26,9 @@
     "flow-typed": "^2.1.2",
     "object.values": "^1.0.4",
     "react": "15.6.1",
-    "react-dom": "15.6.1"
+    "react-dom": "15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.0"
   },
   "devDependencies": {
     "@storybook/addon-storyshots": "3.1.7",

@@ -2,64 +2,60 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
+import type {ParsedJSON, RawStats} from '../types/Stats';
 
+import fetchJSON from '../fetchJSON';
 import FileInputContainer from './FileInputContainer';
 import Navbar from './Navbar';
-import React, { Component } from 'react';
+import React from 'react';
 import Stats from './Stats';
+import './App.css'
 
-import './App.css';
-
-type State = {
-  loading: boolean,
+type Props = {
+  dataPaths: Array<string>,
   filename: ?string,
+  loading: boolean,
   json: ?RawStats,
+  onPickedFile: (filename: ?string) => void,
+  onLoadingFailed: () => void,
+  onLoaded: (filename: ?string, stats: ?RawStats) => void,
+  onDroppedFile: (filename: string, fileText: string) => void,
 };
 
-export default class App extends Component<void, {}, State> {
-  state: State = {
-    loading: false,
-    filename: null,
-    json: null,
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <div className="AppFixed">
-          <div className="AppView">
-            <aside className="container-fluid">
-              <FileInputContainer
-                filename={this.state.filename}
-                onLoading={this.onLoading}
-                onLoaded={this.onLoaded}
-              />
-            </aside>
-              {this.state.loading
-                ? <p className="center-block"><em>Loading...</em></p>
-                : null}
-              {this.state.json
-                ? <Stats json={this.state.json} />
-                : null}
-          </div>
-        </div>
-      </div>
-    );
+export default function App(props: Props) {
+  if (props.filename && !props.json) {
+    const url = props.filename;
+    fetchJSON(url).then((json: ParsedJSON) => {
+      props.onLoaded(url, json);
+    }).catch((error) => {
+      console.error(`Failed while fetching json from '${String(url)}'.`, error);
+      props.onLoadingFailed();
+    });
   }
 
-  onLoading = () => {
-    this.setState({
-      loading: true,
-    });
-  };
-
-  onLoaded = (filename: ?string, stats: ?RawStats) => {
-    this.setState({
-      loading: false,
-      filename: filename,
-      json: stats,
-    });
-  };
+  return (
+    <div className="App">
+      <Navbar />
+      <div className="AppFixed">
+        <div className="AppView">
+          <aside className="container-fluid">
+            <FileInputContainer
+              filename={props.filename}
+              dataPaths={props.dataPaths}
+              onPickedFile={props.onPickedFile}
+              onLoadingFailed={props.onLoadingFailed}
+              onLoaded={props.onLoaded}
+              onDroppedFile={props.onDroppedFile}
+            />
+          </aside>
+          {props.loading
+            ? <p className="center-block"><em>Loading...</em></p>
+            : null}
+          {props.json
+            ? <Stats json={props.json} />
+            : null}
+        </div>
+      </div>
+    </div>
+  );
 }
