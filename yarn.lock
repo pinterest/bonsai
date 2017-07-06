@@ -19,9 +19,9 @@
   dependencies:
     "@storybook/addons" "^3.1.6"
 
-"@storybook/addon-storyshots@3.1.7":
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.1.7.tgz#35d982134ee4f47c59986d4aefddb59d233019f7"
+"@storybook/addon-storyshots@3.1.8":
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.1.8.tgz#d7da7134d13da4270042f8eff0ff5b73e14f4a49"
   dependencies:
     babel-runtime "^6.23.0"
     global "^4.3.2"
@@ -6045,14 +6045,7 @@ react-html-attributes@^1.3.0:
   dependencies:
     html-element-attributes "^1.0.0"
 
-react-inspector@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-2.1.0.tgz#45504d1e13bc4d10707b977c1ca11484d14616c7"
-  dependencies:
-    babel-runtime "^6.23.0"
-    is-dom "^1.0.9"
-
-react-inspector@^2.1.1:
+react-inspector@^2.0.0, react-inspector@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-2.1.1.tgz#2e68030d7ef0811a012f167258dd84232fd5ead1"
   dependencies:
