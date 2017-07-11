@@ -12,4 +12,4 @@ By default Bonsai sorts modules by their 'Weighted Module Size'. This is a metri
 
 Next you will want to look at the number of dependants that big module has. The fewer the better! These are the places where you'll have to add lazy-loading, go in and replace the old module with a leaner one, or remove it altogether.
 
-See how we might reason about and [analyze a simple project](manual-analysis.md) without Bonsai.
+See how we might reason about and [analyse a simple project](manual-analysis.md) without Bonsai.
