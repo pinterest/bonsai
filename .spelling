@@ -1,0 +1,15 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+pageload
+dropdown
+webserver
+package.json
+Webpack
+ - docs/stats-files.md
+Chrisbateman's
+webpack-visualizer
+th0r's
+webpack-bundle-analyzer

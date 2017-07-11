@@ -50,7 +50,7 @@
     "flow:coverage": "flow-coverage-report report",
     "flow": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
     "flow:update-dfns": "flow-typed update",
-    "spellcheck": "mdspell --no-suggestions --en-gb --ignore-numbers docs/**/*.md",
+    "spellcheck": "mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
     "start:with-server": "serve -n -p 9007 dev-server & REACT_APP_API_LIST_ENDPOINT=/api/index.json react-scripts start",
