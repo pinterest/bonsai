@@ -13,9 +13,16 @@
 # production
 /build
 
+# docs artifacts
+/docs/storybook
+/docs/analyze
+/docs/example.json
+
 # misc
 .DS_Store
 .env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
