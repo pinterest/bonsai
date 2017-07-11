@@ -8,8 +8,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import App from '../App';
-import FileInputContainer from '../FileInputContainer';
-import Stats from '../Stats';
 
 const stats = {
   chunks: [],
@@ -31,18 +29,15 @@ storiesOf('App', module)
     />
   ))
   .add('FileInput stacked on Stats', () => (
-    <div>
-      <aside className="container-fluid">
-        <FileInputContainer
-          dataPaths={[]}
-          filename={'stats.json'}
-          onInitDataPaths={(paths) => undefined}
-          onPickedFile={() => undefined}
-          onLoadingFailed={() => undefined}
-          onLoaded={function(filename, stats) {}}
-          onDroppedFile={function(filename, fileText) {}}
-        />
-      </aside>
-      <Stats json={stats} />
-    </div>
+    <App
+      dataPaths={[]}
+      filename={'stats.json'}
+      loading={false}
+      json={stats}
+      onInitDataPaths={(paths) => undefined}
+      onPickedFile={() => undefined}
+      onLoadingFailed={() => undefined}
+      onLoaded={function(filename, stats) {}}
+      onDroppedFile={function(filename, fileText) {}}
+    />
   ));

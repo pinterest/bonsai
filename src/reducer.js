@@ -30,10 +30,9 @@ export type Action =
   }
   ;
 
-export type Dispatch = (action: Action) => void;
-// export type Thunk = (dispatch: Dispatch) => void;
+export type Dispatch = (action: Action) => any;
 
-const initialState = {
+export const INITIAL_STATE: State = {
   isLoading: false,
   dataPaths: [],
   selectedFilename: null,
@@ -47,16 +46,13 @@ function concatItemToSet(list: Array<string>, item: string): Array<string> {
 }
 
 export default function handleAction(
-  state: State = initialState,
+  state: State = INITIAL_STATE,
   action: Action,
-) {
+): State {
   if (action.type === 'initDataPaths') {
     return {
       ...state,
-      dataPaths: [
-        ...state.dataPaths,
-        ...action.paths,
-      ],
+      dataPaths: action.paths.reduce(concatItemToSet, state.dataPaths),
     };
   } else if (action.type === 'pickedFile') {
     return {

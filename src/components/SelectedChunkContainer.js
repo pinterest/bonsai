@@ -17,7 +17,7 @@ type State = {
   blacklistedModuleIds: Array<ModuleID>,
 };
 
-export default class Stats extends Component<void, Props, State> {
+export default class SelectedChunkContainer extends Component<void, Props, State> {
   state: State = {
     selectedChunkId: null,
     blacklistedModuleIds: [],

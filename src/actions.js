@@ -45,7 +45,7 @@ export function DroppedFile(dispatch: Dispatch) {
 
     const firstKey = Object.keys(files)[0];
     const firstJson = files[firstKey];
-    Loaded(dispatch)(firstKey, firstJson);
+    LoadingFinished(dispatch)(firstKey, firstJson);
   };
 }
 
@@ -55,16 +55,10 @@ export function LoadingFailed(dispatch: Dispatch) {
   });
 }
 
-export function Loaded(dispatch: Dispatch) {
-  return (filename: string, stats: RawStats) => {
-    dispatch({
-      type: 'loadingFinished',
-      filename,
-      stats,
-    });
-    dispatch({
-      type: 'pickedFile',
-      filename,
-    });
-  };
+export function LoadingFinished(dispatch: Dispatch) {
+  return (filename: string, stats: RawStats) => dispatch({
+    type: 'loadingFinished',
+    filename,
+    stats,
+  });
 }

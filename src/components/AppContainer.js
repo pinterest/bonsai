@@ -2,18 +2,19 @@
  * @flow
  */
 
-import type {Dispatch, State} from '../reducer';
+import type { Dispatch, State } from '../reducer';
+import type { DispatchProps, StateProps } from './App';
 
 import App from './App';
 import {connect} from 'react-redux'
 import {
   PickedFile,
   LoadingFailed,
-  Loaded,
+  LoadingFinished,
   DroppedFile,
 } from '../actions';
 
-const mapStateToProps = (state: State) => {
+const mapStateToProps = (state: State): StateProps => {
   if (state.selectedFilename) {
     if (state.json[state.selectedFilename]) {
       return {
@@ -40,11 +41,11 @@ const mapStateToProps = (state: State) => {
   }
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onPickedFile: PickedFile(dispatch),
     onLoadingFailed: LoadingFailed(dispatch),
-    onLoaded: Loaded(dispatch),
+    onLoaded: LoadingFinished(dispatch),
     onDroppedFile: DroppedFile(dispatch),
   };
 };
