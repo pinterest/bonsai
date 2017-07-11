@@ -16,7 +16,7 @@ You can [generate a stats file](stats-files.md) by running `webpack --json > sta
 
 ### Taking Action
 
-Using your knowledge of your project, Bonsai will enable you to sort and filter the module to help you identify large modules that might not be needed on initial render. Click 'Ignore' to simulate how many dependency bytes would be removed if you defer or remove a given dependency.
+Using your knowledge of your project, Bonsai will enable you to sort and filter the modules to help you identify large modules that might not be needed on initial render. Click 'Ignore' to simulate how many dependency bytes would be removed if you defer or remove a given dependency.
 
 Read more about [analyzing your project](analyzing.md).
 

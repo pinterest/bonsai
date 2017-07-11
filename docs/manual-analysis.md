@@ -1,17 +1,17 @@
 # Manual Analysis
 
-Say you are building a photo gallery website using React and bundling it together with webpack. Here are 4 files you might have:
+Say you are building a photo gallery website using React and bundling it together with Webpack. Here are 4 modules you might have:
 
-- photo-list.js
-- photo-zoom.js
-- react-dom
-- reactjs/react-modal
+- `photo-list.js`
+- `photo-zoom.js`
+- `react-dom`
+- `reactjs/react-modal`
 
-and here is a snippet of each file,
+and here is a snippet of the first two:
+
+## `photo-list.js`
 
 ```javascript
-# photo-list.js
-
 import React from 'react';
 import PhotoZoom from './photo-zoom.js';
 
@@ -40,10 +40,11 @@ export default class PhotoList extends React.Component {
     });
   }
 }
+```
 
+## `photo-zoom.js`
 
-# photo-zoom.js
-
+```javascript
 import React from 'react';
 import ReactModal from 'react-modal';
 
@@ -66,6 +67,8 @@ export default class PhotoZoom extends React.Component {
 }
 ```
 
-We can see that, if no photo is picked the PhotoZoom component will render ReactModal with `isOpen=false`, so nothing gets displayed. `photo-zoom.js` itself is a really small file, so it might not seem like a great win to lazy load it. But if we consider that it's the only module that uses react-modal then all of a sudden one change will result in much more code saved.
+We can see that, if no photo is picked the `PhotoZoom` component will render `ReactModal` with `isOpen = false`, so nothing gets displayed.
+
+`photo-zoom.js` itself is a really small file, so it might not seem like a great win to lazy load it. But if we consider that it's the only module that depends on `react-modal` then all of a sudden one change will result in much more code saved.
 
 In a simple example this is obvious, but in a larger codebase where things are very complex and change very fast using a tool to help with this analysis is invaluable.
