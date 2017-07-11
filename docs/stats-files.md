@@ -1,6 +1,6 @@
 # Webpack Stats File
 
-For simple webpack projects you can generate a stats file using `webpack --json > stats.json`. This will create `stats.json` in your current directory with all the data from your project. If you have a custom configuration you might need to tell webpack about that, `webpack --json --config webpack.config.js > stats.json`. See [https://webpack.js.org](https://webpack.js.org/api/cli/#common-options) for more help.
+For simple Webpack projects you can generate a stats file using `webpack --json > stats.json`. This will create `stats.json` in your current directory with all the data from your project. If you have a custom configuration you might need to tell webpack about that, `webpack --json --config webpack.config.js > stats.json`. See [https://webpack.js.org](https://webpack.js.org/api/cli/#common-options) for more help.
 
 ## What's in the stats file?
 
