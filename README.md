@@ -10,7 +10,7 @@ Trim your javascript dependency tree.
 
 ## Users guide
 
-The quickest way to get started is to generate a Webpack stats file, and then drag and drop it into https://pinterest.github.io/bonsai/analyzing.
+The quickest way to get started is to generate a Webpack stats file, and then drag and drop it into https://pinterest.github.io/bonsai/analyze.
 
 See more documentation and help at https://pinterest.github.io/bonsai
 
