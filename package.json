@@ -48,7 +48,6 @@
     "flow:stop": "flow stop",
     "flow:annotations": "flow-annotation-check",
     "flow:coverage": "flow-coverage-report report",
-    "flow": "npm run flow:check && npm run flow:annotations && npm run flow:coverage",
     "flow:update-dfns": "flow-typed update",
     "spellcheck": "mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md",
     "start": "react-scripts start",

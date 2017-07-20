@@ -7,6 +7,9 @@ node_js:
 
 cache: yarn
 
+before_install: yarn global add greenkeeper-lockfile@1
+
+before_script: greenkeeper-lockfile-update
 script:
   - yarn run spellcheck
   - yarn run flow:check
@@ -15,9 +18,7 @@ script:
   - yarn run pretest:integration
   - ./node_modules/.bin/react-scripts test --env=jsdom --coverage
   - ./node_modules/.bin/react-scripts build
-
-before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
 
 before_deploy:
   - NODE_ENV=production \
@@ -32,10 +33,10 @@ before_deploy:
   - yarn run build-storybook -- -o "docs/storybook"
 deploy:
   provider: pages
+  target_branch: gh-pages
   local_dir: docs
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  github_token: $GITHUB_TOKEN
   on:
     branch: master
 
-after_script: greenkeeper-lockfile-upload
