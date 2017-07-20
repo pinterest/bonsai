@@ -10,7 +10,7 @@ Bonsai is a JavaScript code analyser that helps speed up your website by focusin
 
 ## Getting Started
 
-The quickest way to get started is to generate a stats file locally on your computer, and then use the online analyser at [https://pinterest.github.io/bonsai/analyzing](https://pinterest.github.io/bonsai/analyzing).
+The quickest way to get started is to generate a stats file locally on your computer, and then use the online analyser at [https://pinterest.github.io/bonsai/analyze](https://pinterest.github.io/bonsai/analyze).
 
 You can [generate a stats file](stats-files.md) by running `webpack --json > stats.json`. Then all you need to to is drag and drop the output file into the online tool.
 
