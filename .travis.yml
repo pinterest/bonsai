@@ -7,13 +7,29 @@ node_js:
 
 cache: yarn
 
-script: yarn run test:ci
+script:
+  - yarn run spellcheck
+  - yarn run flow:check
+  - yarn run flow:annotations
+  - yarn run flow:coverage -t text
+  - yarn run pretest:integration
+  - ./node_modules/.bin/react-scripts test --env=jsdom --coverage
+  - ./node_modules/.bin/react-scripts build
 
 before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
-after_success:
-  - ./build-gh-pages.sh
 
+before_deploy:
+  - NODE_ENV=production \
+      PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ \
+      REACT_APP_API_LIST_ENDPOINT=/bonsai/example-index.json \
+      REACT_APP_EXTERNAL_URL_PREFIX= \
+      yarn run build && \
+      mv build docs/analyze
+  - NODE_ENV=production \
+      ./node_modules/webpack/bin/webpack.js --json \
+      --config ./node_modules/react-scripts/config/webpack.config.prod.js > "docs/example.json"
+  - yarn run build-storybook -- -o "docs/storybook"
 deploy:
   provider: pages
   local_dir: docs

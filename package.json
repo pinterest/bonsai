@@ -60,7 +60,6 @@
     "test:jest": "react-scripts test --env=jsdom --testPathPattern='src/(?!integration)'",
     "pretest:integration": "./src/__test_helpers__/build-fixtures.sh",
     "test:integration": "react-scripts test --env=jsdom integration",
-    "test:ci": "npm run spellcheck && CI=true npm run flow && npm run pretest:integration && CI=true react-scripts test --env=jsdom --coverage && react-scripts build",
     "build": "react-scripts build",
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp",
     "preversion": "npm run clean && npm run flow:build && npm run test && npm run build",
