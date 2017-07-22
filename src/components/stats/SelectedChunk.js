@@ -9,7 +9,7 @@ import BlacklistTable from './BlacklistTable';
 import ChunkBreadcrumb from './ChunkBreadcrumb';
 import ChunkDropdown from './ChunkDropdown';
 import LoopTable from './LoopTable';
-import ModuleTable from './ModuleTable';
+import ModuleTableContainer from './ModuleTableContainer';
 import React from 'react';
 
 type Props = {
@@ -64,7 +64,7 @@ export default function SelectedChunk(props: Props) {
                 ? 'All'
                 : props.moduleData.included.length} Modules Included
             </div>
-            <ModuleTable
+            <ModuleTableContainer
               extendedModules={props.extendedModules}
               onRemoveModule={props.onRemoveModule}
             />

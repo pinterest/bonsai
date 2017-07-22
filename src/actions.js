@@ -4,6 +4,7 @@
 
 import type {Dispatch} from './reducer';
 import type {RawStats} from './types/Stats';
+import type {FilterableFields} from './stats/filterModules';
 
 import getRawStatsFiles from './types/getRawStatsFiles';
 
@@ -60,5 +61,19 @@ export function LoadingFinished(dispatch: Dispatch) {
     type: 'loadingFinished',
     filename,
     stats,
+  });
+}
+
+export function SortedTable(dispatch: Dispatch) {
+  return (field: string) => dispatch({
+    type: 'onSorted',
+    field,
+  });
+}
+
+export function FilteredTable(dispatch: Dispatch) {
+  return (changes: {[key: FilterableFields]: string}) => dispatch({
+    type: 'onFiltered',
+    changes,
   });
 }
