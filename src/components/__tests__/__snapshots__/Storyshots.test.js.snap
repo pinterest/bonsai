@@ -1208,9 +1208,7 @@ exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
 
 exports[`Storyshots formatModuleName delegated dll 1`] = `
 <span>
-  <span
-    title=""
-  >
+  <span>
     delegated ./node_modules/classnames/index.js from dll-reference vendor
   </span>
   <br />
@@ -1285,15 +1283,11 @@ exports[`Storyshots formatModuleName main and loader with query 1`] = `
 
 exports[`Storyshots formatModuleName multi 1`] = `
 <span>
-  <span
-    title=""
-  >
+  <span>
     multi
   </span>
   <br />
-  <span
-    title=""
-  >
+  <span>
     main
   </span>
   <br />
@@ -1302,9 +1296,7 @@ exports[`Storyshots formatModuleName multi 1`] = `
 
 exports[`Storyshots formatModuleName node module 1`] = `
 <span>
-  <span
-    title=""
-  >
+  <span>
     ./~/react-dev-utils/webpackHotDevClient.js
   </span>
   <br />
@@ -1313,9 +1305,7 @@ exports[`Storyshots formatModuleName node module 1`] = `
 
 exports[`Storyshots formatModuleName plain filepath 1`] = `
 <span>
-  <span
-    title=""
-  >
+  <span>
     components/stats/__stories__/formatModuleName.stories.js
   </span>
   <br />

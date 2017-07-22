@@ -42,11 +42,14 @@ export default function formatModuleName(name: string) {
             title={title}>{' '}{loaders.join('')}
           </span>
         : null,
-        <span
-          key={'b' + i}
-          title={title}>
-          {moduleName}
-        </span>,
+      title
+        ? <span key={'b' + i}
+            title={title}>
+            {moduleName}
+          </span>
+        : <span key={'b' + i}>
+            {moduleName}
+          </span>,
     ];
   }).filter(_ => _).reduce(joinWithBR, []);
 }
