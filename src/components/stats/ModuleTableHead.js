@@ -148,6 +148,7 @@ export default function ModuleTableHead(props: Props) {
             </SortLabel>
           </Button>
           <Dropdown
+            align="right"
             color="link"
             getContent={() => (
               <FilterRequirementsCountForm
