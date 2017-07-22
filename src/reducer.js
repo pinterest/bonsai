@@ -3,12 +3,19 @@
  */
 
 import type {RawStats} from './types/Stats';
+import type {
+  FilterableFields,
+  FilterProps,
+  SortProps,
+} from './stats/filterModules';
 
 export type State = {
   isLoading: boolean,
   dataPaths: Array<string>,
   selectedFilename: ?string,
   json: {[filename: string]: RawStats},
+  sort: SortProps,
+  filters: FilterProps,
 };
 
 export type Action =
@@ -28,6 +35,14 @@ export type Action =
     filename: string,
     stats: RawStats,
   }
+  | {
+    type: 'onSorted',
+    field: string,
+  }
+  | {
+    type: 'onFiltered',
+    changes: {[key: FilterableFields]: string},
+  }
   ;
 
 export type Dispatch = (action: Action) => any;
@@ -37,6 +52,19 @@ export const INITIAL_STATE: State = {
   dataPaths: [],
   selectedFilename: null,
   json: {},
+  sort: {
+    field: 'cumulativeSize',
+    direction: 'DESC',
+  },
+  filters: {
+    moduleName: '',
+    cumulativeSizeMin: '',
+    cumulativeSizeMax: '',
+    requiredByCountMin: '',
+    requiredByCountMax: '',
+    requirementsCountMin: '',
+    requirementsCountMax: '',
+  },
 };
 
 function concatItemToSet(list: Array<string>, item: string): Array<string> {
@@ -72,6 +100,25 @@ export default function handleAction(
       json: {
         ...state.json,
         [action.filename]: action.stats,
+      },
+    };
+  } else if (action.type === 'onSorted') {
+    const isSameField = state.sort.field === action.field;
+    const invertedDir = state.sort.direction === 'ASC' ? 'DESC': 'ASC';
+    const nextDirection = isSameField ? invertedDir : 'DESC';
+    return {
+      ...state,
+      sort: {
+        field: action.field,
+        direction: nextDirection,
+      },
+    };
+  } else if (action.type === 'onFiltered') {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        ...action.changes,
       },
     };
   }
