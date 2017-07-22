@@ -37,7 +37,7 @@ export default function FilterRequirementsCountForm(props: Props) {
           type="text"
           value={props.filters.requirementsCountMin}
         />
-        <div className="input-group-addon"><code>&lt;</code></div>
+        <div className="input-group-addon"><code>&lt; imports &lt;</code></div>
         <input
           className="form-control"
           style={{width: '100px'}}

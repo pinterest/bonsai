@@ -37,7 +37,7 @@ export default function FilterCumulativeSizeForm(props: Props) {
           type="text"
           value={props.filters.cumulativeSizeMin}
         />
-        <div className="input-group-addon"><code>&lt;</code></div>
+        <div className="input-group-addon"><code>&lt; size &lt;</code></div>
         <input
           className="form-control"
           style={{width: '100px'}}
