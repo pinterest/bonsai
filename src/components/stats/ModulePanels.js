@@ -28,7 +28,7 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
               scrollToAndFocus(String(reason.moduleId));
             }}>
               <div className="text-left">
-                {formatModuleName(reason.moduleIdentifier)}
+                {formatModuleName(reason.moduleName)}
               </div>
             </Button>
           </li>
@@ -59,7 +59,7 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
               scrollToAndFocus(String(module.id));
             }}>
               <div className="text-left">
-                {formatModuleName(module.identifier)}
+                {formatModuleName(module.name)}
               </div>
             </Button>
           </li>
