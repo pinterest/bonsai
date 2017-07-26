@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {RawStats} from './types/Stats';
+import type {ChunkID, ModuleID, RawStats} from './types/Stats';
 import type {
   FilterableFields,
   FilterProps,
@@ -13,6 +13,8 @@ export type State = {
   isLoading: boolean,
   dataPaths: Array<string>,
   selectedFilename: ?string,
+  selectedChunkId: ?ChunkID,
+  blacklistedModuleIds: Array<ModuleID>,
   json: {[filename: string]: RawStats},
   sort: SortProps,
   filters: FilterProps,
@@ -43,6 +45,18 @@ export type Action =
     type: 'onFiltered',
     changes: {[key: FilterableFields]: string},
   }
+  | {
+    type: 'onPickedChunk',
+    chunkId: ChunkID,
+  }
+  | {
+    type: 'onRemoveModule',
+    moduleID: ModuleID,
+  }
+  | {
+    type: 'onIncludeModule',
+    moduleID: ModuleID,
+  }
   ;
 
 export type Dispatch = (action: Action) => any;
@@ -51,6 +65,8 @@ export const INITIAL_STATE: State = {
   isLoading: false,
   dataPaths: [],
   selectedFilename: null,
+  selectedChunkId: null,
+  blacklistedModuleIds: [],
   json: {},
   sort: {
     field: 'cumulativeSize',
@@ -86,16 +102,22 @@ export default function handleAction(
     return {
       ...state,
       selectedFilename: action.filename,
+      selectedChunkId: null,
+      blacklistedModuleIds: [],
     };
   } else if (action.type === 'loadingFailed') {
     return {
       ...state,
       selectedFilename: null,
+      selectedChunkId: null,
+      blacklistedModuleIds: [],
     };
   } else if (action.type === 'loadingFinished') {
     return {
       ...state,
       selectedFilename: action.filename,
+      selectedChunkId: null,
+      blacklistedModuleIds: [],
       dataPaths: concatItemToSet(state.dataPaths, action.filename),
       json: {
         ...state.json,
@@ -120,6 +142,28 @@ export default function handleAction(
         ...state.filters,
         ...action.changes,
       },
+    };
+  } else if (action.type === 'onPickedChunk') {
+    return {
+      ...state,
+      selectedChunkId: action.chunkId,
+      blacklistedModuleIds: [],
+    };
+  } else if (action.type === 'onRemoveModule') {
+    return {
+      ...state,
+      blacklistedModuleIds: [
+        ...state.blacklistedModuleIds,
+        action.moduleID,
+      ],
+    };
+  } else if (action.type === 'onIncludeModule') {
+    const moduleID = action.moduleID;
+    return {
+      ...state,
+      blacklistedModuleIds: state.blacklistedModuleIds.filter(
+        (id) => id !== moduleID,
+      ),
     };
   }
 

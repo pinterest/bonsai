@@ -2,8 +2,8 @@
  * @flow
  */
 
+import type {ChunkID, ModuleID, RawStats} from './types/Stats';
 import type {Dispatch} from './reducer';
-import type {RawStats} from './types/Stats';
 import type {FilterableFields} from './stats/filterModules';
 
 import getRawStatsFiles from './types/getRawStatsFiles';
@@ -75,5 +75,26 @@ export function FilteredTable(dispatch: Dispatch) {
   return (changes: {[key: FilterableFields]: string}) => dispatch({
     type: 'onFiltered',
     changes,
+  });
+}
+
+export function PickedChunk(dispatch: Dispatch) {
+  return (chunkId: ChunkID) => dispatch({
+    type: 'onPickedChunk',
+    chunkId,
+  });
+}
+
+export function RemovedModule(dispatch: Dispatch) {
+  return (moduleID: ModuleID) => dispatch({
+    type: 'onRemoveModule',
+    moduleID,
+  });
+}
+
+export function IncludedModule(dispatch: Dispatch) {
+  return (moduleID: ModuleID) => dispatch({
+    type: 'onIncludeModule',
+    moduleID,
   });
 }
