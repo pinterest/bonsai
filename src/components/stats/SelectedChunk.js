@@ -12,7 +12,7 @@ import LoopTable from './LoopTable';
 import ModuleTableContainer from './ModuleTableContainer';
 import React from 'react';
 
-type Props = {
+export type StateProps = {
   selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
 
@@ -23,11 +23,15 @@ type Props = {
   extendedModules: Array<ExtendedModule>,
   chunksByParent: Array<Child>,
   parentChunks: ?Array<Child>,
+};
 
+export type DispatchProps = {
   onSelectChunkId: (chunkId: ChunkID) => void,
   onRemoveModule: (moduleID: ModuleID) => void,
   onIncludeModule: (moduleID: ModuleID) => void,
 };
+
+type Props = StateProps & DispatchProps;
 
 export default function SelectedChunk(props: Props) {
   const blackList = props.moduleData && props.moduleData.removed.length

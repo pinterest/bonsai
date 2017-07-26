@@ -4,10 +4,12 @@
 
 import type {RawStats} from '../../types/Stats';
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-
 import App from '../App';
+import handleAction from '../../reducer';
+import React from 'react';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { storiesOf, addDecorator } from '@storybook/react';
 
 const stats = {
   chunks: [],
