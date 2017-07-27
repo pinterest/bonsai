@@ -3140,9 +3140,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-annotation-check@1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/flow-annotation-check/-/flow-annotation-check-1.4.1.tgz#aee0a772dec449b3342ce534b5f08187322d2a21"
+flow-annotation-check@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/flow-annotation-check/-/flow-annotation-check-1.5.0.tgz#7998ac7b82830a5484958e1edf245be12ead52de"
   dependencies:
     argparse "^1.0.9"
     babel-plugin-transform-object-rest-spread "^6.20.2"
