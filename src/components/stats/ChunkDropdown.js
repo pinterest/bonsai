@@ -5,6 +5,7 @@
 import type {Child} from '../../stats/getEntryHeirarchy';
 import type {ChunkID} from '../../types/Stats';
 
+import { isSameChunk } from '../../types/Stats';
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import React from 'react';
@@ -24,7 +25,7 @@ export default function ChunkDropdown(props: Props) {
 
   function appendChildren(children: Array<Child>, indent: number) {
     children.forEach((child) => {
-      if (child.id === props.selectedChunkId) {
+      if (isSameChunk(child.id, props.selectedChunkId)) {
         selectedItem = {
           id: child.id,
           name: child.name,
