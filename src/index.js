@@ -14,6 +14,8 @@ import handleAction from './reducer';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
+import UrlStateEncoder from './UrlStateEncoder';
+
 import {
   InitDataPaths,
   PickedFile,
@@ -31,6 +33,8 @@ const store = createStore(
 if (process.env.REACT_APP_STATS_URL) {
   PickedFile(store.dispatch)(process.env.REACT_APP_STATS_URL);
 }
+
+UrlStateEncoder.factory(store);
 
 fetchApiListEndpoint(
   process.env.REACT_APP_API_LIST_ENDPOINT,
