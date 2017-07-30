@@ -5,6 +5,14 @@
 export type ParsedJSON = any;
 
 export type ChunkID = string | number;
+export type ModuleID = string | number;
+
+export function isSameChunk(a: ?ChunkID, b: ?ChunkID): boolean {
+  if (a === null && b === null) {
+    return true;
+  }
+  return String(a) === String(b);
+}
 
 export type Asset = {
   name: string,
@@ -53,8 +61,6 @@ export type Chunk = {
   parents: Array<ChunkID>,
   origins: Array<Origin>
 };
-
-export type ModuleID = string | number;
 
 export type Module = {
   id: ModuleID,

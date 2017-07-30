@@ -23,10 +23,10 @@ type Props = {
 
 export default function BlasklistTable(props: Props) {
   const blacklistedModulesList = props.blacklistedModulesIds.map(
-    (id) => props.removedModules.filter((module) => module.id === id),
+    (id) => props.removedModules.filter((module) => String(module.id) === String(id)),
   );
   const removedModules = props.removedModules.filter(
-    (module) => !props.blacklistedModulesIds.includes(module.id),
+    (module) => !props.blacklistedModulesIds.includes(String(module.id)),
   );
 
   const sum = props.removedModules.reduce(

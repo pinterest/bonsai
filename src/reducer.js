@@ -10,7 +10,6 @@ import type {
 } from './stats/filterModules';
 
 export type State = {
-  isLoading: boolean,
   dataPaths: Array<string>,
   selectedFilename: ?string,
   selectedChunkId: ?ChunkID,
@@ -62,7 +61,6 @@ export type Action =
 export type Dispatch = (action: Action) => any;
 
 export const INITIAL_STATE: State = {
-  isLoading: false,
   dataPaths: [],
   selectedFilename: null,
   selectedChunkId: null,
@@ -116,8 +114,6 @@ export default function handleAction(
     return {
       ...state,
       selectedFilename: action.filename,
-      selectedChunkId: null,
-      blacklistedModuleIds: [],
       dataPaths: concatItemToSet(state.dataPaths, action.filename),
       json: {
         ...state.json,
@@ -146,7 +142,7 @@ export default function handleAction(
   } else if (action.type === 'onPickedChunk') {
     return {
       ...state,
-      selectedChunkId: action.chunkId,
+      selectedChunkId: String(action.chunkId),
       blacklistedModuleIds: [],
     };
   } else if (action.type === 'onRemoveModule') {
@@ -162,7 +158,7 @@ export default function handleAction(
     return {
       ...state,
       blacklistedModuleIds: state.blacklistedModuleIds.filter(
-        (id) => id !== moduleID,
+        (id) => String(id) !== String(moduleID),
       ),
     };
   }

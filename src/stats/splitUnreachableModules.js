@@ -22,8 +22,8 @@ export default function splitUnreachableModules(
     };
   }
 
-  const moduleIds = modules.map((module) => module.id);
-  const _relevantReasons = (reason) => moduleIds.includes(reason.moduleId);
+  const moduleIds = modules.map((module) => String(module.id));
+  const _relevantReasons = (reason) => moduleIds.includes(String(reason.moduleId));
 
   const topLevelModules = modules.filter((module) => {
     return module.reasons.filter(_relevantReasons).length === 0;
@@ -32,14 +32,18 @@ export default function splitUnreachableModules(
   const reachableModuleIds: Set<ModuleID> = new Set();
   const recordChildModules = (modules: Array<ExtendedModule>) => {
     modules.forEach((module) => {
-      if (reachableModuleIds.has(module.id)) {
+      if (reachableModuleIds.has(String(module.id))) {
         return;
       }
 
       reachableModuleIds.add(module.id);
       recordChildModules(
         module.requirements
-          .filter((module) => !blacklistedModuleIds.includes(module.id))
+          .filter(
+            (module) => !blacklistedModuleIds
+              .map(String)
+              .includes(String(module.id))
+          )
           .map((module) => extendedModulesById[module.id])
       );
     });
