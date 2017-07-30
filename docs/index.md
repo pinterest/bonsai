@@ -2,7 +2,7 @@
 
 Trim your JavaScript dependencies
 
-[![Build Status](https://travis-ci.org/pinterest/bonsai.svg?branch=master)](https://travis-ci.org/pinterest/bonsai)
+[![Current Version](https://img.shields.io/npm/v/bonsai-analyzer.svg)](https://www.npmjs.com/package/bonsai-analyzer) [![Build Status](https://travis-ci.org/pinterest/bonsai.svg?branch=master)](https://travis-ci.org/pinterest/bonsai) [![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/bonsai.svg)](https://greenkeeper.io/)
 
 Bonsai is a JavaScript code analyser that helps speed up your website by focusing on module size and the cumulative size of all downstream dependencies.
 

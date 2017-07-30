@@ -1,8 +1,6 @@
 # Bonsai
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/bonsai.svg)](https://greenkeeper.io/)
-
-[![Build Status](https://travis-ci.org/pinterest/bonsai.svg?branch=master)](https://travis-ci.org/pinterest/bonsai)
+[![Current Version](https://img.shields.io/npm/v/bonsai-analyzer.svg)](https://www.npmjs.com/package/bonsai-analyzer) [![Build Status](https://travis-ci.org/pinterest/bonsai.svg?branch=master)](https://travis-ci.org/pinterest/bonsai) [![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/bonsai.svg)](https://greenkeeper.io/)
 
 Trim your javascript dependency tree.
 
