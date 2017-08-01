@@ -34,3 +34,4 @@ deploy:
   on:
     repo: pinterest/bonsai
     branch: master
+    node: node
