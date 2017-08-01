@@ -26,12 +26,19 @@ before_deploy:
   - yarn run build:stats
   - yarn run build:storybook
 deploy:
-  provider: pages
-  target_branch: gh-pages
-  local_dir: docs
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    repo: pinterest/bonsai
-    branch: master
-    node: node
+  - provider: pages
+    target_branch: gh-pages
+    local_dir: docs
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+      repo: pinterest/bonsai
+      branch: master
+      node: node
+  - provider: npm
+    api_key: $NPM_API_KEY
+    email: "ryan@ryanalbrecht.ca"
+    on:
+      repo: pinterest/bonsai
+      tags: true
+      node: node
