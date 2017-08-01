@@ -53,15 +53,15 @@
     fuse.js "^3.0.1"
     prop-types "^15.5.9"
 
-"@storybook/react@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-3.2.0.tgz#bcd681d2bb81b0f361eeeb6ad5aa86ba14a26216"
+"@storybook/react@3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-3.2.3.tgz#4e5aff80b61328288dcf9e3a6b2a2890eab880be"
   dependencies:
     "@storybook/addon-actions" "^3.2.0"
     "@storybook/addon-links" "^3.2.0"
     "@storybook/addons" "^3.2.0"
     "@storybook/channel-postmessage" "^3.2.0"
-    "@storybook/ui" "^3.2.0"
+    "@storybook/ui" "^3.2.3"
     airbnb-js-shims "^1.1.1"
     autoprefixer "^7.1.1"
     babel-core "^6.25.0"
@@ -107,9 +107,9 @@
     webpack-dev-middleware "^1.10.2"
     webpack-hot-middleware "^2.18.0"
 
-"@storybook/ui@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-3.2.0.tgz#ce60155412bfd700d6f8bac2bae40efca4f6d768"
+"@storybook/ui@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-3.2.3.tgz#9579c191a1695d3d5aaabcef93a7a5456d8f19af"
   dependencies:
     "@storybook/react-fuzzy" "^0.4.0"
     babel-runtime "^6.23.0"
