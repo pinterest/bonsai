@@ -65,7 +65,7 @@
     "build:stats": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.prod.js > 'docs/example.json'",
     "build:storybook": "build-storybook -o 'docs/storybook'",
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp docs/analyze docs/storybook docs/example.json",
-    "preversion": "npm run clean && pretest:integration && react-scripts test --env=js && npm run build",
+    "preversion": "npm run clean && npm run pretest:integration && react-scripts test --env=js && npm run build",
     "postversion": "git push && git push --tags",
     "eject": "react-scripts eject"
   },
