@@ -5,7 +5,11 @@
 import type {ParsedJSON} from './types/Stats';
 
 export default function fetchJSON(endpoint: string): Promise<ParsedJSON> {
-  return fetch(endpoint).then((response) => response.json());
+  return fetch(endpoint, {
+    headers: new Headers({
+      'Accept': 'application/json',
+    }),
+  }).then((response) => response.json());
 }
 
 export function fetchApiListEndpoint(
