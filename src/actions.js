@@ -7,19 +7,26 @@ import type {Dispatch} from './reducer';
 import type {FilterableFields} from './stats/filterModules';
 
 import getRawStatsFiles from './types/getRawStatsFiles';
+import { fetchApiFileEndpoint } from './fetchJSON';
 
 export function InitDataPaths(dispatch: Dispatch) {
   return (paths: Array<string>) => dispatch({
-      type: 'initDataPaths',
-      paths,
+    type: 'initDataPaths',
+    paths,
   });
 }
 
 export function PickedFile(dispatch: Dispatch) {
-  return (filename: ?string) => dispatch({
-    type: 'pickedFile',
-    filename: filename,
-  });
+  return (filename: ?string) => {
+    if (filename) {
+      fetchApiFileEndpoint(dispatch, filename);
+    }
+
+    return dispatch({
+      type: 'pickedFile',
+      filename: filename,
+    });
+  };
 }
 
 export function DroppedFile(dispatch: Dispatch) {

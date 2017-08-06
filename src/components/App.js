@@ -2,10 +2,9 @@
  * @flow
  */
 
-import type {ParsedJSON, RawStats} from '../types/Stats';
+import type {RawStats} from '../types/Stats';
 
 import DragDropUpload from './DragDropUpload';
-import fetchJSON from '../fetchJSON';
 import FileInputRow from './FileInputRow';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
@@ -22,8 +21,6 @@ export type StateProps = {
 
 export type DispatchProps = {
   onPickedFile: (filename: ?string) => void,
-  onLoadingFailed: () => void,
-  onLoaded: (filename: string, stats: RawStats) => void,
   onDroppedFile: (filename: string, fileText: string) => void,
 };
 
@@ -48,16 +45,6 @@ export default class App extends Component<void, Props, State> {
 
   render() {
     const props = this.props;
-
-    if (props.filename && !props.json) {
-      const url = props.filename;
-      fetchJSON(url).then((json: ParsedJSON) => {
-        props.onLoaded(url, json);
-      }).catch((error) => {
-        console.error(`Failed while fetching json from '${String(url)}'.`, error);
-        props.onLoadingFailed();
-      });
-    }
 
     return (
       <div className="App">
