@@ -7,7 +7,7 @@ import './shims';
 import AppContainer from './components/AppContainer';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import invariant from 'invariant';
 import registerServiceWorker from './registerServiceWorker';
 
 import handleAction from './reducer';
@@ -16,11 +16,8 @@ import { Provider } from 'react-redux'
 
 import UrlStateEncoder from './UrlStateEncoder';
 
-import {
-  InitDataPaths,
-  PickedFile,
-} from './actions';
-import {fetchApiListEndpoint} from './fetchJSON';
+import { PickedFile } from './actions';
+import { fetchApiListEndpoint, fetchApiFileEndpoint } from './fetchJSON';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -30,18 +27,25 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-if (process.env.REACT_APP_STATS_URL) {
-  PickedFile(store.dispatch)(process.env.REACT_APP_STATS_URL);
-}
-
 UrlStateEncoder.factory(store);
 
-fetchApiListEndpoint(
-  process.env.REACT_APP_API_LIST_ENDPOINT,
-  (paths: Array<string>) => {
-    InitDataPaths(store.dispatch)(paths);
-  },
-);
+if (process.env.REACT_APP_STATS_URL) {
+  PickedFile(store.dispatch)(process.env.REACT_APP_STATS_URL);
+  invariant(process.env.REACT_APP_STATS_URL, 'for flow');
+  fetchApiFileEndpoint(
+    store.dispatch,
+    process.env.REACT_APP_STATS_URL,
+  );
+}
+
+if (process.env.REACT_APP_API_LIST_ENDPOINT) {
+  fetchApiListEndpoint(
+    store.dispatch,
+    process.env.REACT_APP_API_LIST_ENDPOINT,
+  );
+} else {
+  console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
+}
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,26 +2,34 @@
  * @flow
  */
 
+import type {Dispatch} from './reducer';
 import type {ParsedJSON} from './types/Stats';
 
+import {
+  InitDataPaths,
+  LoadingFailed,
+  LoadingFinished,
+} from './actions';
+
+const responseCache: {[url: string]: Promise<*>} = {};
+
 export default function fetchJSON(endpoint: string): Promise<ParsedJSON> {
-  return fetch(endpoint, {
-    headers: new Headers({
-      'Accept': 'application/json',
-    }),
-  }).then((response) => response.json());
+  if (!responseCache[endpoint]) {
+    responseCache[endpoint] = fetch(endpoint, {
+      headers: new Headers({
+        'Accept': 'application/json',
+      }),
+    }).then((response) => response.json());
+  }
+  return responseCache[endpoint];
 }
 
 export function fetchApiListEndpoint(
-  endpoint: ?string,
-  callback: (paths: Array<string>) => void,
+  dispatch: Dispatch,
+  endpoint: string,
 ) {
-  if (!endpoint) {
-    console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
-    return;
-  }
   if (process.env.NODE_ENV === 'test') {
-    console.info('NODE_ENV is \'test\'. Skipping fetchJSON() in FileInputRow::componentDidMount');
+    console.info('NODE_ENV is \'test\'. Skipping fetchApiListEndpoint()');
     return;
   }
 
@@ -31,9 +39,26 @@ export function fetchApiListEndpoint(
     } else if (!Array.isArray(json.paths)) {
       console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
     } else {
-      callback(json.paths.map(String));
+      InitDataPaths(dispatch)(json.paths.map(String));
     }
   }).catch((error) => {
     console.error(`Failed while fetching json from '${String(endpoint)}'.`, error);
+  });
+}
+
+export function fetchApiFileEndpoint(
+  dispatch: Dispatch,
+  endpoint: string,
+) {
+  if (process.env.NODE_ENV === 'test') {
+    console.info('NODE_ENV is \'test\'. Skipping fetchJsonFile()');
+    return;
+  }
+
+  fetchJSON(endpoint).then((json: ParsedJSON) => {
+    LoadingFinished(dispatch)(endpoint, json);
+  }).catch((error) => {
+    console.error(`Failed while fetching json from '${String(endpoint)}'.`, error);
+    LoadingFailed(dispatch)();
   });
 }

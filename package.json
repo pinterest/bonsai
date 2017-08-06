@@ -24,6 +24,7 @@
     "array-includes": "^3.0.3",
     "bootstrap": "^3.3.7",
     "flow-typed": "^2.1.2",
+    "invariant": "^2.2.2",
     "object.values": "^1.0.4",
     "react": "15.6.1",
     "react-dom": "15.6.1",
