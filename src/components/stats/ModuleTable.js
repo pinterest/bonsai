@@ -8,16 +8,16 @@ import type {
   SortProps,
 } from '../../stats/filterModules';
 import type {
-  ExtendedModule,
   ModuleID,
+  RowRepresentation,
 } from '../../types/Stats';
 
 import ModuleTableBody from './ModuleTableBody';
 import ModuleTableHead from './ModuleTableHead';
-import React, { Component } from 'react';
+import React from 'react';
 
-export type ForwardedProps = {
-  extendedModules: Array<ExtendedModule>,
+export type OwnProps = {
+  rows: Array<RowRepresentation>,
 };
 
 export type StateProps = {
@@ -31,25 +31,21 @@ export type DispatchProps = {
   onRemoveModule: (moduleID: ModuleID) => void,
 };
 
-export type Props = ForwardedProps & StateProps & DispatchProps;
+export type Props = OwnProps & StateProps & DispatchProps;
 
-export default class ModuleTable extends Component<void, Props, void> {
-  render() {
-    return (
-      <table className="table table-hover" cellPadding="0" cellSpacing="0">
-        <ModuleTableHead
-          filters={this.props.filters}
-          sort={this.props.sort}
-          onSort={this.props.onSortPicked}
-          onFilter={this.props.onFilterChanged}
-        />
-        <ModuleTableBody
-          extendedModules={this.props.extendedModules}
-          onRemoveModule={this.props.onRemoveModule}
-          filters={this.props.filters}
-          sort={this.props.sort}
-        />
-      </table>
-    );
-  }
+export default function(props: Props) {
+  return (
+    <table className="table table-hover" cellPadding="0" cellSpacing="0">
+      <ModuleTableHead
+        filters={props.filters}
+        sort={props.sort}
+        onSort={props.onSortPicked}
+        onFilter={props.onFilterChanged}
+      />
+      <ModuleTableBody
+        rows={props.rows}
+        onRemoveModule={props.onRemoveModule}
+      />
+    </table>
+  );
 }

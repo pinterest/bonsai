@@ -2,15 +2,16 @@
  * @flow
  */
 
-import type {ModuleID, ExtendedModule} from '../../types/Stats';
-import type {FilterProps, SortProps} from '../../stats/filterModules';
+import type {
+  ModuleID,
+  RowRepresentation,
+} from '../../types/Stats';
 
 import Button from '../Bootstrap/Button';
 import ExternalModuleLink from './ExternalModuleLink';
-import filterModules from '../../stats/filterModules';
 import formatModuleName from './formatModuleName';
 import OffsetPageAnchor from '../OffsetPageAnchor';
-import React, {PureComponent} from 'react';
+import React from 'react';
 import Unit from '../Unit';
 import {getClassName} from '../Bootstrap/GlyphiconNames';
 import {
@@ -19,19 +20,17 @@ import {
 } from './ModulePanels';
 
 type TBodyProps = {
-  extendedModules: Array<ExtendedModule>,
+  rows: Array<RowRepresentation>,
   onRemoveModule: (moduleID: ModuleID) => void,
-  filters: FilterProps,
-  sort: SortProps,
 };
 
 type TRProps = {
-  eModule: ExtendedModule,
+  row: RowRepresentation,
   onRemoveModule: (moduleID: ModuleID) => void,
 };
 
 function ModuleTableRow(props: TRProps) {
-  const {eModule} = props;
+  const eModule = props.row.displayModule;
   return (
     <tr key={eModule.id} {...OffsetPageAnchor(String(eModule.id))}>
       <td className="vert-align">
@@ -70,23 +69,16 @@ function ModuleTableRow(props: TRProps) {
   );
 }
 
-export default class ModuleTableBody extends PureComponent<void, TBodyProps, void> {
-  render() {
-    const extendedModules = filterModules(
-      this.props.extendedModules,
-      this.props.filters,
-      this.props.sort,
-    );
-    return (
-      <tbody>
-        {extendedModules.map((eModule: ExtendedModule) =>
-          <ModuleTableRow
-            eModule={eModule}
-            key={eModule.identifier}
-            onRemoveModule={this.props.onRemoveModule}
-          />
-        )}
-      </tbody>
-    );
-  }
+export default function(props: TBodyProps) {
+  return (
+    <tbody>
+      {props.rows.map((row: RowRepresentation) =>
+        <ModuleTableRow
+          key={row.displayModule.id}
+          row={row}
+          onRemoveModule={props.onRemoveModule}
+        />
+      )}
+    </tbody>
+  );
 }
