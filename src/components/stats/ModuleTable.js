@@ -18,7 +18,6 @@ import React, { Component } from 'react';
 
 export type ForwardedProps = {
   extendedModules: Array<ExtendedModule>,
-  onRemoveModule: (moduleID: ModuleID) => void,
 };
 
 export type StateProps = {
@@ -29,9 +28,10 @@ export type StateProps = {
 export type DispatchProps = {
   onSortPicked: (field: string) => void,
   onFilterChanged: (changes: {[key: FilterableFields]: string}) => void,
+  onRemoveModule: (moduleID: ModuleID) => void,
 };
 
-type Props = ForwardedProps & StateProps & DispatchProps;
+export type Props = ForwardedProps & StateProps & DispatchProps;
 
 export default class ModuleTable extends Component<void, Props, void> {
   render() {

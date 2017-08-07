@@ -11,7 +11,6 @@ import fullModuleData from '../stats/fullModuleData';
 import SelectedChunk from './stats/SelectedChunk';
 import {
   PickedChunk,
-  RemovedModule,
   IncludedModule,
 } from '../actions';
 
@@ -44,7 +43,6 @@ const mapStateToProps = (state: State, ownProps: Props): StateProps => {
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onSelectChunkId: PickedChunk(dispatch),
-    onRemoveModule: RemovedModule(dispatch),
     onIncludeModule: IncludedModule(dispatch),
   };
 };

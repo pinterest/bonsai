@@ -27,7 +27,6 @@ export type StateProps = {
 
 export type DispatchProps = {
   onSelectChunkId: (chunkId: ChunkID) => void,
-  onRemoveModule: (moduleID: ModuleID) => void,
   onIncludeModule: (moduleID: ModuleID) => void,
 };
 
@@ -70,7 +69,6 @@ export default function SelectedChunk(props: Props) {
             </div>
             <ModuleTableContainer
               extendedModules={props.extendedModules}
-              onRemoveModule={props.onRemoveModule}
             />
           </div>
         </div>

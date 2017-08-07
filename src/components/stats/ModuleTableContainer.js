@@ -4,13 +4,21 @@
 
 import type { Dispatch, State } from '../../reducer';
 import type { DispatchProps, StateProps } from './ModuleTable';
+import type {
+  ExtendedModule,
+} from '../../types/Stats';
 
 import ModuleTable from './ModuleTable';
 import {connect} from 'react-redux'
 import {
-  SortedTable,
   FilteredTable,
+  RemovedModule,
+  SortedTable,
 } from '../../actions';
+
+export type OwnProps = {
+  extendedModules: Array<ExtendedModule>,
+};
 
 const mapStateToProps = (state: State): StateProps => {
   return {
@@ -21,12 +29,13 @@ const mapStateToProps = (state: State): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    onSortPicked: SortedTable(dispatch),
     onFilterChanged: FilteredTable(dispatch),
+    onRemoveModule: RemovedModule(dispatch),
+    onSortPicked: SortedTable(dispatch),
   };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ModuleTable);
