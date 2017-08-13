@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@storybook/addon-storyshots": "3.2.3",
-    "@storybook/react": "3.2.3",
+    "@storybook/react": "3.2.4",
     "flow-annotation-check": "1.5.0",
     "flow-bin": "0.52.0",
     "flow-coverage-report": "^0.3.0",
