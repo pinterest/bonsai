@@ -1,0 +1,12 @@
+.ModuleTableBody-circular-button {
+  margin-top: 2px;
+  margin-left: 0.5em;
+}
+
+.ModuleTableBody-row {
+  border-left: 4px solid transparent;
+}
+
+.ModuleTableBody-expanded-border {
+  border-left-color: #337ab7;
+}

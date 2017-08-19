@@ -4,12 +4,14 @@
 
 import type {
   ModuleID,
+  ExtendedModule,
   RowRepresentation,
 } from '../../types/Stats';
 
 import Button from '../Bootstrap/Button';
 import ExternalModuleLink from './ExternalModuleLink';
 import formatModuleName from './formatModuleName';
+import flatten from '../../flatten';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
@@ -19,20 +21,113 @@ import {
   RequirementsPanel,
 } from './ModulePanels';
 
+import './ModuleTableBody.css'
+
 type TBodyProps = {
   rows: Array<RowRepresentation>,
+  expandRecords: Set<ModuleID>,
   onRemoveModule: (moduleID: ModuleID) => void,
+  onExpandRecords: (moduleID: ModuleID) => void,
+  onCollapseRecords: (moduleID: ModuleID) => void,
+};
+
+type GroupedTRProps = {
+  row: RowRepresentation,
+  expanded: boolean,
+  onRemoveModule: (moduleID: ModuleID) => void,
+  onExpandRecords: (moduleID: ModuleID) => void,
+  onCollapseRecords: (moduleID: ModuleID) => void,
 };
 
 type TRProps = {
-  row: RowRepresentation,
+  eModule: ExtendedModule,
+  records: Array<ExtendedModule>,
+  expanded: boolean,
   onRemoveModule: (moduleID: ModuleID) => void,
+  onExpandRecords: (moduleID: ModuleID) => void,
+  onCollapseRecords: (moduleID: ModuleID) => void,
 };
 
-function ModuleTableRow(props: TRProps) {
-  const eModule = props.row.displayModule;
+function getExpandButton(
+  expanded: boolean,
+  recordCount: number,
+  callback: Function,
+) {
   return (
-    <tr key={eModule.id} {...OffsetPageAnchor(String(eModule.id))}>
+    <Button
+      color="link"
+      size="xs"
+      onClick={callback}>
+      <span
+        className={expanded
+          ? getClassName('triangle-bottom')
+          : getClassName('triangle-right')}
+        aria-hidden="true"></span>
+      {`${recordCount} unique imports`}
+    </Button>
+  );
+}
+
+function ModuleTableGroupedRow(props: GroupedTRProps) {
+  return props.expanded
+    ? props.row.records.map((record) => (
+        ModuleTableRow({
+          size: 'sm',
+          eModule: record,
+          records: props.row.records,
+          expanded: props.expanded,
+          onRemoveModule: props.onRemoveModule,
+          onExpandRecords: props.onExpandRecords,
+          onCollapseRecords: props.onCollapseRecords,
+        })
+      ))
+    : [
+        ModuleTableRow({
+          size: null,
+          eModule: props.row.displayModule,
+          records: props.row.records,
+          expanded: props.expanded,
+          onRemoveModule: props.onRemoveModule,
+          onExpandRecords: props.onExpandRecords,
+          onCollapseRecords: props.onCollapseRecords,
+        })
+      ];
+}
+
+function ModuleTableRow(props: TRProps) {
+  const eModule = props.eModule;
+  const records = props.records;
+
+  const moduleSize = props.expanded
+    ? <Unit bytes={eModule.size} />
+    : <Unit
+        bytes={records.reduce((sum, eModule) => sum + eModule.size, 0)}
+      />;
+
+  const hasCollapsedChildren = records.length > 1;
+  const isFirstRecord = eModule.id === records[0].id;
+  const requirements = (hasCollapsedChildren && isFirstRecord)
+    ? getExpandButton(
+        props.expanded,
+        records.length - 1,
+        props.expanded
+          ? () => props.onCollapseRecords(eModule.id)
+          : () => props.onExpandRecords(eModule.id)
+      )
+    : <RequirementsPanel eModule={eModule} />;
+
+  return (
+    <tr
+      key={eModule.id}
+      {...OffsetPageAnchor(String(eModule.id), {
+        className: [
+          'ModuleTableBody-row',
+          props.expanded
+            ? 'ModuleTableBody-expanded-border'
+            : null,
+        ].join(' ').trim()
+      })}
+      >
       <td className="vert-align">
         <ExternalModuleLink
           prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
@@ -52,13 +147,13 @@ function ModuleTableRow(props: TRProps) {
         <Unit bytes={eModule.cumulativeSize} />
       </td>
       <td className="vert-align">
-        <Unit bytes={eModule.size} />
+        {moduleSize}
       </td>
       <td className="vert-align">
         <RequiredByPanel eModule={eModule} />
       </td>
       <td className="vert-align">
-        <RequirementsPanel eModule={eModule} />
+        {requirements}
       </td>
       <td className="vert-align">
         <Button onClick={() => props.onRemoveModule(eModule.id)}>
@@ -72,12 +167,14 @@ function ModuleTableRow(props: TRProps) {
 export default function(props: TBodyProps) {
   return (
     <tbody>
-      {props.rows.map((row: RowRepresentation) =>
-        <ModuleTableRow
-          key={row.displayModule.id}
-          row={row}
-          onRemoveModule={props.onRemoveModule}
-        />
+      {flatten(
+        props.rows.map((row: RowRepresentation) => ModuleTableGroupedRow({
+          row: row,
+          expanded: props.expandRecords.has(row.displayModule.id),
+          onRemoveModule: props.onRemoveModule,
+          onExpandRecords: props.onExpandRecords,
+          onCollapseRecords: props.onCollapseRecords,
+        }))
       )}
     </tbody>
   );
