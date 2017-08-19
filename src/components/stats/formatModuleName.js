@@ -6,8 +6,12 @@ import React from 'react';
 
 const ELLIPSIS = '\u2026';
 
-function joinWithBR(nodes, label, index) {
-  return nodes.concat(label, <br key={index} />);
+function joinWithBR(nodes, label, index, values) {
+  if (index === values.length - 1) {
+    return nodes.concat(label);
+  } else {
+    return nodes.concat(label, <br key={index} />);
+  }
 }
 
 export default function formatModuleName(name: string) {
