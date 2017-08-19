@@ -54,17 +54,19 @@ function getExpandButton(
   callback: Function,
 ) {
   return (
-    <Button
-      color="link"
-      size="xs"
-      onClick={callback}>
-      <span
-        className={expanded
-          ? getClassName('triangle-bottom')
-          : getClassName('triangle-right')}
-        aria-hidden="true"></span>
-      {`${recordCount} unique imports`}
-    </Button>
+    <span className="pull-right">
+      <Button
+        color="link"
+        size="xs"
+        onClick={callback}>
+        <span
+          className={expanded
+            ? getClassName('triangle-bottom')
+            : getClassName('triangle-right')}
+          aria-hidden="true"></span>
+        {`${recordCount} unique imports`}
+      </Button>
+    </span>
   );
 }
 
@@ -106,7 +108,7 @@ function ModuleTableRow(props: TRProps) {
 
   const hasCollapsedChildren = records.length > 1;
   const isFirstRecord = eModule.id === records[0].id;
-  const requirements = (hasCollapsedChildren && isFirstRecord)
+  const uniqueImports = (hasCollapsedChildren && isFirstRecord)
     ? getExpandButton(
         props.expanded,
         records.length - 1,
@@ -114,7 +116,7 @@ function ModuleTableRow(props: TRProps) {
           ? () => props.onCollapseRecords(eModule.id)
           : () => props.onExpandRecords(eModule.id)
       )
-    : <RequirementsPanel eModule={eModule} />;
+    : null;
 
   return (
     <tr
@@ -135,12 +137,7 @@ function ModuleTableRow(props: TRProps) {
         />
       </td>
       <td className="vert-align">
-        {eModule.loops.length
-          ? <span
-              className={['pull-right', getClassName('repeat')].join(' ')}
-              title="Circular Dependencies Detected"
-            />
-          : null}
+        {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
       <td className="vert-align">
@@ -153,7 +150,7 @@ function ModuleTableRow(props: TRProps) {
         <RequiredByPanel eModule={eModule} />
       </td>
       <td className="vert-align">
-        {requirements}
+        <RequirementsPanel eModule={eModule} />
       </td>
       <td className="vert-align">
         <Button onClick={() => props.onRemoveModule(eModule.id)}>
