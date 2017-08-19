@@ -17,6 +17,7 @@ export type State = {
   json: {[filename: string]: RawStats},
   sort: SortProps,
   filters: FilterProps,
+  expandedRecords: Set<ModuleID>,
 };
 
 export type Action =
@@ -56,6 +57,14 @@ export type Action =
     type: 'onIncludeModule',
     moduleID: ModuleID,
   }
+  | {
+    type: 'onExpandRecords',
+    moduleID: ModuleID,
+  }
+  | {
+    type: 'onCollapseRecords',
+    moduleID: ModuleID,
+  }
   ;
 
 export type Dispatch = (action: Action) => any;
@@ -79,6 +88,7 @@ export const INITIAL_STATE: State = {
     requirementsCountMin: '',
     requirementsCountMax: '',
   },
+  expandedRecords: new Set(),
 };
 
 function concatItemToSet(list: Array<string>, item: string): Array<string> {
@@ -102,6 +112,7 @@ export default function handleAction(
       selectedFilename: action.filename,
       selectedChunkId: null,
       blacklistedModuleIds: [],
+      expandedRecords: new Set(),
     };
   } else if (action.type === 'loadingFailed') {
     return {
@@ -109,6 +120,7 @@ export default function handleAction(
       selectedFilename: null,
       selectedChunkId: null,
       blacklistedModuleIds: [],
+      expandedRecords: new Set(),
     };
   } else if (action.type === 'loadingFinished') {
     return {
@@ -144,6 +156,7 @@ export default function handleAction(
       ...state,
       selectedChunkId: String(action.chunkId),
       blacklistedModuleIds: [],
+      expandedRecords: new Set(),
     };
   } else if (action.type === 'onRemoveModule') {
     return {
@@ -161,7 +174,18 @@ export default function handleAction(
         (id) => String(id) !== String(moduleID),
       ),
     };
+  } else if (action.type === 'onExpandRecords') {
+    return {
+      ...state,
+      expandedRecords: state.expandedRecords.add(action.moduleID),
+    };
+  } else if (action.type === 'onCollapseRecords') {
+    state.expandedRecords.delete(action.moduleID);
+    return {
+      ...state,
+      expandedRecords: new Set(state.expandedRecords),
+    };
   }
 
-  return state
+  return state;
 }

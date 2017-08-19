@@ -23,57 +23,35 @@ export type OwnProps = {
 export type StateProps = {
   filters: FilterProps,
   sort: SortProps,
+  expandedRecords: Set<ModuleID>,
 };
 
 export type DispatchProps = {
   onSortPicked: (field: string) => void,
   onFilterChanged: (changes: {[key: FilterableFields]: string}) => void,
   onRemoveModule: (moduleID: ModuleID) => void,
+  onExpandRecords: (moduleID: ModuleID) => void,
+  onCollapseRecords: (moduleID: ModuleID) => void,
 };
 
 export type Props = OwnProps & StateProps & DispatchProps;
 
-type State = {
-  expandRecords: Set<ModuleID>,
-};
-
-export default class ModuleTable extends Component<void, Props, State> {
-  state: State = {
-    expandRecords: new Set(),
-  };
-
-  render() {
-    const props = this.props;
-
-    return (
-      <table className="table table-hover" cellPadding="0" cellSpacing="0">
-        <ModuleTableHead
-          filters={props.filters}
-          sort={props.sort}
-          onSort={props.onSortPicked}
-          onFilter={props.onFilterChanged}
-        />
-        <ModuleTableBody
-          rows={props.rows}
-          expandRecords={this.state.expandRecords}
-          onRemoveModule={props.onRemoveModule}
-          onExpandRecords={this.onExpandRecords}
-          onCollapseRecords={this.onCollapseRecords}
-        />
-      </table>
-    );
-  }
-
-  onExpandRecords = (id: ModuleID) => {
-    this.setState({
-      expandRecords: this.state.expandRecords.add(id),
-    });
-  }
-
-  onCollapseRecords = (id: ModuleID) => {
-    this.state.expandRecords.delete(id);
-    this.setState({
-      expandRecords: new Set(this.state.expandRecords),
-    });
-  }
+export default function(props: Props) {
+  return (
+    <table className="table table-hover" cellPadding="0" cellSpacing="0">
+      <ModuleTableHead
+        filters={props.filters}
+        sort={props.sort}
+        onSort={props.onSortPicked}
+        onFilter={props.onFilterChanged}
+      />
+      <ModuleTableBody
+        rows={props.rows}
+        expandedRecords={props.expandedRecords}
+        onRemoveModule={props.onRemoveModule}
+        onExpandRecords={props.onExpandRecords}
+        onCollapseRecords={props.onCollapseRecords}
+      />
+    </table>
+  );
 }

@@ -16,6 +16,8 @@ import {
   FilteredTable,
   RemovedModule,
   SortedTable,
+  ExpandRecords,
+  CollapseRecords,
 } from '../../actions';
 
 export type OwnProps = {
@@ -26,6 +28,7 @@ const mapStateToProps = (state: State): StateProps => {
   return {
     filters: state.filters,
     sort: state.sort,
+    expandedRecords: state.expandedRecords,
   };
 };
 
@@ -34,6 +37,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
     onFilterChanged: FilteredTable(dispatch),
     onRemoveModule: RemovedModule(dispatch),
     onSortPicked: SortedTable(dispatch),
+    onExpandRecords: ExpandRecords(dispatch),
+    onCollapseRecords: CollapseRecords(dispatch),
   };
 };
 

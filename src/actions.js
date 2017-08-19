@@ -105,3 +105,17 @@ export function IncludedModule(dispatch: Dispatch) {
     moduleID,
   });
 }
+
+export function ExpandRecords(dispatch:Dispatch) {
+  return (moduleID: ModuleID) => dispatch({
+    type: 'onExpandRecords',
+    moduleID,
+  });
+}
+
+export function CollapseRecords(dispatch:Dispatch) {
+  return (moduleID: ModuleID) => dispatch({
+    type: 'onCollapseRecords',
+    moduleID,
+  });
+}

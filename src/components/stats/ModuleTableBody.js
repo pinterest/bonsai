@@ -25,7 +25,7 @@ import './ModuleTableBody.css'
 
 type TBodyProps = {
   rows: Array<RowRepresentation>,
-  expandRecords: Set<ModuleID>,
+  expandedRecords: Set<ModuleID>,
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
   onCollapseRecords: (moduleID: ModuleID) => void,
@@ -167,7 +167,7 @@ export default function(props: TBodyProps) {
       {flatten(
         props.rows.map((row: RowRepresentation) => ModuleTableGroupedRow({
           row: row,
-          expanded: props.expandRecords.has(row.displayModule.id),
+          expanded: props.expandedRecords.has(row.displayModule.id),
           onRemoveModule: props.onRemoveModule,
           onExpandRecords: props.onExpandRecords,
           onCollapseRecords: props.onCollapseRecords,
