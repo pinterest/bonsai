@@ -62,15 +62,41 @@ function findPos(obj: HTMLElement) {
   return elem.offsetTop;
 }
 
+function isWithinViewport(
+  viewportTop: number,
+  viewportHeight: number,
+  targetTop: number,
+  targetHeight: number,
+): boolean {
+  return (
+    viewportTop < targetTop &&
+    targetTop < viewportTop + viewportHeight - targetHeight
+  );
+}
+
 export function scrollToElem(elem: HTMLElement) {
   const left = 0;
   const top = findPos(elem);
   const scrollParent = getScrollParent(elem);
   if (scrollParent) {
     if (scrollParent === document.body) {
-      window.scroll(left, top);
+      if (!isWithinViewport(
+        window.scrollY,
+        window.innerHeight,
+        top,
+        elem.offsetHeight,
+      )) {
+        window.scroll(left, top);
+      }
     } else {
-      scrollParent.scrollTop = top;
+      if (!isWithinViewport(
+        scrollParent.scrollTop,
+        scrollParent.offsetHeight,
+        top,
+        elem.offsetHeight,
+      )) {
+        scrollParent.scrollTop = top;
+      }
     }
   }
 }
