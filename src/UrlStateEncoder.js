@@ -52,7 +52,6 @@ export default class UrlStateEncoder {
 
   onStoreChanged = () => {
     const newState = this._store.getState();
-    console.log('new state', newState);
     window.location.hash = this.encodeStateForHash(newState);
   }
 
