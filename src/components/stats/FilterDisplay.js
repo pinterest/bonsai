@@ -9,7 +9,7 @@ import {getClassName} from '../Bootstrap/GlyphiconNames';
 const NBSP = '\u00A0';
 
 type Props = {
-  children: *,
+  children: React.Node,
   title: string,
   isFiltered: boolean,
   onClear: (e: MouseEvent) => void,

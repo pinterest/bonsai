@@ -16,7 +16,7 @@ type Size =
 type Display = 'block' | 'inline';
 
 type ButtonProps = {
-  children?: string | React.Element<any> | Array<React.Element<any>>,
+  children?: React.Node,
   color?: Color,
   size?: Size,
   onClick: ?(e: MouseEvent) => void,
@@ -58,7 +58,7 @@ export default function Button(props: ButtonProps) {
 }
 
 type LinkProps = {
-  children?: string | React.Element<any> | Array<React.Element<any>>,
+  children?: React.Node,
   color?: Color,
   href: ?string,
   newtab?: boolean,

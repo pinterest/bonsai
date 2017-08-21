@@ -7,7 +7,7 @@ import type {GlyphiconName} from './GlyphiconNames';
 
 import Button, {DropdownToggleButton} from './Button';
 import {getClassName} from './GlyphiconNames';
-import React, { Component } from 'react';
+import * as React from 'react';
 
 type Alignment = 'left' | 'right';
 
@@ -17,15 +17,15 @@ type Props = {
   disabled?: boolean,
   style?: Object,
 
-  children?: string | React.Element<any>,
+  children?: React.Node,
 
   getContent: (
     hideContent: () => void,
-  ) => React.Element<any> | Array<React.Element<any>>,
+  ) => React.Node,
 
   split?: {
     primaryOnClick: (e: MouseEvent) => void,
-    label: string | React.Element<any>,
+    label: React.Node,
     glyphicon?: GlyphiconName,
   },
 };
@@ -34,7 +34,7 @@ type State = {
   isOpen: boolean,
 };
 
-export default class Dropdown extends Component<Props, State> {
+export default class Dropdown extends React.Component<Props, State> {
   state: State = {
     isOpen: false,
   };
