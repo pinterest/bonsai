@@ -62,7 +62,7 @@
     "flow:stop": "flow stop",
     "flow:annotations": "flow-annotation-check",
     "flow:coverage": "flow-coverage-report report",
-    "flow:update-dfns": "flow-typed update",
+    "flow:update-dfns": "flow-typed update && flow-typed install jest@20.0.4",
     "eslint": "eslint ./src",
     "eslint:watch": "eslint ./src && echo 'No Lint Problems'; fswatch -e \"/\\.\" -o -r ./src | xargs -n1 -I{} eslint ./src && echo 'No Lint Problems'",
     "spellcheck": "mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md",

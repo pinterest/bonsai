@@ -17,15 +17,15 @@ type Props = {
   disabled?: boolean,
   style?: Object,
 
-  children?: string | React$Element<any>,
+  children?: string | React.Element<any>,
 
   getContent: (
     hideContent: () => void,
-  ) => React$Element<any> | Array<React$Element<any>>,
+  ) => React.Element<any> | Array<React.Element<any>>,
 
   split?: {
     primaryOnClick: (e: MouseEvent) => void,
-    label: string | React$Element<any>,
+    label: string | React.Element<any>,
     glyphicon?: GlyphiconName,
   },
 };
@@ -34,7 +34,7 @@ type State = {
   isOpen: boolean,
 };
 
-export default class Dropdown extends Component<void, Props, State> {
+export default class Dropdown extends Component<Props, State> {
   state: State = {
     isOpen: false,
   };

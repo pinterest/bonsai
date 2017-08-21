@@ -30,7 +30,7 @@ type State = {
   isDragging: boolean,
 };
 
-export default class App extends Component<void, Props, State> {
+export default class App extends Component<Props, State> {
   state: State = {
     isDragging: false,
   };

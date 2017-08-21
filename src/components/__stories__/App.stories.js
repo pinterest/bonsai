@@ -3,7 +3,10 @@
  */
 
 import App from '../App';
-import React from 'react';
+// import handleAction from '../../reducer';
+import * as React from 'react';
+// import { createStore } from 'redux'
+// import { Provider } from 'react-redux'
 import { storiesOf } from '@storybook/react';
 
 const stats = {

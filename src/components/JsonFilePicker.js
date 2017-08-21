@@ -2,14 +2,14 @@
  * @flow
  */
 
-import React from 'react';
+import * as React from 'react';
 
 type Props = {
   dataPaths: ?Array<string>,
   selected: ?string,
   id?: string,
   className?: string,
-  onChange: (event: SyntheticInputEvent) => void,
+  onChange: (event: SyntheticInputEvent<>) => void,
 };
 
 export default function JsonFilePicker(props: Props) {

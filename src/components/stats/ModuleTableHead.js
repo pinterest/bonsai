@@ -16,7 +16,7 @@ import FilterDisplay from './FilterDisplay';
 import FilterModuleNameForm from './FilterModuleNameForm';
 import FilterRequiredByCountForm from './FilterRequiredByCountForm';
 import FilterRequirementsCountForm from './FilterRequirementsCountForm';
-import React from 'react';
+import * as React from 'react';
 import SortLabel from '../SortLabel';
 
 const INFINITY = '\u221E';

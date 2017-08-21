@@ -8,7 +8,7 @@ import BlacklistTableBody from './BlacklistTableBody';
 import Button from '../Bootstrap/Button';
 import ExternalModuleLink from './ExternalModuleLink';
 import OffsetPageAnchor from '../OffsetPageAnchor';
-import React from 'react';
+import * as React from 'react';
 import Unit from '../Unit';
 import {
   RequiredByPanelContainer,

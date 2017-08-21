@@ -2,7 +2,7 @@
  * @flow
  */
 
-import React from 'react';
+import * as React from 'react';
 import {CloseButton} from '../Bootstrap/Button';
 import {getClassName} from '../Bootstrap/GlyphiconNames';
 

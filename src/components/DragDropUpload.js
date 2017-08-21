@@ -15,7 +15,7 @@ type Props = {
   onDragLeave?: () => void,
   onLoading: () => void,
   onChange: OnChangeCallback,
-  children?: React$Element<any>,
+  children?: React.Element<any>,
 };
 
 function readFile(
@@ -29,7 +29,7 @@ function readFile(
   reader.readAsText(file);
 }
 
-export default class DragDropUpload extends Component<void, Props, void> {
+export default class DragDropUpload extends Component<Props, void> {
   _div: ?HTMLElement;
   _fileInput: ?HTMLInputElement;
   _dragEntered = 0;
@@ -65,7 +65,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
     this._fileInput && this._fileInput.click();
   };
 
-  onChangeFileInput = () => {
+  onChangeFileInput = (event: SyntheticInputEvent<>) => {
     if (
       this._fileInput &&
       this._fileInput.files &&
@@ -75,23 +75,23 @@ export default class DragDropUpload extends Component<void, Props, void> {
     }
   };
 
-  onDragOver = (event: SyntheticDragEvent) => {
+  onDragOver = (event: SyntheticDragEvent<>) => {
     event.preventDefault();
   };
 
-  onDragEnter = () => {
+  onDragEnter = (event: SyntheticDragEvent<>) => {
     this._dragEntered += 1;
     this.props.onDragEnter && this.props.onDragEnter();
   };
 
-  onDragLeave = () => {
+  onDragLeave = (event: SyntheticDragEvent<>) => {
     this._dragEntered -= 1;
     if (this._dragEntered === 0) {
       this.props.onDragLeave && this.props.onDragLeave();
     }
   };
 
-  onDrop = (event: SyntheticDragEvent) => {
+  onDrop = (event: SyntheticDragEvent<>) => {
     event.preventDefault();
     this.props.onLoading();
     readFile(event.dataTransfer.files[0], this.props.onChange);
