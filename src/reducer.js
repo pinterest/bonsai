@@ -250,7 +250,7 @@ function calculateFullModuleData(
     oldState.json === newState.json &&
     oldState.selectedFilename === newState.selectedFilename &&
     oldState.selectedChunkId === newState.selectedChunkId &&
-    oldState.blacklistedModuleIds === oldState.blacklistedModuleIds
+    oldState.blacklistedModuleIds === newState.blacklistedModuleIds
   ) {
     return newState;
   }
