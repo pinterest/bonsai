@@ -11,9 +11,9 @@ import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
 import {
-  RequiredByPanel,
-  RequirementsPanel,
-} from './ModulePanels';
+  RequiredByPanelContainer,
+  RequirementsPanelContainer,
+} from './ModulePanelContainers';
 
 type Props = {
   blacklistedModulesIds: Array<ModuleID>,
@@ -63,10 +63,10 @@ export default function BlasklistTable(props: Props) {
                 <Unit bytes={eModule.size} />
               </td>
               <td className="vert-align">
-                <RequiredByPanel eModule={eModule} />
+                <RequiredByPanelContainer eModule={eModule} />
               </td>
               <td className="vert-align">
-                <RequirementsPanel eModule={eModule} />
+                <RequirementsPanelContainer eModule={eModule} />
               </td>
               <td className="vert-align">
                 <Button

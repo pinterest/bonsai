@@ -3,21 +3,16 @@
  */
 
 import type {ChunkID, ModuleID, RawStats} from './types/Stats';
+import type {FullModuleDataType} from './stats/fullModuleData';
 import type {
   FilterableFields,
   FilterProps,
   SortProps,
 } from './stats/filterModules';
 
-export type State = {
-  dataPaths: Array<string>,
-  selectedFilename: ?string,
-  selectedChunkId: ?ChunkID,
-  blacklistedModuleIds: Array<ModuleID>,
-  json: {[filename: string]: RawStats},
-  sort: SortProps,
-  filters: FilterProps,
-};
+import fullModuleData from './stats/fullModuleData';
+import getCollapsableParentOf from './stats/getCollapsableParentOf';
+import getModulesById from './stats/getModulesById';
 
 export type Action =
   | {
@@ -56,7 +51,32 @@ export type Action =
     type: 'onIncludeModule',
     moduleID: ModuleID,
   }
+  | {
+    type: 'onExpandRecords',
+    moduleID: ModuleID,
+  }
+  | {
+    type: 'onCollapseRecords',
+    moduleID: ModuleID,
+  }
+  | {
+    type: 'onFocusChanged',
+    elementID: ?string,
+  }
   ;
+
+export type State = {
+  dataPaths: Array<string>,
+  selectedFilename: ?string,
+  selectedChunkId: ?ChunkID,
+  blacklistedModuleIds: Array<ModuleID>,
+  json: {[filename: string]: RawStats},
+  sort: SortProps,
+  filters: FilterProps,
+  expandedRecords: Set<ModuleID>,
+  currentlyFocusedElementID: ?string,
+  calculatedFullModuleData: ?FullModuleDataType,
+};
 
 export type Dispatch = (action: Action) => any;
 
@@ -79,6 +99,9 @@ export const INITIAL_STATE: State = {
     requirementsCountMin: '',
     requirementsCountMax: '',
   },
+  expandedRecords: new Set(),
+  currentlyFocusedElementID: null,
+  calculatedFullModuleData: null,
 };
 
 function concatItemToSet(list: Array<string>, item: string): Array<string> {
@@ -87,8 +110,8 @@ function concatItemToSet(list: Array<string>, item: string): Array<string> {
     : list.concat(item);
 }
 
-export default function handleAction(
-  state: State = INITIAL_STATE,
+function handleAction(
+  state: State,
   action: Action,
 ): State {
   if (action.type === 'initDataPaths') {
@@ -102,6 +125,8 @@ export default function handleAction(
       selectedFilename: action.filename,
       selectedChunkId: null,
       blacklistedModuleIds: [],
+      expandedRecords: new Set(),
+      currentlyFocusedElementID: null,
     };
   } else if (action.type === 'loadingFailed') {
     return {
@@ -109,6 +134,8 @@ export default function handleAction(
       selectedFilename: null,
       selectedChunkId: null,
       blacklistedModuleIds: [],
+      expandedRecords: new Set(),
+      currentlyFocusedElementID: null,
     };
   } else if (action.type === 'loadingFinished') {
     return {
@@ -144,6 +171,8 @@ export default function handleAction(
       ...state,
       selectedChunkId: String(action.chunkId),
       blacklistedModuleIds: [],
+      expandedRecords: new Set(),
+      currentlyFocusedElementID: null,
     };
   } else if (action.type === 'onRemoveModule') {
     return {
@@ -161,7 +190,87 @@ export default function handleAction(
         (id) => String(id) !== String(moduleID),
       ),
     };
+  } else if (action.type === 'onExpandRecords') {
+    return {
+      ...state,
+      expandedRecords: new Set(state.expandedRecords.add(action.moduleID)),
+    };
+  } else if (action.type === 'onCollapseRecords') {
+    state.expandedRecords.delete(action.moduleID);
+    return {
+      ...state,
+      expandedRecords: new Set(state.expandedRecords),
+    };
+  } else if (action.type === 'onFocusChanged') {
+    if (
+      action.elementID &&
+      state.calculatedFullModuleData &&
+      state.calculatedFullModuleData.extendedModules
+    ) {
+      const moduleId = action.elementID;
+      const modulesById = getModulesById(state.calculatedFullModuleData.extendedModules);
+      const collapseableParent = getCollapsableParentOf(
+        modulesById,
+        modulesById[moduleId],
+      );
+      return {
+        ...state,
+        expandedRecords: collapseableParent
+          ? new Set(state.expandedRecords.add(collapseableParent.id))
+          : state.expandedRecords,
+        currentlyFocusedElementID: action.elementID,
+      };
+    } else {
+      return {
+        ...state,
+        currentlyFocusedElementID: action.elementID,
+      };
+    }
   }
 
-  return state
+  return state;
+}
+
+function calculateFullModuleData(
+  oldState: State,
+  newState: State,
+): State {
+  if (
+    !newState.json ||
+    !newState.selectedFilename ||
+    !newState.json[newState.selectedFilename]
+  ) {
+    return {
+      ...newState,
+      calculatedFullModuleData: null,
+    };
+  }
+
+  if (
+    oldState.json === newState.json &&
+    oldState.selectedFilename === newState.selectedFilename &&
+    oldState.selectedChunkId === newState.selectedChunkId &&
+    oldState.blacklistedModuleIds === oldState.blacklistedModuleIds
+  ) {
+    return newState;
+  }
+
+  return {
+    ...newState,
+    calculatedFullModuleData: fullModuleData(
+      newState.json[newState.selectedFilename],
+      newState.selectedChunkId,
+      newState.blacklistedModuleIds,
+    ),
+  };
+}
+
+export default function reducer(
+  state: State = INITIAL_STATE,
+  action: Action,
+): State {
+  return calculateFullModuleData(
+    state,
+    handleAction(state, action)
+  );
 }

@@ -124,3 +124,9 @@ export type ExtendedModule = {
   cumulativeSize: number,
   loops: Array<Array<ExtendedModule>>,
 };
+
+
+export type RowRepresentation = {
+  displayModule: ExtendedModule,
+  records: Array<ExtendedModule>,
+};

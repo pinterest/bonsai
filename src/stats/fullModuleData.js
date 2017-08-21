@@ -18,11 +18,7 @@ import getModulesById from './getModulesById';
 import getParentChunks from './getParentChunks';
 import splitUnreachableModules from './splitUnreachableModules';
 
-export default function fullModuleData(
-  stats: RawStats,
-  selectedChunkId: ?ChunkID,
-  blacklistedModuleIds: Array<ModuleID>,
-): {
+export type FullModuleDataType = {
   moduleData: ?{
     included: Array<ExtendedModule>,
     removed: Array<ExtendedModule>,
@@ -30,8 +26,13 @@ export default function fullModuleData(
   extendedModules: Array<ExtendedModule>,
   chunksByParent: Array<Child>,
   parentChunks: ?Array<Child>,
-} {
+};
 
+export default function fullModuleData(
+  stats: RawStats,
+  selectedChunkId: ?ChunkID,
+  blacklistedModuleIds: Array<ModuleID>,
+): FullModuleDataType {
   const chunksByParent = getEntryHeirarchy(stats);
 
   if (selectedChunkId === null || selectedChunkId === undefined) {

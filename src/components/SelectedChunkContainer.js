@@ -7,11 +7,9 @@ import type { Dispatch, State } from '../reducer';
 import type { DispatchProps, StateProps } from './stats/SelectedChunk';
 
 import { connect } from 'react-redux'
-import fullModuleData from '../stats/fullModuleData';
 import SelectedChunk from './stats/SelectedChunk';
 import {
   PickedChunk,
-  RemovedModule,
   IncludedModule,
 } from '../actions';
 
@@ -20,31 +18,30 @@ type Props = {
 };
 
 const mapStateToProps = (state: State, ownProps: Props): StateProps => {
-  const {
-    moduleData,
-    extendedModules,
-    chunksByParent,
-    parentChunks,
-  } = fullModuleData(
-    ownProps.json,
-    state.selectedChunkId,
-    state.blacklistedModuleIds,
-  );
-
-  return {
-    selectedChunkId: state.selectedChunkId,
-    blacklistedModuleIds: state.blacklistedModuleIds,
-    moduleData: moduleData,
-    extendedModules: extendedModules,
-    chunksByParent: chunksByParent,
-    parentChunks: parentChunks,
-  };
+  if (state.calculatedFullModuleData) {
+    return {
+      selectedChunkId: state.selectedChunkId,
+      blacklistedModuleIds: state.blacklistedModuleIds,
+      moduleData: state.calculatedFullModuleData.moduleData,
+      extendedModules: state.calculatedFullModuleData.extendedModules,
+      chunksByParent: state.calculatedFullModuleData.chunksByParent,
+      parentChunks: state.calculatedFullModuleData.parentChunks,
+    };
+  } else {
+    return {
+      selectedChunkId: state.selectedChunkId,
+      blacklistedModuleIds: state.blacklistedModuleIds,
+      moduleData: null,
+      extendedModules: [],
+      chunksByParent: [],
+      parentChunks: null,
+    };
+  }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onSelectChunkId: PickedChunk(dispatch),
-    onRemoveModule: RemovedModule(dispatch),
     onIncludeModule: IncludedModule(dispatch),
   };
 };
