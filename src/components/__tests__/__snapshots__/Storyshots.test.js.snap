@@ -1211,7 +1211,6 @@ exports[`Storyshots formatModuleName delegated dll 1`] = `
   <span>
     delegated ./node_modules/classnames/index.js from dll-reference vendor
   </span>
-  <br />
 </span>
 `;
 
@@ -1233,7 +1232,6 @@ exports[`Storyshots formatModuleName loader 1`] = `
   >
     ./public/index.html
   </span>
-  <br />
 </span>
 `;
 
@@ -1255,7 +1253,6 @@ exports[`Storyshots formatModuleName loader with query 1`] = `
   >
     ./src/index.js
   </span>
-  <br />
 </span>
 `;
 
@@ -1277,7 +1274,6 @@ exports[`Storyshots formatModuleName main and loader with query 1`] = `
   >
     ./src/index.js
   </span>
-  <br />
 </span>
 `;
 
@@ -1290,7 +1286,6 @@ exports[`Storyshots formatModuleName multi 1`] = `
   <span>
     main
   </span>
-  <br />
 </span>
 `;
 
@@ -1299,7 +1294,6 @@ exports[`Storyshots formatModuleName node module 1`] = `
   <span>
     ./~/react-dev-utils/webpackHotDevClient.js
   </span>
-  <br />
 </span>
 `;
 
@@ -1308,6 +1302,5 @@ exports[`Storyshots formatModuleName plain filepath 1`] = `
   <span>
     components/stats/__stories__/formatModuleName.stories.js
   </span>
-  <br />
 </span>
 `;
