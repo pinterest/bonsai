@@ -17,9 +17,9 @@ import React from 'react';
 import Unit from '../Unit';
 import {getClassName} from '../Bootstrap/GlyphiconNames';
 import {
-  RequiredByPanel,
-  RequirementsPanel,
-} from './ModulePanels';
+  RequiredByPanelContainer,
+  RequirementsPanelContainer,
+} from './ModulePanelContainers';
 
 import './ModuleTableBody.css'
 
@@ -70,29 +70,31 @@ function getExpandButton(
   );
 }
 
-function ModuleTableGroupedRow(props: GroupedTRProps) {
+function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
   return props.expanded
     ? props.row.records.map((record) => (
-        ModuleTableRow({
-          size: 'sm',
-          eModule: record,
-          records: props.row.records,
-          expanded: props.expanded,
-          onRemoveModule: props.onRemoveModule,
-          onExpandRecords: props.onExpandRecords,
-          onCollapseRecords: props.onCollapseRecords,
-        })
+        <ModuleTableRow
+          key={record.id}
+          size="sm"
+          eModule={record}
+          records={props.row.records}
+          expanded={props.expanded}
+          onRemoveModule={props.onRemoveModule}
+          onExpandRecords={props.onExpandRecords}
+          onCollapseRecords={props.onCollapseRecords}
+        />
       ))
     : [
-        ModuleTableRow({
-          size: null,
-          eModule: props.row.displayModule,
-          records: props.row.records,
-          expanded: props.expanded,
-          onRemoveModule: props.onRemoveModule,
-          onExpandRecords: props.onExpandRecords,
-          onCollapseRecords: props.onCollapseRecords,
-        })
+        <ModuleTableRow
+          key={props.row.displayModule.id}
+          size={null}
+          eModule={props.row.displayModule}
+          records={props.row.records}
+          expanded={props.expanded}
+          onRemoveModule={props.onRemoveModule}
+          onExpandRecords={props.onExpandRecords}
+          onCollapseRecords={props.onCollapseRecords}
+        />
       ];
 }
 
@@ -147,10 +149,10 @@ function ModuleTableRow(props: TRProps) {
         {moduleSize}
       </td>
       <td className="vert-align">
-        <RequiredByPanel eModule={eModule} />
+        <RequiredByPanelContainer eModule={eModule} />
       </td>
       <td className="vert-align">
-        <RequirementsPanel eModule={eModule} />
+        <RequirementsPanelContainer eModule={eModule} />
       </td>
       <td className="vert-align">
         <Button onClick={() => props.onRemoveModule(eModule.id)}>
@@ -161,11 +163,12 @@ function ModuleTableRow(props: TRProps) {
   );
 }
 
-export default function(props: TBodyProps) {
+export default function ModuleTableBody(props: TBodyProps) {
+  console.log('body', props.expandedRecords);
   return (
     <tbody>
       {flatten(
-        props.rows.map((row: RowRepresentation) => ModuleTableGroupedRow({
+        props.rows.map((row: RowRepresentation) => ModuleTableGroupedRows({
           row: row,
           expanded: props.expandedRecords.has(row.displayModule.id),
           onRemoveModule: props.onRemoveModule,

@@ -8,16 +8,26 @@ import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import formatModuleName from './formatModuleName';
 import React from 'react';
-import scrollToAndFocus from '../../scrollToAndFocus';
 
-export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
+
+export type OwnProps = {
+  eModule: ExtendedModule,
+};
+
+export type DispatchProps = {
+  onFocusChanged: (elementID: string) => void,
+};
+
+export type Props = OwnProps & DispatchProps;
+
+export function RequiredByPanel(props: Props) {
   return (
     <Dropdown
       align="right"
       color="link"
-      disabled={eModule.requiredBy.length === 0}
+      disabled={props.eModule.requiredBy.length === 0}
       getContent={(hideContent: () => void) =>
-        eModule.requiredBy.map((reason) => (
+        props.eModule.requiredBy.map((reason) => (
           <li key={reason.moduleId}>
             <Button
               color="link"
@@ -25,7 +35,7 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
               onClick={(e) => {
               e.preventDefault();
               hideContent();
-              scrollToAndFocus(String(reason.moduleId));
+              props.onFocusChanged(String(reason.moduleId));
             }}>
               <div className="text-left">
                 {formatModuleName(reason.moduleName)}
@@ -34,21 +44,21 @@ export function RequiredByPanel({eModule}: {eModule: ExtendedModule}) {
           </li>
         ))
       }>
-      {eModule.requiredBy.length}
+      {props.eModule.requiredBy.length}
       {' '}
       <span className="caret"></span>
     </Dropdown>
   );
 }
 
-export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
+export function RequirementsPanel(props: Props) {
   return (
     <Dropdown
       align="right"
       color="link"
-      disabled={eModule.requirements.length === 0}
+      disabled={props.eModule.requirements.length === 0}
       getContent={(hideContent: () => void) =>
-        eModule.requirements.map((module) => (
+        props.eModule.requirements.map((module) => (
           <li key={module.id}>
             <Button
               color="link"
@@ -56,7 +66,7 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
               onClick={(e) => {
               e.preventDefault();
               hideContent();
-              scrollToAndFocus(String(module.id));
+              props.onFocusChanged(String(module.id));
             }}>
               <div className="text-left">
                 {formatModuleName(module.name)}
@@ -65,7 +75,7 @@ export function RequirementsPanel({eModule}: {eModule: ExtendedModule}) {
           </li>
         ))
       }>
-      {eModule.requirements.length}
+      {props.eModule.requirements.length}
       {' '}
       <span className="caret"></span>
     </Dropdown>

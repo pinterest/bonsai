@@ -29,6 +29,7 @@ const mapStateToProps = (state: State): StateProps => {
     filters: state.filters,
     sort: state.sort,
     expandedRecords: state.expandedRecords,
+    focusedRowID: state.currentlyFocusedElementID,
   };
 };
 
