@@ -67,7 +67,7 @@
     "build:storybook": "build-storybook -o 'docs/storybook'",
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp docs/analyze docs/storybook docs/example.json",
     "preversion": "[[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && npm run clean && npm run pretest:integration && CI=true react-scripts test --env=jsdom && npm run build",
-    "postversion": "git push --tags && git reset --hard origin/master",
+    "postversion": "git push --tags && git merge master && git push origin",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:9007",
