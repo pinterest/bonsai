@@ -32,7 +32,7 @@
     "redux": "^3.7.0"
   },
   "devDependencies": {
-    "@storybook/addon-storyshots": "3.2.4",
+    "@storybook/addon-storyshots": "3.2.6",
     "@storybook/react": "3.2.4",
     "babel-eslint": "^7.2.3",
     "eslint": "^4.5.0",
