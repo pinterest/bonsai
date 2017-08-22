@@ -9,16 +9,21 @@ import getRawStatsFiles, {
   getMultiStatsJson,
 } from '../getRawStatsFiles';
 
-function isRawStats(stats: RawStats) {}
+// eslint-disable-next-line no-unused-vars
+function isRawStats(stats: RawStats) {
+  // Mock function to validate flowtype
+}
 
 function expectSingleConfigToFallThroughToMulti() {
+  // eslint-disable-next-line no-console
   expect(console.error).toHaveBeenCalledTimes(1);
+  // eslint-disable-next-line no-console
   expect(console.error).toHaveBeenCalledWith(`Could not find 'chunks' field.`);
 }
 
 describe('getRawStatsFiles', () => {
   beforeEach(() => {
-    console.error = jest.fn();
+    (console: any).error = jest.fn();
   });
 
   describe('getStatsJson', () => {
@@ -32,6 +37,7 @@ describe('getRawStatsFiles', () => {
 
       isRawStats(stats);
       expect(stats).toEqual(json);
+      // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
 
@@ -57,6 +63,7 @@ describe('getRawStatsFiles', () => {
     failureModes.forEach((fixture) => {
       it(fixture.message, () => {
         expect(() => getStatsJson(fixture.json)).toThrow();
+        // eslint-disable-next-line no-console
         expect(console.error).toHaveBeenCalledTimes(1);
       });
     });
@@ -75,6 +82,7 @@ describe('getRawStatsFiles', () => {
 
       isRawStats(stats.children[0]);
       expect(stats).toEqual(json);
+      // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
 
@@ -128,6 +136,7 @@ describe('getRawStatsFiles', () => {
     failureModes.forEach((fixture) => {
       it(fixture.message, () => {
         expect(() => getMultiStatsJson(fixture.json)).toThrow();
+        // eslint-disable-next-line no-console
         expect(console.error).toHaveBeenCalledTimes(1);
       });
     });
@@ -146,6 +155,7 @@ describe('getRawStatsFiles', () => {
       expect(stats).toEqual({
         'test-stats.json': json
       });
+      // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
 

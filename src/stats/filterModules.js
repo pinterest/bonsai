@@ -33,7 +33,7 @@ function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
 }
 
 function toNumber(value: string): number | '' {
-  return value === '' ? '' : Number(value)
+  return value === '' ? '' : Number(value);
 }
 
 function makeRecordRangeFilter(

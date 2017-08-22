@@ -2,22 +2,17 @@
  * @flow
  */
 
-import type { RawStats } from '../types/Stats';
 import type { Dispatch, State } from '../reducer';
 import type { DispatchProps, StateProps } from './stats/SelectedChunk';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import SelectedChunk from './stats/SelectedChunk';
 import {
   PickedChunk,
   IncludedModule,
 } from '../actions';
 
-type Props = {
-  json: RawStats,
-};
-
-const mapStateToProps = (state: State, ownProps: Props): StateProps => {
+const mapStateToProps = (state: State): StateProps => {
   if (state.calculatedFullModuleData) {
     return {
       selectedChunkId: state.selectedChunkId,

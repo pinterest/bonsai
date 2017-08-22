@@ -6,7 +6,7 @@ import type { Dispatch } from '../../reducer';
 import type { DispatchProps } from './ModulePanels';
 import type {ExtendedModule} from '../../types/Stats';
 
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import {
   FocusElement,
 } from '../../actions';

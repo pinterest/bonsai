@@ -46,8 +46,8 @@ export default function FilterCumulativeSizeForm(props: Props) {
           placeholder={`${INFINITY} bytes`}
           type="text"
           value={props.filters.cumulativeSizeMax}
-         />
+        />
       </div>
     </div>
   );
-};
+}

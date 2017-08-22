@@ -602,7 +602,7 @@ Object {
 }
 `;
 
-exports[`getExtendedModulesById should extend all the modules 2`] = `
+exports[`getExtendedModulesById should extend all the trimmed modules 1`] = `
 Array [
   Object {
     "cumulativeSize": 1200,

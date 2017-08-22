@@ -2,14 +2,9 @@
  * @flow
  */
 
-import type {RawStats} from '../../types/Stats';
-
 import App from '../App';
-import handleAction from '../../reducer';
 import React from 'react';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 
 const stats = {
   chunks: [],
@@ -23,11 +18,11 @@ storiesOf('App', module)
       filename={null}
       loading={false}
       json={null}
-      onInitDataPaths={(paths) => undefined}
+      onInitDataPaths={() => undefined}
       onPickedFile={() => undefined}
       onLoadingFailed={() => undefined}
-      onLoaded={function(filename, stats) {}}
-      onDroppedFile={function(filename, fileText) {}}
+      onLoaded={() => undefined}
+      onDroppedFile={() => undefined}
     />
   ))
   .add('FileInput stacked on Stats', () => (
@@ -36,10 +31,10 @@ storiesOf('App', module)
       filename={'stats.json'}
       loading={false}
       json={stats}
-      onInitDataPaths={(paths) => undefined}
+      onInitDataPaths={() => undefined}
       onPickedFile={() => undefined}
       onLoadingFailed={() => undefined}
-      onLoaded={function(filename, stats) {}}
-      onDroppedFile={function(filename, fileText) {}}
+      onLoaded={() => undefined}
+      onDroppedFile={() => undefined}
     />
   ));

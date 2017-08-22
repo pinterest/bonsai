@@ -8,7 +8,7 @@ import collapseModulesToRows from '../collapseModulesToRows';
 describe('collapseModulesToRows', () => {
   it('should take some modules and reformat them', () => {
     const m1 = defaultExtendedModule({id: 1});
-    const m2 = defaultExtendedModule({id: 2})
+    const m2 = defaultExtendedModule({id: 2});
     const modules = [m1, m2];
 
     expect(collapseModulesToRows(modules)).toEqual([
@@ -33,7 +33,7 @@ describe('collapseModulesToRows', () => {
       id: 2,
       requiredBy: [defaultModule({id: 1})],
       requiredByCount: 1,
-    })
+    });
     const modules = [m1, m2];
 
     expect(collapseModulesToRows(modules)).toEqual([
@@ -56,12 +56,12 @@ describe('collapseModulesToRows', () => {
       requiredByCount: 1,
       requirements: [defaultModule({id: 3})],
       requirementsCount: 1,
-    })
+    });
     const m3 = defaultExtendedModule({
       id: 3,
       requiredBy: [defaultModule({id: 2})],
       requiredByCount: 1,
-    })
+    });
     const modules = [m1, m2, m3];
 
     expect(collapseModulesToRows(modules)).toEqual([

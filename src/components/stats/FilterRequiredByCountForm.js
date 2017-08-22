@@ -46,8 +46,8 @@ export default function FilterRequiredByCountForm(props: Props) {
           placeholder={INFINITY}
           type="text"
           value={props.filters.requiredByCountMax}
-         />
+        />
       </div>
     </div>
   );
-};
+}

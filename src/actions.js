@@ -37,6 +37,7 @@ export function DroppedFile(dispatch: Dispatch) {
       json = JSON.parse(fileText);
     } catch (error) {
       alert(`JSON parse error. Unable to load stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
+      // eslint-disable-next-line no-console
       console.error(error);
       LoadingFailed(dispatch)();
       return;
@@ -46,6 +47,7 @@ export function DroppedFile(dispatch: Dispatch) {
       files = getRawStatsFiles(filename, json);
     } catch (error) {
       alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
+      // eslint-disable-next-line no-console
       console.error(error);
       LoadingFailed(dispatch)();
       return;

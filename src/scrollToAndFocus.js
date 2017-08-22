@@ -25,16 +25,16 @@ export function scrollTo(target: HTMLElement | string): ?HTMLElement {
 
 function getScrollParent(element: HTMLElement, includeHidden: boolean = false): HTMLElement | null {
   var style = getComputedStyle(element);
-  var excludeStaticParent = style.position === "absolute";
+  var excludeStaticParent = style.position === 'absolute';
   var overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/;
 
-  if (style.position === "fixed") {
+  if (style.position === 'fixed') {
     return document.body;
   }
   // eslint-disable-next-line no-cond-assign
   for (var parent = element; (parent = parent.parentElement);) {
     style = getComputedStyle(parent);
-    if (excludeStaticParent && style.position === "static") {
+    if (excludeStaticParent && style.position === 'static') {
       continue;
     }
     if (overflowRegex.test(style.overflow + style.overflowY + style.overflowX)) {
@@ -55,7 +55,7 @@ function findPos(obj: HTMLElement) {
       if (elem instanceof HTMLElement) {
         curtop += elem.offsetTop;
       }
-      elem = elem.offsetParent
+      elem = elem.offsetParent;
     } while (elem);
     return curtop;
   }

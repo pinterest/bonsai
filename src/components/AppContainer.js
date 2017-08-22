@@ -6,7 +6,7 @@ import type { Dispatch, State } from '../reducer';
 import type { DispatchProps, StateProps } from './App';
 
 import App from './App';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import {
   PickedFile,
   DroppedFile,

@@ -51,4 +51,4 @@ storiesOf('SortLabel', module)
       }}>Name</SortLabel>
   ))
 
-  ;
+;

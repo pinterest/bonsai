@@ -46,8 +46,8 @@ export default function FilterRequirementsCountForm(props: Props) {
           placeholder={INFINITY}
           type="text"
           value={props.filters.requirementsCountMax}
-         />
+        />
       </div>
     </div>
   );
-};
+}

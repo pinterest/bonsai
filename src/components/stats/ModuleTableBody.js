@@ -21,7 +21,7 @@ import {
   RequirementsPanelContainer,
 } from './ModulePanelContainers';
 
-import './ModuleTableBody.css'
+import './ModuleTableBody.css';
 
 type TBodyProps = {
   rows: Array<RowRepresentation>,
@@ -73,29 +73,29 @@ function getExpandButton(
 function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
   return props.expanded
     ? props.row.records.map((record) => (
-        <ModuleTableRow
-          key={record.id}
-          size="sm"
-          eModule={record}
-          records={props.row.records}
-          expanded={props.expanded}
-          onRemoveModule={props.onRemoveModule}
-          onExpandRecords={props.onExpandRecords}
-          onCollapseRecords={props.onCollapseRecords}
-        />
-      ))
+      <ModuleTableRow
+        key={record.id}
+        size="sm"
+        eModule={record}
+        records={props.row.records}
+        expanded={props.expanded}
+        onRemoveModule={props.onRemoveModule}
+        onExpandRecords={props.onExpandRecords}
+        onCollapseRecords={props.onCollapseRecords}
+      />
+    ))
     : [
-        <ModuleTableRow
-          key={props.row.displayModule.id}
-          size={null}
-          eModule={props.row.displayModule}
-          records={props.row.records}
-          expanded={props.expanded}
-          onRemoveModule={props.onRemoveModule}
-          onExpandRecords={props.onExpandRecords}
-          onCollapseRecords={props.onCollapseRecords}
-        />
-      ];
+      <ModuleTableRow
+        key={props.row.displayModule.id}
+        size={null}
+        eModule={props.row.displayModule}
+        records={props.row.records}
+        expanded={props.expanded}
+        onRemoveModule={props.onRemoveModule}
+        onExpandRecords={props.onExpandRecords}
+        onCollapseRecords={props.onCollapseRecords}
+      />
+    ];
 }
 
 function ModuleTableRow(props: TRProps) {
@@ -105,19 +105,19 @@ function ModuleTableRow(props: TRProps) {
   const moduleSize = props.expanded
     ? <Unit bytes={eModule.size} />
     : <Unit
-        bytes={records.reduce((sum, eModule) => sum + eModule.size, 0)}
-      />;
+      bytes={records.reduce((sum, eModule) => sum + eModule.size, 0)}
+    />;
 
   const hasCollapsedChildren = records.length > 1;
   const isFirstRecord = eModule.id === records[0].id;
   const uniqueImports = (hasCollapsedChildren && isFirstRecord)
     ? getExpandButton(
-        props.expanded,
-        records.length - 1,
-        props.expanded
-          ? () => props.onCollapseRecords(eModule.id)
-          : () => props.onExpandRecords(eModule.id)
-      )
+      props.expanded,
+      records.length - 1,
+      props.expanded
+        ? () => props.onCollapseRecords(eModule.id)
+        : () => props.onExpandRecords(eModule.id)
+    )
     : null;
 
   return (
@@ -131,7 +131,7 @@ function ModuleTableRow(props: TRProps) {
             : null,
         ].join(' ').trim()
       })}
-      >
+    >
       <td className="vert-align">
         <ExternalModuleLink
           prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
@@ -164,7 +164,6 @@ function ModuleTableRow(props: TRProps) {
 }
 
 export default function ModuleTableBody(props: TBodyProps) {
-  console.log('body', props.expandedRecords);
   return (
     <tbody>
       {flatten(

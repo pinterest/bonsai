@@ -13,7 +13,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={null}
       isDragging={false}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ))
   .add('File picked, no data paths', () => (
@@ -22,7 +22,7 @@ storiesOf('FileInputRow', module)
       filename={'stats.json'}
       dataPaths={null}
       isDragging={false}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ))
   .add('No file picked, but has dataPaths', () => (
@@ -30,7 +30,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={['example.json']}
       isDragging={false}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ))
   .add('With dataPaths and a file picked', () => (
@@ -38,7 +38,7 @@ storiesOf('FileInputRow', module)
       filename={'example.json'}
       dataPaths={['example.json']}
       isDragging={false}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ))
   .add('No file picked - dragging', () => (
@@ -46,7 +46,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={null}
       isDragging={true}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ))
   .add('No file picked, but has dataPaths - dragging', () => (
@@ -54,7 +54,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={['example.json']}
       isDragging={true}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ))
   .add('With dataPaths and a file picked - dragging', () => (
@@ -62,6 +62,6 @@ storiesOf('FileInputRow', module)
       filename={'example.json'}
       dataPaths={['example.json']}
       isDragging={true}
-      onStatsFilePicked={(path: string | null) => undefined}
+      onStatsFilePicked={() => undefined}
     />
   ));

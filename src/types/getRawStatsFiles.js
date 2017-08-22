@@ -6,6 +6,7 @@ import type {ParsedJSON, RawStats} from '../types/Stats';
 
 function invariant(condition: boolean, message: string): void {
   if (!condition) {
+    // eslint-disable-next-line no-console
     console.error(message);
     throw new Error(message);
   }

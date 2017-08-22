@@ -5,9 +5,7 @@
 import type {ExtendedModule} from '../../types/Stats';
 
 import {
-  defaultChunk,
   defaultModule,
-  defaultReason,
   defaultExtendedModule,
   reasonFromModule,
 } from '../../__test_helpers__/defaults';
@@ -18,21 +16,21 @@ import getExtendedModulesById, {
 
 const ENTRY_ZERO = defaultModule({
   id: 0,
-  name: "Entry Zero",
+  name: 'Entry Zero',
   size: 100,
   reasons: [],
 });
 
 const ENTRY_ONE = defaultModule({
   id: 1,
-  name: "Entry One",
+  name: 'Entry One',
   size: 100,
   reasons: [],
 });
 
 const ZERO_A = defaultModule({
   id: 2,
-  name: "Module Zero-A",
+  name: 'Module Zero-A',
   size: 250,
   reasons: [
     reasonFromModule(ENTRY_ZERO),
@@ -41,7 +39,7 @@ const ZERO_A = defaultModule({
 
 const COMMON = defaultModule({
   id: 3,
-  name: "Module Common",
+  name: 'Module Common',
   size: 200,
   reasons: [
     reasonFromModule(ENTRY_ZERO),
@@ -51,7 +49,7 @@ const COMMON = defaultModule({
 
 const BIG_MODULE = defaultModule({
   id: 5,
-  name: "Big Module",
+  name: 'Big Module',
   size: 1000,
   reasons: [
     reasonFromModule(ZERO_A),
@@ -61,7 +59,7 @@ const BIG_MODULE = defaultModule({
 
 const ENTRY_ONE_A = defaultModule({
   id: 600,
-  name: "Module One-A",
+  name: 'Module One-A',
   size: 600,
   reasons: [
     reasonFromModule(ENTRY_ONE),
@@ -70,7 +68,7 @@ const ENTRY_ONE_A = defaultModule({
 
 const ENTRY_ONE_B = defaultModule({
   id: 300,
-  name: "Module One-B",
+  name: 'Module One-B',
   size: 300,
   reasons: [
     reasonFromModule(ENTRY_ONE_A),
@@ -153,7 +151,7 @@ describe('getExtendedModulesById', () => {
     expect(sumSizes).toBe(sumCumulativeTopLevelSizes);
   });
 
-  it('should extend all the modules', () => {
+  it('should extend all the trimmed modules', () => {
     const modulesById = getResults(MODULES);
 
     // $FlowFixMe: flow thinks `values` returns `Array<mixed>`
