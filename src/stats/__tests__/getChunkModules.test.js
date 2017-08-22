@@ -19,7 +19,7 @@ const stats = {
       id: 2,
       chunks: [0, 1],
     }),
-      defaultExtendedModule({
+    defaultExtendedModule({
       id: 2,
       chunks: [1],
     }),

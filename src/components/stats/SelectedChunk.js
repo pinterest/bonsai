@@ -35,44 +35,44 @@ type Props = StateProps & DispatchProps;
 export default function SelectedChunk(props: Props) {
   const blackList = props.moduleData && props.moduleData.removed.length
     ? <div className="row">
-        <div className="col-sm-12">
-          <div className="panel panel-danger">
-            <div className="panel-heading">
-              {props.moduleData.removed.length} Modules Ignored
-            </div>
-            <BlacklistTable
-              blacklistedModulesIds={props.blacklistedModuleIds}
-              removedModules={props.moduleData.removed}
-              onIncludeModule={props.onIncludeModule}
-            />
+      <div className="col-sm-12">
+        <div className="panel panel-danger">
+          <div className="panel-heading">
+            {props.moduleData.removed.length} Modules Ignored
           </div>
+          <BlacklistTable
+            blacklistedModulesIds={props.blacklistedModuleIds}
+            removedModules={props.moduleData.removed}
+            onIncludeModule={props.onIncludeModule}
+          />
         </div>
       </div>
+    </div>
     : null;
 
   const loopList = props.extendedModules
     ? <div className="row">
-        <div className="col-sm-12">
-          <LoopTable extendedModules={props.extendedModules} />
-        </div>
+      <div className="col-sm-12">
+        <LoopTable extendedModules={props.extendedModules} />
       </div>
-    : null
+    </div>
+    : null;
 
   const moduleTable = props.moduleData
     ? <div className="row">
-        <div className="col-sm-12">
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              {props.moduleData.removed.length === 0
-                ? 'All'
-                : props.moduleData.included.length} Modules Included
-            </div>
-            <ModuleTableContainer
-              extendedModules={props.extendedModules}
-            />
+      <div className="col-sm-12">
+        <div className="panel panel-primary">
+          <div className="panel-heading">
+            {props.moduleData.removed.length === 0
+              ? 'All'
+              : props.moduleData.included.length} Modules Included
           </div>
+          <ModuleTableContainer
+            extendedModules={props.extendedModules}
+          />
         </div>
       </div>
+    </div>
     : null;
 
   return (
@@ -88,17 +88,17 @@ export default function SelectedChunk(props: Props) {
       </div>
       {props.parentChunks && props.selectedChunkId !== null && props.selectedChunkId !== undefined
         ? <div className="row">
-            <div className="col-sm-11 col-sm-push-1">
-              <ChunkBreadcrumb
-                parentChunks={props.parentChunks}
-                selectedChunkId={props.selectedChunkId}
-                totalModules={
-                  (props.moduleData ? props.moduleData.included.length : 0) +
+          <div className="col-sm-11 col-sm-push-1">
+            <ChunkBreadcrumb
+              parentChunks={props.parentChunks}
+              selectedChunkId={props.selectedChunkId}
+              totalModules={
+                (props.moduleData ? props.moduleData.included.length : 0) +
                   (props.moduleData ? props.moduleData.removed.length : 0)
-                }
-              />
-            </div>
+              }
+            />
           </div>
+        </div>
         : null}
       {blackList}
       {loopList}

@@ -11,7 +11,7 @@ import type {
 import collapseModulesToRows from '../../stats/collapseModulesToRows';
 import filterModules from '../../stats/filterModules';
 import ModuleTable from './ModuleTable';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import {
   FilteredTable,
   RemovedModule,

@@ -24,17 +24,17 @@ function getSortIconClass(direction: SortDirection, type: ?SortType) {
     case 'alpha':
       return direction === 'ASC'
         ? getClassName('sort-by-alphabet')
-        : getClassName('sort-by-alphabet-alt')
+        : getClassName('sort-by-alphabet-alt');
 
     case 'order':
       return direction === 'ASC'
         ? getClassName('sort-by-order')
-        : getClassName('sort-by-order-alt')
+        : getClassName('sort-by-order-alt');
     case 'size':
     default:
       return direction === 'ASC'
         ? getClassName('sort-by-attributes')
-        : getClassName('sort-by-attributes-alt')
+        : getClassName('sort-by-attributes-alt');
   }
 }
 
@@ -45,9 +45,9 @@ export default function SortLabel(props: Props) {
     <div className="text-left">
       {isSameField
         ? <span
-            aria-hidden="true"
-            className={getSortIconClass(props.sort.direction, props.fieldType)}
-          />
+          aria-hidden="true"
+          className={getSortIconClass(props.sort.direction, props.fieldType)}
+        />
         : null}
       {isSameField ? NBSP : null}
       {props.children}

@@ -10,7 +10,7 @@ import Navbar from './Navbar';
 import React, { Component } from 'react';
 import SelectedChunkContainer from './SelectedChunkContainer';
 
-import './App.css'
+import './App.css';
 
 export type StateProps = {
   dataPaths: Array<string>,

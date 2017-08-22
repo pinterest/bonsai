@@ -33,10 +33,10 @@ export function RequiredByPanel(props: Props) {
               color="link"
               display="block"
               onClick={(e) => {
-              e.preventDefault();
-              hideContent();
-              props.onFocusChanged(String(reason.moduleId));
-            }}>
+                e.preventDefault();
+                hideContent();
+                props.onFocusChanged(String(reason.moduleId));
+              }}>
               <div className="text-left">
                 {formatModuleName(reason.moduleName)}
               </div>
@@ -64,10 +64,10 @@ export function RequirementsPanel(props: Props) {
               color="link"
               display="block"
               onClick={(e) => {
-              e.preventDefault();
-              hideContent();
-              props.onFocusChanged(String(module.id));
-            }}>
+                e.preventDefault();
+                hideContent();
+                props.onFocusChanged(String(module.id));
+              }}>
               <div className="text-left">
                 {formatModuleName(module.name)}
               </div>

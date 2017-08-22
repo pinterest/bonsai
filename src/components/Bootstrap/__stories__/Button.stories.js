@@ -70,7 +70,7 @@ storiesOf('Bootstrap/Link', module)
     <Link href="example.com" newtab={true}>
       <span className={getClassName('new-window')} /> Open External Site
     </Link>
-  ));;
+  ));
 
 const closeContainerStyle = {
   background: '#ddd',

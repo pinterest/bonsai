@@ -51,17 +51,17 @@ export default class LoopTable extends Component<void, Props, State> {
         </div>
         {this.state.expanded
           ? <ul className="list-group">
-              {loopingModules.map((eModule) =>
-                <li key={eModule.identifier} className="list-group-item">
-                  {formatModuleName(eModule.name)}
-                  {eModule.loops.map((loop) =>
-                    <ul className="list-group">
-                      {loop.map((module) => formatModuleName(module.name))}
-                    </ul>
-                  )}
-                </li>
-              )}
-            </ul>
+            {loopingModules.map((eModule) =>
+              <li key={eModule.identifier} className="list-group-item">
+                {formatModuleName(eModule.name)}
+                {eModule.loops.map((loop) =>
+                  <ul className="list-group">
+                    {loop.map((module) => formatModuleName(module.name))}
+                  </ul>
+                )}
+              </li>
+            )}
+          </ul>
           : null}
       </div>
     );

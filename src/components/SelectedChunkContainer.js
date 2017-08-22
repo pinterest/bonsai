@@ -6,7 +6,7 @@ import type { RawStats } from '../types/Stats';
 import type { Dispatch, State } from '../reducer';
 import type { DispatchProps, StateProps } from './stats/SelectedChunk';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import SelectedChunk from './stats/SelectedChunk';
 import {
   PickedChunk,
