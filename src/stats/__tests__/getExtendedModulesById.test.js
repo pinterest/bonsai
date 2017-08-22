@@ -5,9 +5,7 @@
 import type {ExtendedModule} from '../../types/Stats';
 
 import {
-  defaultChunk,
   defaultModule,
-  defaultReason,
   defaultExtendedModule,
   reasonFromModule,
 } from '../../__test_helpers__/defaults';
@@ -153,7 +151,7 @@ describe('getExtendedModulesById', () => {
     expect(sumSizes).toBe(sumCumulativeTopLevelSizes);
   });
 
-  it('should extend all the modules', () => {
+  it('should extend all the trimmed modules', () => {
     const modulesById = getResults(MODULES);
 
     // $FlowFixMe: flow thinks `values` returns `Array<mixed>`

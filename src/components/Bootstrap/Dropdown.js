@@ -123,7 +123,7 @@ export default class Dropdown extends Component<void, Props, State> {
     this.setState({isOpen: false});
   };
 
-  onClickToggle = (event: MouseEvent) => {
+  onClickToggle = () => {
     this.setState({isOpen: !this.state.isOpen});
   };
 

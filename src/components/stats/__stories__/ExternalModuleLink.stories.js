@@ -38,7 +38,7 @@ const MODULE: Module = {
   'depth': 2
 };
 
-const stories = storiesOf('ExternalModuleLink', module)
+storiesOf('ExternalModuleLink', module)
   .add('Default', () => (
     <ExternalModuleLink prefix={'http://example.com/'} module={MODULE} />
   ))

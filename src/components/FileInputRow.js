@@ -49,7 +49,7 @@ export default function FileInputRow(props: Props) {
         ? <div className="form-group col-sm-12">
           <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
           <span id="drag-drop-helpblock" className="col-sm-12 help-block">
-              Run <kbd>webpack --json > stats.json</kbd> to get started.
+              Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
           </span>
         </div>
         : null}

@@ -10,7 +10,7 @@ import {getClassName} from '../GlyphiconNames';
 
 storiesOf('Bootstrap/Button', module)
   .add('With onClick', () => (
-    <Button onClick={(e) => alert('Clicked!')}>
+    <Button onClick={() => alert('Clicked!')}>
       Click Me!
     </Button>
   ))
@@ -20,17 +20,17 @@ storiesOf('Bootstrap/Button', module)
     </Button>
   ))
   .add('Success', () => (
-    <Button onClick={(e) => alert('Clicked!')} color="success">
+    <Button onClick={() => alert('Clicked!')} color="success">
       Click Me!
     </Button>
   ))
   .add('Large', () => (
-    <Button onClick={(e) => alert('Clicked!')} size="lg">
+    <Button onClick={() => alert('Clicked!')} size="lg">
       Click Me!
     </Button>
   ))
   .add('Block', () => (
-    <Button onClick={(e) => alert('Clicked!')} display="block">
+    <Button onClick={() => alert('Clicked!')} display="block">
       Click Me!
     </Button>
   ))
@@ -81,7 +81,7 @@ const closeContainerStyle = {
 storiesOf('Bootstrap/CloseButton', module)
   .add('With onClick', () => (
     <div style={closeContainerStyle}>
-      <CloseButton onClick={(e) => alert('Closed!')} />
+      <CloseButton onClick={() => alert('Closed!')} />
     </div>
   ))
   .add('Disabled', () => (

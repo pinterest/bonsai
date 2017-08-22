@@ -39,7 +39,7 @@ export type DispatchProps = {
 export type Props = OwnProps & StateProps & DispatchProps;
 
 export default class ModuleTable extends Component {
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate() {
     if (this.props.focusedRowID !== null) {
       scrollToAndFocus(this.props.focusedRowID);
     }

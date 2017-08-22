@@ -164,7 +164,6 @@ function ModuleTableRow(props: TRProps) {
 }
 
 export default function ModuleTableBody(props: TBodyProps) {
-  console.log('body', props.expandedRecords);
   return (
     <tbody>
       {flatten(

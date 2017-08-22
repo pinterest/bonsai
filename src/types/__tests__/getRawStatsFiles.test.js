@@ -9,7 +9,10 @@ import getRawStatsFiles, {
   getMultiStatsJson,
 } from '../getRawStatsFiles';
 
-function isRawStats(stats: RawStats) {}
+// eslint-disable-next-line no-unused-vars
+function isRawStats(stats: RawStats) {
+  // Mock function to validate flowtype
+}
 
 function expectSingleConfigToFallThroughToMulti() {
   expect(console.error).toHaveBeenCalledTimes(1);
@@ -18,7 +21,7 @@ function expectSingleConfigToFallThroughToMulti() {
 
 describe('getRawStatsFiles', () => {
   beforeEach(() => {
-    console.error = jest.fn();
+    (console: any).error = jest.fn();
   });
 
   describe('getStatsJson', () => {

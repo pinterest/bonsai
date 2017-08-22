@@ -8,12 +8,12 @@ import { storiesOf } from '@storybook/react';
 import Button from '../Button';
 import Dropdown from '../Dropdown';
 
-const alertOnClick = (e) => { alert('Clicked me'); };
+const alertOnClick = () => { alert('Clicked me'); };
 
 const getContent = (hideContent: () => void) => {
   return (
     <div className="col-sm-12">
-      <Button onClick={(e) => hideContent()} color="success">
+      <Button onClick={() => hideContent()} color="success">
         All Done
       </Button>
     </div>

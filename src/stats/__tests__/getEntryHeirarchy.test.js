@@ -2,7 +2,7 @@
  * @flow
  */
 
-import {defaultChunk, defaultExtendedModule} from '../../__test_helpers__/defaults';
+import {defaultChunk} from '../../__test_helpers__/defaults';
 import getEntryHeirarchy from '../getEntryHeirarchy';
 
 const stats = {

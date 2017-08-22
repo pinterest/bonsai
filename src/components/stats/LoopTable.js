@@ -6,7 +6,6 @@ import type {ExtendedModule} from '../../types/Stats';
 
 import formatModuleName from './formatModuleName';
 import React, { Component } from 'react';
-// import {CloseButton} from '../Bootstrap/Button';
 import {getClassName} from '../Bootstrap/GlyphiconNames';
 import Button from '../Bootstrap/Button';
 
@@ -55,7 +54,7 @@ export default class LoopTable extends Component<void, Props, State> {
               <li key={eModule.identifier} className="list-group-item">
                 {formatModuleName(eModule.name)}
                 {eModule.loops.map((loop) =>
-                  <ul className="list-group">
+                  <ul key={eModule.id} className="list-group">
                     {loop.map((module) => formatModuleName(module.name))}
                   </ul>
                 )}

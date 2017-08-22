@@ -22,6 +22,7 @@ try {
     });
   });
 } catch (error) {
+  // eslint-disable-next-line jest/no-identical-title, jest/no-disabled-tests
   describe.skip('Integration tests', () => {
     // empty
   });

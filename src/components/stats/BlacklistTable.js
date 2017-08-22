@@ -47,8 +47,8 @@ export default function BlasklistTable(props: Props) {
         </tr>
       </thead>
       <tbody>
-        {blacklistedModulesList.map((modules, i) =>
-          modules.map((eModule, ii) => (
+        {blacklistedModulesList.map((modules) =>
+          modules.map((eModule) => (
             <tr key={eModule.id} {...OffsetPageAnchor(String(eModule.id))}>
               <td className="vert-align">
                 <ExternalModuleLink
