@@ -29,19 +29,23 @@ export function fetchApiListEndpoint(
   endpoint: string,
 ) {
   if (process.env.NODE_ENV === 'test') {
+    // eslint-disable-next-line no-console
     console.info('NODE_ENV is \'test\'. Skipping fetchApiListEndpoint()');
     return;
   }
 
   fetchJSON(endpoint).then((json) => {
     if (!json.paths) {
+      // eslint-disable-next-line no-console
       console.error(`Missing field. '${String(endpoint)}' should return '{"paths": []}' key. Got: ${String(Object.keys(json))}`);
     } else if (!Array.isArray(json.paths)) {
+      // eslint-disable-next-line no-console
       console.error('Invalid type: `paths`. Expected `paths` to be an array of web urls. Got:', json.paths);
     } else {
       InitDataPaths(dispatch)(json.paths.map(String));
     }
   }).catch((error) => {
+    // eslint-disable-next-line no-console
     console.error(`Failed while fetching json from '${String(endpoint)}'.`, error);
   });
 }
@@ -51,6 +55,7 @@ export function fetchApiFileEndpoint(
   endpoint: string,
 ) {
   if (process.env.NODE_ENV === 'test') {
+    // eslint-disable-next-line no-console
     console.info('NODE_ENV is \'test\'. Skipping fetchJsonFile()');
     return;
   }
@@ -58,6 +63,7 @@ export function fetchApiFileEndpoint(
   fetchJSON(endpoint).then((json: ParsedJSON) => {
     LoadingFinished(dispatch)(endpoint, json);
   }).catch((error) => {
+    // eslint-disable-next-line no-console
     console.error(`Failed while fetching json from '${String(endpoint)}'.`, error);
     LoadingFailed(dispatch)();
   });

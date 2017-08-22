@@ -57,6 +57,7 @@
     "flow:coverage": "flow-coverage-report report",
     "flow:update-dfns": "flow-typed update",
     "eslint": "eslint ./src",
+    "eslint:watch": "eslint ./src && echo 'No Lint Problems'; fswatch -e \"/\\.\" -o -r ./src | xargs -n1 -I{} eslint ./src && echo 'No Lint Problems'",
     "spellcheck": "mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",

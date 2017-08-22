@@ -44,6 +44,7 @@ if (process.env.REACT_APP_API_LIST_ENDPOINT) {
     process.env.REACT_APP_API_LIST_ENDPOINT,
   );
 } else {
+  // eslint-disable-next-line no-console
   console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
 }
 

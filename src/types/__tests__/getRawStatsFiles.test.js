@@ -15,7 +15,9 @@ function isRawStats(stats: RawStats) {
 }
 
 function expectSingleConfigToFallThroughToMulti() {
+  // eslint-disable-next-line no-console
   expect(console.error).toHaveBeenCalledTimes(1);
+  // eslint-disable-next-line no-console
   expect(console.error).toHaveBeenCalledWith(`Could not find 'chunks' field.`);
 }
 
@@ -35,6 +37,7 @@ describe('getRawStatsFiles', () => {
 
       isRawStats(stats);
       expect(stats).toEqual(json);
+      // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
 
@@ -60,6 +63,7 @@ describe('getRawStatsFiles', () => {
     failureModes.forEach((fixture) => {
       it(fixture.message, () => {
         expect(() => getStatsJson(fixture.json)).toThrow();
+        // eslint-disable-next-line no-console
         expect(console.error).toHaveBeenCalledTimes(1);
       });
     });
@@ -78,6 +82,7 @@ describe('getRawStatsFiles', () => {
 
       isRawStats(stats.children[0]);
       expect(stats).toEqual(json);
+      // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
 
@@ -131,6 +136,7 @@ describe('getRawStatsFiles', () => {
     failureModes.forEach((fixture) => {
       it(fixture.message, () => {
         expect(() => getMultiStatsJson(fixture.json)).toThrow();
+        // eslint-disable-next-line no-console
         expect(console.error).toHaveBeenCalledTimes(1);
       });
     });
@@ -149,6 +155,7 @@ describe('getRawStatsFiles', () => {
       expect(stats).toEqual({
         'test-stats.json': json
       });
+      // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
 
