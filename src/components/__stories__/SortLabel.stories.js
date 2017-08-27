@@ -34,10 +34,10 @@ storiesOf('SortLabel', module)
   ))
   .add('This field is type `order`', () => (
     <SortLabel
-      field="rank"
+      field="size"
       fieldType="order"
       sort={{
-        field: 'rank',
+        field: 'size',
         direction: 'ASC',
       }}>Rank</SortLabel>
   ))

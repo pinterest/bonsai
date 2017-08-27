@@ -5,8 +5,9 @@
 import type {
   FilterableFields,
   FilterProps,
-  SortProps,
 } from '../../stats/filterModules';
+
+import type { SortProps } from '../../stats/sortModules';
 
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';

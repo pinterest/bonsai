@@ -5,8 +5,11 @@
 import type {
   FilterableFields,
   FilterProps,
-  SortProps,
 } from '../../stats/filterModules';
+import type {
+  SortableFields,
+  SortProps,
+} from '../../stats/sortModules';
 import type {
   ModuleID,
   RowRepresentation,
@@ -29,7 +32,7 @@ export type StateProps = {
 };
 
 export type DispatchProps = {
-  onSortPicked: (field: string) => void,
+  onSortPicked: (field: SortableFields) => void,
   onFilterChanged: (changes: {[key: FilterableFields]: string}) => void,
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,

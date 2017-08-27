@@ -7,8 +7,8 @@ import type {FullModuleDataType} from './stats/fullModuleData';
 import type {
   FilterableFields,
   FilterProps,
-  SortProps,
 } from './stats/filterModules';
+import type { SortableFields, SortProps } from './stats/sortModules';
 
 import fullModuleData from './stats/fullModuleData';
 import getCollapsableParentOf from './stats/getCollapsableParentOf';
@@ -33,7 +33,7 @@ export type Action =
   }
   | {
     type: 'onSorted',
-    field: string,
+    field: SortableFields,
   }
   | {
     type: 'onFiltered',

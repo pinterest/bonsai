@@ -10,6 +10,7 @@ import type {
 
 import collapseModulesToRows from '../../stats/collapseModulesToRows';
 import filterModules from '../../stats/filterModules';
+import sortModules from '../../stats/sortModules';
 import ModuleTable from './ModuleTable';
 import {connect} from 'react-redux';
 import {
@@ -52,11 +53,13 @@ const mergeProps = (
     ...stateProps,
     ...dispatchProps,
     rows: collapseModulesToRows(
-      filterModules(
-        ownProps.extendedModules,
-        stateProps.filters,
+      sortModules(
+        filterModules(
+          ownProps.extendedModules,
+          stateProps.filters,
+        ),
         stateProps.sort,
-      )
+      ),
     ),
   };
 };
