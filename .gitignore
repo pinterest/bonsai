@@ -11,7 +11,9 @@
 /src/integration/tmp/
 
 # production
+/bin
 /build
+/storybook-static
 
 # docs artifacts
 /docs/storybook
