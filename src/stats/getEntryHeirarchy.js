@@ -2,8 +2,10 @@
  * @flow
  */
 
-import type {ChunkID, RawStats, Module, Reason} from '../types/Stats';
+import type { ChunkID, RawStats } from '../types/Stats';
 
+import getChunkName from './getChunkName';
+import getChunkNamesFromImportedModules from './getChunkNamesFromImportedModules';
 import getEntryChunks from './getEntryChunks';
 
 export type Child = {
@@ -13,56 +15,6 @@ export type Child = {
   names: Array<string>,
   children: Array<Child>,
 };
-
-function isImportType(reason: Reason): boolean {
-  return reason.type === 'import()';
-}
-
-function wasImported(module: Module): boolean {
-  return module.reasons.filter(isImportType).length > 0;
-}
-
-function getChunkNamesFromImportedModules(
-  stats: RawStats,
-): {
-  [chunkId: ChunkID]: string,
-} {
-  const chunksById = stats.chunks.reduce((map, chunk) => {
-    map[chunk.id] = chunk;
-    return map;
-  }, {});
-
-  return stats.modules
-    .filter(wasImported)
-    .reduce((namesByChunks, module) => {
-      module.reasons
-        .filter(isImportType)
-        .forEach((reason) => {
-          const chunk = module.chunks
-            .map((chunkId) => chunksById[chunkId])
-            .filter((chunk) =>
-              chunk.origins.length >= 1 &&
-              chunk.origins[0].loc === reason.loc
-            )
-            .shift();
-
-          if (chunk) {
-            namesByChunks[chunk.id] = module.name;
-          }
-        });
-      return namesByChunks;
-    }, {});
-}
-
-function getChunkName(chunk, importedChunkNames) {
-  return (
-    chunk.names.join(', ') ||
-    (importedChunkNames[chunk.id]
-      ? `import('${importedChunkNames[chunk.id]}')`
-      : null) ||
-    chunk.origins.map((origin) => origin.moduleName).join(', ')
-  );
-}
 
 function getChildrenForChunk(
   stats,

@@ -24,6 +24,7 @@ after_script: greenkeeper-lockfile-upload
 
 before_deploy:
   - yarn run build:prod
+  - yarn run build:cli
   - yarn run build:stats
   - yarn run build:storybook
 deploy:
