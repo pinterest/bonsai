@@ -5,12 +5,30 @@
 import packageJSON from '../../package.json';
 import { ArgumentParser } from 'argparse';
 
-function addChunkSizeArgs(parser: ArgumentParser) {
+function addChunkSizesArgs(parser: ArgumentParser) {
   parser.addArgument(
     ['stats-file'],
     {
       action: 'store',
       help: `The stats file to read and calculate chunk-sizes for.`,
+    },
+  );
+}
+
+function addChunkSizesDiffArgs(parser: ArgumentParser) {
+  parser.addArgument(
+    ['file-a'],
+    {
+      action: 'store',
+      help: `The first stats file to read and calculate chunk-sizes for.`,
+    },
+  );
+
+  parser.addArgument(
+    ['file-b'],
+    {
+      action: 'store',
+      help: `The second stats file to read and calculate chunk-sizes for.`,
     },
   );
 }
@@ -26,8 +44,13 @@ export default function getParser(): ArgumentParser {
     dest: 'command',
   });
 
-  addChunkSizeArgs(subparsers.addParser('chunk-size', {
+  addChunkSizesArgs(subparsers.addParser('chunk-sizes', {
     help: 'Calculate the total size for each chunk',
+    addHelp: true,
+  }));
+
+  addChunkSizesDiffArgs(subparsers.addParser('chunk-sizes-diff', {
+    help: 'Diff the chunk sizes between two stats files',
     addHelp: true,
   }));
 

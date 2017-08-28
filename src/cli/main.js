@@ -4,7 +4,8 @@
 
 import type { Flags } from './resolveArgs';
 
-import chunkSize from './chunkSize';
+import chunkSizes from './chunkSizes';
+import chunkSizesDiff from './chunkSizesDiff';
 
 export default function main(flags: Flags): void {
   if (process.env.VERBOSE) {
@@ -12,7 +13,19 @@ export default function main(flags: Flags): void {
   }
 
   switch(flags.command) {
-    case 'chunk-size':
-      chunkSize(flags.statsFile);
+    case 'chunk-sizes':
+      console.log( // eslint-disable-line no-console
+        chunkSizes(flags.statsFile)
+      );
+      break;
+
+    case 'chunk-sizes-diff':
+      console.log( // eslint-disable-line no-console
+        chunkSizesDiff(
+          chunkSizes(flags.fileA),
+          chunkSizes(flags.fileB),
+        )
+      );
+      break;
   }
 }
