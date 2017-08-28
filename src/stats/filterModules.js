@@ -16,13 +16,6 @@ export type FilterProps = {
 
 export type FilterableFields = $Keys<FilterProps>;
 
-export type SortDirection = 'ASC' | 'DESC';
-
-export type SortProps = {
-  field: string,
-  direction: SortDirection,
-};
-
 function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
   return function(eModule: ExtendedModule) {
     if (re && !re.test(eModule[field])) {
@@ -58,7 +51,6 @@ function makeRecordRangeFilter(
 export default function filterModules(
   extendedModules: Array<ExtendedModule>,
   filters: FilterProps,
-  sort: SortProps,
 ) {
   return extendedModules
     .filter(makeRecordLikeRegExpFilter(
@@ -79,15 +71,5 @@ export default function filterModules(
       'requirementsCount',
       toNumber(filters.requirementsCountMin),
       toNumber(filters.requirementsCountMax),
-    ))
-    .sort((a, b) => {
-      const {field, direction} = sort;
-      if (a[field] < b[field]) {
-        return direction === 'ASC' ? -1 : 1;
-      }
-      if (a[field] > b[field]) {
-        return direction === 'DESC' ? -1 : 1;
-      }
-      return 0;
-    });
+    ));
 }

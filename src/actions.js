@@ -5,6 +5,7 @@
 import type {ChunkID, ModuleID, RawStats} from './types/Stats';
 import type {Dispatch} from './reducer';
 import type {FilterableFields} from './stats/filterModules';
+import type {SortableFields} from './stats/sortModules';
 
 import getRawStatsFiles from './types/getRawStatsFiles';
 import { fetchApiFileEndpoint } from './fetchJSON';
@@ -74,7 +75,7 @@ export function LoadingFinished(dispatch: Dispatch) {
 }
 
 export function SortedTable(dispatch: Dispatch) {
-  return (field: string) => dispatch({
+  return (field: SortableFields) => dispatch({
     type: 'onSorted',
     field,
   });

@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import type {SortProps, SortDirection} from '../stats/filterModules';
+import type {SortProps, SortDirection} from '../stats/sortModules';
 
 import {getClassName} from './Bootstrap/GlyphiconNames';
 

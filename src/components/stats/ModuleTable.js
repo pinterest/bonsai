@@ -5,21 +5,20 @@
 import type {
   FilterableFields,
   FilterProps,
-  SortProps,
 } from '../../stats/filterModules';
 import type {
-  ModuleID,
-  RowRepresentation,
-} from '../../types/Stats';
+  SortableFields,
+  SortProps,
+} from '../../stats/sortModules';
+import type { ModuleID } from '../../types/Stats';
 
+import collapseModulesToRows from '../../stats/collapseModulesToRows';
+import filterModules from '../../stats/filterModules';
 import ModuleTableBody from './ModuleTableBody';
 import ModuleTableHead from './ModuleTableHead';
 import React, { Component } from 'react';
 import scrollToAndFocus from '../../scrollToAndFocus';
-
-export type OwnProps = {
-  rows: Array<RowRepresentation>,
-};
+import sortModules from '../../stats/sortModules';
 
 export type StateProps = {
   filters: FilterProps,
@@ -29,14 +28,14 @@ export type StateProps = {
 };
 
 export type DispatchProps = {
-  onSortPicked: (field: string) => void,
+  onSortPicked: (field: SortableFields) => void,
   onFilterChanged: (changes: {[key: FilterableFields]: string}) => void,
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
   onCollapseRecords: (moduleID: ModuleID) => void,
 };
 
-export type Props = OwnProps & StateProps & DispatchProps;
+export type Props = StateProps & DispatchProps;
 
 export default class ModuleTable extends Component {
   componentDidUpdate() {
@@ -47,6 +46,20 @@ export default class ModuleTable extends Component {
 
   render() {
     const props = this.props;
+
+    const rows = collapseModulesToRows(
+      sortModules(
+        filterModules(
+          props.extendedModules,
+          props.filters,
+        ),
+        props.sort,
+      ),
+    );
+    rows.forEach((row) => {
+      row.records = sortModules(row.records, props.sort);
+    });
+
     return (
       <table className="table table-hover" cellPadding="0" cellSpacing="0">
         <ModuleTableHead
@@ -56,7 +69,7 @@ export default class ModuleTable extends Component {
           onFilter={props.onFilterChanged}
         />
         <ModuleTableBody
-          rows={props.rows}
+          rows={rows}
           expandedRecords={props.expandedRecords}
           onRemoveModule={props.onRemoveModule}
           onExpandRecords={props.onExpandRecords}
