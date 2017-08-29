@@ -18,6 +18,62 @@ type ChunkDiff = {
   },
 };
 
+function signedInt(n: number, showNumber: boolean = true): string {
+  if (n < 0) {
+    return '-' + (showNumber ? String(n) : '');
+  } else {
+    return '+' + (showNumber ? String(n) : '');
+  }
+}
+
+function signedPercent(n: number): string {
+  if (n < 0.001) {
+    return '~0.000%';
+  } else {
+    return signedInt(n, false) + String(n.toPrecision(3)) + '%';
+  }
+}
+
+function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
+  const chunkCount = Object.keys(diffMap).length;
+  const chunksWithChange = Object.keys(diffMap).filter(
+    (chunkName) => {
+      const chunk = diffMap[chunkName];
+      return chunk.diff
+        ? chunk.diff.moduleCount || (chunk.diff.sizePercent * 100) >= 0.001
+        : false;
+    }
+  );
+
+  const changedMessages = chunksWithChange.map((chunkName) => {
+    const chunk = diffMap[chunkName];
+    const diff = chunk.diff ? chunk.diff : null;
+    if (!diff) {
+      return null;
+    }
+
+    const modules = [
+      'Module Count',
+      signedInt(diff.moduleCount),
+      `(${signedPercent(diff.modulePercent * 100)})`
+    ].join("\t");
+    const size = [
+      'Raw Filesize',
+      signedInt(diff.sizeCount),
+      `(${signedPercent(diff.sizePercent * 100)})`,
+    ].join("\t");
+
+    return `${chunkName}\n\t${modules}\n\t${size}`;
+  });
+
+  return [
+    `${chunkCount} chunks compared`,
+    `${chunkCount - chunksWithChange.length} chunks without significant change`,
+    `${chunksWithChange.length} changed chunks`,
+    changedMessages.join("\n"),
+  ].join("\n");
+}
+
 export default function chunkSizesDiff(
   a: Array<Array<ChunkSize>>,
   b: Array<Array<ChunkSize>>,
@@ -67,6 +123,5 @@ export default function chunkSizesDiff(
     };
   });
 
-  return diffMap;
-
+  return printSentences(diffMap);
 }
