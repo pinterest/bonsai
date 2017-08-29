@@ -20,7 +20,7 @@ type ChunkDiff = {
 
 function signedInt(n: number, showNumber: boolean = true): string {
   if (n < 0) {
-    return '-' + (showNumber ? String(n) : '');
+    return '-' + (showNumber ? String(Math.abs(n)) : '');
   } else {
     return '+' + (showNumber ? String(n) : '');
   }
@@ -30,7 +30,7 @@ function signedPercent(n: number): string {
   if (n < 0.001) {
     return '~0.000%';
   } else {
-    return signedInt(n, false) + String(n.toPrecision(3)) + '%';
+    return signedInt(n, false) + String(Math.abs(n).toPrecision(3)) + '%';
   }
 }
 
