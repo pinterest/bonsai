@@ -86,7 +86,7 @@
     "build:storybook": "build-storybook -o 'docs/storybook'",
     "build:cli": "babel src --out-dir bin --ignore __tests__,src/components && chmod +x bin/cli.js",
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp docs/analyze docs/storybook docs/example.json",
-    "preversion": "[[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && npm run clean && npm run pretest:integration && CI=true react-scripts test --env=jsdom && npm run build",
+    "preversion": "[[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && npm run clean && npm run pretest:integration && CI=true react-scripts test --env=jsdom && npm run build && npm run build:cli",
     "postversion": "git push --tags && git merge master && git push origin",
     "eject": "react-scripts eject"
   },
