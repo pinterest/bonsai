@@ -10,7 +10,7 @@
     "bundle",
     "dependencies"
   ],
-  "version": "0.3.0",
+  "version": "0.4.0-alpha2",
   "private": false,
   "license": "Apache-2.0",
   "author": {
