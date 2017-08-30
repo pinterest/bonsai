@@ -69,7 +69,7 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
     `${chunkCount} chunks compared`,
     `${chunkCount - chunksWithChange.length} chunks without significant change`,
     `${chunksWithChange.length} changed chunks`,
-    '| | **Modules** | **%** | **Bytes** | **%**',
+    chunksWithChange.length ? '| | **Modules** | **%** | **Bytes** | **%**' : '',
     changedMessages.join("\n"),
   ].join("\n");
 }
@@ -90,7 +90,11 @@ export default function chunkSizesDiff(
           diff: null,
         };
       } else {
-        invariant('we have the same chunk twice?');
+        console.log(
+          'duplicate chunk',
+          diffMap[chunkSize.name].a,
+          chunkSize,
+        );
       }
     });
   });
