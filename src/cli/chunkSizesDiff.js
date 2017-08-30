@@ -38,9 +38,12 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
   const chunkCount = Object.keys(diffMap).length;
   const chunksWithChange = Object.keys(diffMap).filter(
     (chunkName) => {
+      if (chunkName.startsWith('locale-')) {
+        return false;
+      }
       const chunk = diffMap[chunkName];
       return chunk.diff
-        ? chunk.diff.moduleCount || (chunk.diff.sizePercent * 100) >= 0.001
+        ? chunk.diff.moduleCount || (chunk.diff.sizeCount) > 5000
         : false;
     }
   );
