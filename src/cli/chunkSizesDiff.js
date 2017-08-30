@@ -43,7 +43,7 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
       }
       const chunk = diffMap[chunkName];
       return chunk.diff
-        ? chunk.diff.moduleCount || (chunk.diff.sizeCount) > 5000
+        ? chunk.diff.moduleCount || (chunk.diff.sizeCount) > 2000
         : false;
     }
   );
