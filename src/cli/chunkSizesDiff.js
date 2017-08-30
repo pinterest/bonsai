@@ -52,24 +52,21 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
       return null;
     }
 
-    const modules = [
-      'Module Count',
+    return [
+      '',
+      chunkName,
       signedInt(diff.moduleCount),
-      `(${signedPercent(diff.modulePercent * 100)})`
-    ].join("\t");
-    const size = [
-      'Raw Filesize',
+      signedPercent(diff.modulePercent * 100),
       signedInt(diff.sizeCount),
-      `(${signedPercent(diff.sizePercent * 100)})`,
-    ].join("\t");
-
-    return `**${chunkName}**\n    ${modules}\n    ${size}`;
+      signedPercent(diff.sizePercent * 100),
+    ].join('|');
   });
 
   return [
     `${chunkCount} chunks compared`,
     `${chunkCount - chunksWithChange.length} chunks without significant change`,
     `${chunksWithChange.length} changed chunks`,
+    '| | **Modules** | **%** | **Bytes** | **%**',
     changedMessages.join("\n"),
   ].join("\n");
 }
