@@ -63,7 +63,7 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
       `(${signedPercent(diff.sizePercent * 100)})`,
     ].join("\t");
 
-    return `${chunkName}\n\t${modules}\n\t${size}`;
+    return `**${chunkName}**\n    ${modules}\n    ${size}`;
   });
 
   return [
