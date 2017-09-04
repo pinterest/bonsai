@@ -46,7 +46,7 @@
     "eslint": "^4.5.0",
     "eslint-plugin-eslint-comments": "^1.0.3",
     "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-jest": "^21.0.0",
     "eslint-plugin-react": "^7.3.0",
     "flow-annotation-check": "1.5.0",
     "flow-bin": "0.52.0",
