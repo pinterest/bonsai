@@ -1,0 +1,7 @@
+{
+  "presets": [
+    "env",
+    "react",
+    "babel-preset-react-app"
+  ]
+}

@@ -38,11 +38,9 @@
     "redux": "^3.7.0"
   },
   "devDependencies": {
-    "@storybook/addon-storyshots": "3.2.4",
-    "@storybook/react": "3.2.4",
+    "@storybook/addon-storyshots": "3.2.6",
+    "@storybook/react": "3.2.6",
     "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^4.5.0",
     "eslint-plugin-eslint-comments": "^1.0.3",
     "eslint-plugin-flowtype": "^2.35.0",
@@ -91,16 +89,6 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:9007",
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-object-rest-spread"
-    ]
-  },
   "flow-annotation-check": {
     "include": [
       "src/**/*.js"
