@@ -91,16 +91,6 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:9007",
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-object-rest-spread"
-    ]
-  },
   "flow-annotation-check": {
     "include": [
       "src/**/*.js"
