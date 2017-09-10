@@ -19,14 +19,13 @@ script:
   - yarn run flow:coverage -t text
   - yarn run pretest:integration
   - ./node_modules/.bin/react-scripts test --env=jsdom --coverage
-  - ./node_modules/.bin/react-scripts build
+  - yarn run build:prod
+  - yarn run build:cli
+  - yarn run build:storybook
 after_script: greenkeeper-lockfile-upload
 
 before_deploy:
-  - yarn run build:prod
-  - yarn run build:cli
   - yarn run build:stats
-  - yarn run build:storybook
 deploy:
   - provider: pages
     target_branch: gh-pages
