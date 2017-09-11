@@ -2,7 +2,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import * as React from 'react';
 
 type OnChangeCallback = (fileName: string, file: string) => void;
 
@@ -15,7 +15,7 @@ type Props = {
   onDragLeave?: () => void,
   onLoading: () => void,
   onChange: OnChangeCallback,
-  children?: React$Element<any>,
+  children?: React.Node,
 };
 
 function readFile(
@@ -29,7 +29,7 @@ function readFile(
   reader.readAsText(file);
 }
 
-export default class DragDropUpload extends Component<void, Props, void> {
+export default class DragDropUpload extends React.Component<Props, void> {
   _div: ?HTMLElement;
   _fileInput: ?HTMLInputElement;
   _dragEntered = 0;
@@ -75,7 +75,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
     }
   };
 
-  onDragOver = (event: SyntheticDragEvent) => {
+  onDragOver = (event: SyntheticDragEvent<>) => {
     event.preventDefault();
   };
 
@@ -91,7 +91,7 @@ export default class DragDropUpload extends Component<void, Props, void> {
     }
   };
 
-  onDrop = (event: SyntheticDragEvent) => {
+  onDrop = (event: SyntheticDragEvent<>) => {
     event.preventDefault();
     this.props.onLoading();
     readFile(event.dataTransfer.files[0], this.props.onChange);

@@ -7,8 +7,7 @@ import type {ExtendedModule} from '../../types/Stats';
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import formatModuleName from './formatModuleName';
-import React from 'react';
-
+import * as React from 'react';
 
 export type OwnProps = {
   eModule: ExtendedModule,

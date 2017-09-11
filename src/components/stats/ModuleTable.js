@@ -11,6 +11,7 @@ import type {
   SortProps,
 } from '../../stats/sortModules';
 import type { ModuleID } from '../../types/Stats';
+import type { ExtendedModule } from '../../types/Stats';
 
 import collapseModulesToRows from '../../stats/collapseModulesToRows';
 import filterModules from '../../stats/filterModules';
@@ -19,6 +20,10 @@ import ModuleTableHead from './ModuleTableHead';
 import React, { Component } from 'react';
 import scrollToAndFocus from '../../scrollToAndFocus';
 import sortModules from '../../stats/sortModules';
+
+export type OwnProps = {
+  extendedModules: Array<ExtendedModule>,
+};
 
 export type StateProps = {
   filters: FilterProps,
@@ -35,11 +40,11 @@ export type DispatchProps = {
   onCollapseRecords: (moduleID: ModuleID) => void,
 };
 
-export type Props = StateProps & DispatchProps;
+export type Props = OwnProps & StateProps & DispatchProps;
 
-export default class ModuleTable extends Component {
+export default class ModuleTable extends Component<Props> {
   componentDidUpdate() {
-    if (this.props.focusedRowID !== null) {
+    if (this.props.focusedRowID) {
       scrollToAndFocus(this.props.focusedRowID);
     }
   }

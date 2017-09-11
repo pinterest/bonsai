@@ -16,7 +16,7 @@ type State = {
   expanded: boolean,
 };
 
-export default class LoopTable extends Component<void, Props, State> {
+export default class LoopTable extends Component<Props, State> {
   state = {
     expanded: false,
   };

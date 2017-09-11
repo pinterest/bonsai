@@ -2,7 +2,7 @@
  * @flow
  */
 
-import React from 'react';
+import * as React from 'react';
 
 import type {SortProps, SortDirection} from '../stats/sortModules';
 
@@ -16,7 +16,7 @@ type Props = {
   field: string,
   fieldType?: SortType,
   sort: SortProps,
-  children?: string | React$Element<any>,
+  children?: string | React.Element<any>,
 };
 
 function getSortIconClass(direction: SortDirection, type: ?SortType) {

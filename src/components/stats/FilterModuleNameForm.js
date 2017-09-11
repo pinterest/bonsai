@@ -4,11 +4,11 @@
 
 import type {FilterProps} from '../../stats/filterModules';
 
-import React from 'react';
+import * as React from 'react';
 
 type Props = {
   filters: FilterProps,
-  onChange: (event: SyntheticInputEvent) => void,
+  onChange: (event: SyntheticInputEvent<>) => void,
 };
 
 export default function FilterModuleNameForm(props: Props) {

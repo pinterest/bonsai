@@ -5,7 +5,7 @@
 import './shims';
 
 import AppContainer from './components/AppContainer';
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import invariant from 'invariant';
 import registerServiceWorker from './registerServiceWorker';

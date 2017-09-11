@@ -3,7 +3,7 @@
  */
 
 import JsonFilePicker from './JsonFilePicker';
-import React from 'react';
+import * as React from 'react';
 
 type Props = {
   filename: ?string,
@@ -28,7 +28,7 @@ export default function FileInputRow(props: Props) {
           <div className="form-group">
             <label className="col-sm-1 control-label">Filename</label>
             <div className="col-sm-11"
-              onClick={(event: SyntheticEvent) => {
+              onClick={(event: SyntheticEvent<>) => {
                 event.stopPropagation();
               }}>
               <JsonFilePicker
@@ -36,7 +36,7 @@ export default function FileInputRow(props: Props) {
                 className="form-control"
                 dataPaths={props.dataPaths}
                 selected={props.filename}
-                onChange={(event: SyntheticInputEvent) => {
+                onChange={(event: SyntheticInputEvent<>) => {
                   if (event.target.value) {
                     props.onStatsFilePicked(event.target.value);
                   }
