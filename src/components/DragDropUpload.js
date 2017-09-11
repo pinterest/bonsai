@@ -65,7 +65,7 @@ export default class DragDropUpload extends React.Component<Props, void> {
     this._fileInput && this._fileInput.click();
   };
 
-  onChangeFileInput = (event: SyntheticInputEvent<>) => {
+  onChangeFileInput = () => {
     if (
       this._fileInput &&
       this._fileInput.files &&
@@ -79,12 +79,12 @@ export default class DragDropUpload extends React.Component<Props, void> {
     event.preventDefault();
   };
 
-  onDragEnter = (event: SyntheticDragEvent<>) => {
+  onDragEnter = () => {
     this._dragEntered += 1;
     this.props.onDragEnter && this.props.onDragEnter();
   };
 
-  onDragLeave = (event: SyntheticDragEvent<>) => {
+  onDragLeave = () => {
     this._dragEntered -= 1;
     if (this._dragEntered === 0) {
       this.props.onDragLeave && this.props.onDragLeave();
