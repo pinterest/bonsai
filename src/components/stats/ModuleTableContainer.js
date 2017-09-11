@@ -4,9 +4,6 @@
 
 import type { Dispatch, State } from '../../reducer';
 import type { DispatchProps, StateProps } from './ModuleTable';
-import type {
-  ExtendedModule,
-} from '../../types/Stats';
 
 import ModuleTable from './ModuleTable';
 import {connect} from 'react-redux';
@@ -17,10 +14,6 @@ import {
   ExpandRecords,
   CollapseRecords,
 } from '../../actions';
-
-export type OwnProps = {
-  extendedModules: Array<ExtendedModule>,
-};
 
 const mapStateToProps = (state: State): StateProps => {
   return {

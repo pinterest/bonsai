@@ -7,7 +7,7 @@ import type {
   FilterProps,
 } from '../../stats/filterModules';
 
-import type { SortProps } from '../../stats/sortModules';
+import type { SortProps, SortableFields } from '../../stats/sortModules';
 
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
@@ -25,7 +25,7 @@ const NBSP = '\u00A0';
 type Props = {
   filters: FilterProps,
   sort: SortProps,
-  onSort: (field: string) => void,
+  onSort: (field: SortableFields) => void,
   onFilter: (changes: {[key: FilterableFields]: string}) => void,
 };
 
