@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import FileInputRow from '../FileInputRow';
 
@@ -13,7 +14,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={null}
       isDragging={false}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ))
   .add('File picked, no data paths', () => (
@@ -22,7 +23,7 @@ storiesOf('FileInputRow', module)
       filename={'stats.json'}
       dataPaths={null}
       isDragging={false}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ))
   .add('No file picked, but has dataPaths', () => (
@@ -30,7 +31,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={['example.json']}
       isDragging={false}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ))
   .add('With dataPaths and a file picked', () => (
@@ -38,7 +39,7 @@ storiesOf('FileInputRow', module)
       filename={'example.json'}
       dataPaths={['example.json']}
       isDragging={false}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ))
   .add('No file picked - dragging', () => (
@@ -46,7 +47,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={null}
       isDragging={true}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ))
   .add('No file picked, but has dataPaths - dragging', () => (
@@ -54,7 +55,7 @@ storiesOf('FileInputRow', module)
       filename={null}
       dataPaths={['example.json']}
       isDragging={true}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ))
   .add('With dataPaths and a file picked - dragging', () => (
@@ -62,6 +63,6 @@ storiesOf('FileInputRow', module)
       filename={'example.json'}
       dataPaths={['example.json']}
       isDragging={true}
-      onStatsFilePicked={() => undefined}
+      onStatsFilePicked={action('on stats file picked')}
     />
   ));
