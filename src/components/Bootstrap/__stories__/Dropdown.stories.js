@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Button from '../Button';
 import Dropdown from '../Dropdown';
@@ -13,7 +14,7 @@ const alertOnClick = () => { alert('Clicked me'); };
 const getContent = (hideContent: () => void) => {
   return (
     <div className="col-sm-12">
-      <Button onClick={() => hideContent()} color="success">
+      <Button onClick={hideContent} color="success">
         All Done
       </Button>
     </div>
@@ -27,7 +28,7 @@ const getListContent = (hideContent: () => void) => {
         <a href="#" onClick={(e) => {
           e.preventDefault();
           hideContent();
-          alert(`Clicked ${i}`);
+          action(`Clicked ${i}`)(e);
         }}>
           Count: {i}
         </a>
