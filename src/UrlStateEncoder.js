@@ -36,9 +36,9 @@ export default class UrlStateEncoder {
 
     const targetState = this.readStateFromHash(window.location.hash);
 
-    if (targetState.filename !== null) {
+    if (targetState.filename !== null && targetState.filename !== undefined) {
       PickedFile(store.dispatch)(targetState.filename);
-      if (targetState.chunk !== null) {
+      if (targetState.chunk !== null && targetState.chunk !== undefined) {
         PickedChunk(store.dispatch)(targetState.chunk);
         if (targetState.rm) {
           const remove = RemovedModule(store.dispatch);
@@ -67,11 +67,11 @@ export default class UrlStateEncoder {
 
   encodeStateForHash(state: State): string {
     const vals = {};
-    if (state.selectedFilename !== null) {
+    if (state.selectedFilename !== null && state.selectedFilename !== undefined) {
       vals.filename = state.selectedFilename;
-      if (state.selectedChunkId !== null) {
+      if (state.selectedChunkId !== null && state.selectedChunkId !== undefined) {
         vals.chunk = state.selectedChunkId;
-        if (state.blacklistedModuleIds.length) {
+        if (state.blacklistedModuleIds && state.blacklistedModuleIds.length) {
           vals.rm = state.blacklistedModuleIds.join(',');
         }
       }
