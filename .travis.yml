@@ -21,16 +21,14 @@ script:
   - yarn react-scripts -- test --env=jsdom --coverage
   - yarn build-storybook -- -o 'docs/storybook'
   - |
-    NODE_ENV=production
-    PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/
-    REACT_APP_API_LIST_ENDPOINT=/bonsai/example-index.json
-    REACT_APP_EXTERNAL_URL_PREFIX=
-    yarn react-scripts build
-    && mv build docs/analyze
+    NODE_ENV=production \
+    PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ \
+    REACT_APP_API_LIST_ENDPOINT=/bonsai/example-index.json \
+    REACT_APP_EXTERNAL_URL_PREFIX= \
+    yarn react-scripts build && mv build docs/analyze
   - |
-    NODE_ENV=production
-    yarn babel -- src --out-dir bin --ignore __tests__,src/components
-    && chmod +x bin/cli.js
+    NODE_ENV=production \
+    yarn babel -- src --out-dir bin --ignore __tests__,src/components && chmod +x bin/cli.js
 after_script: greenkeeper-lockfile-upload
 
 before_deploy:
