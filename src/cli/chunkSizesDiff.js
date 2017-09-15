@@ -27,7 +27,7 @@ function signedInt(n: number, showNumber: boolean = true): string {
 }
 
 function signedPercent(n: number): string {
-  if (n < 0.001) {
+  if (Math.abs(n) < 0.001) {
     return '~0.000%';
   } else {
     return signedInt(n, false) + String(Math.abs(n).toPrecision(3)) + '%';
@@ -43,7 +43,7 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
       }
       const chunk = diffMap[chunkName];
       return chunk.diff
-        ? chunk.diff.moduleCount || (chunk.diff.sizeCount) > 2000
+        ? chunk.diff.sizeCount > 2000
         : false;
     }
   );
