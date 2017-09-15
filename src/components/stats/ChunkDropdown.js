@@ -8,7 +8,7 @@ import type {ChunkID} from '../../types/Stats';
 import { isSameChunk } from '../../types/Stats';
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
-import React from 'react';
+import * as React from 'react';
 
 import './ChunkDropdown.css';
 

@@ -18,7 +18,7 @@ type State = {
   isOpen: boolean
 };
 
-export default class BlacklistTableBody extends Component<void, Props, State> {
+export default class BlacklistTableBody extends Component<Props, State> {
   state: State = {
     isOpen: false,
   };

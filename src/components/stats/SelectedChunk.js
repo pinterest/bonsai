@@ -10,7 +10,7 @@ import ChunkBreadcrumb from './ChunkBreadcrumb';
 import ChunkDropdown from './ChunkDropdown';
 import LoopTable from './LoopTable';
 import ModuleTableContainer from './ModuleTableContainer';
-import React from 'react';
+import * as React from 'react';
 
 export type StateProps = {
   selectedChunkId: ?ChunkID,

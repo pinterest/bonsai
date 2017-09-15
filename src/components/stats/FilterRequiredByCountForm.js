@@ -4,14 +4,14 @@
 
 import type {FilterProps} from '../../stats/filterModules';
 
-import React from 'react';
+import * as React from 'react';
 
 const INFINITY = '\u221E';
 
 type Props = {
   filters: FilterProps,
-  onChangeMin: (event: SyntheticInputEvent) => void,
-  onChangeMax: (event: SyntheticInputEvent) => void,
+  onChangeMin: (event: SyntheticInputEvent<>) => void,
+  onChangeMax: (event: SyntheticInputEvent<>) => void,
 };
 
 export default function FilterRequiredByCountForm(props: Props) {

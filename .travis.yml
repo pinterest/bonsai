@@ -12,21 +12,33 @@ before_install: yarn global add greenkeeper-lockfile@1
 
 before_script: greenkeeper-lockfile-update
 script:
-  - yarn run eslint
-  - yarn run spellcheck
-  - yarn run flow:check
-  - yarn run flow:annotations
-  - yarn run flow:coverage -t text
-  - yarn run pretest:integration
-  - ./node_modules/.bin/react-scripts test --env=jsdom --coverage
-  - ./node_modules/.bin/react-scripts build
+  - yarn eslint -- ./src
+  - yarn mdspell -- --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md
+  - yarn flow -- check
+  - yarn flow-annotation-check
+  - yarn flow-coverage-report -- report -t text
+  - ./src/__test_helpers__/build-fixtures.sh
+  - yarn react-scripts -- test --env=jsdom --coverage
+  - yarn build-storybook -- -o 'docs/storybook'
+  - |
+    NODE_ENV=production \
+    PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ \
+    REACT_APP_API_LIST_ENDPOINT=/bonsai/example-index.json \
+    REACT_APP_EXTERNAL_URL_PREFIX= \
+    yarn react-scripts build && \
+    mv build docs/analyze
+  - |
+    NODE_ENV=production \
+    yarn babel -- src --out-dir bin --ignore __tests__,src/components && \
+    chmod +x bin/cli.js
 after_script: greenkeeper-lockfile-upload
 
 before_deploy:
-  - yarn run build:prod
-  - yarn run build:cli
-  - yarn run build:stats
-  - yarn run build:storybook
+  - |
+    NODE_ENV=production \
+    ./node_modules/webpack/bin/webpack.js \
+    --config ./node_modules/react-scripts/config/webpack.config.prod.js \
+    --json > 'docs/example.json'
 deploy:
   - provider: pages
     target_branch: gh-pages

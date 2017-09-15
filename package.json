@@ -38,15 +38,14 @@
     "redux": "^3.7.0"
   },
   "devDependencies": {
-    "@storybook/addon-storyshots": "3.2.4",
-    "@storybook/react": "3.2.4",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-storyshots": "3.2.6",
+    "@storybook/react": "3.2.6",
+    "babel-eslint": "^8.0.0",
     "eslint": "^4.5.0",
     "eslint-plugin-eslint-comments": "^1.0.3",
     "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-jest": "^21.0.0",
     "eslint-plugin-react": "^7.3.0",
     "flow-annotation-check": "1.5.0",
     "flow-bin": "0.54.1",
@@ -54,53 +53,29 @@
     "markdown-spellcheck": "^1.0.0",
     "nodemon": "^1.11.0",
     "react-addons-test-utils": "15.6.0",
-    "react-scripts": "1.0.11",
+    "react-scripts": "1.0.13",
     "react-test-renderer": "^15.6.1",
     "serve": "^6.0.1"
   },
   "scripts": {
-    "flow:check": "flow check",
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
     "flow:stop": "flow stop",
-    "flow:annotations": "flow-annotation-check",
-    "flow:coverage": "flow-coverage-report report",
-    "flow:update-dfns": "flow-typed update",
-    "eslint": "eslint ./src",
+    "flow:update-dfns": "flow-typed update && flow-typed install jest@21.0.0",
     "eslint:watch": "eslint ./src && echo 'No Lint Problems'; fswatch -e \"/\\.\" -o -r ./src | xargs -n1 -I{} eslint ./src && echo 'No Lint Problems'",
-    "spellcheck": "mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md",
+    "test": "react-scripts test --env=jsdom --testPathPattern='src/(?!integration)'",
+    "build": "react-scripts build",
+    "build:cli": "NODE_ENV=development babel src --watch --out-dir bin --ignore __tests__,src/components",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
     "start:with-server": "serve -n -p 9007 dev-server & REACT_APP_API_LIST_ENDPOINT=/api/index.json react-scripts start",
-    "build:cli:watch": "babel src --watch --out-dir bin --ignore __tests__,src/components",
     "start:cli": "nodemon --watch bin --delay 1250ms bin/cli.js",
-    "storybook": "start-storybook -p 9006",
-    "build-storybook": "build-storybook",
-    "pretest": "flow check",
-    "test": "npm run test:jest",
-    "test:jest": "react-scripts test --env=jsdom --testPathPattern='src/(?!integration)'",
-    "pretest:integration": "./src/__test_helpers__/build-fixtures.sh",
-    "test:integration": "react-scripts test --env=jsdom integration",
-    "build": "react-scripts build",
-    "build:prod": "NODE_ENV=production PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ REACT_APP_API_LIST_ENDPOINT=/bonsai/example-index.json REACT_APP_EXTERNAL_URL_PREFIX= yarn run build && mv build docs/analyze",
-    "build:stats": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --json --config ./node_modules/react-scripts/config/webpack.config.prod.js > 'docs/example.json'",
-    "build:storybook": "build-storybook -o 'docs/storybook'",
-    "build:cli": "babel src --out-dir bin --ignore __tests__,src/components && chmod +x bin/cli.js",
+    "start:storybook": "start-storybook -p 9006",
     "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp docs/analyze docs/storybook docs/example.json",
     "preversion": "[[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && npm run clean && npm run pretest:integration && CI=true react-scripts test --env=jsdom && npm run build && npm run build:cli",
     "postversion": "git push --tags && git merge master && git push origin",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:9007",
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-object-rest-spread"
-    ]
-  },
   "flow-annotation-check": {
     "include": [
       "src/**/*.js"

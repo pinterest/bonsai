@@ -4,7 +4,7 @@
 
 import type {Module} from '../../types/Stats';
 
-import React from 'react';
+import * as React from 'react';
 import {getClassName} from '../Bootstrap/GlyphiconNames';
 import {Link} from '../Bootstrap/Button';
 

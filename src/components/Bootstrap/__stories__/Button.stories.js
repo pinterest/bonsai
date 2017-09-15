@@ -2,15 +2,16 @@
  * @flow
  */
 
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Button, {Link, CloseButton} from '../Button';
 import {getClassName} from '../GlyphiconNames';
 
 storiesOf('Bootstrap/Button', module)
   .add('With onClick', () => (
-    <Button onClick={() => alert('Clicked!')}>
+    <Button onClick={action('Clicked!')}>
       Click Me!
     </Button>
   ))
@@ -20,17 +21,17 @@ storiesOf('Bootstrap/Button', module)
     </Button>
   ))
   .add('Success', () => (
-    <Button onClick={() => alert('Clicked!')} color="success">
+    <Button onClick={action('Clicked!')} color="success">
       Click Me!
     </Button>
   ))
   .add('Large', () => (
-    <Button onClick={() => alert('Clicked!')} size="lg">
+    <Button onClick={action('Clicked!')} size="lg">
       Click Me!
     </Button>
   ))
   .add('Block', () => (
-    <Button onClick={() => alert('Clicked!')} display="block">
+    <Button onClick={action('Clicked!')} display="block">
       Click Me!
     </Button>
   ))
@@ -81,7 +82,7 @@ const closeContainerStyle = {
 storiesOf('Bootstrap/CloseButton', module)
   .add('With onClick', () => (
     <div style={closeContainerStyle}>
-      <CloseButton onClick={() => alert('Closed!')} />
+      <CloseButton onClick={action('Closed!')} />
     </div>
   ))
   .add('Disabled', () => (
