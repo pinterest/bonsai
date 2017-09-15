@@ -71,7 +71,7 @@
     "start:with-server": "serve -n -p 9007 dev-server & REACT_APP_API_LIST_ENDPOINT=/api/index.json react-scripts start",
     "start:cli": "nodemon --watch bin --delay 1250ms bin/cli.js",
     "start:storybook": "start-storybook -p 9006",
-    "clean": "rm -Rf npm-debug.log build lib coverage flow-coverage src/integration/tmp docs/analyze docs/storybook docs/example.json",
+    "clean": "rm -Rf npm-debug.log build bin lib coverage flow-coverage storybook-static src/integration/tmp docs/analyze docs/storybook docs/example.json",
     "preversion": "[[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && npm run clean && npm run pretest:integration && CI=true react-scripts test --env=jsdom && npm run build && npm run build:cli",
     "postversion": "git push --tags && git merge master && git push origin",
     "eject": "react-scripts eject"
