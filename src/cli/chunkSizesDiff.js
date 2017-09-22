@@ -114,8 +114,8 @@ function printHTMLSentences(
     `<p>${chunksWithChange.length} changed chunks</p>`,
     chunksWithChange.length
       ? [
-        '<table>',
-        '<tr><th></th><th>Modules</th><th>% changed</th><th>Bytes</th><th>& changed</th></tr>',
+        '<table border="1">',
+        '<tr><th></th><th>Modules</th><th>% change</th><th>Bytes</th><th>% change</th></tr>',
         changedMessages.join("\n"),
         '</table>'
       ].join("\n")
