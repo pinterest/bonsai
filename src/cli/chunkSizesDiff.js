@@ -211,7 +211,7 @@ export default function chunkSizesDiff(
   });
 
   const totalChunkCount = Object.keys(diffMap).length;
-  return printPlainTextSentences(
+  return printHTMLSentences(
     totalChunkCount,
     filterChunkMapForChanges(diffMap),
   );
