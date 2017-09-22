@@ -139,11 +139,11 @@ export default function chunkSizesDiff(
           diff: null,
         };
       } else {
-        console.log(
-          'duplicate chunk',
-          diffMap[chunkSize.name].a,
-          chunkSize,
-        );
+        const a = diffMap[chunkSize.name].a;
+        if (a) {
+          a.moduleCount += chunkSize.moduleCount;
+          a.totalSize += chunkSize.totalSize;
+        }
       }
     });
   });
