@@ -123,6 +123,40 @@ function printHTMLSentences(
   ].join("\n");
 }
 
+function printPlainTextSentences(
+  totalChunkCount: number,
+  diffMap: DiffMap,
+): string {
+  const chunksWithChange = Object.keys(diffMap);
+  const changedMessages = chunksWithChange.map((chunkName) => {
+    const chunk = diffMap[chunkName];
+    const diff = chunk.diff ? chunk.diff : null;
+    if (!diff) {
+      return null;
+    }
+
+    return [
+      chunkName,
+      signedInt(diff.moduleCount),
+      signedPercent(diff.modulePercent * 100),
+      signedInt(diff.sizeCount),
+      signedPercent(diff.sizePercent * 100),
+    ].join("\t");
+  });
+
+  return [
+    `${totalChunkCount} chunks compared`,
+    `${totalChunkCount - chunksWithChange.length} chunks without significant change`,
+    `${chunksWithChange.length} changed chunks`,
+    chunksWithChange.length
+      ? [
+        "Module Name\t# Modules\t% change\t# Bytes\t% change",
+        changedMessages.join("\n")
+      ].join("\n")
+      : '',
+  ].join("\n");
+}
+
 export default function chunkSizesDiff(
   a: Array<Array<ChunkSize>>,
   b: Array<Array<ChunkSize>>,
@@ -177,7 +211,7 @@ export default function chunkSizesDiff(
   });
 
   const totalChunkCount = Object.keys(diffMap).length;
-  return printHTMLSentences(
+  return printPlainTextSentences(
     totalChunkCount,
     filterChunkMapForChanges(diffMap),
   );
