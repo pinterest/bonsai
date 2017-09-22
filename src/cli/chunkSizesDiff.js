@@ -18,6 +18,8 @@ type ChunkDiff = {
   },
 };
 
+type DiffMap = {[name: string]: ChunkDiff};
+
 function signedInt(n: number, showNumber: boolean = true): string {
   if (n < 0) {
     return '-' + (showNumber ? String(Math.abs(n)) : '');
@@ -34,7 +36,8 @@ function signedPercent(n: number): string {
   }
 }
 
-function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
+function filterChunkMapForChanges(diffMap: DiffMap): DiffMap {
+  const changedDiffMap = {};
   const chunkCount = Object.keys(diffMap).length;
   const chunksWithChange = Object.keys(diffMap).filter(
     (chunkName) => {
@@ -46,8 +49,18 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
         ? chunk.diff.sizeCount > 2000
         : false;
     }
-  );
+  ).forEach((changedChunkName) => {
+    changedDiffMap[changedChunkName] = diffMap[changedChunkName];
+  });
 
+  return changedDiffMap;
+}
+
+function printRemarkupSentences(
+  totalChunkCount: number,
+  diffMap: DiffMap,
+): string {
+  const chunksWithChange = Object.keys(diffMap);
   const changedMessages = chunksWithChange.map((chunkName) => {
     const chunk = diffMap[chunkName];
     const diff = chunk.diff ? chunk.diff : null;
@@ -66,11 +79,47 @@ function printSentences(diffMap: {[name: string]: ChunkDiff}): string {
   });
 
   return [
-    `${chunkCount} chunks compared`,
-    `${chunkCount - chunksWithChange.length} chunks without significant change`,
+    `${totalChunkCount} chunks compared`,
+    `${totalChunkCount - chunksWithChange.length} chunks without significant change`,
     `${chunksWithChange.length} changed chunks`,
     chunksWithChange.length ? '| | **Modules** | **%** | **Bytes** | **%**' : '',
     changedMessages.join("\n"),
+  ].join("\n");
+}
+
+function printHTMLSentences(
+  totalChunkCount: number,
+  diffMap: DiffMap,
+): string {
+  const chunksWithChange = Object.keys(diffMap);
+  const changedMessages = chunksWithChange.map((chunkName) => {
+    const chunk = diffMap[chunkName];
+    const diff = chunk.diff ? chunk.diff : null;
+    if (!diff) {
+      return null;
+    }
+
+    return '<tr><td>' + [
+      chunkName,
+      signedInt(diff.moduleCount),
+      signedPercent(diff.modulePercent * 100),
+      signedInt(diff.sizeCount),
+      signedPercent(diff.sizePercent * 100),
+    ].join('</td><td>') + '</td></tr>';
+  });
+
+  return [
+    `<p>${totalChunkCount} chunks compared<p>`,
+    `<p>${totalChunkCount - chunksWithChange.length} chunks without significant change</p>`,
+    `<p>${chunksWithChange.length} changed chunks</p>`,
+    chunksWithChange.length
+      ? [
+        '<table>',
+        '<tr><th></th><th>Modules</th><th>% changed</th><th>Bytes</th><th>& changed</th></tr>',
+        changedMessages.join("\n"),
+        '</table>'
+      ].join("\n")
+      : '',
   ].join("\n");
 }
 
@@ -127,5 +176,9 @@ export default function chunkSizesDiff(
     };
   });
 
-  return printSentences(diffMap);
+  const totalChunkCount = Object.keys(diffMap).length;
+  return printHTMLSentences(
+    totalChunkCount,
+    filterChunkMapForChanges(diffMap),
+  );
 }
