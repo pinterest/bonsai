@@ -109,7 +109,7 @@ function printHTMLSentences(
   });
 
   return [
-    `<p>${totalChunkCount} chunks compared<p>`,
+    `<p>${totalChunkCount} chunks compared</p>`,
     `<p>${totalChunkCount - chunksWithChange.length} chunks without significant change</p>`,
     `<p>${chunksWithChange.length} changed chunks</p>`,
     chunksWithChange.length
