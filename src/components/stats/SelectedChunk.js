@@ -5,11 +5,11 @@
 import type {ChunkID, ModuleID, ExtendedModule} from '../../types/Stats';
 import type {Child} from '../../stats/getEntryHeirarchy';
 
-import BlacklistTable from './BlacklistTable';
+import BlacklistTableContainer from './BlacklistTableContainer';
 import ChunkBreadcrumb from './ChunkBreadcrumb';
 import ChunkDropdown from './ChunkDropdown';
-import LoopTable from './LoopTable';
-import ModuleTableContainer from './ModuleTableContainer';
+import LoopTableContainer from './LoopTableContainer';
+import ModuleDataContainer from './ModuleDataContainer';
 import * as React from 'react';
 
 export type StateProps = {
@@ -33,48 +33,6 @@ export type DispatchProps = {
 type Props = StateProps & DispatchProps;
 
 export default function SelectedChunk(props: Props) {
-  const blackList = props.moduleData && props.moduleData.removed.length
-    ? <div className="row">
-      <div className="col-sm-12">
-        <div className="panel panel-danger">
-          <div className="panel-heading">
-            {props.moduleData.removed.length} Modules Ignored
-          </div>
-          <BlacklistTable
-            blacklistedModulesIds={props.blacklistedModuleIds}
-            removedModules={props.moduleData.removed}
-            onIncludeModule={props.onIncludeModule}
-          />
-        </div>
-      </div>
-    </div>
-    : null;
-
-  const loopList = props.extendedModules
-    ? <div className="row">
-      <div className="col-sm-12">
-        <LoopTable extendedModules={props.extendedModules} />
-      </div>
-    </div>
-    : null;
-
-  const moduleTable = props.moduleData
-    ? <div className="row">
-      <div className="col-sm-12">
-        <div className="panel panel-primary">
-          <div className="panel-heading">
-            {props.moduleData.removed.length === 0
-              ? 'All'
-              : props.moduleData.included.length} Modules Included
-          </div>
-          <ModuleTableContainer
-            extendedModules={props.extendedModules}
-          />
-        </div>
-      </div>
-    </div>
-    : null;
-
   return (
     <main className="container-fluid">
       <div className="row">
@@ -100,9 +58,9 @@ export default function SelectedChunk(props: Props) {
           </div>
         </div>
         : null}
-      {blackList}
-      {loopList}
-      {moduleTable}
+      <BlacklistTableContainer />
+      <LoopTableContainer />
+      <ModuleDataContainer />
     </main>
   );
 }
