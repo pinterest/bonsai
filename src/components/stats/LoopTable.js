@@ -8,9 +8,10 @@ import formatModuleName from './formatModuleName';
 import React, { Component } from 'react';
 import {getClassName} from '../Bootstrap/GlyphiconNames';
 import Button from '../Bootstrap/Button';
+import Panel from '../Bootstrap/Panel';
 
 type Props = {
-  extendedModules: ?Array<ExtendedModule>,
+  extendedModules: Array<ExtendedModule>,
 };
 type State = {
   expanded: boolean,
@@ -23,9 +24,6 @@ export default class LoopTable extends Component<Props, State> {
 
   render() {
     const props = this.props;
-    if (!props.extendedModules) {
-      return null;
-    }
 
     const loopingModules = props.extendedModules.filter(
       (eModule) => eModule.loops.length
@@ -35,19 +33,24 @@ export default class LoopTable extends Component<Props, State> {
       return null;
     }
 
+    const heading = (
+      <span>
+        <Button
+          color="link"
+          size="sm"
+          onClick={() => this.setState({expanded: !this.state.expanded})}>
+          <span className={getClassName(this.state.expanded
+            ? 'chevron-down'
+            : 'chevron-right')} />
+        </Button>
+        {loopingModules.length} Modules with circular dependencies
+      </span>
+    );
+
     return (
-      <div className="panel panel-warning">
-        <div className="panel-heading">
-          <Button
-            color="link"
-            size="sm"
-            onClick={() => this.setState({expanded: !this.state.expanded})}>
-            <span className={getClassName(this.state.expanded
-              ? 'chevron-down'
-              : 'chevron-right')} />
-          </Button>
-          {loopingModules.length} Modules with circular dependencies
-        </div>
+      <Panel
+        type='warning'
+        heading={heading}>
         {this.state.expanded
           ? <ul className="list-group">
             {loopingModules.map((eModule) =>
@@ -62,7 +65,7 @@ export default class LoopTable extends Component<Props, State> {
             )}
           </ul>
           : null}
-      </div>
+      </Panel>
     );
   }
 }

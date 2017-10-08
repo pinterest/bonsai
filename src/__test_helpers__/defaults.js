@@ -78,7 +78,7 @@ export function defaultReason(fields: {
   };
 }
 
-export function reasonFromModule(module: Module): Reason {
+export function reasonFromModule(module: Module | ExtendedModule): Reason {
   return defaultReason({
     moduleId: module.id,
     moduleIdentifier: module.identifier,
