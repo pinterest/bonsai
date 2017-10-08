@@ -2,6 +2,8 @@
 .*/__tests__/.*
 .*/integration/.*
 src/registerServiceWorker.js
+.*/node_modules/flow-coverage-report/.*
+.*/node_modules/immutable/.*
 .*/node_modules/radium/.*
 
 [include]
