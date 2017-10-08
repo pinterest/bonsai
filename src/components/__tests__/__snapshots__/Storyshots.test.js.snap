@@ -278,6 +278,20 @@ exports[`Storyshots App FileInput stacked on Stats 1`] = `
             className="col-sm-12"
           />
         </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-sm-12"
+          />
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-sm-12"
+          />
+        </div>
       </main>
     </div>
   </div>
@@ -770,18 +784,6 @@ exports[`Storyshots Bootstrap/Link With href 1`] = `
 </a>
 `;
 
-exports[`Storyshots Bootstrap/Panel Basic 1`] = `
-<div
-  className="panel panel-default"
->
-  <div
-    className="panel-body"
-  >
-    Panel content
-  </div>
-</div>
-`;
-
 exports[`Storyshots Bootstrap/Panel Body only 1`] = `
 <div
   className="panel panel-default"
@@ -801,7 +803,9 @@ exports[`Storyshots Bootstrap/Panel With React.Node heading 1`] = `
   <div
     className="panel-heading"
   >
-    Panel Title
+    <h2>
+      Panel Title
+    </h2>
   </div>
   <div
     className="panel-body"
@@ -900,25 +904,6 @@ exports[`Storyshots Bootstrap/Panel With different Types 1`] = `
 </div>
 `;
 
-exports[`Storyshots Bootstrap/Panel With different types 1`] = `
-<div
-  className="panel panel-default"
->
-  <div
-    className="panel-heading"
-  >
-    <h2>
-      Panel Title
-    </h2>
-  </div>
-  <div
-    className="panel-body"
-  >
-    Panel content
-  </div>
-</div>
-`;
-
 exports[`Storyshots Bootstrap/Panel With list-group child 1`] = `
 <div
   className="panel panel-default"
@@ -930,13 +915,25 @@ exports[`Storyshots Bootstrap/Panel With list-group child 1`] = `
       Panel Title
     </h2>
   </div>
-  <div
-    className="panel-body"
+  <ul
+    className="list-group"
   >
-    <p>
-      Panel content
-    </p>
-  </div>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+  </ul>
 </div>
 `;
 
@@ -955,16 +952,49 @@ exports[`Storyshots Bootstrap/Panel With mixed content 1`] = `
     className="panel-body"
   >
     <p>
-      Panel content
+      Paragraph content 1
     </p>
   </div>
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <th>
+          Table Heading
+        </th>
+        <td>
+          Table Cell
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <div
     className="panel-body"
   >
     <p>
-      Panel content
+      Paragraph content 2
     </p>
   </div>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+  </ul>
 </div>
 `;
 
@@ -1045,25 +1075,20 @@ exports[`Storyshots Bootstrap/Panel With table child 1`] = `
       Panel Title
     </h2>
   </div>
-  <div
-    className="panel-body"
+  <table
+    className="table"
   >
-    <p>
-      Panel content
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Bootstrap/Panel With title 1`] = `
-<div
-  className="panel panel-default"
->
-  <div
-    className="panel-body"
-  >
-    Panel content
-  </div>
+    <tbody>
+      <tr>
+        <th>
+          Table Heading
+        </th>
+        <td>
+          Table Cell
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 

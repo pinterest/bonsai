@@ -22,14 +22,14 @@ function ModuleData(props: Props) {
   return (
     props.moduleData
       ? <Panel
-          type='primary'
-          heading={`${props.moduleData.removed.length === 0
-            ? 'All'
-            : props.moduleData.included.length} Modules Included`}>
-          <ModuleTableContainer
-            extendedModules={props.extendedModules}
-          />
-        </Panel>
+        type='primary'
+        heading={`${props.moduleData.removed.length === 0
+          ? 'All'
+          : props.moduleData.included.length} Modules Included`}>
+        <ModuleTableContainer
+          extendedModules={props.extendedModules}
+        />
+      </Panel>
       : null
   );
 }

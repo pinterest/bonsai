@@ -3,7 +3,6 @@
  */
 
 import type { State } from '../../reducer';
-import type {ModuleID, ExtendedModule} from '../../types/Stats';
 import type { StateProps, DispatchProps } from './BlacklistTable';
 
 import BlacklistTable from './BlacklistTable';

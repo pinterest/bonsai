@@ -21,7 +21,6 @@ function panelTypeToClass(
 
 function wrapChildren(children: React.Node): any{
   return React.Children.map(children, (child) => {
-    // console.log('child', child, typeof child, child instanceof React.Component);
     if (
       typeof child === 'object' &&
       typeof child.props === 'object'
