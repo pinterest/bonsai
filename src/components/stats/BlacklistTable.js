@@ -37,11 +37,12 @@ export default function BlasklistTable(props: Props) {
 
   const removed = props.moduleData.removed;
 
-  const blacklistedModulesList = props.blacklistedModuleIds.map(
-    (id) => removed.filter((module) => String(module.id) === String(id)),
+  const blacklistedModuleIdStrings = props.blacklistedModuleIds.map(String);
+  const blacklistedModulesList = blacklistedModuleIdStrings.map(
+    (id) => removed.filter((module) => String(module.id) === id),
   );
   const removedModules = removed.filter(
-    (module) => !props.blacklistedModuleIds.includes(String(module.id)),
+    (module) => !blacklistedModuleIdStrings.includes(String(module.id)),
   );
 
   const sum = removed.reduce(

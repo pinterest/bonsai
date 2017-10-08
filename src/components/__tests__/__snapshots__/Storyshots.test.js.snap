@@ -298,6 +298,337 @@ exports[`Storyshots App FileInput stacked on Stats 1`] = `
 </div>
 `;
 
+exports[`Storyshots BlacklistTable Empty data 1`] = `null`;
+
+exports[`Storyshots BlacklistTable Empty list 1`] = `null`;
+
+exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
+<div
+  className="panel panel-danger"
+>
+  <div
+    className="panel-heading"
+  >
+    1 Modules Ignored
+  </div>
+  <table
+    cellPadding="0"
+    cellSpacing="0"
+    className="table table-hover"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th>
+          Name
+        </th>
+        <th>
+          Size
+        </th>
+        <th>
+          Dependants
+        </th>
+        <th>
+          Imports
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="OffsetPageSection"
+        id="300"
+        tabIndex={-1}
+      >
+        <td
+          className="vert-align"
+        />
+        <td
+          className="vert-align"
+        >
+          Module One-B
+        </td>
+        <td
+          className="vert-align"
+        >
+          <span
+            title="300 bytes"
+          >
+            300 B
+          </span>
+        </td>
+        <td
+          className="vert-align"
+        >
+          <div
+            className="btn-group "
+            style={undefined}
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="vert-align"
+        >
+          <div
+            className="btn-group "
+            style={undefined}
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="vert-align"
+        >
+          <button
+            className="btn btn-danger"
+            disabled={null}
+            onClick={[Function]}
+            style={null}
+            type="button"
+          >
+            Restore
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th />
+        <th>
+          Removed Modules
+        </th>
+        <td>
+          1
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+      <tr>
+        <th />
+        <th>
+          Total Size
+        </th>
+        <td>
+          <span
+            title="300 bytes"
+          >
+            300 B
+          </span>
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
+<div
+  className="panel panel-danger"
+>
+  <div
+    className="panel-heading"
+  >
+    3 Modules Ignored
+  </div>
+  <table
+    cellPadding="0"
+    cellSpacing="0"
+    className="table table-hover"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th>
+          Name
+        </th>
+        <th>
+          Size
+        </th>
+        <th>
+          Dependants
+        </th>
+        <th>
+          Imports
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="OffsetPageSection"
+        id="1"
+        tabIndex={-1}
+      >
+        <td
+          className="vert-align"
+        />
+        <td
+          className="vert-align"
+        >
+          Entry One
+        </td>
+        <td
+          className="vert-align"
+        >
+          <span
+            title="100 bytes"
+          >
+            100 B
+          </span>
+        </td>
+        <td
+          className="vert-align"
+        >
+          <div
+            className="btn-group "
+            style={undefined}
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="vert-align"
+        >
+          <div
+            className="btn-group "
+            style={undefined}
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="vert-align"
+        >
+          <button
+            className="btn btn-danger"
+            disabled={null}
+            onClick={[Function]}
+            style={null}
+            type="button"
+          >
+            Restore
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td
+          colSpan="6"
+        >
+          <button
+            className="btn btn-default btn-xs"
+            disabled={null}
+            onClick={[Function]}
+            style={null}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="glyphicon glyphicon-triangle-right"
+            />
+            Show 
+            2
+             more removed modules
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th />
+        <th>
+          Removed Modules
+        </th>
+        <td>
+          3
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+      <tr>
+        <th />
+        <th>
+          Total Size
+        </th>
+        <td>
+          <span
+            title="1,000 bytes"
+          >
+            1 KB
+          </span>
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
 exports[`Storyshots Bootstrap/Button Block 1`] = `
 <button
   className="btn btn-default btn-block"
