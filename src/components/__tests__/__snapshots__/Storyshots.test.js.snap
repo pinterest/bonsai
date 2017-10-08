@@ -770,6 +770,303 @@ exports[`Storyshots Bootstrap/Link With href 1`] = `
 </a>
 `;
 
+exports[`Storyshots Bootstrap/Panel Basic 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel Body only 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With React.Node heading 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    Panel Title
+  </div>
+  <div
+    className="panel-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With different Types 1`] = `
+<div>
+  <div
+    className="panel panel-default"
+  >
+    <div
+      className="panel-heading"
+    >
+      Default Panel Title
+    </div>
+    <div
+      className="panel-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="panel panel-primary"
+  >
+    <div
+      className="panel-heading"
+    >
+      Primary Panel Title
+    </div>
+    <div
+      className="panel-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="panel panel-success"
+  >
+    <div
+      className="panel-heading"
+    >
+      Success Panel Title
+    </div>
+    <div
+      className="panel-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="panel panel-info"
+  >
+    <div
+      className="panel-heading"
+    >
+      Info Panel Title
+    </div>
+    <div
+      className="panel-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="panel panel-warning"
+  >
+    <div
+      className="panel-heading"
+    >
+      Warning Panel Title
+    </div>
+    <div
+      className="panel-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="panel panel-danger"
+  >
+    <div
+      className="panel-heading"
+    >
+      Danger Panel Title
+    </div>
+    <div
+      className="panel-body"
+    >
+      Panel content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With different types 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="panel-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With list-group child 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With mixed content 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content
+    </p>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With multiple children 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content 1
+    </p>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content 2
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With single child 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With string heading 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    Panel Title
+  </div>
+  <div
+    className="panel-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With table child 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p>
+      Panel content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With title 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
 exports[`Storyshots ExternalModuleLink Default 1`] = `
 <a
   className="btn btn-link "

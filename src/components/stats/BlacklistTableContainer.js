@@ -9,6 +9,7 @@ import * as React from 'react';
 import BlacklistTable from './BlacklistTable';
 import { connect } from 'react-redux';
 import { IncludedModule } from '../../actions';
+import Panel from '../Bootstrap/Panel';
 
 type StateProps = {
   blacklistedModuleIds: Array<ModuleID>,
@@ -29,16 +30,15 @@ function BlacklistTableContainer(props: Props) {
     props.moduleData && props.moduleData.removed.length
       ? <div className="row">
         <div className="col-sm-12">
-          <div className="panel panel-danger">
-            <div className="panel-heading">
-              {props.moduleData.removed.length} Modules Ignored
-            </div>
+          <Panel
+            type='danger'
+            heading={`${props.moduleData.removed.length} Modules Ignored`}>
             <BlacklistTable
               blacklistedModulesIds={props.blacklistedModuleIds}
               removedModules={props.moduleData.removed}
               onIncludeModule={props.onIncludeModule}
             />
-          </div>
+          </Panel>
         </div>
       </div>
       : null

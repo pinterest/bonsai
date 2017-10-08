@@ -8,6 +8,7 @@ import type { State } from '../../reducer';
 import * as React from 'react';
 import ModuleTableContainer from './ModuleTableContainer';
 import { connect } from 'react-redux';
+import Panel from '../Bootstrap/Panel';
 
 export type Props = {
   moduleData: ?{
@@ -22,16 +23,15 @@ function ModuleDataContainer(props: Props) {
     props.moduleData
       ? <div className="row">
         <div className="col-sm-12">
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              {props.moduleData.removed.length === 0
-                ? 'All'
-                : props.moduleData.included.length} Modules Included
-            </div>
+          <Panel
+            type='primary'
+            heading={`${props.moduleData.removed.length === 0
+              ? 'All'
+              : props.moduleData.included.length} Modules Included`}>
             <ModuleTableContainer
               extendedModules={props.extendedModules}
             />
-          </div>
+          </Panel>
         </div>
       </div>
       : null
