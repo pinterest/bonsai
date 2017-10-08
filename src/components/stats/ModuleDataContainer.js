@@ -18,22 +18,18 @@ export type Props = {
   extendedModules: Array<ExtendedModule>,
 };
 
-function ModuleDataContainer(props: Props) {
+function ModuleData(props: Props) {
   return (
     props.moduleData
-      ? <div className="row">
-        <div className="col-sm-12">
-          <Panel
-            type='primary'
-            heading={`${props.moduleData.removed.length === 0
-              ? 'All'
-              : props.moduleData.included.length} Modules Included`}>
-            <ModuleTableContainer
-              extendedModules={props.extendedModules}
-            />
-          </Panel>
-        </div>
-      </div>
+      ? <Panel
+          type='primary'
+          heading={`${props.moduleData.removed.length === 0
+            ? 'All'
+            : props.moduleData.included.length} Modules Included`}>
+          <ModuleTableContainer
+            extendedModules={props.extendedModules}
+          />
+        </Panel>
       : null
   );
 }
@@ -54,4 +50,4 @@ const mapStateToProps = (state: State): Props => {
 
 export default connect(
   mapStateToProps,
-)(ModuleDataContainer);
+)(ModuleData);
