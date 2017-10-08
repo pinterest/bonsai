@@ -10,7 +10,7 @@ import {getClassName} from '../Bootstrap/GlyphiconNames';
 import Button from '../Bootstrap/Button';
 import Panel from '../Bootstrap/Panel';
 
-type Props = {
+export type Props = {
   extendedModules: Array<ExtendedModule>,
 };
 type State = {
