@@ -59,7 +59,11 @@ export default function SelectedChunk(props: Props) {
         </div>
         : null}
       <BlacklistTableContainer />
-      <LoopTableContainer />
+      <div className="row">
+        <div className="col-sm-12">
+          <LoopTableContainer />
+        </div>
+      </div>
       <ModuleDataContainer />
     </main>
   );

@@ -11,7 +11,7 @@ import Button from '../Bootstrap/Button';
 import Panel from '../Bootstrap/Panel';
 
 type Props = {
-  extendedModules: ?Array<ExtendedModule>,
+  extendedModules: Array<ExtendedModule>,
 };
 type State = {
   expanded: boolean,
@@ -24,9 +24,6 @@ export default class LoopTable extends Component<Props, State> {
 
   render() {
     const props = this.props;
-    if (!props.extendedModules) {
-      return null;
-    }
 
     const loopingModules = props.extendedModules.filter(
       (eModule) => eModule.loops.length
