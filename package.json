@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.6",
-    "@storybook/addon-storyshots": "3.2.6",
-    "@storybook/react": "3.2.6",
+    "@storybook/addon-storyshots": "3.2.11",
+    "@storybook/react": "3.2.11",
     "babel-eslint": "^8.0.0",
     "eslint": "^4.5.0",
     "eslint-plugin-eslint-comments": "^1.0.3",
