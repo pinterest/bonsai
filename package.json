@@ -83,7 +83,9 @@
     "exclude": [
       "+(node_modules|build|flow-typed)/**/*.js",
       "src/registerServiceWorker.js"
-    ]
+    ],
+    "show_summary": true,
+    "list_files": "noflow"
   },
   "flow-coverage-report": {
     "threshold": 85,
