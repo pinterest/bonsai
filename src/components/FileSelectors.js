@@ -16,7 +16,7 @@ export default function FileSelector(props: Props) {
     <div className="form-horizontal">
       <div className="form-group">
         <label className="col-sm-1 control-label">Filename</label>
-        <div className="col-sm-11"
+        <div className="col-sm-10"
           onClick={(event: SyntheticEvent<>) => {
             event.stopPropagation();
           }}>
@@ -31,6 +31,13 @@ export default function FileSelector(props: Props) {
               }
             }}
           />
+        </div>
+        <div className="col-sm-1"
+          onClick={(event: SyntheticEvent<>) => {
+            event.stopPropagation();
+          }}>
+          <input type="checkbox" id="enable-diff" />
+          <label htmlFor="enable-diff" className="control-label">Diff</label>
         </div>
       </div>
     </div>
