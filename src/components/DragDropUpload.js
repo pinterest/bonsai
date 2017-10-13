@@ -15,7 +15,7 @@ type Props = {
   onDragLeave?: () => void,
   onLoading: () => void,
   onChange: OnChangeCallback,
-  children?: React.Node,
+  children: ?React.Node,
 };
 
 function readFile(
@@ -56,7 +56,7 @@ export default class DragDropUpload extends React.Component<Props, void> {
           ref={(input) => { this._fileInput = input; }}
           onChange={this.onChangeFileInput}
         />
-        {React.Children.only(this.props.children)}
+        {this.props.children}
       </div>
     );
   }

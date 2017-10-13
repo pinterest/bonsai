@@ -13,7 +13,7 @@ const stats = {
 };
 
 storiesOf('App', module)
-  .add('Default View', () => (
+  .add('No filename, empty list', () => (
     <App
       dataPaths={[]}
       filename={null}
@@ -26,9 +26,35 @@ storiesOf('App', module)
       onDroppedFile={action('on dropped file')}
     />
   ))
-  .add('FileInput stacked on Stats', () => (
+  .add('No filename, items in list', () => (
     <App
-      dataPaths={[]}
+      dataPaths={['stats.json']}
+      filename={null}
+      loading={false}
+      json={null}
+      onInitDataPaths={action('on init data paths')}
+      onPickedFile={action('on picked file')}
+      onLoadingFailed={action('on loading failed')}
+      onLoaded={action('on loaded')}
+      onDroppedFile={action('on dropped file')}
+    />
+  ))
+  .add('Filename picked, loading', () => (
+    <App
+      dataPaths={['stats.json']}
+      filename={'stats.json'}
+      loading={true}
+      json={null}
+      onInitDataPaths={action('on init data paths')}
+      onPickedFile={action('on picked file')}
+      onLoadingFailed={action('on loading failed')}
+      onLoaded={action('on loaded')}
+      onDroppedFile={action('on dropped file')}
+    />
+  ))
+  .add('Filename picked, data available', () => (
+    <App
+      dataPaths={['stats.json']}
       filename={'stats.json'}
       loading={false}
       json={stats}
