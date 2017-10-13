@@ -5,7 +5,7 @@
 import type {RawStats} from '../types/Stats';
 
 import DragDropUpload from './DragDropUpload';
-import FileInputRow from './FileInputRow';
+import FileSelectors from './FileSelectors';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import SelectedChunkContainer from './SelectedChunkContainer';
@@ -45,6 +45,7 @@ export default class App extends Component<Props, State> {
 
   render() {
     const props = this.props;
+    const showHelp = !props.filename || this.state.isDragging;
 
     return (
       <div className="App">
@@ -62,14 +63,23 @@ export default class App extends Component<Props, State> {
                     onDragLeave={() => this.setState({ isDragging: false })}
                     onLoading={props.onPickedFile}
                     onChange={props.onDroppedFile}>
-                    <FileInputRow
-                      filename={props.filename}
-                      dataPaths={props.dataPaths.length === 0
-                        ? null
-                        : props.dataPaths}
-                      isDragging={this.state.isDragging}
-                      onStatsFilePicked={props.onPickedFile}
-                    />
+                    {showHelp
+                      ? <div className="well well-sm clearfix">
+                        <div className="col-sm-12">
+                          <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
+                          <span id="drag-drop-helpblock" className="col-sm-12 help-block">
+                            Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
+                          </span>
+                        </div>
+                      </div>
+                      : null}
+                    {!props.filename && props.dataPaths.length === 0
+                      ? null
+                      : <FileSelectors
+                        filename={props.filename}
+                        dataPaths={props.dataPaths}
+                        onStatsFilePicked={props.onPickedFile}
+                      />}
                   </DragDropUpload>
                 </div>
               </div>
