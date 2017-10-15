@@ -48,11 +48,15 @@ if (process.env.REACT_APP_API_LIST_ENDPOINT) {
   console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');
 }
 
+const root = document.getElementById('root');
+if (!root) {
+  throw new Error('Missing root node');
+}
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
   </Provider>,
-  document.getElementById('root'),
+  root,
 );
 
 registerServiceWorker();
