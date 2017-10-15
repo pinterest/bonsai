@@ -39,7 +39,7 @@ export default class DragDropUpload extends React.Component<Props, void> {
       <div
         onClick={this.clickFileInput}
         style={this.props.style}
-        ref={(div) => {
+        ref={(div: ?HTMLDivElement) => {
           this._div = div;
           if (div) {
             div.addEventListener('dragover', this.onDragOver);
@@ -75,7 +75,7 @@ export default class DragDropUpload extends React.Component<Props, void> {
     }
   };
 
-  onDragOver = (event: SyntheticDragEvent<>) => {
+  onDragOver = (event: DragEvent) => {
     event.preventDefault();
   };
 
@@ -91,9 +91,13 @@ export default class DragDropUpload extends React.Component<Props, void> {
     }
   };
 
-  onDrop = (event: SyntheticDragEvent<>) => {
+  onDrop = (event: DragEvent) => {
     event.preventDefault();
     this.props.onLoading();
-    readFile(event.dataTransfer.files[0], this.props.onChange);
+    if (event.dataTransfer) {
+      readFile(event.dataTransfer.files[0], this.props.onChange);
+    } else {
+      console.warn('No dropped data found.');
+    }
   };
 }
