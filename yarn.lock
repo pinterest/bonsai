@@ -3649,9 +3649,9 @@ flow-annotation-check@1.6.2:
     glob "7.1.1"
     load-pkg "^3.0.1"
 
-flow-bin@0.57.2:
-  version "0.57.2"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.57.2.tgz#0b5ed4dd38a1991047e9bee71d62a763ae61b6b7"
+flow-bin@0.57.3:
+  version "0.57.3"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.57.3.tgz#843fb80a821b6d0c5847f7bb3f42365ffe53b27b"
 
 flow-coverage-report@^0.3.0:
   version "0.3.0"
