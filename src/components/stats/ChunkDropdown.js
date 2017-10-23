@@ -15,7 +15,7 @@ import './ChunkDropdown.css';
 type Props = {
   chunksByParent: Array<Child>,
   selectedChunkId: ?ChunkID,
-  onSelectChunkId: (chunkId: ChunkID) => void,
+  onSelectChunkId: (position: 'A' | 'B', chunkId: ChunkID) => void,
 };
 
 export default function ChunkDropdown(props: Props) {
@@ -62,7 +62,7 @@ export default function ChunkDropdown(props: Props) {
                   style={chunk.indent ? {paddingLeft: chunk.indent + 'em'} : {}}
                   onClick={() => {
                     hideContent();
-                    props.onSelectChunkId(chunk.id);
+                    props.onSelectChunkId('A', chunk.id);
                   }}>
                   <div
                     className={[

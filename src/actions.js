@@ -97,9 +97,10 @@ export function FilteredTable(dispatch: Dispatch) {
 }
 
 export function PickedChunk(dispatch: Dispatch) {
-  return (chunkId: ChunkID) => dispatch({
+  return (position: 'A' | 'B', chunkId: ChunkID) => dispatch({
     type: 'onPickedChunk',
     chunkId,
+    position,
   });
 }
 

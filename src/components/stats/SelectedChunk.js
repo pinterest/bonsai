@@ -26,7 +26,7 @@ export type StateProps = {
 };
 
 export type DispatchProps = {
-  onSelectChunkId: (chunkId: ChunkID) => void,
+  onSelectChunkId: (position: 'A' | 'B', chunkId: ChunkID) => void,
   onIncludeModule: (moduleID: ModuleID) => void,
 };
 

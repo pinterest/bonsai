@@ -90,7 +90,7 @@ describe('reducer', () => {
       const newState = reducer(state, action);
       expect(newState).not.toBe(state);
       expect(newState).toEqual(expect.objectContaining({
-        selectedFilename: null,
+        selectedFilenameA: null,
       }));
     });
   });
@@ -107,7 +107,7 @@ describe('reducer', () => {
       const newState = reducer(state, action);
       expect(newState).not.toBe(state);
       expect(newState).toEqual(expect.objectContaining({
-        selectedFilename: 'test-file.json',
+        selectedFilenameA: 'test-file.json',
         dataPaths: ['test-file.json'],
         json: {
           'test-file.json': mockStats,
@@ -129,7 +129,7 @@ describe('reducer', () => {
       const newState = reducer(state, action);
       expect(newState).not.toBe(state);
       expect(newState).toEqual(expect.objectContaining({
-        selectedFilename: 'test-file.json',
+        selectedFilenameA: 'test-file.json',
         dataPaths: ['test-file.json'],
         json: {
           'test-file.json': mockStats,

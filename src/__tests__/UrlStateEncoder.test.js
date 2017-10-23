@@ -39,8 +39,11 @@ describe('UrlStateEncoder', () => {
     const unsub = jest.fn();
     MOCK_STORE.subscribe = jest.fn(() => unsub);
 
-    new UrlStateEncoder(MOCK_STORE).destroy();
+    const inst = new UrlStateEncoder(MOCK_STORE);
+    inst.destroy();
+    expect(unsub).toHaveBeenCalledTimes(1);
 
+    inst.destroy();
     expect(unsub).toHaveBeenCalledTimes(1);
   });
 
@@ -58,7 +61,7 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).not.toHaveBeenCalled();
     });
 
-    it('should dispatch when filename is in the location hash', () => {
+    it('should dispatch when (legacy) filename is in the location hash', () => {
       window.location.hash = '#filename=main.js';
 
       new UrlStateEncoder(MOCK_STORE);
@@ -71,7 +74,7 @@ describe('UrlStateEncoder', () => {
       });
     });
 
-    it('should dispatch when chunk is in the location hash', () => {
+    it('should dispatch when (legacy) chunk is in the location hash', () => {
       window.location.hash = '#filename=main.js&chunk=1';
 
       new UrlStateEncoder(MOCK_STORE);
@@ -85,11 +88,109 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onPickedChunk',
         chunkId: '1',
+        position: 'A',
+      });
+    });
+
+    it('should dispatch when a (legacy) rm list is in the location hash', () => {
+      window.location.hash = '#filename=main.js&chunk=1&rm=3,5,7';
+
+      new UrlStateEncoder(MOCK_STORE);
+
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(5);
+    });
+
+    it('should dispatch when mode=diff in the location hash', () => {
+      window.location.hash = '#mode=diff';
+
+      new UrlStateEncoder(MOCK_STORE);
+
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(1);
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'onChangedMode',
+        appMode: 'diff',
+      });
+    });
+
+    it('should dispatch when fileA is in the location hash', () => {
+      window.location.hash = '#fileA=main.js';
+
+      new UrlStateEncoder(MOCK_STORE);
+
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(1);
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'pickedFile',
+        filename: 'main.js',
+        position: 'A',
+      });
+    });
+
+    it('should dispatch when chunkA is in the location hash', () => {
+      window.location.hash = '#fileA=main.js&chunkA=1';
+
+      new UrlStateEncoder(MOCK_STORE);
+
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(2);
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'pickedFile',
+        filename: 'main.js',
+        position: 'A',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'onPickedChunk',
+        chunkId: '1',
+        position: 'A',
+      });
+    });
+
+    it('should dispatch when fileA & fileB is in the location hash', () => {
+      window.location.hash = '#fileA=main.js&fileB=main-b.js';
+
+      new UrlStateEncoder(MOCK_STORE);
+
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(2);
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'pickedFile',
+        filename: 'main.js',
+        position: 'A',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'pickedFile',
+        filename: 'main-b.js',
+        position: 'B',
+      });
+    });
+
+    it('should dispatch when chunkA & chunkB is in the location hash', () => {
+      window.location.hash = '#fileA=main.js&chunkA=1&fileB=main-b.js&chunkB=2';
+
+      new UrlStateEncoder(MOCK_STORE);
+
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(4);
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'pickedFile',
+        filename: 'main.js',
+        position: 'A',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'onPickedChunk',
+        chunkId: '1',
+        position: 'A',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'pickedFile',
+        filename: 'main-b.js',
+        position: 'B',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'onPickedChunk',
+        chunkId: '2',
+        position: 'B',
       });
     });
 
     it('should dispatch when an `rm` list is in the location hash', () => {
-      window.location.hash = '#filename=main.js&chunk=1&rm=3,5,7';
+      window.location.hash = '#fileA=main.js&chunkA=1&rm=3,5,7';
 
       new UrlStateEncoder(MOCK_STORE);
 
@@ -102,6 +203,7 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onPickedChunk',
         chunkId: '1',
+        position: 'A',
       });
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onRemoveModule',
@@ -131,36 +233,62 @@ describe('UrlStateEncoder', () => {
   });
 
   describe('writing to location', () => {
-    it('should write the selectedFilename', () => {
+    it('should not write the appMode when it is single', () => {
       const result = new UrlStateEncoder(MOCK_STORE).encodeStateForHash({
-        selectedFilename: 'main file.js',
+        appMode: 'single',
       });
 
-      expect(result).toEqual('filename=main%20file.js');
+      expect(result).toEqual('');
     });
 
-    it('should write the selectedChunkId', () => {
+    it('should write the appMode when it is set to diff', () => {
       const result = new UrlStateEncoder(MOCK_STORE).encodeStateForHash({
-        selectedFilename: 'main file.js',
-        selectedChunkId: 1,
+        appMode: 'diff',
       });
 
-      expect(result).toEqual('filename=main%20file.js&chunk=1');
+      expect(result).toEqual('mode=diff');
+    });
+
+    it('should write the selectedFilename', () => {
+      const result = new UrlStateEncoder(MOCK_STORE).encodeStateForHash({
+        selectedFilenameA: 'main file.js',
+      });
+
+      expect(result).toEqual('fileA=main%20file.js');
+    });
+
+    it('should write the selectedChunkIdA', () => {
+      const result = new UrlStateEncoder(MOCK_STORE).encodeStateForHash({
+        selectedFilenameA: 'main file.js',
+        selectedChunkIdA: 1,
+      });
+
+      expect(result).toEqual('fileA=main%20file.js&chunkA=1');
     });
 
     it('should write the blacklistedModuleIds', () => {
       const result = new UrlStateEncoder(MOCK_STORE).encodeStateForHash({
-        selectedFilename: 'main file.js',
-        selectedChunkId: 1,
+        selectedFilenameA: 'main file.js',
+        selectedChunkIdA: 1,
         blacklistedModuleIds: [3, 5, 7],
       });
 
-      expect(result).toEqual('filename=main%20file.js&chunk=1&rm=3%2C5%2C7');
+      expect(result).toEqual('fileA=main%20file.js&chunkA=1&rm=3%2C5%2C7');
+    });
+
+    it('should write the selectedChunkIdB', () => {
+      const result = new UrlStateEncoder(MOCK_STORE).encodeStateForHash({
+        selectedFilenameB: 'file-b.js',
+        selectedChunkIdB: 1,
+      });
+
+      expect(result).toEqual('fileB=file-b.js&chunkB=1');
     });
 
     it('should set the location when the store updates', () => {
       MOCK_STORE.getState = jest.fn(() => ({
-        selectedFilename: 'main.js',
+        selectedFilenameA: 'main-a.js',
+        selectedFilenameB: 'main-b.js'
       }));
 
       new UrlStateEncoder(MOCK_STORE);
@@ -169,7 +297,7 @@ describe('UrlStateEncoder', () => {
       expect(window.location.hash).toEqual('');
 
       callback();
-      expect(window.location.hash).toEqual('#filename=main.js');
+      expect(window.location.hash).toEqual('#fileA=main-a.js&fileB=main-b.js');
     });
   });
 

@@ -49,6 +49,7 @@ export type Action =
   | {
     type: 'onPickedChunk',
     chunkId: ChunkID,
+    position: 'A' | 'B',
   }
   | {
     type: 'onRemoveModule',
@@ -138,14 +139,27 @@ function handleAction(
       dataPaths: action.paths.reduce(concatItemToSet, state.dataPaths),
     };
   } else if (action.type === 'pickedFile') {
-    return {
-      ...state,
-      selectedFilenameA: action.filename,
-      selectedChunkIdA: null,
-      blacklistedModuleIds: [],
-      expandedRecords: new Set(),
-      currentlyFocusedElementID: null,
-    };
+    if (action.position === 'A') {
+      return {
+        ...state,
+        selectedFilenameA: action.filename,
+        selectedChunkIdA: null,
+        blacklistedModuleIds: [],
+        expandedRecords: new Set(),
+        currentlyFocusedElementID: null,
+      };
+    } else if (action.position === 'B') {
+      return {
+        ...state,
+        selectedFilenameB: action.filename,
+        selectedChunkIdB: null,
+        blacklistedModuleIds: [],
+        expandedRecords: new Set(),
+        currentlyFocusedElementID: null,
+      };
+    } else {
+      return state;
+    }
   } else if (action.type === 'loadingFailed') {
     return {
       ...state,
