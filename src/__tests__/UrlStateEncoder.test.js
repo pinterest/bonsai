@@ -67,6 +67,7 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'pickedFile',
         filename: 'main.js',
+        position: 'A',
       });
     });
 
@@ -79,6 +80,7 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'pickedFile',
         filename: 'main.js',
+        position: 'A',
       });
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onPickedChunk',
@@ -95,6 +97,7 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'pickedFile',
         filename: 'main.js',
+        position: 'A',
       });
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onPickedChunk',
@@ -122,6 +125,7 @@ describe('UrlStateEncoder', () => {
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'pickedFile',
         filename: 'main file.js',
+        position: 'A',
       });
     });
   });

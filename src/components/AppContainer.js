@@ -13,25 +13,22 @@ import {
 } from '../actions';
 
 const mapStateToProps = (state: State): StateProps => {
-  if (state.selectedFilename) {
-    if (state.json[state.selectedFilename]) {
+  if (state.selectedFilenameA) {
+    if (state.json[state.selectedFilenameA]) {
       return {
-        dataPaths: state.dataPaths,
-        filename: state.selectedFilename,
+        filename: state.selectedFilenameA,
         loading: false,
-        json: state.json[state.selectedFilename],
+        json: state.json[state.selectedFilenameA],
       };
     } else {
       return {
-        dataPaths: state.dataPaths,
-        filename: state.selectedFilename,
+        filename: state.selectedFilenameA,
         loading: true,
         json: null,
       };
     }
   } else {
     return {
-      dataPaths: state.dataPaths,
       filename: null,
       loading: false,
       json: null,

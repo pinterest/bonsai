@@ -5,7 +5,7 @@
 import type {RawStats} from '../types/Stats';
 
 import DragDropUpload from './DragDropUpload';
-import FileSelectors from './FileSelectors';
+import FileSelectorsContainer from './FileSelectorsContainer';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import SelectedChunkContainer from './SelectedChunkContainer';
@@ -13,14 +13,13 @@ import SelectedChunkContainer from './SelectedChunkContainer';
 import './App.css';
 
 export type StateProps = {
-  dataPaths: Array<string>,
   filename: ?string,
   loading: boolean,
   json: ?RawStats,
 };
 
 export type DispatchProps = {
-  onPickedFile: (filename: ?string) => void,
+  onPickedFile: (position: 'A' | 'B', filename: ?string) => void,
   onDroppedFile: (filename: string, fileText: string) => void,
 };
 
@@ -61,7 +60,7 @@ export default class App extends Component<Props, State> {
                     className="form-control"
                     onDragEnter={() => this.setState({ isDragging: true })}
                     onDragLeave={() => this.setState({ isDragging: false })}
-                    onLoading={props.onPickedFile}
+                    onLoading={props.onPickedFile.bind(null, 'A')}
                     onChange={props.onDroppedFile}>
                     {showHelp
                       ? <div className="well well-sm clearfix">
@@ -73,13 +72,7 @@ export default class App extends Component<Props, State> {
                         </div>
                       </div>
                       : null}
-                    {!props.filename && props.dataPaths.length === 0
-                      ? null
-                      : <FileSelectors
-                        filename={props.filename}
-                        dataPaths={props.dataPaths}
-                        onStatsFilePicked={props.onPickedFile}
-                      />}
+                    <FileSelectorsContainer />
                   </DragDropUpload>
                 </div>
               </div>

@@ -4,6 +4,7 @@
 
 import reducer, { INITIAL_STATE } from '../reducer';
 import {
+  ChangedMode,
   InitDataPaths,
   PickedFile,
   LoadingFailed,
@@ -13,6 +14,24 @@ import {
 const mockDispatch = (action) => action;
 
 describe('reducer', () => {
+  describe('onChangedMode action', () => {
+    it('should toggle the appMode', () => {
+      const state = {...INITIAL_STATE};
+
+      const singleAction = ChangedMode(mockDispatch)('single');
+      const newState = reducer(state, singleAction);
+      expect(newState).toEqual(expect.objectContaining({
+        appMode: 'single',
+      }));
+
+      const diffAction = ChangedMode(mockDispatch)('diff');
+      const finalState = reducer(newState, diffAction);
+      expect(finalState).toEqual(expect.objectContaining({
+        appMode: 'diff',
+      }));
+    });
+  });
+
   describe('InitDataPaths action', () => {
     it('should setup dataPaths', () => {
       const state = {...INITIAL_STATE};
@@ -48,13 +67,14 @@ describe('reducer', () => {
     it('should change the selectedFilename after a pickedFile action', () => {
       const state = {...INITIAL_STATE};
       const action = PickedFile(mockDispatch)(
+        'A',
         'test-file.json',
       );
 
       const newState = reducer(state, action);
       expect(newState).not.toBe(state);
       expect(newState).toEqual(expect.objectContaining({
-        selectedFilename: 'test-file.json',
+        selectedFilenameA: 'test-file.json',
       }));
     });
   });
@@ -63,7 +83,7 @@ describe('reducer', () => {
     it('should clear selectedFilename after a loadingFailed action', () => {
       const state = {
         ...INITIAL_STATE,
-        selectedFilename: 'test-file.json',
+        selectedFilenameA: 'test-file.json',
       };
       const action = LoadingFailed(mockDispatch)();
 

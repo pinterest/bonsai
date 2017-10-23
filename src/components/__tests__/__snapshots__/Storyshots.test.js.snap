@@ -78,39 +78,6 @@ exports[`Storyshots App Filename picked, data available 1`] = `
                 }
                 type="file"
               />
-              <div
-                className="form-horizontal"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="col-sm-1 control-label"
-                  >
-                    Filename
-                  </label>
-                  <div
-                    className="col-sm-11"
-                    onClick={[Function]}
-                  >
-                    <select
-                      className="form-control"
-                      id="data-file-picker"
-                      onChange={[Function]}
-                      value="stats.json"
-                    >
-                      <option
-                        value=""
-                      />
-                      <option
-                        value="stats.json"
-                      >
-                        stats.json
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -268,39 +235,6 @@ exports[`Storyshots App Filename picked, loading 1`] = `
                 }
                 type="file"
               />
-              <div
-                className="form-horizontal"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="col-sm-1 control-label"
-                  >
-                    Filename
-                  </label>
-                  <div
-                    className="col-sm-11"
-                    onClick={[Function]}
-                  >
-                    <select
-                      className="form-control"
-                      id="data-file-picker"
-                      onChange={[Function]}
-                      value="stats.json"
-                    >
-                      <option
-                        value=""
-                      />
-                      <option
-                        value="stats.json"
-                      >
-                        stats.json
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -534,39 +468,6 @@ exports[`Storyshots App No filename, items in list 1`] = `
                     </kbd>
                      to get started.
                   </span>
-                </div>
-              </div>
-              <div
-                className="form-horizontal"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="col-sm-1 control-label"
-                  >
-                    Filename
-                  </label>
-                  <div
-                    className="col-sm-11"
-                    onClick={[Function]}
-                  >
-                    <select
-                      className="form-control"
-                      id="data-file-picker"
-                      onChange={[Function]}
-                      value=""
-                    >
-                      <option
-                        value=""
-                      />
-                      <option
-                        value="stats.json"
-                      >
-                        stats.json
-                      </option>
-                    </select>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1720,7 +1621,7 @@ exports[`Storyshots ExternalModuleLink Default 1`] = `
 
 exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
 
-exports[`Storyshots FileSelectors Filename picked 1`] = `
+exports[`Storyshots FileSelectors - Diff Mode Filename picked 1`] = `
 <div
   className="form-horizontal"
 >
@@ -1730,10 +1631,10 @@ exports[`Storyshots FileSelectors Filename picked 1`] = `
     <label
       className="col-sm-1 control-label"
     >
-      Filename
+      File A
     </label>
     <div
-      className="col-sm-11"
+      className="col-sm-10"
       onClick={[Function]}
     >
       <select
@@ -1752,11 +1653,63 @@ exports[`Storyshots FileSelectors Filename picked 1`] = `
         </option>
       </select>
     </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    >
+      <div
+        className="checkbox"
+      >
+        <label
+          htmlFor="enable-diff"
+        >
+          <input
+            id="enable-diff"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Diff
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="col-sm-1 control-label"
+    >
+      File B
+    </label>
+    <div
+      className="col-sm-10"
+      onClick={[Function]}
+    >
+      <select
+        className="form-control"
+        id="data-file-picker"
+        onChange={[Function]}
+        value="stats.json"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="stats.json"
+        >
+          stats.json
+        </option>
+      </select>
+    </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    />
   </div>
 </div>
 `;
 
-exports[`Storyshots FileSelectors Invalid: empty list, filename picked 1`] = `
+exports[`Storyshots FileSelectors - Diff Mode Invalid: empty list, filename picked 1`] = `
 <div
   className="form-horizontal"
 >
@@ -1766,10 +1719,10 @@ exports[`Storyshots FileSelectors Invalid: empty list, filename picked 1`] = `
     <label
       className="col-sm-1 control-label"
     >
-      Filename
+      File A
     </label>
     <div
-      className="col-sm-11"
+      className="col-sm-10"
       onClick={[Function]}
     >
       <select
@@ -1783,42 +1736,60 @@ exports[`Storyshots FileSelectors Invalid: empty list, filename picked 1`] = `
         />
       </select>
     </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    >
+      <div
+        className="checkbox"
+      >
+        <label
+          htmlFor="enable-diff"
+        >
+          <input
+            id="enable-diff"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Diff
+        </label>
+      </div>
+    </div>
   </div>
-</div>
-`;
-
-exports[`Storyshots FileSelectors No filename, empty list 1`] = `
-<div
-  className="form-horizontal"
->
   <div
     className="form-group"
   >
     <label
       className="col-sm-1 control-label"
     >
-      Filename
+      File B
     </label>
     <div
-      className="col-sm-11"
+      className="col-sm-10"
       onClick={[Function]}
     >
       <select
         className="form-control"
         id="data-file-picker"
         onChange={[Function]}
-        value=""
+        value="stats.json"
       >
         <option
           value=""
         />
       </select>
     </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    />
   </div>
 </div>
 `;
 
-exports[`Storyshots FileSelectors No filename, items in list 1`] = `
+exports[`Storyshots FileSelectors - Diff Mode No filename, empty list 1`] = `null`;
+
+exports[`Storyshots FileSelectors - Diff Mode No filename, items in list 1`] = `
 <div
   className="form-horizontal"
 >
@@ -1828,10 +1799,10 @@ exports[`Storyshots FileSelectors No filename, items in list 1`] = `
     <label
       className="col-sm-1 control-label"
     >
-      Filename
+      File A
     </label>
     <div
-      className="col-sm-11"
+      className="col-sm-10"
       onClick={[Function]}
     >
       <select
@@ -1849,6 +1820,220 @@ exports[`Storyshots FileSelectors No filename, items in list 1`] = `
           stats.json
         </option>
       </select>
+    </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    >
+      <div
+        className="checkbox"
+      >
+        <label
+          htmlFor="enable-diff"
+        >
+          <input
+            id="enable-diff"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Diff
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="col-sm-1 control-label"
+    >
+      File B
+    </label>
+    <div
+      className="col-sm-10"
+      onClick={[Function]}
+    >
+      <select
+        className="form-control"
+        id="data-file-picker"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          value=""
+        />
+        <option
+          value="stats.json"
+        >
+          stats.json
+        </option>
+      </select>
+    </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileSelectors - Single Mode Filename picked 1`] = `
+<div
+  className="form-horizontal"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      className="col-sm-1 control-label"
+    >
+      Filename
+    </label>
+    <div
+      className="col-sm-10"
+      onClick={[Function]}
+    >
+      <select
+        className="form-control"
+        id="data-file-picker"
+        onChange={[Function]}
+        value="stats.json"
+      >
+        <option
+          value=""
+        />
+        <option
+          value="stats.json"
+        >
+          stats.json
+        </option>
+      </select>
+    </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    >
+      <div
+        className="checkbox"
+      >
+        <label
+          htmlFor="enable-diff"
+        >
+          <input
+            id="enable-diff"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Diff
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileSelectors - Single Mode Invalid: empty list, filename picked 1`] = `
+<div
+  className="form-horizontal"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      className="col-sm-1 control-label"
+    >
+      Filename
+    </label>
+    <div
+      className="col-sm-10"
+      onClick={[Function]}
+    >
+      <select
+        className="form-control"
+        id="data-file-picker"
+        onChange={[Function]}
+        value="stats.json"
+      >
+        <option
+          value=""
+        />
+      </select>
+    </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    >
+      <div
+        className="checkbox"
+      >
+        <label
+          htmlFor="enable-diff"
+        >
+          <input
+            id="enable-diff"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Diff
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileSelectors - Single Mode No filename, empty list 1`] = `null`;
+
+exports[`Storyshots FileSelectors - Single Mode No filename, items in list 1`] = `
+<div
+  className="form-horizontal"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      className="col-sm-1 control-label"
+    >
+      Filename
+    </label>
+    <div
+      className="col-sm-10"
+      onClick={[Function]}
+    >
+      <select
+        className="form-control"
+        id="data-file-picker"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          value=""
+        />
+        <option
+          value="stats.json"
+        >
+          stats.json
+        </option>
+      </select>
+    </div>
+    <div
+      className="col-sm-1"
+      onClick={[Function]}
+    >
+      <div
+        className="checkbox"
+      >
+        <label
+          htmlFor="enable-diff"
+        >
+          <input
+            id="enable-diff"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Diff
+        </label>
+      </div>
     </div>
   </div>
 </div>

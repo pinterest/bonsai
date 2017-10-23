@@ -15,7 +15,7 @@ import {
 const mapStateToProps = (state: State): StateProps => {
   if (state.calculatedFullModuleData) {
     return {
-      selectedChunkId: state.selectedChunkId,
+      selectedChunkId: state.selectedChunkIdA,
       blacklistedModuleIds: state.blacklistedModuleIds,
       moduleData: state.calculatedFullModuleData.moduleData,
       extendedModules: state.calculatedFullModuleData.extendedModules,
@@ -24,7 +24,7 @@ const mapStateToProps = (state: State): StateProps => {
     };
   } else {
     return {
-      selectedChunkId: state.selectedChunkId,
+      selectedChunkId: state.selectedChunkIdA,
       blacklistedModuleIds: state.blacklistedModuleIds,
       moduleData: null,
       extendedModules: [],

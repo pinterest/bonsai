@@ -14,7 +14,13 @@ import fullModuleData from './stats/fullModuleData';
 import getCollapsableParentOf from './stats/getCollapsableParentOf';
 import getModulesById from './stats/getModulesById';
 
+export type ModeType = 'single' | 'diff';
+
 export type Action =
+  | {
+    type: 'onChangedMode',
+    appMode: ModeType,
+  }
   | {
     type: 'initDataPaths',
     paths: Array<string>,
@@ -22,6 +28,7 @@ export type Action =
   | {
     type: 'pickedFile',
     filename: ?string,
+    position: 'A' | 'B',
   }
   | {
     type: 'loadingFailed',
@@ -66,9 +73,12 @@ export type Action =
   ;
 
 export type State = {
+  appMode: ModeType,
   dataPaths: Array<string>,
-  selectedFilename: ?string,
-  selectedChunkId: ?ChunkID,
+  selectedFilenameA: ?string,
+  selectedChunkIdA: ?ChunkID,
+  selectedFilenameB: ?string,
+  selectedChunkIdB: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
   json: {[filename: string]: RawStats},
   sort: SortProps,
@@ -81,9 +91,12 @@ export type State = {
 export type Dispatch = (action: Action) => any;
 
 export const INITIAL_STATE: State = {
+  appMode: 'single',
   dataPaths: [],
-  selectedFilename: null,
-  selectedChunkId: null,
+  selectedFilenameA: null,
+  selectedChunkIdA: null,
+  selectedFilenameB: null,
+  selectedChunkIdB: null,
   blacklistedModuleIds: [],
   json: {},
   sort: {
@@ -114,7 +127,12 @@ function handleAction(
   state: State,
   action: Action,
 ): State {
-  if (action.type === 'initDataPaths') {
+  if (action.type === 'onChangedMode') {
+    return {
+      ...state,
+      appMode: action.appMode,
+    };
+  } else if (action.type === 'initDataPaths') {
     return {
       ...state,
       dataPaths: action.paths.reduce(concatItemToSet, state.dataPaths),
@@ -122,8 +140,8 @@ function handleAction(
   } else if (action.type === 'pickedFile') {
     return {
       ...state,
-      selectedFilename: action.filename,
-      selectedChunkId: null,
+      selectedFilenameA: action.filename,
+      selectedChunkIdA: null,
       blacklistedModuleIds: [],
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
@@ -131,8 +149,8 @@ function handleAction(
   } else if (action.type === 'loadingFailed') {
     return {
       ...state,
-      selectedFilename: null,
-      selectedChunkId: null,
+      selectedFilenameA: null,
+      selectedChunkIdA: null,
       blacklistedModuleIds: [],
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
@@ -140,7 +158,7 @@ function handleAction(
   } else if (action.type === 'loadingFinished') {
     return {
       ...state,
-      selectedFilename: action.filename,
+      selectedFilenameA: action.filename,
       dataPaths: concatItemToSet(state.dataPaths, action.filename),
       json: {
         ...state.json,
@@ -169,7 +187,7 @@ function handleAction(
   } else if (action.type === 'onPickedChunk') {
     return {
       ...state,
-      selectedChunkId: String(action.chunkId),
+      selectedChunkIdA: String(action.chunkId),
       blacklistedModuleIds: [],
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
@@ -237,8 +255,8 @@ function calculateFullModuleData(
 ): State {
   if (
     !newState.json ||
-    !newState.selectedFilename ||
-    !newState.json[newState.selectedFilename]
+    !newState.selectedFilenameA ||
+    !newState.json[newState.selectedFilenameA]
   ) {
     return {
       ...newState,
@@ -248,8 +266,8 @@ function calculateFullModuleData(
 
   if (
     oldState.json === newState.json &&
-    oldState.selectedFilename === newState.selectedFilename &&
-    oldState.selectedChunkId === newState.selectedChunkId &&
+    oldState.selectedFilenameA === newState.selectedFilenameA &&
+    oldState.selectedChunkIdA === newState.selectedChunkIdA &&
     oldState.blacklistedModuleIds === newState.blacklistedModuleIds
   ) {
     return newState;
@@ -258,8 +276,8 @@ function calculateFullModuleData(
   return {
     ...newState,
     calculatedFullModuleData: fullModuleData(
-      newState.json[newState.selectedFilename],
-      newState.selectedChunkId,
+      newState.json[newState.selectedFilenameA],
+      newState.selectedChunkIdA,
       newState.blacklistedModuleIds,
     ),
   };
