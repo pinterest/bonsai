@@ -44,7 +44,7 @@
     "@storybook/react": "3.2.11",
     "babel-eslint": "^8.0.0",
     "eslint": "^4.5.0",
-    "eslint-plugin-eslint-comments": "^1.0.3",
+    "eslint-plugin-eslint-comments": "^2.0.1",
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-jest": "^21.0.0",
     "eslint-plugin-react": "^7.3.0",
