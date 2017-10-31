@@ -11,6 +11,7 @@ export default function Navbar() {
         <div className="navbar-header">
           <a className="navbar-brand" href="/" onClick={(e: SyntheticEvent<>) => {
             e.preventDefault();
+            window.location.hash = '';
             window.location.reload();
           }}>
             Bonsai
