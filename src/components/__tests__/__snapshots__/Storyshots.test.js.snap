@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots App Filename picked, data available 1`] = `
+exports[`Storyshots App Done loading 1`] = `
 <div
   className="App"
 >
@@ -112,7 +112,7 @@ exports[`Storyshots App Filename picked, data available 1`] = `
 </div>
 `;
 
-exports[`Storyshots App Filename picked, loading 1`] = `
+exports[`Storyshots App Loading up a file 1`] = `
 <div
   className="App"
 >
@@ -284,147 +284,6 @@ exports[`Storyshots App No filename, empty list 1`] = `
                 }
                 type="file"
               />
-              <div
-                className="well well-sm clearfix"
-              >
-                <div
-                  className="col-sm-12"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Drag & Drop your 
-                    <code>
-                      stats.json
-                    </code>
-                     file here
-                  </label>
-                  <span
-                    className="col-sm-12 help-block"
-                    id="drag-drop-helpblock"
-                  >
-                    Run 
-                    <kbd>
-                      webpack --json &gt; stats.json
-                    </kbd>
-                     to get started.
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots App No filename, items in list 1`] = `
-<div
-  className="App"
->
-  <nav
-    className="navbar navbar-default navbar-fixed-top navbar-inverse"
-  >
-    <div
-      className="container-fluid"
-    >
-      <div
-        className="navbar-header"
-      >
-        <a
-          className="navbar-brand"
-          href="/"
-          onClick={[Function]}
-        >
-          Bonsai
-        </a>
-        <p
-          className="navbar-text"
-        >
-          Trim your dependency trees
-        </p>
-      </div>
-      <ul
-        className="nav navbar-nav navbar-right"
-      >
-        <li>
-          <a
-            className="navbar-link"
-            href="https://pinterest.github.io/bonsai/"
-          >
-            Docs
-          </a>
-        </li>
-        <li>
-          <a
-            className="navbar-link"
-            href="https://github.com/pinterest/bonsai"
-          >
-            Github
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div
-    className="AppFixed"
-  >
-    <div
-      className="AppView"
-    >
-      <aside
-        className="container-fluid"
-      >
-        <div
-          className="row"
-        >
-          <div
-            className="col-sm-12"
-          >
-            <div
-              onClick={[Function]}
-              style={undefined}
-            >
-              <input
-                className="form-control"
-                id="drag-drop-upload"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                type="file"
-              />
-              <div
-                className="well well-sm clearfix"
-              >
-                <div
-                  className="col-sm-12"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Drag & Drop your 
-                    <code>
-                      stats.json
-                    </code>
-                     file here
-                  </label>
-                  <span
-                    className="col-sm-12 help-block"
-                    id="drag-drop-helpblock"
-                  >
-                    Run 
-                    <kbd>
-                      webpack --json &gt; stats.json
-                    </kbd>
-                     to get started.
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

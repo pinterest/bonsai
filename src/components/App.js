@@ -2,8 +2,6 @@
  * @flow
  */
 
-import type {RawStats} from '../types/Stats';
-
 import DragDropUpload from './DragDropUpload';
 import FileSelectorsContainer from './FileSelectorsContainer';
 import Navbar from './Navbar';
@@ -13,9 +11,7 @@ import SelectedChunkContainer from './SelectedChunkContainer';
 import './App.css';
 
 export type StateProps = {
-  filename: ?string,
-  loading: boolean,
-  json: ?RawStats,
+  appState: 'empty' | 'loading' | 'loaded',
 };
 
 export type DispatchProps = {
@@ -29,22 +25,27 @@ type State = {
   isDragging: boolean,
 };
 
+function getContent(props: Props) {
+  switch(props.appState) {
+    case 'empty':
+      return null;
+    case 'loading':
+      return <p className="center-block"><em>Loading...</em></p>;
+    case 'loaded':
+      return <SelectedChunkContainer />;
+    default:
+      throw new Error(`Invalid appState: ${JSON.stringify(props.appState)}`);
+  }
+}
+
 export default class App extends Component<Props, State> {
   state: State = {
     isDragging: false,
   };
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (this.props.filename !== nextProps.filename) {
-      this.setState({
-        isDragging: false,
-      });
-    }
-  }
-
   render() {
     const props = this.props;
-    const showHelp = !props.filename || this.state.isDragging;
+    const showHelp = !props.appState === 'empty' || this.state.isDragging;
 
     return (
       <div className="App">
@@ -77,12 +78,7 @@ export default class App extends Component<Props, State> {
                 </div>
               </div>
             </aside>
-            {props.loading
-              ? <p className="center-block"><em>Loading...</em></p>
-              : null}
-            {props.json
-              ? <SelectedChunkContainer json={props.json} />
-              : null}
+            {getContent(props)}
           </div>
         </div>
       </div>

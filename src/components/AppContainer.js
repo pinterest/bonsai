@@ -12,28 +12,22 @@ import {
   DroppedFile,
 } from '../actions';
 
-const mapStateToProps = (state: State): StateProps => {
+function getAppState(state: State): * {
   if (state.selectedFilenameA) {
     if (state.json[state.selectedFilenameA]) {
-      return {
-        filename: state.selectedFilenameA,
-        loading: false,
-        json: state.json[state.selectedFilenameA],
-      };
+      return 'loaded';
     } else {
-      return {
-        filename: state.selectedFilenameA,
-        loading: true,
-        json: null,
-      };
+      return 'loading';
     }
   } else {
-    return {
-      filename: null,
-      loading: false,
-      json: null,
-    };
+    return 'empty';
   }
+}
+
+const mapStateToProps = (state: State): StateProps => {
+  return {
+    appState: getAppState(state),
+  };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
