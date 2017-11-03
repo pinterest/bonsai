@@ -90,51 +90,6 @@ exports[`Storyshots App Filename picked, data available 1`] = `
         >
           <div
             className="col-sm-12"
-          >
-            <div
-              className="form-horizontal"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="col-sm-1 control-label"
-                >
-                  Chunk
-                </label>
-                <div
-                  className="col-sm-11"
-                >
-                  <div
-                    className="btn-group "
-                    style={undefined}
-                  >
-                    <button
-                      aria-expanded={false}
-                      aria-haspopup="true"
-                      className="btn btn-default dropdown-toggle"
-                      data-toggle="dropdown"
-                      disabled={null}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      - pick a chunk -
-                       
-                      <span
-                        className="caret"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="row"
-        >
-          <div
-            className="col-sm-12"
           />
         </div>
         <div
@@ -1621,419 +1576,614 @@ exports[`Storyshots ExternalModuleLink Default 1`] = `
 
 exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
 
-exports[`Storyshots FileSelectors - Diff Mode Filename picked 1`] = `
+exports[`Storyshots FileSelectors - Diff Mode Filename A & B picked 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      File A
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="form-group"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
-          value=""
-        />
-        <option
-          value="stats.json"
+        File A
+      </label>
+      <div
+        className="col-sm-6"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="stats-one.json"
         >
-          stats.json
-        </option>
-      </select>
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-sm-5"
+        onClick={[Function]}
+      >
+        <div
+          className="btn-group "
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
+      </div>
     </div>
     <div
-      className="col-sm-1"
-      onClick={[Function]}
+      className="form-group"
     >
-      <div
-        className="checkbox"
+      <label
+        className="col-sm-1 control-label"
       >
-        <label
-          htmlFor="enable-diff"
+        File B
+      </label>
+      <div
+        className="col-sm-6"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="stats-two.json"
         >
-          <input
-            id="enable-diff"
-            onChange={[Function]}
-            type="checkbox"
+          <option
+            value=""
           />
-           Diff
-        </label>
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-sm-5"
+        onClick={[Function]}
+      >
+        <div
+          className="btn-group "
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="form-group"
+    className="col-sm-1"
+    onClick={[Function]}
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      File B
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="checkbox"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
+      <label
+        htmlFor="enable-diff"
       >
-        <option
-          value=""
+        <input
+          checked={true}
+          id="enable-diff"
+          onChange={[Function]}
+          type="checkbox"
         />
-        <option
-          value="stats.json"
-        >
-          stats.json
-        </option>
-      </select>
+         Diff
+      </label>
     </div>
-    <div
-      className="col-sm-1"
-      onClick={[Function]}
-    />
   </div>
 </div>
 `;
 
-exports[`Storyshots FileSelectors - Diff Mode Invalid: empty list, filename picked 1`] = `
+exports[`Storyshots FileSelectors - Diff Mode Filename A picked 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      File A
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="form-group"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
-          value=""
-        />
-      </select>
+        File A
+      </label>
+      <div
+        className="col-sm-6"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="stats.json"
+        >
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-sm-5"
+        onClick={[Function]}
+      >
+        <div
+          className="btn-group "
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
+      </div>
     </div>
     <div
-      className="col-sm-1"
-      onClick={[Function]}
+      className="form-group"
     >
-      <div
-        className="checkbox"
+      <label
+        className="col-sm-1 control-label"
       >
-        <label
-          htmlFor="enable-diff"
+        File B
+      </label>
+      <div
+        className="col-sm-6"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value="stats.json"
         >
-          <input
-            id="enable-diff"
-            onChange={[Function]}
-            type="checkbox"
+          <option
+            value=""
           />
-           Diff
-        </label>
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-sm-5"
+        onClick={[Function]}
+      >
+        <div
+          className="btn-group "
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="form-group"
+    className="col-sm-1"
+    onClick={[Function]}
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      File B
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="checkbox"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
+      <label
+        htmlFor="enable-diff"
       >
-        <option
-          value=""
+        <input
+          checked={true}
+          id="enable-diff"
+          onChange={[Function]}
+          type="checkbox"
         />
-      </select>
+         Diff
+      </label>
     </div>
-    <div
-      className="col-sm-1"
-      onClick={[Function]}
-    />
   </div>
 </div>
 `;
+
+exports[`Storyshots FileSelectors - Diff Mode Invalid: empty list, filename picked 1`] = `null`;
 
 exports[`Storyshots FileSelectors - Diff Mode No filename, empty list 1`] = `null`;
 
 exports[`Storyshots FileSelectors - Diff Mode No filename, items in list 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      File A
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="form-group"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value=""
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
+        File A
+      </label>
+      <div
+        className="col-sm-6"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
           value=""
-        />
-        <option
-          value="stats.json"
         >
-          stats.json
-        </option>
-      </select>
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-sm-5"
+        onClick={[Function]}
+      >
+        <div
+          className="btn-group "
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
+      </div>
     </div>
     <div
-      className="col-sm-1"
-      onClick={[Function]}
+      className="form-group"
     >
-      <div
-        className="checkbox"
+      <label
+        className="col-sm-1 control-label"
       >
-        <label
-          htmlFor="enable-diff"
+        File B
+      </label>
+      <div
+        className="col-sm-6"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value=""
         >
-          <input
-            id="enable-diff"
-            onChange={[Function]}
-            type="checkbox"
+          <option
+            value=""
           />
-           Diff
-        </label>
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-sm-5"
+        onClick={[Function]}
+      >
+        <div
+          className="btn-group "
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="form-group"
+    className="col-sm-1"
+    onClick={[Function]}
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      File B
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="checkbox"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value=""
+      <label
+        htmlFor="enable-diff"
       >
-        <option
-          value=""
+        <input
+          checked={true}
+          id="enable-diff"
+          onChange={[Function]}
+          type="checkbox"
         />
-        <option
-          value="stats.json"
-        >
-          stats.json
-        </option>
-      </select>
+         Diff
+      </label>
     </div>
-    <div
-      className="col-sm-1"
-      onClick={[Function]}
-    />
   </div>
 </div>
 `;
 
 exports[`Storyshots FileSelectors - Single Mode Filename picked 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="form-group"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
-          value=""
-        />
-        <option
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
           value="stats.json"
         >
-          stats.json
-        </option>
-      </select>
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
     </div>
     <div
-      className="col-sm-1"
+      className="form-group"
       onClick={[Function]}
     >
-      <div
-        className="checkbox"
+      <label
+        className="col-sm-1 control-label"
       >
-        <label
-          htmlFor="enable-diff"
+        Chunk
+      </label>
+      <div
+        className="col-sm-11"
+      >
+        <div
+          className="btn-group "
+          style={undefined}
         >
-          <input
-            id="enable-diff"
-            onChange={[Function]}
-            type="checkbox"
-          />
-           Diff
-        </label>
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
       </div>
+    </div>
+  </div>
+  <div
+    className="col-sm-1"
+    onClick={[Function]}
+  >
+    <div
+      className="checkbox"
+    >
+      <label
+        htmlFor="enable-diff"
+      >
+        <input
+          checked={false}
+          id="enable-diff"
+          onChange={[Function]}
+          type="checkbox"
+        />
+         Diff
+      </label>
     </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots FileSelectors - Single Mode Invalid: empty list, filename picked 1`] = `
-<div
-  className="form-horizontal"
->
-  <div
-    className="form-group"
-  >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
-    <div
-      className="col-sm-10"
-      onClick={[Function]}
-    >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
-      >
-        <option
-          value=""
-        />
-      </select>
-    </div>
-    <div
-      className="col-sm-1"
-      onClick={[Function]}
-    >
-      <div
-        className="checkbox"
-      >
-        <label
-          htmlFor="enable-diff"
-        >
-          <input
-            id="enable-diff"
-            onChange={[Function]}
-            type="checkbox"
-          />
-           Diff
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
-`;
+exports[`Storyshots FileSelectors - Single Mode Invalid: empty list, filename picked 1`] = `null`;
 
 exports[`Storyshots FileSelectors - Single Mode No filename, empty list 1`] = `null`;
 
 exports[`Storyshots FileSelectors - Single Mode No filename, items in list 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
     <div
-      className="col-sm-10"
-      onClick={[Function]}
+      className="form-group"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value=""
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
           value=""
-        />
-        <option
-          value="stats.json"
         >
-          stats.json
-        </option>
-      </select>
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
     </div>
     <div
-      className="col-sm-1"
+      className="form-group"
       onClick={[Function]}
     >
-      <div
-        className="checkbox"
+      <label
+        className="col-sm-1 control-label"
       >
-        <label
-          htmlFor="enable-diff"
+        Chunk
+      </label>
+      <div
+        className="col-sm-11"
+      >
+        <div
+          className="btn-group "
+          style={undefined}
         >
-          <input
-            id="enable-diff"
-            onChange={[Function]}
-            type="checkbox"
-          />
-           Diff
-        </label>
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
       </div>
+    </div>
+  </div>
+  <div
+    className="col-sm-1"
+    onClick={[Function]}
+  >
+    <div
+      className="checkbox"
+    >
+      <label
+        htmlFor="enable-diff"
+      >
+        <input
+          checked={false}
+          id="enable-diff"
+          onChange={[Function]}
+          type="checkbox"
+        />
+         Diff
+      </label>
     </div>
   </div>
 </div>

@@ -62,6 +62,7 @@ export default class App extends Component<Props, State> {
                     onDragLeave={() => this.setState({ isDragging: false })}
                     onLoading={props.onPickedFile.bind(null, 'A')}
                     onChange={props.onDroppedFile}>
+                    <FileSelectorsContainer />
                     {showHelp
                       ? <div className="well well-sm clearfix">
                         <div className="col-sm-12">
@@ -72,7 +73,6 @@ export default class App extends Component<Props, State> {
                         </div>
                       </div>
                       : null}
-                    <FileSelectorsContainer />
                   </DragDropUpload>
                 </div>
               </div>
