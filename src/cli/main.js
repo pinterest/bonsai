@@ -4,8 +4,9 @@
 
 import type { Flags } from './resolveArgs';
 
-import chunkSizes from './chunkSizes';
-import chunkSizesDiff from './chunkSizesDiff';
+import chunkSizes from '../stats/chunkSizes';
+import chunkSizesDiff from '../stats/chunkSizesDiff';
+import { openRawStatsFile } from './fileSystemHelper';
 
 export default function main(flags: Flags): void {
   if (process.env.VERBOSE) {
@@ -15,15 +16,15 @@ export default function main(flags: Flags): void {
   switch(flags.command) {
     case 'chunk-sizes':
       console.log( // eslint-disable-line no-console
-        chunkSizes(flags.statsFile)
+        chunkSizes(openRawStatsFile(flags.statsFile))
       );
       break;
 
     case 'chunk-sizes-diff':
       console.log( // eslint-disable-line no-console
         chunkSizesDiff(
-          chunkSizes(flags.fileA),
-          chunkSizes(flags.fileB),
+          chunkSizes(openRawStatsFile(flags.fileA)),
+          chunkSizes(openRawStatsFile(flags.fileB)),
         )
       );
       break;

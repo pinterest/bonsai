@@ -4,10 +4,10 @@
 
 import type { RawStats } from '../../types/Stats';
 
-import getRawStatsFiles, {
+import getRawStats, {
   getStatsJson,
   getMultiStatsJson,
-} from '../getRawStatsFiles';
+} from '../getRawStats';
 
 // eslint-disable-next-line no-unused-vars
 function isRawStats(stats: RawStats) {
@@ -21,7 +21,7 @@ function expectSingleConfigToFallThroughToMulti() {
   expect(console.error).toHaveBeenCalledWith(`Could not find 'chunks' field.`);
 }
 
-describe('getRawStatsFiles', () => {
+describe('getRawStats', () => {
   beforeEach(() => {
     (console: any).error = jest.fn();
   });
@@ -142,14 +142,14 @@ describe('getRawStatsFiles', () => {
     });
   });
 
-  describe('getRawStatsFiles', () => {
+  describe('getRawStats', () => {
     it('should detect and accept single configs', () => {
       const json = {
         chunks: [],
         modules: [],
       };
 
-      const stats = getRawStatsFiles('test-stats.json', json);
+      const stats = getRawStats('test-stats.json', json);
 
       isRawStats(stats['test-stats.json']);
       expect(stats).toEqual({
@@ -167,7 +167,7 @@ describe('getRawStatsFiles', () => {
         }],
       };
 
-      const stats = getRawStatsFiles('test-stats.json', json);
+      const stats = getRawStats('test-stats.json', json);
 
       isRawStats(stats['test-stats.json']);
       expect(stats).toEqual({
@@ -187,7 +187,7 @@ describe('getRawStatsFiles', () => {
         }],
       };
 
-      const stats = getRawStatsFiles('test-stats.json', json);
+      const stats = getRawStats('test-stats.json', json);
 
       isRawStats(stats['test-stats.json']);
       expect(stats).toEqual({
