@@ -10,6 +10,8 @@ import type {
 } from './stats/filterModules';
 import type { SortableFields, SortProps } from './stats/sortModules';
 
+import chunkSizes from './stats/chunkSizes';
+import chunkSizesDiff from './stats/chunkSizesDiff';
 import fullModuleData from './stats/fullModuleData';
 import getCollapsableParentOf from './stats/getCollapsableParentOf';
 import getModulesById from './stats/getModulesById';
@@ -124,6 +126,34 @@ function concatItemToSet(list: Array<string>, item: string): Array<string> {
     : list.concat(item);
 }
 
+function selectedFileKeyFromState(state: State) {
+  if (state.selectedFilenameA === null) {
+    return 'selectedFilenameA';
+  } else if (state.selectedFilenameB === null && state.appMode === 'diff') {
+    return 'selectedFilenameB';
+  } else {
+    return null;
+  }
+}
+
+function selectedChunkKeyFromState(state: State) {
+  return state.appMode === 'diff'
+    ? 'selectedChunkIdB'
+    : 'selectedChunkIdA';
+}
+
+function selectedFileKeyFromPosition(position: 'A' | 'B') {
+  return position === 'B'
+    ? 'selectedFilenameB'
+    : 'selectedFilenameA';
+}
+
+function selectedChunkKeyFromPosition(position: 'A' | 'B') {
+  return position === 'B'
+    ? 'selectedChunkIdB'
+    : 'selectedChunkIdA';
+}
+
 function handleAction(
   state: State,
   action: Action,
@@ -139,40 +169,31 @@ function handleAction(
       dataPaths: action.paths.reduce(concatItemToSet, state.dataPaths),
     };
   } else if (action.type === 'pickedFile') {
-    if (action.position === 'A') {
-      return {
-        ...state,
-        selectedFilenameA: action.filename,
-        selectedChunkIdA: null,
-        blacklistedModuleIds: [],
-        expandedRecords: new Set(),
-        currentlyFocusedElementID: null,
-      };
-    } else if (action.position === 'B') {
-      return {
-        ...state,
-        selectedFilenameB: action.filename,
-        selectedChunkIdB: null,
-        blacklistedModuleIds: [],
-        expandedRecords: new Set(),
-        currentlyFocusedElementID: null,
-      };
-    } else {
-      return state;
-    }
-  } else if (action.type === 'loadingFailed') {
     return {
       ...state,
-      selectedFilenameA: null,
-      selectedChunkIdA: null,
+      [selectedFileKeyFromPosition(action.position)]: action.filename,
+      [selectedChunkKeyFromPosition(action.position)]: null,
+      blacklistedModuleIds: [],
+      expandedRecords: new Set(),
+      currentlyFocusedElementID: null,
+    };
+  } else if (action.type === 'loadingFailed') {
+    const key = selectedFileKeyFromState(state);
+
+    return {
+      ...state,
+      ...(key ? {[key]: null} : null),
+      [selectedChunkKeyFromState(state)]: null,
       blacklistedModuleIds: [],
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
   } else if (action.type === 'loadingFinished') {
+    const key = selectedFileKeyFromState(state);
+
     return {
       ...state,
-      selectedFilenameA: action.filename,
+      ...(key ? {[key]: action.filename} : null),
       dataPaths: concatItemToSet(state.dataPaths, action.filename),
       json: {
         ...state.json,
@@ -201,7 +222,7 @@ function handleAction(
   } else if (action.type === 'onPickedChunk') {
     return {
       ...state,
-      selectedChunkIdA: String(action.chunkId),
+      [selectedChunkKeyFromPosition(action.position)]: String(action.chunkId),
       blacklistedModuleIds: [],
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
@@ -297,12 +318,42 @@ function calculateFullModuleData(
   };
 }
 
+function calculateDiffData(state: State): State {
+  if (state.appMode !== 'diff') {
+    return state;
+  }
+
+  if (!state.selectedFilenameA || !state.selectedFilenameB) {
+    return state;
+  }
+
+  const jsonA = state.json[state.selectedFilenameA];
+  const jsonB = state.json[state.selectedFilenameB];
+
+  if (!jsonA || !jsonB) {
+    return state;
+  }
+
+  const fileA = {[state.selectedFilenameA]: jsonA};
+  const fileB = {[state.selectedFilenameB]: jsonB};
+
+  return {
+    ...state,
+    calculatedDiffData: chunkSizesDiff(
+      chunkSizes(fileA),
+      chunkSizes(fileB),
+    ),
+  };
+}
+
 export default function reducer(
   state: State = INITIAL_STATE,
   action: Action,
 ): State {
-  return calculateFullModuleData(
-    state,
-    handleAction(state, action)
+  return calculateDiffData(
+    calculateFullModuleData(
+      state,
+      handleAction(state, action),
+    ),
   );
 }
