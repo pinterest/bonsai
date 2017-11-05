@@ -126,7 +126,7 @@ function ModuleTableRow(props: TRProps) {
       {...OffsetPageAnchor(String(eModule.id), {
         className: [
           'ModuleTableBody-row',
-          props.expanded
+          props.expanded && props.records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
         ].join(' ').trim()
