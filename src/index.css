@@ -34,6 +34,11 @@ ul, li {
   vertical-align: middle;
 }
 
+.table th.numeric,
+.table td.numeric {
+  text-align: right;
+}
+
 .dropdown-menu {
   margin-bottom: 20px;
 }
