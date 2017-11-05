@@ -11,9 +11,16 @@ import * as React from 'react';
 
 type Alignment = 'left' | 'right';
 
+type Size =
+  | 'lg'
+  | 'sm'
+  | 'xs'
+  | 'block';
+
 type Props = {
   align?: Alignment,
   color?: Color,
+  size?: Size,
   disabled?: boolean,
   style?: Object,
 
@@ -33,6 +40,13 @@ type Props = {
 type State = {
   isOpen: boolean,
 };
+
+function sizeToClass(size: ?Size) {
+  if (!size) {
+    return null;
+  }
+  return `btn-${size}`;
+}
 
 export default class Dropdown extends React.Component<Props, State> {
   state: State = {
@@ -54,12 +68,17 @@ export default class Dropdown extends React.Component<Props, State> {
     const isOpenClass = this.state.isOpen ? 'open': '';
     return (
       <div
-        className={['btn-group', isOpenClass].join(' ')}
+        className={[
+          'btn-group',
+          isOpenClass,
+          sizeToClass(this.props.size),
+        ].join(' ')}
         ref={(div) => this._dropDownMenu = div }
         style={this.props.style}>
         {this.props.split
           ? <Button
             color={this.props.color}
+            size={this.props.size}
             onClick={this.props.disabled
               ? null
               : this.props.split.primaryOnClick}>
@@ -68,6 +87,7 @@ export default class Dropdown extends React.Component<Props, State> {
           : null}
         <DropdownToggleButton
           color={this.props.color}
+          size={this.props.size}
           isOpen={this.state.isOpen}
           onClick={this.props.disabled
             ? null
