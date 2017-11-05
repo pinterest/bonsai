@@ -139,7 +139,7 @@ exports[`Storyshots App Filename picked, data available 1`] = `
                   className="col-sm-11"
                 >
                   <div
-                    className="btn-group "
+                    className="btn-group"
                     style={undefined}
                   >
                     <button
@@ -647,7 +647,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -671,7 +671,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -813,7 +813,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -837,7 +837,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -1063,7 +1063,7 @@ exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1086,7 +1086,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1109,7 +1109,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1132,7 +1132,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={
     Object {
       "background": "red",
@@ -1160,7 +1160,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1183,7 +1183,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1206,7 +1206,7 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1242,7 +1242,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1278,7 +1278,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1314,7 +1314,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1350,7 +1350,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 
 exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled="disabled"
   href="#"
   role="button"
@@ -1362,7 +1362,7 @@ exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Link Disabled Success 1`] = `
 <a
-  className="btn btn-success "
+  className="btn btn-success"
   disabled="disabled"
   href="#"
   role="button"
@@ -1386,7 +1386,7 @@ exports[`Storyshots Bootstrap/Link Large 1`] = `
 
 exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled={null}
   href="example.com"
   role="button"
@@ -1401,7 +1401,7 @@ exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
 
 exports[`Storyshots Bootstrap/Link Success 1`] = `
 <a
-  className="btn btn-success "
+  className="btn btn-success"
   disabled={null}
   href="javascript: alert('Linked!');"
   role="button"
@@ -1413,7 +1413,7 @@ exports[`Storyshots Bootstrap/Link Success 1`] = `
 
 exports[`Storyshots Bootstrap/Link With href 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled={null}
   href="javascript: alert('Linked!');"
   role="button"
@@ -1733,7 +1733,7 @@ exports[`Storyshots Bootstrap/Panel With table child 1`] = `
 
 exports[`Storyshots ExternalModuleLink Default 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled={null}
   href="http://example.com/./app/analytics/modules/AnalyticsMetric/AnalyticsMetric.js"
   role="button"

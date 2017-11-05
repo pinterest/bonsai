@@ -72,7 +72,7 @@ export default class Dropdown extends React.Component<Props, State> {
           'btn-group',
           isOpenClass,
           sizeToClass(this.props.size),
-        ].join(' ')}
+        ].filter(_ => _).join(' ')}
         ref={(div) => this._dropDownMenu = div }
         style={this.props.style}>
         {this.props.split
@@ -117,7 +117,7 @@ export default class Dropdown extends React.Component<Props, State> {
     const classNames = [
       'dropdown-menu',
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
-    ].join(' ');
+    ].filter(_ => _).join(' ');
 
     const content = this.props.getContent(this.onHide);
     if (Array.isArray(content)) {
