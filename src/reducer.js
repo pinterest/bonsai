@@ -62,6 +62,10 @@ export type Action =
     moduleID: ModuleID,
   }
   | {
+    type: 'changeExpandRecordsMode',
+    mode: 'manual' | 'expand-all' | 'collapse-all',
+  }
+  | {
     type: 'onExpandRecords',
     moduleID: ModuleID,
   }
@@ -86,6 +90,7 @@ export type State = {
   json: {[filename: string]: RawStats},
   sort: SortProps,
   filters: FilterProps,
+  expandMode: 'manual' | 'expand-all' | 'collapse-all',
   expandedRecords: Set<ModuleID>,
   currentlyFocusedElementID: ?string,
   calculatedFullModuleData: ?FullModuleDataType,
@@ -115,6 +120,7 @@ export const INITIAL_STATE: State = {
     requirementsCountMin: '',
     requirementsCountMax: '',
   },
+  expandMode: 'collapse-all',
   expandedRecords: new Set(),
   currentlyFocusedElementID: null,
   calculatedFullModuleData: null,
@@ -182,6 +188,7 @@ function handleAction(
       [selectedFileKeyFromPosition(action.position)]: action.filename,
       [selectedChunkKeyFromPosition(action.position)]: null,
       blacklistedModuleIds: [],
+      expandMode: 'collapse-all',
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
@@ -193,6 +200,7 @@ function handleAction(
       ...(key ? {[key]: null} : null),
       [selectedChunkKeyFromState(state)]: null,
       blacklistedModuleIds: [],
+      expandMode: 'collapse-all',
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
@@ -232,6 +240,7 @@ function handleAction(
       ...state,
       [selectedChunkKeyFromPosition(action.position)]: String(action.chunkId),
       blacklistedModuleIds: [],
+      expandMode: 'collapse-all',
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
@@ -251,15 +260,24 @@ function handleAction(
         (id) => String(id) !== String(moduleID),
       ),
     };
+  } else if (action.type === 'changeExpandRecordsMode') {
+    return {
+      ...state,
+      expandMode: action.mode,
+    };
   } else if (action.type === 'onExpandRecords') {
     return {
       ...state,
+      expandMode: 'manual',
       expandedRecords: new Set(state.expandedRecords.add(action.moduleID)),
     };
   } else if (action.type === 'onCollapseRecords') {
     state.expandedRecords.delete(action.moduleID);
     return {
       ...state,
+      expandMode: state.expandedRecords.size === 0
+        ? 'collapse-all'
+        : 'manual',
       expandedRecords: new Set(state.expandedRecords),
     };
   } else if (action.type === 'onFocusChanged') {
@@ -276,6 +294,9 @@ function handleAction(
       );
       return {
         ...state,
+        expandMode: collapseableParent
+          ? 'manual'
+          : state.expandMode,
         expandedRecords: collapseableParent
           ? new Set(state.expandedRecords.add(collapseableParent.id))
           : state.expandedRecords,

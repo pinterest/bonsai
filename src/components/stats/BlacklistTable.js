@@ -59,9 +59,9 @@ export default function BlasklistTable(props: Props) {
           <tr>
             <th></th>
             <th>Name</th>
-            <th>Size</th>
-            <th>Dependants</th>
-            <th>Imports</th>
+            <th className="numeric">Size</th>
+            <th className="numeric">Dependants</th>
+            <th className="numeric">Imports</th>
             <th></th>
           </tr>
         </thead>
@@ -78,13 +78,13 @@ export default function BlasklistTable(props: Props) {
                 <td className="vert-align">
                   {eModule.name}
                 </td>
-                <td className="vert-align">
+                <td className="vert-align numeric">
                   <Unit bytes={eModule.size} />
                 </td>
-                <td className="vert-align">
+                <td className="vert-align numeric">
                   <RequiredByPanelContainer eModule={eModule} />
                 </td>
-                <td className="vert-align">
+                <td className="vert-align numeric">
                   <RequirementsPanelContainer eModule={eModule} />
                 </td>
                 <td className="vert-align">
@@ -102,14 +102,14 @@ export default function BlasklistTable(props: Props) {
         <tfoot>
           <tr>
             <th></th>
-            <th>Removed Modules</th>
-            <td>{removed.length}</td>
+            <th className="numeric">Removed Modules</th>
+            <td className="numeric">{removed.length}</td>
             <td colSpan="3"></td>
           </tr>
           <tr>
             <th></th>
-            <th>Total Size</th>
-            <td><Unit bytes={sum} /></td>
+            <th className="numeric">Total Size</th>
+            <td className="numeric"><Unit bytes={sum} /></td>
             <td colSpan="3"></td>
           </tr>
         </tfoot>
