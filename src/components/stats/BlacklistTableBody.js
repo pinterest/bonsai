@@ -39,7 +39,7 @@ export default class BlacklistTableBody extends Component<Props, State> {
               <td className="vert-align">
                 {eModule.name}
               </td>
-              <td className="vert-align">
+              <td className="vert-align numeric">
                 <Unit bytes={eModule.size} />
               </td>
               <td colSpan="3"></td>

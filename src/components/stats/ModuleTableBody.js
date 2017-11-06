@@ -142,16 +142,16 @@ function ModuleTableRow(props: TRProps) {
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         <Unit bytes={eModule.cumulativeSize} />
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         {moduleSize}
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         <RequiredByPanelContainer eModule={eModule} />
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         <RequirementsPanelContainer eModule={eModule} />
       </td>
       <td className="vert-align">

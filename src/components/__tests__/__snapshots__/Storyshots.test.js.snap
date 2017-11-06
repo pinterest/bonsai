@@ -602,13 +602,19 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
         <th>
           Name
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Size
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Dependants
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Imports
         </th>
         <th />
@@ -629,7 +635,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           Module One-B
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <span
             title="300 bytes"
@@ -638,7 +644,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           </span>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
             className="btn-group "
@@ -662,7 +668,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
             className="btn-group "
@@ -703,10 +709,14 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
     <tfoot>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Removed Modules
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           1
         </td>
         <td
@@ -715,10 +725,14 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
       </tr>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Total Size
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           <span
             title="300 bytes"
           >
@@ -754,13 +768,19 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
         <th>
           Name
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Size
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Dependants
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Imports
         </th>
         <th />
@@ -781,7 +801,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           Entry One
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <span
             title="100 bytes"
@@ -790,7 +810,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           </span>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
             className="btn-group "
@@ -814,7 +834,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
             className="btn-group "
@@ -878,10 +898,14 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
     <tfoot>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Removed Modules
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           3
         </td>
         <td
@@ -890,10 +914,14 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
       </tr>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Total Size
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           <span
             title="1,000 bytes"
           >
