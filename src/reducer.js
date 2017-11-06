@@ -127,6 +127,14 @@ function concatItemToSet(list: Array<string>, item: string): Array<string> {
 }
 
 function selectedFileKeyFromState(state: State) {
+  if (state.selectedFilenameB !== null) {
+    return 'selectedFilenameB';
+  } else {
+    return 'selectedFilenameA';
+  }
+}
+
+function selectedNextFileKeyFromState(state: State) {
   if (state.selectedFilenameA === null) {
     return 'selectedFilenameA';
   } else if (state.selectedFilenameB === null && state.appMode === 'diff') {
@@ -189,7 +197,7 @@ function handleAction(
       currentlyFocusedElementID: null,
     };
   } else if (action.type === 'loadingFinished') {
-    const key = selectedFileKeyFromState(state);
+    const key = selectedNextFileKeyFromState(state);
 
     return {
       ...state,
