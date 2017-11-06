@@ -109,6 +109,13 @@ export function IncludedModule(dispatch: Dispatch) {
   });
 }
 
+export function ChangeExpandMode(dispatch: Dispatch) {
+  return (mode: 'manual' | 'expand-all' | 'collapse-all') => dispatch({
+    type: 'changeExpandRecordsMode',
+    mode,
+  });
+}
+
 export function ExpandRecords(dispatch: Dispatch) {
   return (moduleID: ModuleID) => dispatch({
     type: 'onExpandRecords',
