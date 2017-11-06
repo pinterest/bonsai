@@ -317,13 +317,19 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
         <th>
           Name
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Size
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Dependants
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Imports
         </th>
         <th />
@@ -344,7 +350,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           Module One-B
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <span
             title="300 bytes"
@@ -353,10 +359,10 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           </span>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -377,10 +383,10 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -418,10 +424,14 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
     <tfoot>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Removed Modules
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           1
         </td>
         <td
@@ -430,10 +440,14 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
       </tr>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Total Size
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           <span
             title="300 bytes"
           >
@@ -469,13 +483,19 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
         <th>
           Name
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Size
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Dependants
         </th>
-        <th>
+        <th
+          className="numeric"
+        >
           Imports
         </th>
         <th />
@@ -496,7 +516,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           Entry One
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <span
             title="100 bytes"
@@ -505,10 +525,10 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           </span>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -529,10 +549,10 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align"
+          className="vert-align numeric"
         >
           <div
-            className="btn-group "
+            className="btn-group"
             style={undefined}
           >
             <button
@@ -593,10 +613,14 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
     <tfoot>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Removed Modules
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           3
         </td>
         <td
@@ -605,10 +629,14 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
       </tr>
       <tr>
         <th />
-        <th>
+        <th
+          className="numeric"
+        >
           Total Size
         </th>
-        <td>
+        <td
+          className="numeric"
+        >
           <span
             title="1,000 bytes"
           >
@@ -750,7 +778,7 @@ exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -773,7 +801,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -796,7 +824,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -819,7 +847,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={
     Object {
       "background": "red",
@@ -847,7 +875,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -870,7 +898,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -893,7 +921,7 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -929,7 +957,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -965,7 +993,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1001,7 +1029,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 <div
-  className="btn-group "
+  className="btn-group"
   style={undefined}
 >
   <button
@@ -1037,7 +1065,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 
 exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled="disabled"
   href="#"
   role="button"
@@ -1049,7 +1077,7 @@ exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Link Disabled Success 1`] = `
 <a
-  className="btn btn-success "
+  className="btn btn-success"
   disabled="disabled"
   href="#"
   role="button"
@@ -1073,7 +1101,7 @@ exports[`Storyshots Bootstrap/Link Large 1`] = `
 
 exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled={null}
   href="example.com"
   role="button"
@@ -1088,7 +1116,7 @@ exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
 
 exports[`Storyshots Bootstrap/Link Success 1`] = `
 <a
-  className="btn btn-success "
+  className="btn btn-success"
   disabled={null}
   href="javascript: alert('Linked!');"
   role="button"
@@ -1100,7 +1128,7 @@ exports[`Storyshots Bootstrap/Link Success 1`] = `
 
 exports[`Storyshots Bootstrap/Link With href 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled={null}
   href="javascript: alert('Linked!');"
   role="button"
@@ -1420,7 +1448,7 @@ exports[`Storyshots Bootstrap/Panel With table child 1`] = `
 
 exports[`Storyshots ExternalModuleLink Default 1`] = `
 <a
-  className="btn btn-link "
+  className="btn btn-link"
   disabled={null}
   href="http://example.com/./app/analytics/modules/AnalyticsMetric/AnalyticsMetric.js"
   role="button"
@@ -1475,7 +1503,7 @@ exports[`Storyshots FileSelectors - Diff Mode Filename A & B picked 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -1529,7 +1557,7 @@ exports[`Storyshots FileSelectors - Diff Mode Filename A & B picked 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -1614,7 +1642,7 @@ exports[`Storyshots FileSelectors - Diff Mode Filename A picked 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -1668,7 +1696,7 @@ exports[`Storyshots FileSelectors - Diff Mode Filename A picked 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -1757,7 +1785,7 @@ exports[`Storyshots FileSelectors - Diff Mode No filename, items in list 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -1811,7 +1839,7 @@ exports[`Storyshots FileSelectors - Diff Mode No filename, items in list 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -1905,7 +1933,7 @@ exports[`Storyshots FileSelectors - Single Mode Filename picked 1`] = `
         className="col-sm-11"
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button
@@ -2003,7 +2031,7 @@ exports[`Storyshots FileSelectors - Single Mode No filename, items in list 1`] =
         className="col-sm-11"
       >
         <div
-          className="btn-group "
+          className="btn-group"
           style={undefined}
         >
           <button

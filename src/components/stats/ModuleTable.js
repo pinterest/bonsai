@@ -28,6 +28,7 @@ export type OwnProps = {
 export type StateProps = {
   filters: FilterProps,
   sort: SortProps,
+  expandMode: 'manual' | 'collapse-all' | 'expand-all',
   expandedRecords: Set<ModuleID>,
   focusedRowID: ?string,
 };
@@ -75,6 +76,7 @@ export default class ModuleTable extends Component<Props> {
         />
         <ModuleTableBody
           rows={rows}
+          expandMode={props.expandMode}
           expandedRecords={props.expandedRecords}
           onRemoveModule={props.onRemoveModule}
           onExpandRecords={props.onExpandRecords}

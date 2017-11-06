@@ -19,6 +19,7 @@ const mapStateToProps = (state: State): StateProps => {
   return {
     filters: state.filters,
     sort: state.sort,
+    expandMode: state.expandMode,
     expandedRecords: state.expandedRecords,
     focusedRowID: state.currentlyFocusedElementID,
   };

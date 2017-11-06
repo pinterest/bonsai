@@ -25,6 +25,7 @@ import './ModuleTableBody.css';
 
 type TBodyProps = {
   rows: Array<RowRepresentation>,
+  expandMode: 'manual' | 'collapse-all' | 'expand-all',
   expandedRecords: Set<ModuleID>,
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
@@ -126,7 +127,7 @@ function ModuleTableRow(props: TRProps) {
       {...OffsetPageAnchor(String(eModule.id), {
         className: [
           'ModuleTableBody-row',
-          props.expanded
+          props.expanded && props.records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
         ].join(' ').trim()
@@ -142,16 +143,16 @@ function ModuleTableRow(props: TRProps) {
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         <Unit bytes={eModule.cumulativeSize} />
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         {moduleSize}
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         <RequiredByPanelContainer eModule={eModule} />
       </td>
-      <td className="vert-align">
+      <td className="vert-align numeric">
         <RequirementsPanelContainer eModule={eModule} />
       </td>
       <td className="vert-align">
@@ -169,7 +170,8 @@ export default function ModuleTableBody(props: TBodyProps) {
       {flatten(
         props.rows.map((row: RowRepresentation) => ModuleTableGroupedRows({
           row: row,
-          expanded: props.expandedRecords.has(row.displayModule.id),
+          expanded: props.expandMode === 'expand-all' ||
+            (props.expandMode === 'manual' && props.expandedRecords.has(row.displayModule.id)),
           onRemoveModule: props.onRemoveModule,
           onExpandRecords: props.onExpandRecords,
           onCollapseRecords: props.onCollapseRecords,
