@@ -4,6 +4,7 @@
 
 import type { State } from '../../reducer';
 
+import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
 import { getClassName } from '../Bootstrap/GlyphiconNames';
 import * as React from 'react';
@@ -27,14 +28,14 @@ function ModeOption(props) {
 
   return (
     <li>
-      <a href="#" onClick={(e) => {
+      <Button onClick={(e) => {
         e.preventDefault();
         props.onPickMode(props.nextMode);
       }}>
         <span className={getClassName(isSetToTarget ? 'check' : 'unchecked')} />
         {' '}
         {props.nextMode === 'expand-all' ? 'Expand' : 'Collapse'} All
-      </a>
+      </Button>
     </li>
   );
 }
