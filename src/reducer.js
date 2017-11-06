@@ -10,11 +10,19 @@ import type {
 } from './stats/filterModules';
 import type { SortableFields, SortProps } from './stats/sortModules';
 
+import chunkSizes from './stats/chunkSizes';
+import chunkSizesDiff from './stats/chunkSizesDiff';
 import fullModuleData from './stats/fullModuleData';
 import getCollapsableParentOf from './stats/getCollapsableParentOf';
 import getModulesById from './stats/getModulesById';
 
+export type ModeType = 'single' | 'diff';
+
 export type Action =
+  | {
+    type: 'onChangedMode',
+    appMode: ModeType,
+  }
   | {
     type: 'initDataPaths',
     paths: Array<string>,
@@ -22,6 +30,7 @@ export type Action =
   | {
     type: 'pickedFile',
     filename: ?string,
+    position: 'A' | 'B',
   }
   | {
     type: 'loadingFailed',
@@ -42,6 +51,7 @@ export type Action =
   | {
     type: 'onPickedChunk',
     chunkId: ChunkID,
+    position: 'A' | 'B',
   }
   | {
     type: 'onRemoveModule',
@@ -70,9 +80,12 @@ export type Action =
   ;
 
 export type State = {
+  appMode: ModeType,
   dataPaths: Array<string>,
-  selectedFilename: ?string,
-  selectedChunkId: ?ChunkID,
+  selectedFilenameA: ?string,
+  selectedChunkIdA: ?ChunkID,
+  selectedFilenameB: ?string,
+  selectedChunkIdB: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
   json: {[filename: string]: RawStats},
   sort: SortProps,
@@ -86,9 +99,12 @@ export type State = {
 export type Dispatch = (action: Action) => any;
 
 export const INITIAL_STATE: State = {
+  appMode: 'single',
   dataPaths: [],
-  selectedFilename: null,
-  selectedChunkId: null,
+  selectedFilenameA: null,
+  selectedChunkIdA: null,
+  selectedFilenameB: null,
+  selectedChunkIdB: null,
   blacklistedModuleIds: [],
   json: {},
   sort: {
@@ -116,11 +132,52 @@ function concatItemToSet(list: Array<string>, item: string): Array<string> {
     : list.concat(item);
 }
 
+function selectedFileKeyFromState(state: State) {
+  if (state.selectedFilenameB !== null) {
+    return 'selectedFilenameB';
+  } else {
+    return 'selectedFilenameA';
+  }
+}
+
+function selectedNextFileKeyFromState(state: State) {
+  if (state.selectedFilenameA === null) {
+    return 'selectedFilenameA';
+  } else if (state.selectedFilenameB === null && state.appMode === 'diff') {
+    return 'selectedFilenameB';
+  } else {
+    return null;
+  }
+}
+
+function selectedChunkKeyFromState(state: State) {
+  return state.appMode === 'diff'
+    ? 'selectedChunkIdB'
+    : 'selectedChunkIdA';
+}
+
+function selectedFileKeyFromPosition(position: 'A' | 'B') {
+  return position === 'B'
+    ? 'selectedFilenameB'
+    : 'selectedFilenameA';
+}
+
+function selectedChunkKeyFromPosition(position: 'A' | 'B') {
+  return position === 'B'
+    ? 'selectedChunkIdB'
+    : 'selectedChunkIdA';
+}
+
 function handleAction(
   state: State,
   action: Action,
 ): State {
-  if (action.type === 'initDataPaths') {
+  if (action.type === 'onChangedMode') {
+    return {
+      ...state,
+      appMode: action.appMode,
+    };
+  } else if (action.type === 'initDataPaths') {
     return {
       ...state,
       dataPaths: action.paths.reduce(concatItemToSet, state.dataPaths),
@@ -128,27 +185,31 @@ function handleAction(
   } else if (action.type === 'pickedFile') {
     return {
       ...state,
-      selectedFilename: action.filename,
-      selectedChunkId: null,
+      [selectedFileKeyFromPosition(action.position)]: action.filename,
+      [selectedChunkKeyFromPosition(action.position)]: null,
       blacklistedModuleIds: [],
       expandMode: 'collapse-all',
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
   } else if (action.type === 'loadingFailed') {
+    const key = selectedFileKeyFromState(state);
+
     return {
       ...state,
-      selectedFilename: null,
-      selectedChunkId: null,
+      ...(key ? {[key]: null} : null),
+      [selectedChunkKeyFromState(state)]: null,
       blacklistedModuleIds: [],
       expandMode: 'collapse-all',
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
   } else if (action.type === 'loadingFinished') {
+    const key = selectedNextFileKeyFromState(state);
+
     return {
       ...state,
-      selectedFilename: action.filename,
+      ...(key ? {[key]: action.filename} : null),
       dataPaths: concatItemToSet(state.dataPaths, action.filename),
       json: {
         ...state.json,
@@ -177,7 +238,7 @@ function handleAction(
   } else if (action.type === 'onPickedChunk') {
     return {
       ...state,
-      selectedChunkId: String(action.chunkId),
+      [selectedChunkKeyFromPosition(action.position)]: String(action.chunkId),
       blacklistedModuleIds: [],
       expandMode: 'collapse-all',
       expandedRecords: new Set(),
@@ -258,8 +319,8 @@ function calculateFullModuleData(
 ): State {
   if (
     !newState.json ||
-    !newState.selectedFilename ||
-    !newState.json[newState.selectedFilename]
+    !newState.selectedFilenameA ||
+    !newState.json[newState.selectedFilenameA]
   ) {
     return {
       ...newState,
@@ -269,8 +330,8 @@ function calculateFullModuleData(
 
   if (
     oldState.json === newState.json &&
-    oldState.selectedFilename === newState.selectedFilename &&
-    oldState.selectedChunkId === newState.selectedChunkId &&
+    oldState.selectedFilenameA === newState.selectedFilenameA &&
+    oldState.selectedChunkIdA === newState.selectedChunkIdA &&
     oldState.blacklistedModuleIds === newState.blacklistedModuleIds
   ) {
     return newState;
@@ -279,9 +340,37 @@ function calculateFullModuleData(
   return {
     ...newState,
     calculatedFullModuleData: fullModuleData(
-      newState.json[newState.selectedFilename],
-      newState.selectedChunkId,
+      newState.json[newState.selectedFilenameA],
+      newState.selectedChunkIdA,
       newState.blacklistedModuleIds,
+    ),
+  };
+}
+
+function calculateDiffData(state: State): State {
+  if (state.appMode !== 'diff') {
+    return state;
+  }
+
+  if (!state.selectedFilenameA || !state.selectedFilenameB) {
+    return state;
+  }
+
+  const jsonA = state.json[state.selectedFilenameA];
+  const jsonB = state.json[state.selectedFilenameB];
+
+  if (!jsonA || !jsonB) {
+    return state;
+  }
+
+  const fileA = {[state.selectedFilenameA]: jsonA};
+  const fileB = {[state.selectedFilenameB]: jsonB};
+
+  return {
+    ...state,
+    calculatedDiffData: chunkSizesDiff(
+      chunkSizes(fileA),
+      chunkSizes(fileB),
     ),
   };
 }
@@ -290,8 +379,10 @@ export default function reducer(
   state: State = INITIAL_STATE,
   action: Action,
 ): State {
-  return calculateFullModuleData(
-    state,
-    handleAction(state, action)
+  return calculateDiffData(
+    calculateFullModuleData(
+      state,
+      handleAction(state, action),
+    ),
   );
 }
