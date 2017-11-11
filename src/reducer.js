@@ -10,8 +10,8 @@ import type {
 } from './stats/filterModules';
 import type { SortableFields, SortProps } from './stats/sortModules';
 
-import chunkSizes from './stats/chunkSizes';
-import chunkSizesDiff from './stats/chunkSizesDiff';
+// import chunkSizes from './stats/chunkSizes';
+// import chunkSizesDiff from './stats/chunkSizesDiff';
 import fullModuleData from './stats/fullModuleData';
 import getCollapsableParentOf from './stats/getCollapsableParentOf';
 import getModulesById from './stats/getModulesById';
@@ -94,6 +94,9 @@ export type State = {
   expandedRecords: Set<ModuleID>,
   currentlyFocusedElementID: ?string,
   calculatedFullModuleData: ?FullModuleDataType,
+  calculatedFullModuleDataA: ?FullModuleDataType,
+  calculatedFullModuleDataB: ?FullModuleDataType,
+  // calculatedDiffData: ?Object,
 };
 
 export type Dispatch = (action: Action) => any;
@@ -124,6 +127,9 @@ export const INITIAL_STATE: State = {
   expandedRecords: new Set(),
   currentlyFocusedElementID: null,
   calculatedFullModuleData: null,
+  calculatedFullModuleDataA: null,
+  calculatedFullModuleDataB: null,
+  // calculatedDiffData: null,
 };
 
 function concatItemToSet(list: Array<string>, item: string): Array<string> {
@@ -314,75 +320,100 @@ function handleAction(
 }
 
 function calculateFullModuleData(
+  fileKey: string,
+  chunkKey: string,
   oldState: State,
   newState: State,
-): State {
+): ?FullModuleDataType {
   if (
     !newState.json ||
-    !newState.selectedFilenameA ||
-    !newState.json[newState.selectedFilenameA]
+    !newState[fileKey] ||
+    !newState.json[newState[fileKey]]
   ) {
-    return {
-      ...newState,
-      calculatedFullModuleData: null,
-    };
+    return null;
   }
 
   if (
     oldState.json === newState.json &&
-    oldState.selectedFilenameA === newState.selectedFilenameA &&
-    oldState.selectedChunkIdA === newState.selectedChunkIdA &&
+    oldState[fileKey] === newState[fileKey] &&
+    oldState[chunkKey] === newState[chunkKey] &&
     oldState.blacklistedModuleIds === newState.blacklistedModuleIds
   ) {
-    return newState;
+    return null;
   }
 
-  return {
-    ...newState,
-    calculatedFullModuleData: fullModuleData(
-      newState.json[newState.selectedFilenameA],
-      newState.selectedChunkIdA,
-      newState.blacklistedModuleIds,
-    ),
-  };
+  return fullModuleData(
+    newState.json[newState[fileKey]],
+    newState[chunkKey],
+    newState.blacklistedModuleIds,
+  );
 }
 
-function calculateDiffData(state: State): State {
-  if (state.appMode !== 'diff') {
-    return state;
-  }
-
-  if (!state.selectedFilenameA || !state.selectedFilenameB) {
-    return state;
-  }
-
-  const jsonA = state.json[state.selectedFilenameA];
-  const jsonB = state.json[state.selectedFilenameB];
-
-  if (!jsonA || !jsonB) {
-    return state;
-  }
-
-  const fileA = {[state.selectedFilenameA]: jsonA};
-  const fileB = {[state.selectedFilenameB]: jsonB};
-
-  return {
-    ...state,
-    calculatedDiffData: chunkSizesDiff(
-      chunkSizes(fileA),
-      chunkSizes(fileB),
-    ),
-  };
-}
+// function calculateDiffData(state: State): ?Object {
+//   if (!state.selectedFilenameA || !state.selectedFilenameB) {
+//     return null;
+//   }
+//
+//   const jsonA = state.json[state.selectedFilenameA];
+//   const jsonB = state.json[state.selectedFilenameB];
+//
+//   if (!jsonA || !jsonB) {
+//     return null;
+//   }
+//
+//   const fileA = {[state.selectedFilenameA]: jsonA};
+//   const fileB = {[state.selectedFilenameB]: jsonB};
+//
+//   return chunkSizesDiff(
+//     chunkSizes(fileA),
+//     chunkSizes(fileB),
+//   );
+// }
 
 export default function reducer(
   state: State = INITIAL_STATE,
   action: Action,
 ): State {
-  return calculateDiffData(
-    calculateFullModuleData(
-      state,
-      handleAction(state, action),
-    ),
-  );
+  const newState = handleAction(state, action);
+
+  switch(state.appMode) {
+    case 'single':
+      return {
+        ...newState,
+        calculatedFullModuleData: calculateFullModuleData(
+          'selectedFilename',
+          'selectedChunkId',
+          state,
+          newState
+        )
+      };
+
+    case 'diff':
+      const calculatedFullModuleDataA = calculateFullModuleData(
+        'selectedFilenameA',
+        'selectedChunkIdA',
+        state,
+        newState,
+      );
+
+      const calculatedFullModuleDataB = calculateFullModuleData(
+        'selectedFilenameB',
+        'selectedChunkIdB',
+        state,
+        newState,
+      );
+
+      // const
+      // getExtendedModulesByName
+      return {
+        ...newState,
+        calculatedFullModuleData: calculatedFullModuleDataA,
+        calculatedFullModuleDataA,
+        calculatedFullModuleDataB,
+        // calculatedDiffData: calculateDiffData(newState)
+      };
+
+    default:
+      return newState;
+  }
 }

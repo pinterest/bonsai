@@ -5,6 +5,7 @@
 import type {ModuleID, Module, ExtendedModule} from '../types/Stats';
 
 export type ExtendedModulesById = {[key: ModuleID]: ExtendedModule};
+export type ExtendedModulesByName = {[key: string]: ExtendedModule};
 
 export default function getExtendedModulesById(
   modules: Array<Module>,
@@ -48,6 +49,16 @@ export default function getExtendedModulesById(
   });
 
   return extendedModulesById;
+}
+
+export function getExtendedModulesByName(
+  modules: ExtendedModulesById,
+): ExtendedModulesByName {
+  return Object.keys(modules).reduce((map, id) => {
+    const module = modules[id];
+    map[module.name] = module;
+    return map;
+  }, {});
 }
 
 export function calculateModuleSizes(
