@@ -28,10 +28,14 @@ function ModeOption(props) {
 
   return (
     <li>
-      <Button onClick={(e) => {
-        e.preventDefault();
-        props.onPickMode(props.nextMode);
-      }}>
+      <Button
+        color="link"
+        size="block"
+        style={{textAlign: 'left'}}
+        onClick={(e) => {
+          e.preventDefault();
+          props.onPickMode(props.nextMode);
+        }}>
         <span className={getClassName(isSetToTarget ? 'check' : 'unchecked')} />
         {' '}
         {props.nextMode === 'expand-all' ? 'Expand' : 'Collapse'} All
