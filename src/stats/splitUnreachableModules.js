@@ -22,37 +22,43 @@ export default function splitUnreachableModules(
     };
   }
 
-  const moduleIds = modules.map((module) => String(module.id));
-  const _relevantReasons = (reason) => moduleIds.includes(String(reason.moduleId));
+  const stringyModuleIds = modules.map((module) => String(module.id));
+  const stringyBlackListedIds = blacklistedModuleIds.map(String);
 
-  const topLevelModules = modules.filter((module) => {
-    return module.reasons.filter(_relevantReasons).length === 0;
-  });
+  const _relevantReasons = (reason) =>
+    stringyModuleIds.includes(String(reason.moduleId));
 
-  const reachableModuleIds: Set<ModuleID> = new Set();
-  const recordChildModules = (modules: Array<ExtendedModule>) => {
-    modules.forEach((module) => {
-      if (reachableModuleIds.has(String(module.id))) {
-        return;
-      }
+  const reachableModuleIds = modules
+    .filter((module) =>
+      !stringyBlackListedIds.includes(String(module.id)) &&
+      module.reasons.filter(_relevantReasons).length === 0
+    )
+    .map((module) => module.id);
 
-      reachableModuleIds.add(module.id);
-      recordChildModules(
-        module.requirements
-          .filter(
-            (module) => !blacklistedModuleIds
-              .map(String)
-              .includes(String(module.id))
-          )
-          .map((module) => extendedModulesById[module.id])
-      );
-    });
+  const _includableModule = (module) =>
+    !stringyBlackListedIds.includes(String(module.id));
+
+  const push = (module) => {
+    if (reachableModuleIds.includes(module.id)) {
+      return;
+    }
+    reachableModuleIds.push(module.id);
   };
 
-  recordChildModules(topLevelModules);
+  let i = 0;
+  while (i < reachableModuleIds.length) {
+    const moduleId = reachableModuleIds[i];
+    const module = extendedModulesById[moduleId];
+
+    module.requirements
+      .filter(_includableModule)
+      .map(push);
+
+    i += 1;
+  }
 
   return {
-    included: modules.filter((module) => reachableModuleIds.has(module.id)),
-    removed: modules.filter((module) => !reachableModuleIds.has(module.id)),
+    included: modules.filter((module) => reachableModuleIds.includes(module.id)),
+    removed: modules.filter((module) => !reachableModuleIds.includes(module.id)),
   };
 }
