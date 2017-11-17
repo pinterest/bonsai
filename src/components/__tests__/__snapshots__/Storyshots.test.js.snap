@@ -1942,6 +1942,75 @@ exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 </div>
 `;
 
+exports[`Storyshots ToggleExpandModeButton Collapse-all mode picked 1`] = `
+<div
+  className="btn-group btn-xs"
+  style={undefined}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-default btn-xs dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Unqiue Imports
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots ToggleExpandModeButton Expand-all mode picked 1`] = `
+<div
+  className="btn-group btn-xs"
+  style={undefined}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-default btn-xs dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Unqiue Imports
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
+<div
+  className="btn-group btn-xs"
+  style={undefined}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-default btn-xs dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Unqiue Imports
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
 <span
   title="2 bytes"

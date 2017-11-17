@@ -44,7 +44,7 @@ function ModeOption(props) {
   );
 }
 
-function ToggleExpandModeButton(props: Props) {
+export function ToggleExpandModeButton(props: Props) {
   return (
     <Dropdown
       align='right'
