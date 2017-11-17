@@ -19,6 +19,7 @@ script:
   - yarn flow-coverage-report -- -t text
   - ./src/__test_helpers__/build-fixtures.sh
   - yarn react-scripts -- test --env=jsdom --coverage
+  - yarn codecov
   - yarn build-storybook -- -o 'docs/storybook'
   - |
     NODE_ENV=production \
