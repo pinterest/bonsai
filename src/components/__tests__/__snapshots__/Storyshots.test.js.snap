@@ -2123,6 +2123,14 @@ exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
 </div>
 `;
 
+exports[`Storyshots Unit 0 Bytes (b) 1`] = `
+<span
+  title="0 bytes"
+>
+  0 B
+</span>
+`;
+
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
 <span
   title="2 bytes"

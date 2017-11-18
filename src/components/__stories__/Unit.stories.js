@@ -8,6 +8,9 @@ import { storiesOf } from '@storybook/react';
 import Unit from '../Unit';
 
 storiesOf('Unit', module)
+  .add('0 Bytes (b)', () => (
+    <Unit bytes={0} />
+  ))
   .add('2.4 Bytes (b)', () => (
     <Unit bytes={2.4} />
   ))
