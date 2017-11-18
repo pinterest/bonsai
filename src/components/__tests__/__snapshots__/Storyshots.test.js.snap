@@ -1181,6 +1181,46 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 </div>
 `;
 
+exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
+<div
+  className="btn-group open"
+  style={undefined}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="true"
+    className="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Show flyout
+     
+    <span
+      className="caret"
+    />
+  </button>
+  <div
+    className="dropdown-menu"
+  >
+    <div
+      className="col-sm-12"
+    >
+      <button
+        className="btn btn-success"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        All Done
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 <div
   className="btn-group"
@@ -1201,6 +1241,78 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
       className="caret"
     />
   </button>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
+<div
+  className="btn-group open"
+  style={undefined}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="true"
+    className="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Show list
+     
+    <span
+      className="caret"
+    />
+  </button>
+  <ul
+    className="dropdown-menu"
+  >
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        Count: 
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        Count: 
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        Count: 
+        3
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        Count: 
+        4
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        Count: 
+        5
+      </a>
+    </li>
+  </ul>
 </div>
 `;
 

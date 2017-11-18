@@ -29,6 +29,7 @@ type Props = {
   getContent: (
     hideContent: () => void,
   ) => React.Node,
+  defaultIsOpen?: boolean,
 
   split?: {
     primaryOnClick: (e: MouseEvent) => void,
@@ -49,12 +50,17 @@ function sizeToClass(size: ?Size) {
 }
 
 export default class Dropdown extends React.Component<Props, State> {
-  state: State = {
-    isOpen: false,
-  };
-
+  state: State;
   _dropDownMenu: ?Node = null;
   _flyout: ?Node = null;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      isOpen: props.defaultIsOpen || false,
+    };
+  }
 
   componentDidMount() {
     document.addEventListener('click', this.onDocumentClick);

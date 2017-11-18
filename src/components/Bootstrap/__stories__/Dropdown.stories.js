@@ -45,6 +45,13 @@ storiesOf('Bootstrap/Dropdown', module)
       <span className="caret"></span>
     </Dropdown>
   ))
+  .add('Basic isOpen', () => (
+    <Dropdown getContent={getContent} defaultIsOpen={true}>
+      Show flyout
+      {' '}
+      <span className="caret"></span>
+    </Dropdown>
+  ))
   .add('Basic Warning', () => (
     <Dropdown getContent={getContent} color="warning">
       Show flyout
@@ -75,6 +82,13 @@ storiesOf('Bootstrap/Dropdown', module)
   ))
   .add('List Content', () => (
     <Dropdown getContent={getListContent}>
+      Show list
+      {' '}
+      <span className="caret"></span>
+    </Dropdown>
+  ))
+  .add('List Content isOpen', () => (
+    <Dropdown getContent={getListContent} defaultIsOpen={true}>
       Show list
       {' '}
       <span className="caret"></span>
