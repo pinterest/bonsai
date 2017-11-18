@@ -49,7 +49,6 @@ export default function SelectedChunk(props: Props) {
           <div className="col-sm-11 col-sm-push-1">
             <ChunkBreadcrumb
               parentChunks={props.parentChunks}
-              selectedChunkId={props.selectedChunkId}
               totalModules={
                 (props.moduleData ? props.moduleData.included.length : 0) +
                   (props.moduleData ? props.moduleData.removed.length : 0)

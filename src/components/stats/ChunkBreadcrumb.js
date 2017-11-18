@@ -3,13 +3,11 @@
  */
 
 import type {Child} from '../../stats/getEntryHeirarchy';
-import type {ChunkID} from '../../types/Stats';
 
 import * as React from 'react';
 
 type Props = {
   parentChunks: Array<Child>,
-  selectedChunkId: ChunkID,
   totalModules: number,
 };
 
@@ -17,9 +15,7 @@ export default function ChunkBreadcrumb(props: Props) {
   return (
     <ol className="breadcrumb">
       {props.parentChunks.map((chunk) => (
-        <li
-          key={chunk.id}
-          className={props.selectedChunkId === chunk.id ? 'active' : ''}>
+        <li key={chunk.id}>
           {chunk.name} ({String(chunk.id)})
         </li>
       ))}
