@@ -21,6 +21,7 @@ type ButtonProps = {
   size?: Size,
   onClick: ?(e: MouseEvent) => void,
   display?: Display,
+  style?: Object,
 };
 
 function sizeToClass(size: ?Size) {
