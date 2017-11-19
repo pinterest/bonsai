@@ -1843,6 +1843,69 @@ exports[`Storyshots Bootstrap/Panel With table child 1`] = `
 </div>
 `;
 
+exports[`Storyshots ChunkBreadcrumb All three modules 1`] = `
+<ol
+  className="breadcrumb"
+>
+  <li>
+    chunk-zero
+     (
+    0
+    )
+  </li>
+  <li>
+    chunk-one
+     (
+    1
+    )
+  </li>
+  <li>
+    chunk-two
+     (
+    2
+    )
+  </li>
+  <li
+    className="active"
+  >
+    3
+     modules
+  </li>
+</ol>
+`;
+
+exports[`Storyshots ChunkBreadcrumb Empty data 1`] = `
+<ol
+  className="breadcrumb"
+>
+  <li
+    className="active"
+  >
+    3
+     modules
+  </li>
+</ol>
+`;
+
+exports[`Storyshots ChunkBreadcrumb First module without a parent 1`] = `
+<ol
+  className="breadcrumb"
+>
+  <li>
+    chunk-zero
+     (
+    0
+    )
+  </li>
+  <li
+    className="active"
+  >
+    3
+     modules
+  </li>
+</ol>
+`;
+
 exports[`Storyshots ExternalModuleLink Default 1`] = `
 <a
   className="btn btn-link"
@@ -2121,6 +2184,14 @@ exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
     />
   </button>
 </div>
+`;
+
+exports[`Storyshots Unit 0 Bytes (b) 1`] = `
+<span
+  title="0 bytes"
+>
+  0 B
+</span>
 `;
 
 exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
