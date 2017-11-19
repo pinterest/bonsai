@@ -2,15 +2,13 @@
  * @flow
  */
 
-import type { ChunkID } from '../types/Stats';
+import type { ChunkID, RawStats } from '../types/Stats';
 
-import fs from 'fs';
-import getChunkModules from '../stats/getChunkModules';
-import getChunkName from '../stats/getChunkName';
-import getChunkNamesFromImportedModules from '../stats/getChunkNamesFromImportedModules';
-import getEntryHeirarchy from '../stats/getEntryHeirarchy';
-import getParentChunks from '../stats/getParentChunks';
-import getRawStats from '../types/getRawStatsFiles';
+import getChunkModules from './getChunkModules';
+import getChunkName from './getChunkName';
+import getChunkNamesFromImportedModules from './getChunkNamesFromImportedModules';
+import getEntryHeirarchy from './getEntryHeirarchy';
+import getParentChunks from './getParentChunks';
 import invariant from 'invariant';
 
 export type ChunkSize = {
@@ -21,13 +19,8 @@ export type ChunkSize = {
 };
 
 export default function chunkSizes(
-  statsFilePath: string,
+  rawStats: {[filename: string]: RawStats},
 ): Array<Array<ChunkSize>> {
-  const data = JSON.parse(
-    fs.readFileSync(statsFilePath, {encoding: 'utf8'})
-  );
-
-  const rawStats = getRawStats(statsFilePath, data);
   return Object.keys(rawStats).map((filename) => {
     const stats = rawStats[filename];
 

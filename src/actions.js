@@ -7,7 +7,7 @@ import type {Dispatch} from './reducer';
 import type {FilterableFields} from './stats/filterModules';
 import type {SortableFields} from './stats/sortModules';
 
-import getRawStatsFiles from './types/getRawStatsFiles';
+import getRawStats from './types/getRawStats';
 import { fetchApiFileEndpoint } from './fetchJSON';
 
 export function InitDataPaths(dispatch: Dispatch) {
@@ -45,7 +45,7 @@ export function DroppedFile(dispatch: Dispatch) {
     }
 
     try {
-      files = getRawStatsFiles(filename, json);
+      files = getRawStats(filename, json);
     } catch (error) {
       alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
       // eslint-disable-next-line no-console
