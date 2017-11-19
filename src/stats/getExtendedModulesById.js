@@ -26,7 +26,7 @@ export default function getExtendedModulesById(
 
   modules.forEach((module) => {
     module.reasons.forEach((reason) => {
-      // this module was added becuase `reason`.
+      // this module was added because `reason`.
 
       const importer = extendedModulesById[reason.moduleId];
       if (importer) {

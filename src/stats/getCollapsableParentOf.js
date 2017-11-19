@@ -6,7 +6,7 @@ import type {
   ModuleID,
   ExtendedModule,
 } from '../types/Stats';
-import type { ExtendedModulesById } from './getModulesById';
+import type { ExtendedModulesById } from './getExtendedModulesById';
 
 export default function getCollapsableParentOf(
   modulesById: ExtendedModulesById,
