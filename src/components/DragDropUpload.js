@@ -97,7 +97,8 @@ export default class DragDropUpload extends React.Component<Props, void> {
     if (event.dataTransfer) {
       readFile(event.dataTransfer.files[0], this.props.onChange);
     } else {
-      console.warn('No dropped data found.');
+      // eslint-disable-next-line no-console
+      console.warn('No mouse-drop data found.');
     }
   };
 }
