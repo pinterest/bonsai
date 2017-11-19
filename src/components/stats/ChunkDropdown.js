@@ -49,39 +49,33 @@ export default function ChunkDropdown(props: Props) {
   appendChildren(props.chunksByParent, 0);
 
   return (
-    <div className="form-horizontal">
-      <div className="form-group">
-        <label className="col-sm-1 control-label">Chunk</label>
-        <div className="col-sm-11">
-          <Dropdown
-            getContent={(hideContent) => flatChunks.map((chunk) => (
-              <li key={chunk.id}>
-                <Button
-                  color="link"
-                  display="block"
-                  style={chunk.indent ? {paddingLeft: chunk.indent + 'em'} : {}}
-                  onClick={() => {
-                    hideContent();
-                    props.onSelectChunkId(chunk.id);
-                  }}>
-                  <div
-                    className={[
-                      'text-left',
-                      chunk.indent ? 'ChunkDropdownPrefix' : '',
-                    ].join(' ')}>
-                    {chunk.name} ({chunk.id})
-                  </div>
-                </Button>
-              </li>
-            ))}>
-            {selectedItem
-              ? selectedItem.name
-              : '- pick a chunk -'}
-            {' '}
-            <span className="caret"></span>
-          </Dropdown>
-        </div>
-      </div>
-    </div>
+    <Dropdown
+      disabled={flatChunks.length === 0}
+      getContent={(hideContent) => flatChunks.map((chunk) => (
+        <li key={chunk.id}>
+          <Button
+            color="link"
+            display="block"
+            style={chunk.indent ? {paddingLeft: chunk.indent + 'em'} : {}}
+            onClick={() => {
+              hideContent();
+              props.onSelectChunkId(chunk.id);
+            }}>
+            <div
+              className={[
+                'text-left',
+                chunk.indent ? 'ChunkDropdownPrefix' : '',
+              ].join(' ')}>
+              {chunk.name} ({chunk.id})
+            </div>
+          </Button>
+        </li>
+      ))}>
+      {selectedItem
+        ? selectedItem.name
+        : '- pick a chunk -'}
+      {' '}
+      <span className="caret"></span>
+    </Dropdown>
   );
 }

@@ -3,12 +3,19 @@
  */
 
 import type {ChunkID, ModuleID, RawStats} from './types/Stats';
-import type {Dispatch} from './reducer';
+import type {Dispatch, ModeType} from './reducer';
 import type {FilterableFields} from './stats/filterModules';
 import type {SortableFields} from './stats/sortModules';
 
 import getRawStats from './types/getRawStats';
 import { fetchApiFileEndpoint } from './fetchJSON';
+
+export function ChangedMode(dispatch: Dispatch) {
+  return (appMode: ModeType) => dispatch({
+    type: 'onChangedMode',
+    appMode,
+  });
+}
 
 export function InitDataPaths(dispatch: Dispatch) {
   return (paths: Array<string>) => dispatch({
@@ -18,14 +25,15 @@ export function InitDataPaths(dispatch: Dispatch) {
 }
 
 export function PickedFile(dispatch: Dispatch) {
-  return (filename: ?string) => {
+  return (position: 'A' | 'B', filename: ?string) => {
     if (filename) {
       fetchApiFileEndpoint(dispatch, filename);
     }
 
     return dispatch({
       type: 'pickedFile',
-      filename: filename,
+      filename,
+      position,
     });
   };
 }
@@ -89,9 +97,10 @@ export function FilteredTable(dispatch: Dispatch) {
 }
 
 export function PickedChunk(dispatch: Dispatch) {
-  return (chunkId: ChunkID) => dispatch({
+  return (position: 'A' | 'B', chunkId: ChunkID) => dispatch({
     type: 'onPickedChunk',
     chunkId,
+    position,
   });
 }
 

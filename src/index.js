@@ -30,7 +30,7 @@ const store = createStore(
 UrlStateEncoder.factory(store);
 
 if (process.env.REACT_APP_STATS_URL) {
-  PickedFile(store.dispatch)(process.env.REACT_APP_STATS_URL);
+  PickedFile(store.dispatch)('A', process.env.REACT_APP_STATS_URL);
   invariant(process.env.REACT_APP_STATS_URL, 'for flow');
   fetchApiFileEndpoint(
     store.dispatch,
