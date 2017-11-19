@@ -36,12 +36,14 @@ export default function ModuleTableHead(props: Props) {
         <th></th>
         <th>
           <Button color="link" display="block" onClick={() => props.onSort('name')}>
-            <SortLabel
-              field="name"
-              fieldType='alpha'
-              sort={props.sort}>
-              Module Name
-            </SortLabel>
+            <div className="text-left">
+              <SortLabel
+                field="name"
+                fieldType='alpha'
+                sort={props.sort}>
+                Module Name
+              </SortLabel>
+            </div>
           </Button>
           <Dropdown
             color="link"
@@ -65,12 +67,14 @@ export default function ModuleTableHead(props: Props) {
         </th>
         <th className="numeric">
           <Button color="link" display="block" onClick={() => props.onSort('cumulativeSize')}>
-            <SortLabel
-              field="cumulativeSize"
-              fieldType='size'
-              sort={props.sort}>
-              Weighted
-            </SortLabel>
+            <div className="text-right">
+              <SortLabel
+                field="cumulativeSize"
+                fieldType='size'
+                sort={props.sort}>
+                Weighted
+              </SortLabel>
+            </div>
           </Button>
           <Dropdown
             color="link"
@@ -98,22 +102,26 @@ export default function ModuleTableHead(props: Props) {
         </th>
         <th className="numeric">
           <Button color="link" display="block" onClick={() => props.onSort('size')}>
-            <SortLabel
-              field="size"
-              fieldType='size'
-              sort={props.sort}>
-              Size
-            </SortLabel>
+            <div className="text-right">
+              <SortLabel
+                field="size"
+                fieldType='size'
+                sort={props.sort}>
+                Size
+              </SortLabel>
+            </div>
           </Button>
         </th>
         <th className="numeric">
           <Button color="link" display="block" onClick={() => props.onSort('requiredByCount')}>
-            <SortLabel
-              field="requiredByCount"
-              fieldType='size'
-              sort={props.sort}>
-              Dependants
-            </SortLabel>
+            <div className="text-right">
+              <SortLabel
+                field="requiredByCount"
+                fieldType='size'
+                sort={props.sort}>
+                Dependants
+              </SortLabel>
+            </div>
           </Button>
           <Dropdown
             align="right"
@@ -142,12 +150,14 @@ export default function ModuleTableHead(props: Props) {
         </th>
         <th className="numeric">
           <Button color="link" display="block" onClick={() => props.onSort('requirementsCount')}>
-            <SortLabel
-              field="requirementsCount"
-              fieldType='size'
-              sort={props.sort}>
-              Imports
-            </SortLabel>
+            <div className="text-right">
+              <SortLabel
+                field="requirementsCount"
+                fieldType='size'
+                sort={props.sort}>
+                Imports
+              </SortLabel>
+            </div>
           </Button>
           <Dropdown
             align="right"
