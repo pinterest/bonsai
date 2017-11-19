@@ -2,11 +2,11 @@
  * @flow
  */
 
-import type {Child} from '../../stats/getEntryHeirarchy';
+import type { Child } from '../../stats/getEntryHeirarchy';
 
 import * as React from 'react';
 
-type Props = {
+export type Props = {
   parentChunks: Array<Child>,
   totalModules: number,
 };
