@@ -16,6 +16,12 @@ export type Child = {
   children: Array<Child>,
 };
 
+export type FlatChunk = {
+  id: ChunkID,
+  name: string,
+  indent: number,
+};
+
 function getChildrenForChunk(
   stats,
   importedChunkNames,
@@ -68,4 +74,30 @@ export default function getEntryHeirarchy(
         ),
       })),
   };
+}
+
+export function flattenChunksByParent(
+  chunksByParent: Array<Child>,
+): Array<FlatChunk> {
+  const flatChunks = [];
+  const visitedChunks = {};
+
+  function appendChildren(children: Array<Child>, indent: number) {
+    children.forEach((child) => {
+      if (!visitedChunks[child.id]) {
+        flatChunks.push({
+          id: child.id,
+          name: child.name,
+          indent: indent,
+        });
+        visitedChunks[child.id] = true;
+      }
+
+      appendChildren(child.children, indent + 1);
+    });
+  }
+
+  appendChildren(chunksByParent, 0);
+
+  return flatChunks;
 }
