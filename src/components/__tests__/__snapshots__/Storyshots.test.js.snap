@@ -1829,17 +1829,13 @@ exports[`Storyshots FileSelectors No filename, items in list 1`] = `
 `;
 
 exports[`Storyshots SortLabel Something else is sorted 1`] = `
-<div
-  className="text-left"
->
+<div>
   Size
 </div>
 `;
 
 exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
-<div
-  className="text-left"
->
+<div>
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-attributes"
@@ -1850,9 +1846,7 @@ exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
 `;
 
 exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
-<div
-  className="text-left"
->
+<div>
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-attributes-alt"
@@ -1863,9 +1857,7 @@ exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
 `;
 
 exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
-<div
-  className="text-left"
->
+<div>
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-alphabet"
@@ -1876,9 +1868,7 @@ exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
 `;
 
 exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
-<div
-  className="text-left"
->
+<div>
   <span
     aria-hidden="true"
     className="glyphicon glyphicon-sort-by-order"
