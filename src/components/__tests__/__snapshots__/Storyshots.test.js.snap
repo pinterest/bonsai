@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots App Filename picked, data available 1`] = `
+exports[`Storyshots App Done loading 1`] = `
 <div
   className="App"
 >
@@ -78,39 +78,6 @@ exports[`Storyshots App Filename picked, data available 1`] = `
                 }
                 type="file"
               />
-              <div
-                className="form-horizontal"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="col-sm-1 control-label"
-                  >
-                    Filename
-                  </label>
-                  <div
-                    className="col-sm-11"
-                    onClick={[Function]}
-                  >
-                    <select
-                      className="form-control"
-                      id="data-file-picker"
-                      onChange={[Function]}
-                      value="stats.json"
-                    >
-                      <option
-                        value=""
-                      />
-                      <option
-                        value="stats.json"
-                      >
-                        stats.json
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -122,45 +89,11 @@ exports[`Storyshots App Filename picked, data available 1`] = `
           className="row"
         >
           <div
-            className="col-sm-12"
+            className="col-sm-11 col-sm-push-1"
           >
-            <div
-              className="form-horizontal"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="col-sm-1 control-label"
-                >
-                  Chunk
-                </label>
-                <div
-                  className="col-sm-11"
-                >
-                  <div
-                    className="btn-group"
-                    style={undefined}
-                  >
-                    <button
-                      aria-expanded={false}
-                      aria-haspopup="true"
-                      className="btn btn-default dropdown-toggle"
-                      data-toggle="dropdown"
-                      disabled={null}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      - pick a chunk -
-                       
-                      <span
-                        className="caret"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ol
+              className="breadcrumb"
+            />
           </div>
         </div>
         <div
@@ -190,7 +123,7 @@ exports[`Storyshots App Filename picked, data available 1`] = `
 </div>
 `;
 
-exports[`Storyshots App Filename picked, loading 1`] = `
+exports[`Storyshots App Loading up a file 1`] = `
 <div
   className="App"
 >
@@ -268,39 +201,6 @@ exports[`Storyshots App Filename picked, loading 1`] = `
                 }
                 type="file"
               />
-              <div
-                className="form-horizontal"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="col-sm-1 control-label"
-                  >
-                    Filename
-                  </label>
-                  <div
-                    className="col-sm-11"
-                    onClick={[Function]}
-                  >
-                    <select
-                      className="form-control"
-                      id="data-file-picker"
-                      onChange={[Function]}
-                      value="stats.json"
-                    >
-                      <option
-                        value=""
-                      />
-                      <option
-                        value="stats.json"
-                      >
-                        stats.json
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -420,153 +320,6 @@ exports[`Storyshots App No filename, empty list 1`] = `
                     </kbd>
                      to get started.
                   </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots App No filename, items in list 1`] = `
-<div
-  className="App"
->
-  <nav
-    className="navbar navbar-default navbar-fixed-top navbar-inverse"
-  >
-    <div
-      className="container-fluid"
-    >
-      <div
-        className="navbar-header"
-      >
-        <a
-          className="navbar-brand"
-          href="/"
-          onClick={[Function]}
-        >
-          Bonsai
-        </a>
-        <p
-          className="navbar-text"
-        >
-          Trim your dependency trees
-        </p>
-      </div>
-      <ul
-        className="nav navbar-nav navbar-right"
-      >
-        <li>
-          <a
-            className="navbar-link"
-            href="https://pinterest.github.io/bonsai/"
-          >
-            Docs
-          </a>
-        </li>
-        <li>
-          <a
-            className="navbar-link"
-            href="https://github.com/pinterest/bonsai"
-          >
-            Github
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div
-    className="AppFixed"
-  >
-    <div
-      className="AppView"
-    >
-      <aside
-        className="container-fluid"
-      >
-        <div
-          className="row"
-        >
-          <div
-            className="col-sm-12"
-          >
-            <div
-              onClick={[Function]}
-              style={undefined}
-            >
-              <input
-                className="form-control"
-                id="drag-drop-upload"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                type="file"
-              />
-              <div
-                className="well well-sm clearfix"
-              >
-                <div
-                  className="col-sm-12"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Drag & Drop your 
-                    <code>
-                      stats.json
-                    </code>
-                     file here
-                  </label>
-                  <span
-                    className="col-sm-12 help-block"
-                    id="drag-drop-helpblock"
-                  >
-                    Run 
-                    <kbd>
-                      webpack --json &gt; stats.json
-                    </kbd>
-                     to get started.
-                  </span>
-                </div>
-              </div>
-              <div
-                className="form-horizontal"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="col-sm-1 control-label"
-                  >
-                    Filename
-                  </label>
-                  <div
-                    className="col-sm-11"
-                    onClick={[Function]}
-                  >
-                    <select
-                      className="form-control"
-                      id="data-file-picker"
-                      onChange={[Function]}
-                      value=""
-                    >
-                      <option
-                        value=""
-                      />
-                      <option
-                        value="stats.json"
-                      >
-                        stats.json
-                      </option>
-                    </select>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1925,133 +1678,151 @@ exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
 
 exports[`Storyshots FileSelectors Filename picked 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
     <div
-      className="col-sm-11"
-      onClick={[Function]}
+      className="form-group"
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
-          value=""
-        />
-        <option
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
           value="stats.json"
         >
-          stats.json
-        </option>
-      </select>
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="form-group"
+      onClick={[Function]}
+    >
+      <label
+        className="col-sm-1 control-label"
+      >
+        Chunk
+      </label>
+      <div
+        className="col-sm-11"
+      >
+        <div
+          className="btn-group"
+          style={undefined}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots FileSelectors Invalid: empty list, filename picked 1`] = `
-<div
-  className="form-horizontal"
->
-  <div
-    className="form-group"
-  >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
-    <div
-      className="col-sm-11"
-      onClick={[Function]}
-    >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value="stats.json"
-      >
-        <option
-          value=""
-        />
-      </select>
-    </div>
-  </div>
-</div>
-`;
+exports[`Storyshots FileSelectors Invalid: empty list, filename picked 1`] = `null`;
 
-exports[`Storyshots FileSelectors No filename, empty list 1`] = `
-<div
-  className="form-horizontal"
->
-  <div
-    className="form-group"
-  >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
-    <div
-      className="col-sm-11"
-      onClick={[Function]}
-    >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value=""
-      >
-        <option
-          value=""
-        />
-      </select>
-    </div>
-  </div>
-</div>
-`;
+exports[`Storyshots FileSelectors No filename, empty list 1`] = `null`;
 
 exports[`Storyshots FileSelectors No filename, items in list 1`] = `
 <div
-  className="form-horizontal"
+  className="row form-horizontal"
 >
   <div
-    className="form-group"
+    className="col-sm-11"
   >
-    <label
-      className="col-sm-1 control-label"
-    >
-      Filename
-    </label>
     <div
-      className="col-sm-11"
+      className="form-group"
+    >
+      <label
+        className="col-sm-1 control-label"
+      >
+        Filename
+      </label>
+      <div
+        className="col-sm-11"
+        onClick={[Function]}
+      >
+        <select
+          className="form-control"
+          id="data-file-picker"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          />
+          <option
+            value="stats.json"
+          >
+            stats.json
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="form-group"
       onClick={[Function]}
     >
-      <select
-        className="form-control"
-        id="data-file-picker"
-        onChange={[Function]}
-        value=""
+      <label
+        className="col-sm-1 control-label"
       >
-        <option
-          value=""
-        />
-        <option
-          value="stats.json"
+        Chunk
+      </label>
+      <div
+        className="col-sm-11"
+      >
+        <div
+          className="btn-group"
+          style={undefined}
         >
-          stats.json
-        </option>
-      </select>
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            disabled="disabed"
+            onClick={null}
+            type="button"
+          >
+            - pick a chunk -
+             
+            <span
+              className="caret"
+            />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

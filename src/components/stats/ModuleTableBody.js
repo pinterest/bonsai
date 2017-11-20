@@ -130,7 +130,7 @@ function ModuleTableRow(props: TRProps) {
           props.expanded && props.records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
-        ].join(' ').trim()
+        ].filter(_ => _).join(' ')
       })}
     >
       <td className="vert-align">
