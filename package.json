@@ -49,7 +49,7 @@
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-jest": "^21.0.0",
     "eslint-plugin-react": "^7.3.0",
-    "flow-annotation-check": "1.6.2",
+    "flow-annotation-check": "1.7.0",
     "flow-bin": "0.59.0",
     "flow-coverage-report": "^0.4.0",
     "markdown-spellcheck": "^1.0.0",
