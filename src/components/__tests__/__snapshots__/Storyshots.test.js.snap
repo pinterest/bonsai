@@ -90,11 +90,7 @@ exports[`Storyshots App Done loading 1`] = `
         >
           <div
             className="col-sm-11 col-sm-push-1"
-          >
-            <ol
-              className="breadcrumb"
-            />
-          </div>
+          />
         </div>
         <div
           className="row"
@@ -1627,18 +1623,7 @@ exports[`Storyshots ChunkBreadcrumb All three modules 1`] = `
 </ol>
 `;
 
-exports[`Storyshots ChunkBreadcrumb Empty data 1`] = `
-<ol
-  className="breadcrumb"
->
-  <li
-    className="active"
-  >
-    3
-     modules
-  </li>
-</ol>
-`;
+exports[`Storyshots ChunkBreadcrumb Empty data 1`] = `null`;
 
 exports[`Storyshots ChunkBreadcrumb First module without a parent 1`] = `
 <ol

@@ -12,6 +12,9 @@ export type Props = {
 };
 
 export default function ChunkBreadcrumb(props: Props) {
+  if (props.parentChunks.length === 0) {
+    return null;
+  }
   return (
     <ol className="breadcrumb">
       {props.parentChunks.map((chunk) => (
