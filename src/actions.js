@@ -2,76 +2,110 @@
  * @flow
  */
 
-import type {ChunkID, ModuleID, RawStats} from './types/Stats';
+import type {ChunkID, ModuleID, RawStats, ParsedJSON} from './types/Stats';
 import type {Dispatch} from './reducer';
 import type {FilterableFields} from './stats/filterModules';
 import type {SortableFields} from './stats/sortModules';
 
+import fetchJSON from './fetchJSON';
 import getRawStats from './types/getRawStats';
-import { fetchApiFileEndpoint } from './fetchJSON';
+import invariant from 'invariant';
 
-export function InitDataPaths(dispatch: Dispatch) {
+export function DiscoveredDataPaths(dispatch: Dispatch) {
   return (paths: Array<string>) => dispatch({
-    type: 'initDataPaths',
+    type: 'discoveredDataPaths',
     paths,
   });
 }
 
-export function PickedFile(dispatch: Dispatch) {
-  return (filename: ?string) => {
-    if (filename) {
-      fetchApiFileEndpoint(dispatch, filename);
-    }
-
-    return dispatch({
-      type: 'pickedFile',
-      filename: filename,
-    });
-  };
+export function PickDataPath(dispatch: Dispatch) {
+  return (path: string) => dispatch({
+    type: 'pickDataPath',
+    path,
+  });
 }
 
-export function DroppedFile(dispatch: Dispatch) {
-  return (filename: string, fileText: string) => {
+export function DroppedDataFile(dispatch: Dispatch) {
+  return (path: string, fileText: string) => {
     let json;
     let files;
     try {
       json = JSON.parse(fileText);
     } catch (error) {
       alert(`JSON parse error. Unable to load stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
-      // eslint-disable-next-line no-console
-      console.error(error);
-      LoadingFailed(dispatch)();
+      ErroredAtPath(dispatch)(path, error);
       return;
     }
 
     try {
-      files = getRawStats(filename, json);
+      files = getRawStats(path, json);
     } catch (error) {
       alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
-      // eslint-disable-next-line no-console
-      console.error(error);
-      LoadingFailed(dispatch)();
+      ErroredAtPath(dispatch)(path, error);
       return;
     }
 
-    const firstKey = Object.keys(files)[0];
-    const firstJson = files[firstKey];
-    LoadingFinished(dispatch)(firstKey, firstJson);
+    Object.keys(files).forEach((file) => {
+      LoadedStatsAtPath(dispatch)(file, files[file]);
+    });
   };
 }
 
-export function LoadingFailed(dispatch: Dispatch) {
-  return () => dispatch({
-    type: 'loadingFailed',
+export function RequestedDataAtPath(dispatch: Dispatch) {
+  return (path: string) => dispatch({
+    type: 'requestedDataAtPath',
+    path,
   });
 }
 
-export function LoadingFinished(dispatch: Dispatch) {
-  return (filename: string, stats: RawStats) => dispatch({
-    type: 'loadingFinished',
-    filename,
+export function LoadedStatsAtPath(dispatch: Dispatch) {
+  return (path: string, stats: RawStats) => dispatch({
+    type: 'loadedStatsAtPath',
+    path,
     stats,
   });
+}
+
+export function ErroredAtPath(dispatch: Dispatch) {
+  return (path: string, error: Error | string) => dispatch({
+    type: 'erroredAtPath',
+    path,
+    error,
+  });
+}
+
+export function fetchApiList(dispatch: Dispatch) {
+  return (endpoint: string) => {
+    fetchJSON(endpoint).then((json: ParsedJSON) => {
+      invariant(
+        json.paths,
+        `Missing field. Expected '{"paths": []}' key. Got: ${String(Object.keys(json))}`
+      );
+      invariant(
+        Array.isArray(json.paths),
+        `Invalid type. Expected "paths" to be an array of web urls. Got: ${JSON.stringify(json.paths)}`
+      );
+
+      DiscoveredDataPaths(dispatch)(json.paths.map(String));
+    }).catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(`Failed while fetching json from '${String(endpoint)}'.`, error);
+    });
+  };
+}
+
+export function fetchDataFile(dispatch: Dispatch) {
+  return (endpoint: string) => {
+    PickDataPath(dispatch)(endpoint);
+    RequestedDataAtPath(dispatch)(endpoint);
+    fetchJSON(endpoint).then((json: ParsedJSON) => {
+      LoadedStatsAtPath(dispatch)(endpoint, json);
+    }).catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(`Failed while fetching json from '${String(endpoint)}'.`, error);
+      ErroredAtPath(dispatch)(endpoint, error);
+    });
+  };
 }
 
 export function SortedTable(dispatch: Dispatch) {

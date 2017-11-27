@@ -7,7 +7,6 @@ import './shims';
 import AppContainer from './components/AppContainer';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import invariant from 'invariant';
 import registerServiceWorker from './registerServiceWorker';
 
 import handleAction from './reducer';
@@ -16,8 +15,7 @@ import { Provider } from 'react-redux';
 
 import UrlStateEncoder from './UrlStateEncoder';
 
-import { PickedFile } from './actions';
-import { fetchApiListEndpoint, fetchApiFileEndpoint } from './fetchJSON';
+import { fetchDataFile, fetchApiList } from './actions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -29,20 +27,18 @@ const store = createStore(
 
 UrlStateEncoder.factory(store);
 
+const onHasStatsUrl = fetchDataFile(store.dispatch);
+const onHasListEndpoint = fetchApiList(store.dispatch);
+
 if (process.env.REACT_APP_STATS_URL) {
-  PickedFile(store.dispatch)(process.env.REACT_APP_STATS_URL);
-  invariant(process.env.REACT_APP_STATS_URL, 'for flow');
-  fetchApiFileEndpoint(
-    store.dispatch,
-    process.env.REACT_APP_STATS_URL,
-  );
+  onHasStatsUrl(process.env.REACT_APP_STATS_URL);
+} else {
+  // eslint-disable-next-line no-console
+  console.info('Env var \'REACT_APP_STATS_URL\' was empty. Skipping fetch.');
 }
 
 if (process.env.REACT_APP_API_LIST_ENDPOINT) {
-  fetchApiListEndpoint(
-    store.dispatch,
-    process.env.REACT_APP_API_LIST_ENDPOINT,
-  );
+  onHasListEndpoint(process.env.REACT_APP_API_LIST_ENDPOINT);
 } else {
   // eslint-disable-next-line no-console
   console.info('Env var \'REACT_APP_API_LIST_ENDPOINT\' was empty. Skipping fetch.');

@@ -2,6 +2,8 @@
  * @flow
  */
 
+jest.mock('../fetchJSON');
+
 import UrlStateEncoder from '../UrlStateEncoder';
 
 let MOCK_STORE;
@@ -63,11 +65,15 @@ describe('UrlStateEncoder', () => {
 
       new UrlStateEncoder(MOCK_STORE);
 
-      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(1);
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
-        type: 'pickedFile',
-        filename: 'main.js',
+        type: 'pickDataPath',
+        path: 'main.js',
       });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'requestedDataAtPath',
+        path: 'main.js',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(2);
     });
 
     it('should dispatch when chunk is in the location hash', () => {
@@ -75,15 +81,19 @@ describe('UrlStateEncoder', () => {
 
       new UrlStateEncoder(MOCK_STORE);
 
-      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(2);
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
-        type: 'pickedFile',
-        filename: 'main.js',
+        type: 'pickDataPath',
+        path: 'main.js',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'requestedDataAtPath',
+        path: 'main.js',
       });
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onPickedChunk',
         chunkId: '1',
       });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(3);
     });
 
     it('should dispatch when an `rm` list is in the location hash', () => {
@@ -91,10 +101,13 @@ describe('UrlStateEncoder', () => {
 
       new UrlStateEncoder(MOCK_STORE);
 
-      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(5);
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
-        type: 'pickedFile',
-        filename: 'main.js',
+        type: 'pickDataPath',
+        path: 'main.js',
+      });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
+        type: 'requestedDataAtPath',
+        path: 'main.js',
       });
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
         type: 'onPickedChunk',
@@ -112,6 +125,7 @@ describe('UrlStateEncoder', () => {
         type: 'onRemoveModule',
         moduleID: '7',
       });
+      expect(MOCK_STORE.dispatch).toHaveBeenCalledTimes(6);
     });
 
     it('should decode encoded uri segments', () => {
@@ -120,8 +134,8 @@ describe('UrlStateEncoder', () => {
       new UrlStateEncoder(MOCK_STORE);
 
       expect(MOCK_STORE.dispatch).toHaveBeenCalledWith({
-        type: 'pickedFile',
-        filename: 'main file.js',
+        type: 'pickDataPath',
+        path: 'main file.js',
       });
     });
   });

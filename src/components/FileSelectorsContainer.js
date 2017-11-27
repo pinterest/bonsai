@@ -8,13 +8,13 @@ import type { DispatchProps, StateProps } from './FileSelectors';
 import FileSelectors from './FileSelectors';
 import {connect} from 'react-redux';
 import {
-  PickedFile,
+  fetchDataFile,
   PickedChunk,
 } from '../actions';
 
 const mapStateToProps = (state: State): StateProps => {
   return {
-    dataPaths: state.dataPaths,
+    dataPaths: Object.keys(state.dataPaths),
     filename: state.selectedFilename,
 
     selectedChunkId: state.selectedChunkId,
@@ -26,7 +26,7 @@ const mapStateToProps = (state: State): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    onPickedFile: PickedFile(dispatch),
+    onPickedFile: fetchDataFile(dispatch),
     onSelectChunkId: PickedChunk(dispatch),
   };
 };

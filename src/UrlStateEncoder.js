@@ -6,7 +6,7 @@ import type { Store } from 'redux';
 import type { State } from './reducer';
 
 import {
-  PickedFile,
+  fetchDataFile,
   PickedChunk,
   RemovedModule,
 } from './actions';
@@ -37,7 +37,7 @@ export default class UrlStateEncoder {
     const targetState = this.readStateFromHash(window.location.hash);
 
     if (targetState.filename !== null && targetState.filename !== undefined) {
-      PickedFile(store.dispatch)(targetState.filename);
+      fetchDataFile(store.dispatch)(targetState.filename);
       if (targetState.chunk !== null && targetState.chunk !== undefined) {
         PickedChunk(store.dispatch)(targetState.chunk);
         if (targetState.rm) {

@@ -16,20 +16,26 @@ import getModulesById from './stats/getModulesById';
 
 export type Action =
   | {
-    type: 'initDataPaths',
+    type: 'discoveredDataPaths',
     paths: Array<string>,
   }
   | {
-    type: 'pickedFile',
-    filename: ?string,
+    type: 'pickDataPath',
+    path: string,
   }
   | {
-    type: 'loadingFailed',
+    type: 'requestedDataAtPath',
+    path: string,
   }
   | {
-    type: 'loadingFinished',
-    filename: string,
+    type: 'loadedStatsAtPath',
+    path: string,
     stats: RawStats,
+  }
+  | {
+    type: 'erroredAtPath',
+    path: string,
+    error: Error | string,
   }
   | {
     type: 'onSorted',
@@ -69,8 +75,9 @@ export type Action =
   }
   ;
 
+type DataPathState = 'unknown' | 'loading' | 'error' | 'ready';
 export type State = {
-  dataPaths: Array<string>,
+  dataPaths: {[path: string]: DataPathState},
   selectedFilename: ?string,
   selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
@@ -86,7 +93,7 @@ export type State = {
 export type Dispatch = (action: Action) => any;
 
 export const INITIAL_STATE: State = {
-  dataPaths: [],
+  dataPaths: {},
   selectedFilename: null,
   selectedChunkId: null,
   blacklistedModuleIds: [],
@@ -110,49 +117,63 @@ export const INITIAL_STATE: State = {
   calculatedFullModuleData: null,
 };
 
-function concatItemToSet(list: Array<string>, item: string): Array<string> {
-  return list.includes(item)
-    ? list
-    : list.concat(item);
-}
-
 function handleAction(
   state: State,
   action: Action,
 ): State {
-  if (action.type === 'initDataPaths') {
+  if (action.type === 'discoveredDataPaths') {
     return {
       ...state,
-      dataPaths: action.paths.reduce(concatItemToSet, state.dataPaths),
+      dataPaths: {
+        ...action.paths.reduce((map, path) => {
+          map[path] = map[path] || 'unknown';
+          return map;
+        }, {}),
+        ...state.dataPaths,
+      },
     };
-  } else if (action.type === 'pickedFile') {
+  } else if (action.type === 'pickDataPath') {
     return {
       ...state,
-      selectedFilename: action.filename,
+      dataPaths: {
+        [action.path]: state.dataPaths[action.path] || 'unknown',
+        ...state.dataPaths,
+      },
+      selectedFilename: action.path,
       selectedChunkId: null,
       blacklistedModuleIds: [],
       expandMode: 'collapse-all',
       expandedRecords: new Set(),
       currentlyFocusedElementID: null,
     };
-  } else if (action.type === 'loadingFailed') {
+  } else if (action.type === 'requestedDataAtPath') {
     return {
       ...state,
-      selectedFilename: null,
-      selectedChunkId: null,
-      blacklistedModuleIds: [],
-      expandMode: 'collapse-all',
-      expandedRecords: new Set(),
-      currentlyFocusedElementID: null,
+      dataPaths: {
+        ...state.dataPaths,
+        [action.path]: state.dataPaths[action.path] === 'ready'
+          ? 'ready'
+          : 'loading',
+      },
     };
-  } else if (action.type === 'loadingFinished') {
+  } else if (action.type === 'loadedStatsAtPath') {
     return {
       ...state,
-      selectedFilename: action.filename,
-      dataPaths: concatItemToSet(state.dataPaths, action.filename),
+      dataPaths: {
+        ...state.dataPaths,
+        [action.path]: 'ready',
+      },
       json: {
         ...state.json,
-        [action.filename]: action.stats,
+        [action.path]: action.stats,
+      },
+    };
+  } else if (action.type === 'erroredAtPath') {
+    return {
+      ...state,
+      dataPaths: {
+        ...state.dataPaths,
+        [action.path]: 'error',
       },
     };
   } else if (action.type === 'onSorted') {

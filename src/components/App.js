@@ -15,8 +15,8 @@ export type StateProps = {
 };
 
 export type DispatchProps = {
-  onPickedFile: (filename: ?string) => void,
-  onDroppedFile: (filename: string, fileText: string) => void,
+  onPickedFile: (path: string) => void,
+  onDroppedFile: (path: string, fileText: string) => void,
 };
 
 type Props = StateProps & DispatchProps;
@@ -61,8 +61,8 @@ export default class App extends Component<Props, State> {
                     className="form-control"
                     onDragEnter={() => this.setState({ isDragging: true })}
                     onDragLeave={() => this.setState({ isDragging: false })}
-                    onLoading={props.onPickedFile}
-                    onChange={props.onDroppedFile}>
+                    onChange={props.onPickedFile}
+                    didGetFile={props.onDroppedFile}>
                     <FileSelectorsContainer />
                     {showHelp
                       ? <div className="well well-sm clearfix">

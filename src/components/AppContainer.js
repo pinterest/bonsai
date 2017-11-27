@@ -8,19 +8,23 @@ import type { DispatchProps, StateProps } from './App';
 import App from './App';
 import {connect} from 'react-redux';
 import {
-  PickedFile,
-  DroppedFile,
+  PickDataPath,
+  DroppedDataFile,
 } from '../actions';
 
 function getAppState(state: State): * {
-  if (state.selectedFilename) {
-    if (state.json[state.selectedFilename]) {
-      return 'loaded';
-    } else {
-      return 'loading';
-    }
-  } else {
+  if (!state.selectedFilename || !state.dataPaths[state.selectedFilename]) {
     return 'empty';
+  }
+  switch (state.dataPaths[state.selectedFilename]) {
+    case 'unknown': // fall through
+    case 'loading':
+      return 'loading';
+    case 'ready':
+      return 'loaded';
+    case 'error': // fall through
+    default:
+      return 'empty';
   }
 }
 
@@ -32,8 +36,8 @@ const mapStateToProps = (state: State): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    onPickedFile: PickedFile(dispatch),
-    onDroppedFile: DroppedFile(dispatch),
+    onPickedFile: PickDataPath(dispatch),
+    onDroppedFile: DroppedDataFile(dispatch),
   };
 };
 
