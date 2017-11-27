@@ -11,7 +11,7 @@ import type {
 import Button from '../Bootstrap/Button';
 import ExternalModuleLink from './ExternalModuleLink';
 import formatModuleName from './formatModuleName';
-import flatten from '../../flatten';
+import flatten from '../../utils/flatten';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';

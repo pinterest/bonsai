@@ -1,0 +1,62 @@
+codecov:
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "50...80"
+
+  status:
+    project:
+      default: off
+      skipped:
+        target: 0%
+        flags:
+          - test-helpers
+          - types
+      progressing:
+        target: 50%
+        flags:
+          - cli
+      solid:
+        target: 100%
+        flags:
+          - components
+          - utils
+          - stats
+    patch: yes
+    changes: no
+
+parsers:
+  gcov:
+    branch_detection:
+      conditional: yes
+      loop: yes
+      method: no
+      macro: no
+
+comment:
+  layout: "reach, diff, flags, files, footer"
+  behavior: default
+  require_changes: no
+
+flags:
+  test-helpers:
+    paths:
+      - src/__test__helpers__/
+  cli:
+    paths:
+      - src/cli/
+  components:
+    paths:
+      - src/components/
+  utils:
+    paths:
+      - src/utils/
+  stats:
+    paths:
+      - src/stats/
+  types:
+    paths:
+      - src/types/

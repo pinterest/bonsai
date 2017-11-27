@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { State } from '../../reducer';
+import type { State } from '../../utils/reducer';
 
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
@@ -11,7 +11,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import {
   ChangeExpandMode,
-} from '../../actions';
+} from '../../utils/actions';
 
 type StateProps = {
   expandMode: 'manual' | 'collapse-all' | 'expand-all',

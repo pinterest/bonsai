@@ -18,7 +18,7 @@ import filterModules from '../../stats/filterModules';
 import ModuleTableBody from './ModuleTableBody';
 import ModuleTableHead from './ModuleTableHead';
 import React, { Component } from 'react';
-import scrollToAndFocus from '../../scrollToAndFocus';
+import scrollToAndFocus from '../../utils/scrollToAndFocus';
 import sortModules from '../../stats/sortModules';
 
 export type OwnProps = {

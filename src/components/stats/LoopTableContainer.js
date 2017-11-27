@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { State } from '../../reducer';
+import type { State } from '../../utils/reducer';
 import type { Props } from './LoopTable';
 
 import { connect } from 'react-redux';

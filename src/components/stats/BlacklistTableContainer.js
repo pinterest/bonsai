@@ -2,12 +2,12 @@
  * @flow
  */
 
-import type { State } from '../../reducer';
+import type { State } from '../../utils/reducer';
 import type { StateProps, DispatchProps } from './BlacklistTable';
 
 import BlacklistTable from './BlacklistTable';
 import { connect } from 'react-redux';
-import { IncludedModule } from '../../actions';
+import { IncludedModule } from '../../utils/actions';
 
 const mapStateToProps = (state: State): StateProps => {
   return {

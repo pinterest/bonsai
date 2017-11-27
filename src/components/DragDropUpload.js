@@ -4,7 +4,8 @@
 
 import * as React from 'react';
 
-type OnChangeCallback = (fileName: string, file: string) => void;
+type OnChangeCallback = (path: string) => void;
+type DidGetFileCallback = (path: string, fileText: string) => void;
 
 type Props = {
   id?: string,
@@ -13,14 +14,14 @@ type Props = {
   style?: string,
   onDragEnter?: () => void,
   onDragLeave?: () => void,
-  onLoading: () => void,
   onChange: OnChangeCallback,
+  didGetFile: DidGetFileCallback,
   children: ?React.Node,
 };
 
 function readFile(
   file: File,
-  callback: OnChangeCallback,
+  callback: DidGetFileCallback,
 ) {
   const reader = new FileReader();
   reader.onload = function(event: {target: {result: string}}) {
@@ -71,7 +72,7 @@ export default class DragDropUpload extends React.Component<Props, void> {
       this._fileInput.files &&
       this._fileInput.files[0]
     ) {
-      readFile(this._fileInput.files[0], this.props.onChange);
+      readFile(this._fileInput.files[0], this.props.didGetFile);
     }
   };
 
@@ -93,9 +94,14 @@ export default class DragDropUpload extends React.Component<Props, void> {
 
   onDrop = (event: DragEvent) => {
     event.preventDefault();
-    this.props.onLoading();
-    if (event.dataTransfer) {
-      readFile(event.dataTransfer.files[0], this.props.onChange);
+    if (
+      event.dataTransfer &&
+      event.dataTransfer.files &&
+      event.dataTransfer.files[0]
+    ) {
+      const file = event.dataTransfer.files[0];
+      this.props.onChange(file.name);
+      readFile(file, this.props.didGetFile);
     } else {
       // eslint-disable-next-line no-console
       console.warn('No mouse-drop data found.');

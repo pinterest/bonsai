@@ -3,7 +3,7 @@
  */
 
 import type { ExtendedModule } from '../../types/Stats';
-import type { State } from '../../reducer';
+import type { State } from '../../utils/reducer';
 
 import * as React from 'react';
 import ModuleTableContainer from './ModuleTableContainer';

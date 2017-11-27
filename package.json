@@ -83,7 +83,7 @@
     ],
     "exclude": [
       "+(node_modules|build|flow-typed)/**/*.js",
-      "src/registerServiceWorker.js"
+      "src/utils/registerServiceWorker.js"
     ],
     "show_summary": true,
     "list_files": "noflow"
