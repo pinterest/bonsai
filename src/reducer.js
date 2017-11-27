@@ -121,156 +121,162 @@ function handleAction(
   state: State,
   action: Action,
 ): State {
-  if (action.type === 'discoveredDataPaths') {
-    return {
-      ...state,
-      dataPaths: {
-        ...action.paths.reduce((map, path) => {
-          map[path] = map[path] || 'unknown';
-          return map;
-        }, {}),
-        ...state.dataPaths,
-      },
-    };
-  } else if (action.type === 'pickDataPath') {
-    return {
-      ...state,
-      dataPaths: {
-        [action.path]: state.dataPaths[action.path] || 'unknown',
-        ...state.dataPaths,
-      },
-      selectedFilename: action.path,
-      selectedChunkId: null,
-      blacklistedModuleIds: [],
-      expandMode: 'collapse-all',
-      expandedRecords: new Set(),
-      currentlyFocusedElementID: null,
-    };
-  } else if (action.type === 'requestedDataAtPath') {
-    return {
-      ...state,
-      dataPaths: {
-        ...state.dataPaths,
-        [action.path]: state.dataPaths[action.path] === 'ready'
-          ? 'ready'
-          : 'loading',
-      },
-    };
-  } else if (action.type === 'loadedStatsAtPath') {
-    return {
-      ...state,
-      dataPaths: {
-        ...state.dataPaths,
-        [action.path]: 'ready',
-      },
-      json: {
-        ...state.json,
-        [action.path]: action.stats,
-      },
-    };
-  } else if (action.type === 'erroredAtPath') {
-    return {
-      ...state,
-      dataPaths: {
-        ...state.dataPaths,
-        [action.path]: 'error',
-      },
-    };
-  } else if (action.type === 'onSorted') {
-    const isSameField = state.sort.field === action.field;
-    const invertedDir = state.sort.direction === 'ASC' ? 'DESC': 'ASC';
-    const nextDirection = isSameField ? invertedDir : 'DESC';
-    return {
-      ...state,
-      sort: {
-        field: action.field,
-        direction: nextDirection,
-      },
-    };
-  } else if (action.type === 'onFiltered') {
-    return {
-      ...state,
-      filters: {
-        ...state.filters,
-        ...action.changes,
-      },
-    };
-  } else if (action.type === 'onPickedChunk') {
-    return {
-      ...state,
-      selectedChunkId: String(action.chunkId),
-      blacklistedModuleIds: [],
-      expandMode: 'collapse-all',
-      expandedRecords: new Set(),
-      currentlyFocusedElementID: null,
-    };
-  } else if (action.type === 'onRemoveModule') {
-    return {
-      ...state,
-      blacklistedModuleIds: [
-        ...state.blacklistedModuleIds,
-        action.moduleID,
-      ],
-    };
-  } else if (action.type === 'onIncludeModule') {
-    const moduleID = action.moduleID;
-    return {
-      ...state,
-      blacklistedModuleIds: state.blacklistedModuleIds.filter(
-        (id) => String(id) !== String(moduleID),
-      ),
-    };
-  } else if (action.type === 'changeExpandRecordsMode') {
-    return {
-      ...state,
-      expandMode: action.mode,
-    };
-  } else if (action.type === 'onExpandRecords') {
-    return {
-      ...state,
-      expandMode: 'manual',
-      expandedRecords: new Set(state.expandedRecords.add(action.moduleID)),
-    };
-  } else if (action.type === 'onCollapseRecords') {
-    state.expandedRecords.delete(action.moduleID);
-    return {
-      ...state,
-      expandMode: state.expandedRecords.size === 0
-        ? 'collapse-all'
-        : 'manual',
-      expandedRecords: new Set(state.expandedRecords),
-    };
-  } else if (action.type === 'onFocusChanged') {
-    if (
-      action.elementID &&
-      state.calculatedFullModuleData &&
-      state.calculatedFullModuleData.extendedModules
-    ) {
-      const moduleId = action.elementID;
-      const modulesById = getModulesById(state.calculatedFullModuleData.extendedModules);
-      const collapseableParent = getCollapsableParentOf(
-        modulesById,
-        modulesById[moduleId],
-      );
+  switch(action.type) {
+    case 'discoveredDataPaths':
       return {
         ...state,
-        expandMode: collapseableParent
-          ? 'manual'
-          : state.expandMode,
-        expandedRecords: collapseableParent
-          ? new Set(state.expandedRecords.add(collapseableParent.id))
-          : state.expandedRecords,
-        currentlyFocusedElementID: action.elementID,
+        dataPaths: {
+          ...action.paths.reduce((map, path) => {
+            map[path] = map[path] || 'unknown';
+            return map;
+          }, {}),
+          ...state.dataPaths,
+        },
       };
-    } else {
+    case 'pickDataPath':
       return {
         ...state,
-        currentlyFocusedElementID: action.elementID,
+        dataPaths: {
+          [action.path]: state.dataPaths[action.path] || 'unknown',
+          ...state.dataPaths,
+        },
+        selectedFilename: action.path,
+        selectedChunkId: null,
+        blacklistedModuleIds: [],
+        expandMode: 'collapse-all',
+        expandedRecords: new Set(),
+        currentlyFocusedElementID: null,
+      };
+    case 'requestedDataAtPath':
+      return {
+        ...state,
+        dataPaths: {
+          ...state.dataPaths,
+          [action.path]: state.dataPaths[action.path] === 'ready'
+            ? 'ready'
+            : 'loading',
+        },
+      };
+    case 'loadedStatsAtPath':
+      return {
+        ...state,
+        dataPaths: {
+          ...state.dataPaths,
+          [action.path]: 'ready',
+        },
+        json: {
+          ...state.json,
+          [action.path]: action.stats,
+        },
+      };
+    case 'erroredAtPath':
+      return {
+        ...state,
+        dataPaths: {
+          ...state.dataPaths,
+          [action.path]: 'error',
+        },
+      };
+    case 'onSorted': {
+      const isSameField = state.sort.field === action.field;
+      const invertedDir = state.sort.direction === 'ASC' ? 'DESC': 'ASC';
+      const nextDirection = isSameField ? invertedDir : 'DESC';
+      return {
+        ...state,
+        sort: {
+          field: action.field,
+          direction: nextDirection,
+        },
       };
     }
+    case 'onFiltered':
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          ...action.changes,
+        },
+      };
+    case 'onPickedChunk':
+      return {
+        ...state,
+        selectedChunkId: String(action.chunkId),
+        blacklistedModuleIds: [],
+        expandMode: 'collapse-all',
+        expandedRecords: new Set(),
+        currentlyFocusedElementID: null,
+      };
+    case 'onRemoveModule':
+      return {
+        ...state,
+        blacklistedModuleIds: [
+          ...state.blacklistedModuleIds,
+          action.moduleID,
+        ],
+      };
+    case 'onIncludeModule': {
+      const moduleID = action.moduleID;
+      return {
+        ...state,
+        blacklistedModuleIds: state.blacklistedModuleIds.filter(
+          (id) => String(id) !== String(moduleID),
+        ),
+      };
+    }
+    case 'changeExpandRecordsMode':
+      return {
+        ...state,
+        expandMode: action.mode,
+      };
+    case 'onExpandRecords':
+      return {
+        ...state,
+        expandMode: 'manual',
+        expandedRecords: new Set(state.expandedRecords.add(action.moduleID)),
+      };
+    case 'onCollapseRecords': {
+      const expandedRecords = new Set(state.expandedRecords);
+      expandedRecords.delete(action.moduleID);
+      return {
+        ...state,
+        expandMode: state.expandedRecords.size === 0
+          ? 'collapse-all'
+          : 'manual',
+        expandedRecords: expandedRecords,
+      };
+    }
+    case 'onFocusChanged': {
+      if (
+        action.elementID &&
+        state.calculatedFullModuleData &&
+        state.calculatedFullModuleData.extendedModules
+      ) {
+        const moduleId = action.elementID;
+        const modulesById = getModulesById(state.calculatedFullModuleData.extendedModules);
+        const collapseableParent = getCollapsableParentOf(
+          modulesById,
+          modulesById[moduleId],
+        );
+        return {
+          ...state,
+          expandMode: collapseableParent
+            ? 'manual'
+            : state.expandMode,
+          expandedRecords: collapseableParent
+            ? new Set(state.expandedRecords.add(collapseableParent.id))
+            : state.expandedRecords,
+          currentlyFocusedElementID: action.elementID,
+        };
+      } else {
+        return {
+          ...state,
+          currentlyFocusedElementID: action.elementID,
+        };
+      }
+    }
+    default:
+      return state;
   }
-
-  return state;
 }
 
 function calculateFullModuleData(
