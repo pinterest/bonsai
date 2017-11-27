@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { Dispatch, State } from '../reducer';
+import type { Dispatch, State } from '../utils/reducer';
 import type { DispatchProps, StateProps } from './App';
 
 import App from './App';
@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import {
   PickDataPath,
   DroppedDataFile,
-} from '../actions';
+} from '../utils/actions';
 
 function getAppState(state: State): * {
   if (!state.selectedFilename || !state.dataPaths[state.selectedFilename]) {

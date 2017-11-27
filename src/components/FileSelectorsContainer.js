@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { Dispatch, State } from '../reducer';
+import type { Dispatch, State } from '../utils/reducer';
 import type { DispatchProps, StateProps } from './FileSelectors';
 
 import FileSelectors from './FileSelectors';
@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import {
   fetchDataFile,
   PickedChunk,
-} from '../actions';
+} from '../utils/actions';
 
 const mapStateToProps = (state: State): StateProps => {
   return {

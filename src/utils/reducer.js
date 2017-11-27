@@ -2,17 +2,17 @@
  * @flow
  */
 
-import type {ChunkID, ModuleID, RawStats} from './types/Stats';
-import type {FullModuleDataType} from './stats/fullModuleData';
+import type {ChunkID, ModuleID, RawStats} from '../types/Stats';
+import type {FullModuleDataType} from '../stats/fullModuleData';
 import type {
   FilterableFields,
   FilterProps,
-} from './stats/filterModules';
-import type { SortableFields, SortProps } from './stats/sortModules';
+} from '../stats/filterModules';
+import type { SortableFields, SortProps } from '../stats/sortModules';
 
-import fullModuleData from './stats/fullModuleData';
-import getCollapsableParentOf from './stats/getCollapsableParentOf';
-import getModulesById from './stats/getModulesById';
+import fullModuleData from '../stats/fullModuleData';
+import getCollapsableParentOf from '../stats/getCollapsableParentOf';
+import getModulesById from '../stats/getModulesById';
 
 export type Action =
   | {

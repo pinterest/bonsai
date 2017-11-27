@@ -2,13 +2,13 @@
  * @flow
  */
 
-import type {ChunkID, ModuleID, RawStats, ParsedJSON} from './types/Stats';
+import type {ChunkID, ModuleID, RawStats, ParsedJSON} from '../types/Stats';
 import type {Dispatch} from './reducer';
-import type {FilterableFields} from './stats/filterModules';
-import type {SortableFields} from './stats/sortModules';
+import type {FilterableFields} from '../stats/filterModules';
+import type {SortableFields} from '../stats/sortModules';
 
 import fetchJSON from './fetchJSON';
-import getRawStats from './types/getRawStats';
+import getRawStats from '../types/getRawStats';
 import invariant from 'invariant';
 
 export function DiscoveredDataPaths(dispatch: Dispatch) {

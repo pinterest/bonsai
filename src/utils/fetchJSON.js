@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {ParsedJSON} from './types/Stats';
+import type {ParsedJSON} from '../types/Stats';
 
 const responseCache: {[url: string]: Promise<*>} = {};
 

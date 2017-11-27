@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { Dispatch, State } from '../../reducer';
+import type { Dispatch, State } from '../../utils/reducer';
 import type { DispatchProps, StateProps } from './ModuleTable';
 
 import ModuleTable from './ModuleTable';
@@ -13,7 +13,7 @@ import {
   SortedTable,
   ExpandRecords,
   CollapseRecords,
-} from '../../actions';
+} from '../../utils/actions';
 
 const mapStateToProps = (state: State): StateProps => {
   return {

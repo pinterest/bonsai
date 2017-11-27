@@ -9,7 +9,7 @@ import type {
 import type { ExtendedModulesById } from './getModulesById';
 
 import getModulesById from './getModulesById';
-import flatten from '../flatten';
+import flatten from '../utils/flatten';
 
 function collectSingleChildrenOf(
   modulesById: ExtendedModulesById,

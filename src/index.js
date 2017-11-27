@@ -2,20 +2,20 @@
  * @flow
  */
 
-import './shims';
+import './__test_helpers__/shims';
 
 import AppContainer from './components/AppContainer';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './utils/registerServiceWorker';
 
-import handleAction from './reducer';
+import handleAction from './utils/reducer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import UrlStateEncoder from './UrlStateEncoder';
+import UrlStateEncoder from './utils/UrlStateEncoder';
 
-import { fetchDataFile, fetchApiList } from './actions';
+import { fetchDataFile, fetchApiList } from './utils/actions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
