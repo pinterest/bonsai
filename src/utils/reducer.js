@@ -255,7 +255,7 @@ function handleAction(
         const modulesById = getModulesById(state.calculatedFullModuleData.extendedModules);
         const collapseableParent = getCollapsableParentOf(
           modulesById,
-          modulesById[moduleId],
+          moduleId,
         );
         return {
           ...state,
