@@ -43,6 +43,8 @@ type State = {
   isOpen: boolean,
 };
 
+const DROPDOWN_VERTICAL_MARGIN_TOTAL = 22; // top&bottom margin of .dropdown-menu
+
 function sizeToClass(size: ?Size) {
   if (!size) {
     return null;
@@ -52,8 +54,8 @@ function sizeToClass(size: ?Size) {
 
 export default class Dropdown extends React.Component<Props, State> {
   state: State;
-  _dropDownMenu: ?Node = null;
-  _flyout: ?Node = null;
+  _dropDownMenu: ?HTMLElement = null;
+  _flyout: ?HTMLElement = null;
 
   constructor(props: Props) {
     super(props);
@@ -80,7 +82,11 @@ export default class Dropdown extends React.Component<Props, State> {
           isOpenClass,
           sizeToClass(this.props.size),
         ].filter(_ => _).join(' ')}
-        ref={(div) => this._dropDownMenu = div }
+        ref={(div) => {
+          if (div instanceof HTMLElement) {
+            this._dropDownMenu = div;
+          }
+        }}
         style={this.props.style}>
         {this.props.split
           ? <Button
@@ -126,11 +132,23 @@ export default class Dropdown extends React.Component<Props, State> {
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
     ].filter(_ => _).join(' ');
 
-    const clientHeight = document &&
-      document.documentElement &&
-      document.documentElement.clientHeight;
-    const style = (this.props.scrollable && clientHeight)
-      ? {maxHeight: clientHeight, overflow: 'scroll'}
+    const clientHeight = (document && document.documentElement)
+      ? document.documentElement.clientHeight
+      : 0;
+    const scrollableFlyout = this.props.scrollable && clientHeight;
+
+    //TODO re-render when this._dropDownMenu is missing
+    const dropDownBounds = this._dropDownMenu
+      ? this._dropDownMenu.getBoundingClientRect()
+      : {top: 0, height: 0};
+
+    const maxHeight = clientHeight - dropDownBounds.top - dropDownBounds.height - DROPDOWN_VERTICAL_MARGIN_TOTAL;
+
+    const style = scrollableFlyout
+      ? {maxHeight: maxHeight, overflow: 'scroll'}
+      : null;
+    const onWheel = scrollableFlyout
+      ? this.onFlyoutWheel
       : null;
 
     const content = this.props.getContent(this.onHide);
@@ -139,7 +157,12 @@ export default class Dropdown extends React.Component<Props, State> {
         <ul
           className={classNames}
           style={style}
-          ref={(ul) => this._flyout = ul }>
+          onWheel={onWheel}
+          ref={(ul) => {
+            if (ul instanceof HTMLElement) {
+              this._flyout = ul;
+            }
+          }}>
           {content}
         </ul>
       );
@@ -148,7 +171,12 @@ export default class Dropdown extends React.Component<Props, State> {
         <div
           className={classNames}
           style={style}
-          ref={(div) => this._flyout = div }>
+          onWheel={onWheel}
+          ref={(div) => {
+            if (div instanceof HTMLElement) {
+              this._flyout = div;
+            }
+          }}>
           {content}
         </div>
       );
@@ -172,6 +200,41 @@ export default class Dropdown extends React.Component<Props, State> {
       if (this.state.isOpen) {
         this.setState({isOpen: false});
       }
+    }
+  };
+
+  onFlyoutWheel = (event: SyntheticWheelEvent<HTMLElement>) => {
+    if (!this._flyout) {
+      return;
+    }
+    const scrollTop = this._flyout.scrollTop;
+    const maxScroll = this._flyout.scrollHeight - this._flyout.offsetHeight;
+    const deltaY = event.deltaY;
+
+    if (
+      (scrollTop === maxScroll && deltaY > 0) ||
+      (scrollTop === 0 && deltaY < 0)
+    ) {
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      (scrollTop + deltaY) > maxScroll &&
+      this._flyout.scrollTop !== maxScroll
+    ) {
+      this._flyout.scrollTop = maxScroll;
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      (scrollTop + deltaY) < 0 &&
+      this._flyout.scrollTop !== 0
+    ) {
+      this._flyout.scrollTop = 0;
+      event.preventDefault();
+      return;
     }
   };
 }

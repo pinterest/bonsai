@@ -10,6 +10,10 @@ import Button from '../Button';
 import Dropdown from '../Dropdown';
 
 const alertOnClick = () => { alert('Clicked me'); };
+const noop = () => undefined;
+const range = (start: number, end: number): Array<number> => {
+  return [...Array(end - start).keys()].map(i => Number(i) + start);
+};
 
 const getContent = (hideContent: () => void) => {
   return (
@@ -20,10 +24,6 @@ const getContent = (hideContent: () => void) => {
     </div>
   );
 };
-
-function range(start: number, end: number): Array<number> {
-  return [...Array(end - start).keys()].map(i => Number(i) + start);
-}
 
 const getListContent = (length: number) => {
   return (hideContent: () => void) => {
@@ -107,6 +107,19 @@ storiesOf('Bootstrap/Dropdown', module)
       <span className="caret"></span>
     </Dropdown>
   ))
+  .add('List with long content on long page', () => (
+    <div>
+      <Dropdown getContent={getListContent(40)} defaultIsOpen={true} scrollable={true} >
+        Show list
+        {' '}
+        <span className="caret"></span>
+      </Dropdown>
+      <ul>
+        {getListContent(60)(noop)}
+      </ul>
+    </div>
+  ))
+
   .add('Split Button', () => (
     <Dropdown
       getContent={getContent}
