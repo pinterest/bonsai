@@ -24,6 +24,7 @@ export function RequiredByPanel(props: Props) {
     <Dropdown
       align="right"
       color="link"
+      scrollable={true}
       disabled={props.eModule.requiredBy.length === 0}
       getContent={(hideContent: () => void) =>
         props.eModule.requiredBy.map((reason) => (
@@ -55,6 +56,7 @@ export function RequirementsPanel(props: Props) {
     <Dropdown
       align="right"
       color="link"
+      scrollable={true}
       disabled={props.eModule.requirements.length === 0}
       getContent={(hideContent: () => void) =>
         props.eModule.requirements.map((module) => (

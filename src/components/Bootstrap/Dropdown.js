@@ -22,6 +22,7 @@ type Props = {
   color?: Color,
   size?: Size,
   disabled?: boolean,
+  scrollable?: boolean,
   style?: Object,
 
   children?: React.Node,
@@ -125,11 +126,19 @@ export default class Dropdown extends React.Component<Props, State> {
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
     ].filter(_ => _).join(' ');
 
+    const clientHeight = document &&
+      document.documentElement &&
+      document.documentElement.clientHeight;
+    const style = (this.props.scrollable && clientHeight)
+      ? {maxHeight: clientHeight, overflow: 'scroll'}
+      : null;
+
     const content = this.props.getContent(this.onHide);
     if (Array.isArray(content)) {
       return (
         <ul
           className={classNames}
+          style={style}
           ref={(ul) => this._flyout = ul }>
           {content}
         </ul>
@@ -138,6 +147,7 @@ export default class Dropdown extends React.Component<Props, State> {
       return (
         <div
           className={classNames}
+          style={style}
           ref={(div) => this._flyout = div }>
           {content}
         </div>

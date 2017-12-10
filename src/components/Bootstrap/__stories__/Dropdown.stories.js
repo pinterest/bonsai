@@ -21,20 +21,26 @@ const getContent = (hideContent: () => void) => {
   );
 };
 
-const getListContent = (hideContent: () => void) => {
-  return (
-    [1, 2, 3, 4, 5].map((i) => (
-      <li key={i}>
-        <a href="#" onClick={(e) => {
-          e.preventDefault();
-          hideContent();
-          action(`Clicked ${i}`)(e);
-        }}>
-          Count: {i}
-        </a>
-      </li>
-    ))
-  );
+function range(start: number, end: number): Array<number> {
+  return [...Array(end - start).keys()].map(i => Number(i) + start);
+}
+
+const getListContent = (length: number) => {
+  return (hideContent: () => void) => {
+    return (
+      range(1, length + 1).map((i) => (
+        <li key={i}>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            hideContent();
+            action(`Clicked ${i}`)(e);
+          }}>
+            Count: {i}
+          </a>
+        </li>
+      ))
+    );
+  };
 };
 
 storiesOf('Bootstrap/Dropdown', module)
@@ -81,14 +87,21 @@ storiesOf('Bootstrap/Dropdown', module)
     </Dropdown>
   ))
   .add('List Content', () => (
-    <Dropdown getContent={getListContent}>
+    <Dropdown getContent={getListContent(5)}>
       Show list
       {' '}
       <span className="caret"></span>
     </Dropdown>
   ))
   .add('List Content isOpen', () => (
-    <Dropdown getContent={getListContent} defaultIsOpen={true}>
+    <Dropdown getContent={getListContent(5)} defaultIsOpen={true} scrollable={true} >
+      Show list
+      {' '}
+      <span className="caret"></span>
+    </Dropdown>
+  ))
+  .add('List with long content', () => (
+    <Dropdown getContent={getListContent(40)} defaultIsOpen={true} scrollable={true} >
       Show list
       {' '}
       <span className="caret"></span>
@@ -128,7 +141,7 @@ storiesOf('Bootstrap/Dropdown', module)
   ))
   .add('Split Button w/ List Content', () => (
     <Dropdown
-      getContent={getListContent}
+      getContent={getListContent(5)}
       split={{
         label: 'expand',
         primaryOnClick: alertOnClick,
