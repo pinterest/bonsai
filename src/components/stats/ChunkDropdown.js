@@ -28,6 +28,7 @@ export default function ChunkDropdown(props: Props) {
 
   return (
     <Dropdown
+      scrollable={true}
       disabled={chunkList.length === 0}
       getContent={(hideContent) => chunkList.map((chunk) => (
         <li key={chunk.id}>

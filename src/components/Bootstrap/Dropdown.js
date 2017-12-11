@@ -22,6 +22,7 @@ type Props = {
   color?: Color,
   size?: Size,
   disabled?: boolean,
+  scrollable?: boolean,
   style?: Object,
 
   children?: React.Node,
@@ -40,7 +41,10 @@ type Props = {
 
 type State = {
   isOpen: boolean,
+  waitForDropdownMenu: boolean, // invoke a re-render when scrollable and isOpen are true during mount
 };
+
+const DROPDOWN_VERTICAL_MARGIN_TOTAL = 22; // top&bottom margin of .dropdown-menu
 
 function sizeToClass(size: ?Size) {
   if (!size) {
@@ -51,19 +55,27 @@ function sizeToClass(size: ?Size) {
 
 export default class Dropdown extends React.Component<Props, State> {
   state: State;
-  _dropDownMenu: ?Node = null;
-  _flyout: ?Node = null;
+  _dropDownMenu: ?HTMLElement = null;
+  _flyout: ?HTMLElement = null;
 
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      isOpen: props.defaultIsOpen || false,
+      isOpen: Boolean(props.defaultIsOpen),
+      waitForDropdownMenu: Boolean(props.defaultIsOpen) && Boolean(props.scrollable),
     };
   }
 
   componentDidMount() {
     document.addEventListener('click', this.onDocumentClick);
+
+    if (this.state.waitForDropdownMenu) {
+      // force a re-render during mount to properly measure _dropDownMenu
+      this.setState({
+        waitForDropdownMenu: false,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -79,7 +91,11 @@ export default class Dropdown extends React.Component<Props, State> {
           isOpenClass,
           sizeToClass(this.props.size),
         ].filter(_ => _).join(' ')}
-        ref={(div) => this._dropDownMenu = div }
+        ref={(div) => {
+          if (div instanceof HTMLElement) {
+            this._dropDownMenu = div;
+          }
+        }}
         style={this.props.style}>
         {this.props.split
           ? <Button
@@ -119,6 +135,36 @@ export default class Dropdown extends React.Component<Props, State> {
     }
   }
 
+  getScrollableProps() {
+    if (!this.props.scrollable) {
+      return {};
+    }
+
+    if (
+      !document ||
+      !document.documentElement ||
+      !this._dropDownMenu
+    ) {
+      return {};
+    }
+
+    const clientHeight = document.documentElement.clientHeight;
+    if (!clientHeight) {
+      return {};
+    }
+
+    const dropDownBounds = this._dropDownMenu.getBoundingClientRect();
+    const maxHeight = clientHeight - dropDownBounds.top - dropDownBounds.height - DROPDOWN_VERTICAL_MARGIN_TOTAL;
+
+    return {
+      style: {
+        maxHeight: maxHeight,
+        overflow: 'scroll',
+      },
+      onWheel: this.onFlyoutWheel,
+    };
+  }
+
   renderContent() {
     const classNames = [
       'dropdown-menu',
@@ -130,7 +176,12 @@ export default class Dropdown extends React.Component<Props, State> {
       return (
         <ul
           className={classNames}
-          ref={(ul) => this._flyout = ul }>
+          {...this.getScrollableProps()}
+          ref={(ul) => {
+            if (ul instanceof HTMLElement) {
+              this._flyout = ul;
+            }
+          }}>
           {content}
         </ul>
       );
@@ -138,7 +189,12 @@ export default class Dropdown extends React.Component<Props, State> {
       return (
         <div
           className={classNames}
-          ref={(div) => this._flyout = div }>
+          {...this.getScrollableProps()}
+          ref={(div) => {
+            if (div instanceof HTMLElement) {
+              this._flyout = div;
+            }
+          }}>
           {content}
         </div>
       );
@@ -162,6 +218,41 @@ export default class Dropdown extends React.Component<Props, State> {
       if (this.state.isOpen) {
         this.setState({isOpen: false});
       }
+    }
+  };
+
+  onFlyoutWheel = (event: SyntheticWheelEvent<HTMLElement>) => {
+    if (!this._flyout) {
+      return;
+    }
+    const scrollTop = this._flyout.scrollTop;
+    const maxScroll = this._flyout.scrollHeight - this._flyout.offsetHeight;
+    const deltaY = event.deltaY;
+
+    if (
+      (scrollTop === maxScroll && deltaY > 0) ||
+      (scrollTop === 0 && deltaY < 0)
+    ) {
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      (scrollTop + deltaY) > maxScroll &&
+      this._flyout.scrollTop !== maxScroll
+    ) {
+      this._flyout.scrollTop = maxScroll;
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      (scrollTop + deltaY) < 0 &&
+      this._flyout.scrollTop !== 0
+    ) {
+      this._flyout.scrollTop = 0;
+      event.preventDefault();
+      return;
     }
   };
 }
