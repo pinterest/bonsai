@@ -952,8 +952,6 @@ exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
   </button>
   <div
     className="dropdown-menu"
-    onWheel={null}
-    style={null}
   >
     <div
       className="col-sm-12"
@@ -1017,8 +1015,6 @@ exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
   </button>
   <ul
     className="dropdown-menu"
-    onWheel={null}
-    style={null}
   >
     <li>
       <a
@@ -1091,8 +1087,6 @@ exports[`Storyshots Bootstrap/Dropdown List with long content 1`] = `
   </button>
   <ul
     className="dropdown-menu"
-    onWheel={null}
-    style={null}
   >
     <li>
       <a
@@ -1481,8 +1475,6 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
     </button>
     <ul
       className="dropdown-menu"
-      onWheel={null}
-      style={null}
     >
       <li>
         <a

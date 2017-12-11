@@ -41,6 +41,7 @@ type Props = {
 
 type State = {
   isOpen: boolean,
+  waitForDropdownMenu: boolean, // invoke a re-render when scrollable and isOpen are true during mount
 };
 
 const DROPDOWN_VERTICAL_MARGIN_TOTAL = 22; // top&bottom margin of .dropdown-menu
@@ -61,12 +62,20 @@ export default class Dropdown extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      isOpen: props.defaultIsOpen || false,
+      isOpen: Boolean(props.defaultIsOpen),
+      waitForDropdownMenu: Boolean(props.defaultIsOpen) && Boolean(props.scrollable),
     };
   }
 
   componentDidMount() {
     document.addEventListener('click', this.onDocumentClick);
+
+    if (this.state.waitForDropdownMenu) {
+      // force a re-render during mount to properly measure _dropDownMenu
+      this.setState({
+        waitForDropdownMenu: false,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -126,38 +135,48 @@ export default class Dropdown extends React.Component<Props, State> {
     }
   }
 
+  getScrollableProps() {
+    if (!this.props.scrollable) {
+      return {};
+    }
+
+    if (
+      !document ||
+      !document.documentElement ||
+      !this._dropDownMenu
+    ) {
+      return {};
+    }
+
+    const clientHeight = document.documentElement.clientHeight;
+    if (!clientHeight) {
+      return {};
+    }
+
+    const dropDownBounds = this._dropDownMenu.getBoundingClientRect();
+    const maxHeight = clientHeight - dropDownBounds.top - dropDownBounds.height - DROPDOWN_VERTICAL_MARGIN_TOTAL;
+
+    return {
+      style: {
+        maxHeight: maxHeight,
+        overflow: 'scroll',
+      },
+      onWheel: this.onFlyoutWheel,
+    };
+  }
+
   renderContent() {
     const classNames = [
       'dropdown-menu',
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
     ].filter(_ => _).join(' ');
 
-    const clientHeight = (document && document.documentElement)
-      ? document.documentElement.clientHeight
-      : 0;
-    const scrollableFlyout = this.props.scrollable && clientHeight;
-
-    //TODO re-render when this._dropDownMenu is missing
-    const dropDownBounds = this._dropDownMenu
-      ? this._dropDownMenu.getBoundingClientRect()
-      : {top: 0, height: 0};
-
-    const maxHeight = clientHeight - dropDownBounds.top - dropDownBounds.height - DROPDOWN_VERTICAL_MARGIN_TOTAL;
-
-    const style = scrollableFlyout
-      ? {maxHeight: maxHeight, overflow: 'scroll'}
-      : null;
-    const onWheel = scrollableFlyout
-      ? this.onFlyoutWheel
-      : null;
-
     const content = this.props.getContent(this.onHide);
     if (Array.isArray(content)) {
       return (
         <ul
           className={classNames}
-          style={style}
-          onWheel={onWheel}
+          {...this.getScrollableProps()}
           ref={(ul) => {
             if (ul instanceof HTMLElement) {
               this._flyout = ul;
@@ -170,8 +189,7 @@ export default class Dropdown extends React.Component<Props, State> {
       return (
         <div
           className={classNames}
-          style={style}
-          onWheel={onWheel}
+          {...this.getScrollableProps()}
           ref={(div) => {
             if (div instanceof HTMLElement) {
               this._flyout = div;
