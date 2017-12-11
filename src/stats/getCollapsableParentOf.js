@@ -3,22 +3,24 @@
  */
 
 import type {
+  ModuleID,
   ExtendedModule,
 } from '../types/Stats';
 import type { ExtendedModulesById } from './getModulesById';
 
 export default function getCollapsableParentOf(
   modulesById: ExtendedModulesById,
-  module: ExtendedModule,
+  moduleId: ModuleID,
 ): ?ExtendedModule {
+  const module = modulesById[moduleId];
+  if (!module) {
+    return null;
+  }
   const requiredByCount = module.requiredBy.length;
   if (requiredByCount === 0) {
     return null;
   } else if (requiredByCount === 1) {
-    const eModule = modulesById[module.requiredBy[0].moduleId];
-    return eModule
-      ? getCollapsableParentOf(modulesById, eModule)
-      : null;
+    return getCollapsableParentOf(modulesById, module.requiredBy[0].moduleId);
   } else {
     const requirementCount = module.requirements.length;
     if (requirementCount === 0) {

@@ -11,8 +11,18 @@ function loadStories() {
   req.keys().forEach(req);
 }
 
+const store = createStore(handleAction);
+if (module.hot) {
+  // Enable Webpack hot module replacement for reducers
+  module.hot.accept('../src/utils/reducer', () => {
+    const nextRootReducer = require('../src/utils/reducer').default;
+    console.log('replacing with', nextRootReducer);
+    store.replaceReducer(nextRootReducer);
+  });
+}
+
 addDecorator((story) => (
-  <Provider store={createStore(handleAction)}>
+  <Provider store={store}>
     {story()}
   </Provider>
 ));
