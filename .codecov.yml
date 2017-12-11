@@ -10,22 +10,24 @@ coverage:
   status:
     project:
       default: off
-      skipped:
-        target: 0%
-        flags:
-          - test-helpers
-          - types
-      progressing:
-        target: 50%
-        flags:
-          - cli
-      solid:
+      core:
         target: 100%
         flags:
           - components
           - utils
           - stats
-    patch: yes
+      helpers:
+        target: 0%
+        flags:
+          - test-helpers
+          - types
+      cli:
+        target: 50%
+        flags:
+          - cli
+    patch:
+      default:
+        flags: !components
     changes: no
 
 parsers:
