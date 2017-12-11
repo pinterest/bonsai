@@ -109,6 +109,9 @@ storiesOf('Bootstrap/Dropdown', module)
   ))
   .add('List with long content on long page', () => (
     <div>
+      <ul>
+        {getListContent(10)(noop)}
+      </ul>
       <Dropdown getContent={getListContent(40)} defaultIsOpen={true} scrollable={true} >
         Show list
         {' '}
