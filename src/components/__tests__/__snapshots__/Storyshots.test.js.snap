@@ -2619,6 +2619,314 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 </div>
 `;
 
+exports[`Storyshots Bootstrap/DropdownList Basic 1`] = `
+<div
+  className="btn-group"
+  style={undefined}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Pick a name
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/DropdownList Custom filter 1`] = `
+<div
+  className="btn-group"
+  style={undefined}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Pick a name
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
+<div
+  className="btn-group open"
+  style={undefined}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="true"
+    className="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    <input
+      className="form-control input-sm"
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder="Pick a name"
+      style={
+        Object {
+          "display": "inline",
+          "width": "auto",
+        }
+      }
+      type="text"
+      value=""
+    />
+     
+    <span
+      className="caret"
+    />
+  </button>
+  <ul
+    className="dropdown-menu"
+  >
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Adele
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Agnes
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Billy
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Bob
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Calvin
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Christina
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-default btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        Cindy
+      </button>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
+<div
+  className="btn-group open"
+  style={undefined}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="true"
+    className="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    <input
+      className="form-control input-sm"
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder="Pick a name"
+      style={
+        Object {
+          "display": "inline",
+          "width": "auto",
+        }
+      }
+      type="text"
+      value=""
+    />
+     
+    <span
+      className="caret"
+    />
+  </button>
+  <ul
+    className="dropdown-menu"
+  >
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Adele
+        </div>
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Agnes
+        </div>
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Billy
+        </div>
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Bob
+        </div>
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Calvin
+        </div>
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Christina
+        </div>
+      </button>
+    </li>
+    <li>
+      <button
+        className="btn btn-link btn-block"
+        disabled={null}
+        onClick={[Function]}
+        style={null}
+        type="button"
+      >
+        <div
+          className="text-left"
+        >
+          Cindy
+        </div>
+      </button>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 <a
   className="btn btn-link"
