@@ -17,7 +17,7 @@ type Size =
   | 'xs'
   | 'block';
 
-type Props = {
+export type Props = {
   align?: Alignment,
   color?: Color,
   size?: Size,
@@ -27,10 +27,9 @@ type Props = {
 
   children?: React.Node,
 
-  getContent: (
-    hideContent: () => void,
-  ) => React.Node,
+  getContent: (hideContent: () => void) => React.Node,
   defaultIsOpen?: boolean,
+  onToggleOpen?: (isOpen: boolean) => void,
 
   split?: {
     primaryOnClick: (e: MouseEvent) => void,
@@ -80,6 +79,10 @@ export default class Dropdown extends React.Component<Props, State> {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.onDocumentClick);
+  }
+
+  isOpen() {
+    return this.state.isOpen;
   }
 
   render() {
@@ -202,11 +205,15 @@ export default class Dropdown extends React.Component<Props, State> {
   }
 
   onHide = () => {
-    this.setState({isOpen: false});
+    this.setState({isOpen: false}, () => {
+      this.props.onToggleOpen && this.props.onToggleOpen(this.state.isOpen);
+    });
   };
 
   onClickToggle = () => {
-    this.setState({isOpen: !this.state.isOpen});
+    this.setState({isOpen: !this.state.isOpen}, () => {
+      this.props.onToggleOpen && this.props.onToggleOpen(this.state.isOpen);
+    });
   };
 
   onDocumentClick = (event: MouseEvent) => {
@@ -216,7 +223,9 @@ export default class Dropdown extends React.Component<Props, State> {
         return;
       }
       if (this.state.isOpen) {
-        this.setState({isOpen: false});
+        this.setState({isOpen: false}, () => {
+          this.props.onToggleOpen && this.props.onToggleOpen(this.state.isOpen);
+        });
       }
     }
   };
