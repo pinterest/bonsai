@@ -9,9 +9,11 @@ node_js:
 
 cache: yarn
 
-before_install: yarn global add greenkeeper-lockfile@1
-
-before_script: greenkeeper-lockfile-update
+before_install:
+  - export PATH=$PATH:`yarn global bin`
+  - yarn global add greenkeeper-lockfile@1
+before_script:
+  - greenkeeper-lockfile-update
 script:
   - yarn eslint -- ./src
   - yarn mdspell -- --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md
@@ -33,7 +35,8 @@ script:
     NODE_ENV=production \
     yarn babel -- src --out-dir bin --ignore __tests__,src/components && \
     chmod +x bin/cli.js
-after_script: greenkeeper-lockfile-upload
+after_script:
+  - greenkeeper-lockfile-upload
 
 before_deploy:
   - |
