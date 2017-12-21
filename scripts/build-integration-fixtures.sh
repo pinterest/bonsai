@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-cd $(dirname $0)/../..
+set -e
+
+cd "$(dirname $0)/.."
 
 mkdir -p ./src/integration/tmp
 
 echo "Collecting webpack json stats..."
 
 webpack=./node_modules/webpack/bin/webpack.js
-jest=./node_modules/.bin/react-scripts
 
 time NODE_ENV=production $webpack --json --config ./src/__test_helpers__/prod-config.js > ./src/integration/tmp/prod-config.json
 echo "Collected stats for prod-config"
