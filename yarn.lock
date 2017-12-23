@@ -75,12 +75,11 @@
   dependencies:
     "@storybook/addons" "^3.2.18"
 
-"@storybook/addon-storyshots@3.2.18":
-  version "3.2.18"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.2.18.tgz#74aecd84eadcfb0ff1a26cee506530e3e4f5a645"
+"@storybook/addon-storyshots@3.2.19":
+  version "3.2.19"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.2.19.tgz#9224d51eab7eb93f1d67b86566a8914fe3b45fcc"
   dependencies:
-    "@storybook/channels" "^3.2.18"
-    babel-core "^6.26.0"
+    "@storybook/channels" "^3.2.19"
     babel-runtime "^6.26.0"
     global "^4.3.2"
     prop-types "^15.6.0"
@@ -101,6 +100,10 @@
 "@storybook/channels@^3.2.18":
   version "3.2.18"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.2.18.tgz#c5d8c4ac780c6ebb4b1c360d8faf9207fd4fbafd"
+
+"@storybook/channels@^3.2.19":
+  version "3.2.19"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.2.19.tgz#36996ccf8b86bafb420172d8b5380b2e91fdd976"
 
 "@storybook/components@^3.2.18":
   version "3.2.18"
