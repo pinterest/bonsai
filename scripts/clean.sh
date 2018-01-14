@@ -14,5 +14,6 @@ rm -Rf \
   flow-coverage \
   lib \
   npm-debug.log \
-  src/integration/tmp \
+  scripts/built-integration-fixtures \
+  scripts/clone-webpack \
   storybook-static

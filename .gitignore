@@ -8,7 +8,9 @@
 /flow-coverage
 
 # integration testing
-/src/integration/tmp/
+/dev-server/api/built-webpack-examples
+/scripts/built-integration-fixtures
+/scripts/clone-webpack
 
 # production
 /bin
@@ -26,5 +28,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
