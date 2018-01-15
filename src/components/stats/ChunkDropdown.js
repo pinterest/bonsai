@@ -30,9 +30,6 @@ export default function ChunkDropdown(props: Props) {
     <DropdownList
       scrollable={true}
       disabled={chunkList.length === 0}
-      onItemPicked={(value: string | number) => {
-        props.onSelectChunkId(value);
-      }}
       items={chunkList.map((chunk) => ({
         node(hideContent) {
           return (
@@ -54,7 +51,7 @@ export default function ChunkDropdown(props: Props) {
             </Button>
           );
         },
-        value: chunk.name,
+        value: chunk.id,
       }))}>
       {label}
     </DropdownList>

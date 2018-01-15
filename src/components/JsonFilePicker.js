@@ -8,7 +8,6 @@ type Props = {
   dataPaths: ?Array<string>,
   selected: ?string,
   id?: string,
-  className?: string,
   onChange: (event: SyntheticInputEvent<>) => void,
 };
 
@@ -25,7 +24,7 @@ export default function JsonFilePicker(props: Props) {
     <select
       id={props.id}
       value={props.selected || ''}
-      className={props.className}
+      className="form-control"
       onChange={props.onChange}>
       <option value=""></option>
       {props.dataPaths.map((file) =>
