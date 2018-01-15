@@ -18,17 +18,11 @@ expect.extend({
     const newState = reducer(state, action);
     const pass = !Object.is(state, newState);
 
-    if (pass) {
-      return {
-        message: () => `expected ${action} not to reduce into a new state object`,
-        pass: true,
-      };
-    } else {
-      return {
-        message: () => `expected ${action} to reduce into a new state object`,
-        pass: false,
-      };
-    }
+    const message = pass
+      ? () => `expected ${action} not to reduce into a new state object`
+      : () => `expected ${action} to reduce into a new state object`;
+
+    return {actual: action, message, pass};
   },
 });
 

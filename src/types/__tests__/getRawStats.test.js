@@ -149,7 +149,7 @@ describe('getRawStats', () => {
         modules: [],
       };
 
-      const stats = getRawStats('test-stats.json', json);
+      const stats = getRawStats(json);
 
       isRawStats(stats['test-stats.json']);
       expect(stats).toEqual([
@@ -167,7 +167,7 @@ describe('getRawStats', () => {
         }],
       };
 
-      const stats = getRawStats('test-stats.json', json);
+      const stats = getRawStats(json);
 
       isRawStats(stats['test-stats.json']);
       expect(stats).toEqual([
@@ -187,7 +187,7 @@ describe('getRawStats', () => {
         }],
       };
 
-      const stats = getRawStats('test-stats.json', json);
+      const stats = getRawStats(json);
 
       isRawStats(stats['test-stats.json']);
       expect(stats).toEqual([
