@@ -16,14 +16,14 @@ function isRawStats(stats: RawStats) {
 
 function expectSingleConfigToFallThroughToMulti() {
   // eslint-disable-next-line no-console
-  expect(console.error).toHaveBeenCalledTimes(1);
+  expect(console.warn).toHaveBeenCalledTimes(1);
   // eslint-disable-next-line no-console
-  expect(console.error).toHaveBeenCalledWith(`Could not find 'chunks' field.`);
+  expect(console.warn).toHaveBeenCalledWith(`Could not find 'chunks' field.`);
 }
 
 describe('getRawStats', () => {
   beforeEach(() => {
-    (console: any).error = jest.fn();
+    (console: any).warn = jest.fn();
   });
 
   describe('getStatsJson', () => {
@@ -38,7 +38,7 @@ describe('getRawStats', () => {
       isRawStats(stats);
       expect(stats).toEqual(json);
       // eslint-disable-next-line no-console
-      expect(console.error).not.toHaveBeenCalled();
+      expect(console.warn).not.toHaveBeenCalled();
     });
 
     const failureModes = [
@@ -64,7 +64,7 @@ describe('getRawStats', () => {
       it(fixture.message, () => {
         expect(() => getStatsJson(fixture.json)).toThrow();
         // eslint-disable-next-line no-console
-        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledTimes(1);
       });
     });
   });
@@ -83,7 +83,7 @@ describe('getRawStats', () => {
       isRawStats(stats.children[0]);
       expect(stats).toEqual(json);
       // eslint-disable-next-line no-console
-      expect(console.error).not.toHaveBeenCalled();
+      expect(console.warn).not.toHaveBeenCalled();
     });
 
     const failureModes = [
@@ -137,7 +137,7 @@ describe('getRawStats', () => {
       it(fixture.message, () => {
         expect(() => getMultiStatsJson(fixture.json)).toThrow();
         // eslint-disable-next-line no-console
-        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledTimes(1);
       });
     });
   });
@@ -156,7 +156,7 @@ describe('getRawStats', () => {
         json
       ]);
       // eslint-disable-next-line no-console
-      expect(console.error).not.toHaveBeenCalled();
+      expect(console.warn).not.toHaveBeenCalled();
     });
 
     it('should detect and accept multi configs', () => {

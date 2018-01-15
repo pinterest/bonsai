@@ -6,6 +6,8 @@ import type {ParsedJSON, RawStats} from '../types/Stats';
 
 function invariant(condition: boolean, message: string): void {
   if (!condition) {
+    // eslint-disable-next-line no-console
+    console.warn(`Could not find 'chunks' field.`);
     throw new Error(message);
   }
 }

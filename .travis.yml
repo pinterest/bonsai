@@ -19,6 +19,7 @@ script:
   - yarn flow check
   - yarn flow-annotation-check
   - yarn flow-coverage-report -t text
+
   - yarn rebuild:integration-fixtures
   - yarn rebuild:webpack-examples
   - yarn react-scripts test --env=jsdom --coverage
