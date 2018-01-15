@@ -54,7 +54,7 @@
     "flow-coverage-report": "^0.4.0",
     "markdown-spellcheck": "^1.0.0",
     "nodemon": "^1.11.0",
-    "react-scripts": "1.0.17",
+    "react-scripts": "1.1.0",
     "react-test-renderer": "16.2.0",
     "serve": "^6.0.1"
   },
