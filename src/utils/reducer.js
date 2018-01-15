@@ -10,6 +10,7 @@ import type {
 } from '../stats/filterModules';
 import type { SortableFields, SortProps } from '../stats/sortModules';
 
+import getEntryChunks from '../stats/getEntryChunks';
 import fullModuleData from '../stats/fullModuleData';
 import getCollapsableParentOf from '../stats/getCollapsableParentOf';
 import getModulesById from '../stats/getModulesById';
@@ -30,7 +31,7 @@ export type Action =
   | {
     type: 'loadedStatsAtPath',
     path: string,
-    stats: RawStats,
+    children: Array<RawStats>,
   }
   | {
     type: 'erroredAtPath',
@@ -44,6 +45,10 @@ export type Action =
   | {
     type: 'onFiltered',
     changes: {[key: FilterableFields]: string},
+  }
+  | {
+    type: 'onPickedChild',
+    childIndex: number,
   }
   | {
     type: 'onPickedChunk',
@@ -79,9 +84,10 @@ type DataPathState = 'unknown' | 'loading' | 'error' | 'ready';
 export type State = {
   dataPaths: {[path: string]: DataPathState},
   selectedFilename: ?string,
+  selectedChildIndex: ?number,
   selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
-  json: {[filename: string]: RawStats},
+  jsonChildren: {[filename: string]: Array<RawStats>},
   sort: SortProps,
   filters: FilterProps,
   expandMode: 'manual' | 'expand-all' | 'collapse-all',
@@ -95,9 +101,10 @@ export type Dispatch = (action: Action) => any;
 export const INITIAL_STATE: State = {
   dataPaths: {},
   selectedFilename: null,
+  selectedChildIndex: null,
   selectedChunkId: null,
   blacklistedModuleIds: [],
-  json: {},
+  jsonChildren: {},
   sort: {
     field: 'cumulativeSize',
     direction: 'DESC',
@@ -117,6 +124,28 @@ export const INITIAL_STATE: State = {
   calculatedFullModuleData: null,
 };
 
+function getDefaultChildIndex(children: Array<RawStats>): ?number {
+  return children.length === 1
+    ? 0
+    : null;
+}
+
+function getDefaultChunkId(
+  children: Array<RawStats>,
+  childIndex: ?number,
+): ?ChunkID {
+  if (
+    childIndex === null || childIndex === undefined ||
+    !children[childIndex]
+  ) {
+    return null;
+  }
+  const entryChunks = getEntryChunks(children[childIndex]);
+  return entryChunks.length === 1
+    ? entryChunks[0].id
+    : null;
+}
+
 function handleAction(
   state: State,
   action: Action,
@@ -133,7 +162,8 @@ function handleAction(
           ...state.dataPaths,
         },
       };
-    case 'pickDataPath':
+    case 'pickDataPath': {
+      const childIndex = getDefaultChildIndex(state.jsonChildren[action.path] || []);
       return {
         ...state,
         dataPaths: {
@@ -141,12 +171,17 @@ function handleAction(
           ...state.dataPaths,
         },
         selectedFilename: action.path,
-        selectedChunkId: null,
+        selectedChildIndex: childIndex,
+        selectedChunkId: getDefaultChunkId(
+          state.jsonChildren[action.path] || [],
+          childIndex,
+        ),
         blacklistedModuleIds: [],
         expandMode: 'collapse-all',
         expandedRecords: new Set(),
         currentlyFocusedElementID: null,
       };
+    }
     case 'requestedDataAtPath':
       return {
         ...state,
@@ -157,18 +192,22 @@ function handleAction(
             : 'loading',
         },
       };
-    case 'loadedStatsAtPath':
+    case 'loadedStatsAtPath': {
+      const childIndex = getDefaultChildIndex(action.children);
       return {
         ...state,
         dataPaths: {
           ...state.dataPaths,
           [action.path]: 'ready',
         },
-        json: {
-          ...state.json,
-          [action.path]: action.stats,
+        jsonChildren: {
+          ...state.jsonChildren,
+          [action.path]: action.children,
         },
+        selectedChildIndex: childIndex,
+        selectedChunkId: getDefaultChunkId(action.children, childIndex),
       };
+    }
     case 'erroredAtPath':
       return {
         ...state,
@@ -196,6 +235,19 @@ function handleAction(
           ...state.filters,
           ...action.changes,
         },
+      };
+    case 'onPickedChild':
+      return {
+        ...state,
+        selectedChildIndex: action.childIndex,
+        selectedChunkId: getDefaultChunkId(
+          (state.jsonChildren && state.jsonChildren[String(state.selectedFilename)]) || [],
+          action.childIndex
+        ),
+        blacklistedModuleIds: [],
+        expandMode: 'collapse-all',
+        expandedRecords: new Set(),
+        currentlyFocusedElementID: null,
       };
     case 'onPickedChunk':
       return {
@@ -284,9 +336,11 @@ function calculateFullModuleData(
   newState: State,
 ): State {
   if (
-    !newState.json ||
+    !newState.jsonChildren ||
     !newState.selectedFilename ||
-    !newState.json[newState.selectedFilename]
+    newState.selectedChildIndex === null || newState.selectedChildIndex === undefined ||
+    !newState.jsonChildren[newState.selectedFilename] ||
+    !newState.jsonChildren[newState.selectedFilename][newState.selectedChildIndex]
   ) {
     return {
       ...newState,
@@ -295,8 +349,9 @@ function calculateFullModuleData(
   }
 
   if (
-    oldState.json === newState.json &&
+    oldState.jsonChildren === newState.jsonChildren &&
     oldState.selectedFilename === newState.selectedFilename &&
+    oldState.selectedChildIndex === newState.selectedChildIndex &&
     oldState.selectedChunkId === newState.selectedChunkId &&
     oldState.blacklistedModuleIds === newState.blacklistedModuleIds
   ) {
@@ -306,7 +361,7 @@ function calculateFullModuleData(
   return {
     ...newState,
     calculatedFullModuleData: fullModuleData(
-      newState.json[newState.selectedFilename],
+      newState.jsonChildren[newState.selectedFilename][newState.selectedChildIndex],
       newState.selectedChunkId,
       newState.blacklistedModuleIds,
     ),

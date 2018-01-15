@@ -15,20 +15,14 @@ function invariant(condition: boolean, message: string): void {
 export default function getRawStats(
   filename: string,
   json: ParsedJSON,
-): {[filename: string]: RawStats} {
+): Array<RawStats> {
   try {
     const stats = getStatsJson(json);
-    return {
-      [filename]: stats,
-    };
+    return [stats];
   } catch (singleError) {
     try {
       const multiStats = getMultiStatsJson(json);
-      return multiStats.children.reduce((multi, json, index) => {
-        const suffix = multiStats.children.length > 1 ? ` (multi ${index})` : '';
-        multi[filename + suffix] = json;
-        return multi;
-      }, {});
+      return multiStats.children;
     } catch (multiError) {
       throw new Error('Unable to find required fields.');
     }

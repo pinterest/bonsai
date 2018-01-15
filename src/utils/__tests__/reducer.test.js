@@ -150,20 +150,22 @@ describe('reducer', () => {
 
   describe('LoadedStatsAtPath action', () => {
     it('should clone the state when reduced', () => {
-      expect(LoadedStatsAtPath(mockDispatch)('test-file.json', {})).toCloneState();
+      expect(LoadedStatsAtPath(mockDispatch)('test-file.json', {chunks:[], modules: []})).toCloneState();
     });
 
     it('should ensure the filename is ready in dataPaths', () => {
       const state = {...INITIAL_STATE};
-      const action = LoadedStatsAtPath(mockDispatch)('test-file.json', {});
+      const action = LoadedStatsAtPath(mockDispatch)('test-file.json', {chunks:[], modules: []});
 
       const newState = reducer(state, action);
       expect(newState).toEqual(expect.objectContaining({
         dataPaths: {
           'test-file.json': 'ready',
         },
-        json: {
-          'test-file.json': expect.objectContaining({}),
+        jsonChildren: {
+          'test-file.json': expect.arrayContaining([
+            expect.objectContaining({chunks:[], modules: []}),
+          ]),
         },
       }));
     });

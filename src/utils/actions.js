@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {ChunkID, ModuleID, RawStats, ParsedJSON} from '../types/Stats';
+import type {ChunkID, ModuleID, ParsedJSON} from '../types/Stats';
 import type {Dispatch} from './reducer';
 import type {FilterableFields} from '../stats/filterModules';
 import type {SortableFields} from '../stats/sortModules';
@@ -27,27 +27,13 @@ export function PickDataPath(dispatch: Dispatch) {
 
 export function DroppedDataFile(dispatch: Dispatch) {
   return (path: string, fileText: string) => {
-    let json;
-    let files;
     try {
-      json = JSON.parse(fileText);
+      const json = JSON.parse(fileText);
+      return LoadedStatsAtPath(dispatch)(path, json);
     } catch (error) {
       alert(`JSON parse error. Unable to load stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
-      ErroredAtPath(dispatch)(path, error);
-      return;
+      return ErroredAtPath(dispatch)(path, error);
     }
-
-    try {
-      files = getRawStats(path, json);
-    } catch (error) {
-      alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
-      ErroredAtPath(dispatch)(path, error);
-      return;
-    }
-
-    Object.keys(files).forEach((file) => {
-      LoadedStatsAtPath(dispatch)(file, files[file]);
-    });
   };
 }
 
@@ -59,11 +45,19 @@ export function RequestedDataAtPath(dispatch: Dispatch) {
 }
 
 export function LoadedStatsAtPath(dispatch: Dispatch) {
-  return (path: string, stats: RawStats) => dispatch({
-    type: 'loadedStatsAtPath',
-    path,
-    stats,
-  });
+  return (path: string, json: ParsedJSON) => {
+    try {
+      const children = getRawStats(path, json);
+      return dispatch({
+        type: 'loadedStatsAtPath',
+        path,
+        children,
+      });
+    } catch (error) {
+      alert(`Invalid stats file.\n\n${String(error)}\n\nCheck the console for full details.`);
+      return ErroredAtPath(dispatch)(path, error);
+    }
+  };
 }
 
 export function ErroredAtPath(dispatch: Dispatch) {
@@ -119,6 +113,13 @@ export function FilteredTable(dispatch: Dispatch) {
   return (changes: {[key: FilterableFields]: string}) => dispatch({
     type: 'onFiltered',
     changes,
+  });
+}
+
+export function PickedChild(dispatch: Dispatch) {
+  return (childIndex: number) => dispatch({
+    type: 'onPickedChild',
+    childIndex,
   });
 }
 

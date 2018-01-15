@@ -12,10 +12,13 @@ storiesOf('FileSelectors', module)
     <FileSelectors
       dataPaths={[]}
       filename={null}
+      childrenIndexes={null}
+      selectedChildIndex={null}
       selectedChunkId={null}
       chunksByParent={[]}
       onChangedMode={action('on change mode')}
       onPickedFile={action('on stats file picked')}
+      onPickedChild={action('on child index picked')}
       onSelectChunkId={action('on select chunk id')}
     />
   ))
@@ -23,10 +26,13 @@ storiesOf('FileSelectors', module)
     <FileSelectors
       dataPaths={['stats.json']}
       filename={null}
+      childrenIndexes={null}
+      selectedChildIndex={null}
       selectedChunkId={null}
       chunksByParent={[]}
       onChangedMode={action('on change mode')}
       onPickedFile={action('on stats file picked')}
+      onPickedChild={action('on child index picked')}
       onSelectChunkId={action('on select chunk id')}
     />
   ))
@@ -34,10 +40,13 @@ storiesOf('FileSelectors', module)
     <FileSelectors
       dataPaths={['stats.json']}
       filename={'stats.json'}
+      childrenIndexes={[0]}
+      selectedChildIndex={null}
       selectedChunkId={null}
       chunksByParent={[]}
       onChangedMode={action('on change mode')}
       onPickedFile={action('on stats file picked')}
+      onPickedChild={action('on child index picked')}
       onSelectChunkId={action('on select chunk id')}
     />
   ))
@@ -45,10 +54,13 @@ storiesOf('FileSelectors', module)
     <FileSelectors
       dataPaths={[]}
       filename={'stats.json'}
+      childrenIndexes={[0]}
+      selectedChildIndex={null}
       selectedChunkId={null}
       chunksByParent={[]}
       onChangedMode={action('on change mode')}
       onPickedFile={action('on stats file picked')}
+      onPickedChild={action('on child index picked')}
       onSelectChunkId={action('on select chunk id')}
     />
   ));

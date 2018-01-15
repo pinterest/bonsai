@@ -38,7 +38,7 @@ type Props = {
   defaultIsOpen?: boolean,
 
   items: Array<Item>,
-  onItemPicked: (value: ItemValue) => void,
+  onItemPicked?: (value: ItemValue) => void,
   filter?: (searchTerm: string, item: Item) => boolean,
 };
 
@@ -89,7 +89,9 @@ export default class DropdownList extends React.Component<Props, State> {
                 onClick={(e) => {
                   e.preventDefault();
                   hideContent();
-                  props.onItemPicked(item.value);
+                  if (props.onItemPicked) {
+                    props.onItemPicked(item.value);
+                  }
                 }}>
                 <div className="text-left">
                   {String(item.label)}

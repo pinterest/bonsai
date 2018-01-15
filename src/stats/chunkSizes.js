@@ -19,11 +19,9 @@ export type ChunkSize = {
 };
 
 export default function chunkSizes(
-  rawStats: {[filename: string]: RawStats},
+  rawStats: Array<RawStats>,
 ): Array<Array<ChunkSize>> {
-  return Object.keys(rawStats).map((filename) => {
-    const stats = rawStats[filename];
-
+  return rawStats.map((stats) => {
     const chunksByParent = getEntryHeirarchy(stats);
     const importedChunkNames = getChunkNamesFromImportedModules(stats);
 

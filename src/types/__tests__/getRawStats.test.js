@@ -152,9 +152,9 @@ describe('getRawStats', () => {
       const stats = getRawStats('test-stats.json', json);
 
       isRawStats(stats['test-stats.json']);
-      expect(stats).toEqual({
-        'test-stats.json': json
-      });
+      expect(stats).toEqual([
+        json
+      ]);
       // eslint-disable-next-line no-console
       expect(console.error).not.toHaveBeenCalled();
     });
@@ -170,9 +170,9 @@ describe('getRawStats', () => {
       const stats = getRawStats('test-stats.json', json);
 
       isRawStats(stats['test-stats.json']);
-      expect(stats).toEqual({
-        'test-stats.json': json.children[0],
-      });
+      expect(stats).toEqual([
+        json.children[0],
+      ]);
       expectSingleConfigToFallThroughToMulti();
     });
 
@@ -190,10 +190,10 @@ describe('getRawStats', () => {
       const stats = getRawStats('test-stats.json', json);
 
       isRawStats(stats['test-stats.json']);
-      expect(stats).toEqual({
-        'test-stats.json (multi 0)': json.children[0],
-        'test-stats.json (multi 1)': json.children[1],
-      });
+      expect(stats).toEqual([
+        json.children[0],
+        json.children[1],
+      ]);
       expectSingleConfigToFallThroughToMulti();
     });
   });
