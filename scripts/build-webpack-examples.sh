@@ -5,7 +5,7 @@ set -e
 cd "$(dirname $0)/.."
 
 rm -rf ./scripts/clone-webpack
-git clone --depth 1 git@github.com:webpack/webpack.git ./scripts/clone-webpack
+git clone --depth 1 https://github.com/webpack/webpack.git ./scripts/clone-webpack
 cp ./scripts/template-webpack-build-common.js ./scripts/clone-webpack/examples/build-common.js
 
 cd ./scripts/clone-webpack
