@@ -65,6 +65,16 @@ storiesOf('Bootstrap/DropdownList', module)
       Pick a name
     </DropdownList>
   ))
+  .add('Default filter', () => (
+    <DropdownList
+      defaultIsOpen={true}
+      items={items}
+      onItemPicked={firstArgAction('Picked item')}
+      filter="default"
+    >
+      Pick a name
+    </DropdownList>
+  ))
   .add('Custom filter', () => (
     <DropdownList
       items={items}

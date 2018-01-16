@@ -39,7 +39,7 @@ type Props = {
 
   items: Array<Item>,
   onItemPicked?: (value: ItemValue) => void,
-  filter?: (searchTerm: string, item: Item) => boolean,
+  filter?: 'default' | (searchTerm: string, item: Item) => boolean,
 };
 
 type State = {
@@ -75,9 +75,13 @@ export default class DropdownList extends React.Component<Props, State> {
     const props = this.props;
 
     return props.items
-      .filter((item) => props.filter
-        ? props.filter(this.state.filter, item)
-        : String(item.label || item.value).toLowerCase().includes(this.state.filter.toLowerCase())
+      .filter((item) =>
+        (props.filter === 'default'
+          ? String(item.label || item.value).toLowerCase().includes(this.state.filter.toLowerCase())
+          : (props.filter
+            ? props.filter(this.state.filter, item)
+            : true)
+        )
       )
       .map((item) => {
         if (item.label) {
@@ -119,11 +123,16 @@ export default class DropdownList extends React.Component<Props, State> {
         onToggleOpen={(isOpen: boolean) => {
           this.setState({isOpen});
         }}>
-        {this.state.isOpen
+        {this.state.isOpen && this.props.filter
           ? <input
             type="text"
             className="form-control input-sm"
-            style={{display: 'inline', width: 'auto'}}
+            style={{
+              display: 'inline',
+              width: 'auto',
+              marginTop: '-6px',
+              marginBottom: '-6px',
+            }}
             placeholder={typeof this.props.children === 'string'
               ? this.props.children
               : null}
