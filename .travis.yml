@@ -14,15 +14,18 @@ before_install:
 before_script:
   - greenkeeper-lockfile-update
 script:
-  - yarn eslint -- ./src
-  - yarn mdspell -- --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md
-  - yarn flow -- check
+  - yarn eslint ./src
+  - yarn mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md
+  - yarn flow check
   - yarn flow-annotation-check
-  - yarn flow-coverage-report -- -t text
-  - ./src/__test_helpers__/build-fixtures.sh
-  - yarn react-scripts -- test --env=jsdom --coverage
+  - yarn flow-coverage-report -t text
+
+  - yarn rebuild:integration-fixtures
+  - yarn rebuild:webpack-examples
+  - yarn react-scripts test --env=jsdom --coverage
+  - yarn test:all --coverage
   - yarn codecov
-  - yarn build-storybook -- -o 'docs/storybook'
+  - yarn build-storybook -o 'docs/storybook'
   - |
     NODE_ENV=production \
     PUBLIC_URL=https://pinterest.github.io/bonsai/analyze/ \
@@ -32,7 +35,7 @@ script:
     mv build docs/analyze
   - |
     NODE_ENV=production \
-    yarn babel -- src --out-dir bin --ignore __tests__,src/components && \
+    yarn babel src --out-dir bin --ignore __tests__,src/components && \
     chmod +x bin/cli.js
 after_script:
   - greenkeeper-lockfile-upload

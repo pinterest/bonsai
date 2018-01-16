@@ -47,7 +47,7 @@ export function RequestedDataAtPath(dispatch: Dispatch) {
 export function LoadedStatsAtPath(dispatch: Dispatch) {
   return (path: string, json: ParsedJSON) => {
     try {
-      const children = getRawStats(path, json);
+      const children = getRawStats(json);
       return dispatch({
         type: 'loadedStatsAtPath',
         path,

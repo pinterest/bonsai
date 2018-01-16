@@ -12,5 +12,5 @@ export function openRawStatsFile(statsFilePath: string): Array<RawStats> {
     fs.readFileSync(statsFilePath, {encoding: 'utf8'})
   );
 
-  return getRawStats(statsFilePath, data);
+  return getRawStats(data);
 }

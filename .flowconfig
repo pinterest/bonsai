@@ -5,6 +5,7 @@ src/registerServiceWorker.js
 .*/node_modules/flow-coverage-report/.*
 .*/node_modules/immutable/.*
 .*/node_modules/radium/.*
+.*/scripts/clone-webpack/.*
 
 [include]
 

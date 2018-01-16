@@ -7,14 +7,14 @@ import fullModuleData from '../stats/fullModuleData';
 try {
   describe('Integration tests', () => {
     describe('Single Entry Suite', () => {
-      const config = require('./tmp/prod-config.json');
+      const config = require('../../scripts/built-integration-fixtures/prod-config.json');
       it('should match fullModuleData', () => {
         expect(fullModuleData(config, null, [])).toMatchSnapshot();
       });
     });
 
     describe('Multi Entry Suite', () => {
-      const config = require('./tmp/multi-config.json');
+      const config = require('../../scripts/built-integration-fixtures/multi-config.json');
       it('should match fullModuleData', () => {
         expect(fullModuleData(config.children[0], null, [])).toMatchSnapshot();
         expect(fullModuleData(config.children[1], null, [])).toMatchSnapshot();
