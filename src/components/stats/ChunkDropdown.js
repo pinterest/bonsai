@@ -30,6 +30,7 @@ export default function ChunkDropdown(props: Props) {
     <DropdownList
       scrollable={true}
       disabled={chunkList.length === 0}
+      filter="default"
       items={chunkList.map((chunk) => ({
         node(hideContent) {
           return (

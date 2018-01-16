@@ -4,9 +4,10 @@
 
 import type { ChunkID } from '../types/Stats';
 import type { Child } from '../stats/getEntryHeirarchy';
+import type { ItemValue } from './Bootstrap/DropdownList';
 
 import ChunkDropdown from './stats/ChunkDropdown';
-import JsonFilePicker from './JsonFilePicker';
+import DropdownList from './Bootstrap/DropdownList';
 import * as React from 'react';
 
 export type StateProps = {
@@ -42,19 +43,20 @@ export default function FileSelectors(props: Props) {
         <label
           className="col-sm-1 control-label"
           htmlFor="data-child-picker">
-          Child
+          Config
         </label>
         <div className="col-sm-11">
-          <JsonFilePicker
-            id="data-child-picker"
-            dataPaths={(props.childrenIndexes || []).map(String)}
-            selected={String(props.selectedChildIndex)}
-            onChange={(event: SyntheticInputEvent<>) => {
-              if (event.target.value) {
-                props.onPickedChild(parseInt(event.target.value, 10));
-              }
+          <DropdownList
+            items={(props.childrenIndexes || []).map((index) => ({
+              label: String(index),
+              value: index,
+            }))}
+            onItemPicked={(value: ItemValue) => {
+              props.onPickedChild(Number(value));
             }}
-          />
+          >
+            {String(props.selectedChildIndex || '- pick a config -')}
+          </DropdownList>
         </div>
       </div>
     )
@@ -85,16 +87,18 @@ export default function FileSelectors(props: Props) {
             Filename
           </label>
           <div className="col-sm-11" onClick={willStopPropagation}>
-            <JsonFilePicker
-              id="data-file-picker"
-              dataPaths={props.dataPaths}
-              selected={props.filename}
-              onChange={(event: SyntheticInputEvent<>) => {
-                if (event.target.value) {
-                  props.onPickedFile(event.target.value);
-                }
+            <DropdownList
+              filter="default"
+              items={props.dataPaths.map((path) => ({
+                label: path,
+                value: path,
+              }))}
+              onItemPicked={(value: ItemValue) => {
+                props.onPickedFile(String(value));
               }}
-            />
+            >
+              {props.filename}
+            </DropdownList>
           </div>
         </div>
         {childPicker}
