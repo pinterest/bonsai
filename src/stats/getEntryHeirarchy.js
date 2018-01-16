@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { ChunkID, RawStats } from '../types/Stats';
+import type { Asset, Chunk, ChunkID, RawStats } from '../types/Stats';
 
 import getChunkName from './getChunkName';
 import getChunkNamesFromImportedModules from './getChunkNamesFromImportedModules';
@@ -13,6 +13,8 @@ export type Child = {
   ids: Array<ChunkID>,
   name: string,
   names: Array<string>,
+  size: number,
+  assets: Array<Asset>,
   children: Array<Child>,
 };
 
@@ -20,6 +22,7 @@ export type FlatChunk = {
   id: ChunkID,
   name: string,
   indent: number,
+  size: number,
 };
 
 function getChildrenForChunk(
@@ -36,8 +39,10 @@ function getChildrenForChunk(
     .map((chunk) => ({
       id: chunk.id,
       ids: [chunk.id],
-      name: getChunkName(chunk, importedChunkNames),
+      name: chunk.name, // getChunkName(chunk, importedChunkNames),
       names: chunk.names,
+      size: chunk.size,
+      assets: chunk.assets,
       children: getChildrenForChunk(
         stats,
         importedChunkNames,
@@ -59,13 +64,17 @@ export default function getEntryHeirarchy(
     ids: [],
     name: '',
     names: [],
+    size: 0,
+    assets: [],
     children: getEntryChunks(stats)
       .filter((chunk) => chunk.parents.length === 0)
       .map((chunk) => ({
         id: chunk.id,
         ids: [chunk.id],
-        name: getChunkName(chunk, importedChunkNames),
+        name: chunk.name, // getChunkName(chunk, importedChunkNames),
         names: chunk.names,
+        size: chunk.size,
+        assets: chunk.assets,
         children: getChildrenForChunk(
           stats,
           importedChunkNames,
@@ -89,6 +98,7 @@ export function flattenChunksByParent(
           id: child.id,
           name: child.name,
           indent: indent,
+          size: child.size,
         });
         visitedChunks[child.id] = true;
       }

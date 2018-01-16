@@ -9,6 +9,7 @@ import { isSameChunk } from '../../types/Stats';
 import { flattenChunksByParent } from '../../stats/getEntryHeirarchy';
 import Button from '../Bootstrap/Button';
 import DropdownList from '../Bootstrap/DropdownList';
+import Unit from '../Unit';
 import * as React from 'react';
 
 import './ChunkDropdown.css';
@@ -47,12 +48,12 @@ export default function ChunkDropdown(props: Props) {
                   'text-left',
                   chunk.indent ? 'ChunkDropdownPrefix' : '',
                 ].filter(_ => _).join(' ')}>
-                {chunk.name} ({chunk.id})
+                {chunk.name} (<Unit bytes={chunk.size} />)
               </div>
             </Button>
           );
         },
-        value: chunk.id,
+        value: chunk.name,
       }))}>
       {label}
     </DropdownList>

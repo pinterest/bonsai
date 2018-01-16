@@ -4,6 +4,7 @@
 
 import type { Child } from '../../stats/getEntryHeirarchy';
 
+import Unit from '../Unit';
 import * as React from 'react';
 
 export type Props = {
@@ -19,12 +20,12 @@ export default function ChunkBreadcrumb(props: Props) {
     <ol className="breadcrumb">
       {props.parentChunks.map((chunk) => (
         <li key={chunk.id}>
-          {chunk.name} ({String(chunk.id)})
+          {chunk.name} (<Unit bytes={chunk.size} />)
         </li>
       ))}
       {props.totalModules
         ? <li className="active">
-          {props.totalModules} modules
+          {props.totalModules} modules total
         </li>
         : null}
     </ol>
