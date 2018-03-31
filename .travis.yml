@@ -21,7 +21,6 @@ script:
   - yarn flow-coverage-report -t text
 
   - yarn rebuild:integration-fixtures
-  - yarn rebuild:webpack-examples
   - yarn react-scripts test --env=jsdom --coverage
   - yarn test:all --coverage
   - yarn codecov
