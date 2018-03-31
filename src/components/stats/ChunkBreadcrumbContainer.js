@@ -21,7 +21,7 @@ const mapStateToProps = (state: State): Props => {
     moduleData,
   }  = state.calculatedFullModuleData;
   return {
-    parentChunks: (state.selectedChunkId && parentChunks)
+    parentChunks: (state.selectedChunkId !== null && parentChunks)
       ? parentChunks
       : [],
     totalModules: moduleData
