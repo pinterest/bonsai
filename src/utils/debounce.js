@@ -6,9 +6,11 @@ export default function debounce(
   fn: () => void,
   delay: number = 250,
 ): () => void {
-  let timer = null;
+  let timer: ?TimeoutID = null;
   return function() {
-    clearTimeout(timer);
+    if (timer) {
+      clearTimeout(timer);
+    }
     timer = setTimeout(fn, delay);
   };
 }
