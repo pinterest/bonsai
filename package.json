@@ -50,7 +50,7 @@
     "eslint-plugin-jest": "^21.0.0",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-react": "^7.3.0",
-    "flow-annotation-check": "1.8.0",
+    "flow-annotation-check": "1.8.1-0",
     "flow-bin": "0.69.0",
     "flow-coverage-report": "^0.5.0",
     "markdown-spellcheck": "^1.0.0",
