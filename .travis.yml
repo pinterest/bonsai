@@ -22,7 +22,6 @@ script:
 
   - yarn rebuild:integration-fixtures
   - yarn react-scripts test --env=jsdom --coverage
-  - yarn test:all --coverage
   - yarn codecov
   - yarn build-storybook -o 'docs/storybook'
   - |
