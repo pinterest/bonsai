@@ -6,7 +6,7 @@ import type {
   ExtendedModule,
   RowRepresentation,
 } from '../types/Stats';
-import type { ExtendedModulesById } from './getModulesById';
+import type { ExtendedModulesById } from './getExtendedModulesById';
 
 import getModulesById from './getModulesById';
 import flatten from '../utils/flatten';
