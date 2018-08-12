@@ -131,12 +131,14 @@ function ModuleTableRow(props: TRProps) {
         ].filter(_ => _).join(' ')
       })}
     >
-      <td className="vert-align">
-        <ExternalModuleLink
-          prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
-          module={eModule}
-        />
-      </td>
+      {process.env.REACT_APP_EXTERNAL_URL_PREFIX
+        ? <td className="vert-align">
+          <ExternalModuleLink
+            prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
+            module={eModule}
+          />
+        </td>
+        : null}
       <td className="vert-align">
         {uniqueImports}
         {formatModuleName(eModule.name)}
