@@ -3714,7 +3714,33 @@ exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
 </div>
 `;
 
-exports[`Storyshots Unit 0 Bytes (b) 1`] = `
+exports[`Storyshots Unit/html with className 1`] = `
+<span
+  className="pull-right"
+  title="2,400 bytes"
+>
+  2.4 KB
+</span>
+`;
+
+exports[`Storyshots Unit/html with elem=table-cell 1`] = `
+<table
+  className="table table-bordered"
+>
+  <tbody>
+    <tr>
+      <td
+        className={undefined}
+        title="2,400 bytes"
+      >
+        2.4 KB
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Unit/sizes 0 Bytes (b) 1`] = `
 <span
   title="0 bytes"
 >
@@ -3722,7 +3748,7 @@ exports[`Storyshots Unit 0 Bytes (b) 1`] = `
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
+exports[`Storyshots Unit/sizes 2.4 Bytes (b) 1`] = `
 <span
   title="2 bytes"
 >
@@ -3730,7 +3756,7 @@ exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Gigabytes (GB) 1`] = `
+exports[`Storyshots Unit/sizes 2.4 Gigabytes (GB) 1`] = `
 <span
   title="2,400,000,000 bytes"
 >
@@ -3738,7 +3764,7 @@ exports[`Storyshots Unit 2.4 Gigabytes (GB) 1`] = `
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Kilobytes (KB) 1`] = `
+exports[`Storyshots Unit/sizes 2.4 Kilobytes (KB) 1`] = `
 <span
   title="2,400 bytes"
 >
@@ -3746,7 +3772,7 @@ exports[`Storyshots Unit 2.4 Kilobytes (KB) 1`] = `
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Megabytes (MB) 1`] = `
+exports[`Storyshots Unit/sizes 2.4 Megabytes (MB) 1`] = `
 <span
   title="2,400,000 bytes"
 >
@@ -3754,7 +3780,7 @@ exports[`Storyshots Unit 2.4 Megabytes (MB) 1`] = `
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
+exports[`Storyshots Unit/sizes 2.4 Terabytes (TB) 1`] = `
 <span
   title="2,400,000,000,000 bytes"
 >

@@ -103,11 +103,9 @@ function ModuleTableRow(props: TRProps) {
   const eModule = props.eModule;
   const records = props.records;
 
-  const moduleSize = props.expanded
-    ? <Unit bytes={eModule.size} />
-    : <Unit
-      bytes={records.reduce((sum, eModule) => sum + eModule.size, 0)}
-    />;
+  const moduleSizeBytes = props.expanded
+    ? eModule.size
+    : records.reduce((sum, eModule) => sum + eModule.size, 0);
 
   const hasCollapsedChildren = records.length > 1;
   const isFirstRecord = eModule.id === records[0].id;
@@ -143,12 +141,14 @@ function ModuleTableRow(props: TRProps) {
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
-      <td className="vert-align numeric">
-        <Unit bytes={eModule.cumulativeSize} />
-      </td>
-      <td className="vert-align numeric">
-        {moduleSize}
-      </td>
+      <Unit
+        elem='td'
+        className="vert-align numeric"
+        bytes={eModule.cumulativeSize} />
+      <Unit
+        elem='td'
+        className="vert-align numeric"
+        bytes={moduleSizeBytes} />
       <td className="vert-align numeric">
         <RequiredByPanelContainer eModule={eModule} />
       </td>

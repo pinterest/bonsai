@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 
 import Unit from '../Unit';
 
-storiesOf('Unit', module)
+storiesOf('Unit/sizes', module)
   .add('0 Bytes (b)', () => (
     <Unit bytes={0} />
   ))
@@ -25,4 +25,15 @@ storiesOf('Unit', module)
   ))
   .add('2.4 Terabytes (TB)', () => (
     <Unit bytes={2400000000000} />
+  ));
+storiesOf('Unit/html', module)
+  .add('with className', () => (
+    <Unit bytes={2400} className="pull-right" />
+  ))
+  .add('with elem=table-cell', () => (
+    <table className="table table-bordered">
+      <tbody>
+        <tr><Unit elem='td' bytes={2400} /></tr>
+      </tbody>
+    </table>
   ));
