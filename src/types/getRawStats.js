@@ -39,6 +39,10 @@ export function getStatsJson(
   invariant(Array.isArray(json.chunks), `Found field 'chunks' but the value is not an array.`);
   invariant(Array.isArray(json.modules), `Found field 'modules' but the value is not an array.`);
 
+  json.modules.forEach((mod) => {
+    delete mod.source;
+  });
+
   return json;
 }
 
