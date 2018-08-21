@@ -67,13 +67,23 @@ export default class Dropdown extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
+    if (this.state.isOpen) {
+      document.addEventListener('click', this.onDocumentClick);
 
-    if (this.state.waitForDropdownMenu) {
-      // force a re-render during mount to properly measure _dropDownMenu
-      this.setState({
-        waitForDropdownMenu: false,
-      });
+      if (this.state.waitForDropdownMenu) {
+        // force a re-render during mount to properly measure _dropDownMenu
+        this.setState({
+          waitForDropdownMenu: false,
+        });
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    if (this.state.isOpen && !prevState.isOpen) {
+      document.addEventListener('click', this.onDocumentClick);
+    } else if (!this.state.isOpen) {
+      document.removeEventListener('click', this.onDocumentClick);
     }
   }
 
