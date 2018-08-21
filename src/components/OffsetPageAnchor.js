@@ -14,7 +14,7 @@ export default function OffsetPageAnchor(
 ) {
   return {
     ...props,
-    className: ['OffsetPageSection', props.className].filter(_ => _).join(' '),
+    className: ['OffsetPageSection', props.className].join(' '),
     tabIndex: -1,
     id: anchor,
   };

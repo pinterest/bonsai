@@ -41,6 +41,22 @@ describe('getRawStats', () => {
       expect(console.warn).not.toHaveBeenCalled();
     });
 
+    it('should remove module.source fields from the typed dataset', () => {
+      const json = {
+        chunks: [],
+        modules: [
+          {source: 'hello world'},
+        ],
+      };
+
+      const stats = getStatsJson(json);
+      isRawStats(stats);
+      expect(stats).toEqual({
+        chunks: [],
+        modules: [{}],
+      });
+    });
+
     const failureModes = [
       {
         message: 'should throw when chunks is missing',

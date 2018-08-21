@@ -14,6 +14,7 @@ import getEntryChunks from '../stats/getEntryChunks';
 import fullModuleData from '../stats/fullModuleData';
 import getCollapsableParentOf from '../stats/getCollapsableParentOf';
 import getModulesById from '../stats/getModulesById';
+import withTimings from './withTimings';
 
 export type Action =
   | {
@@ -372,8 +373,10 @@ export default function reducer(
   state: State = INITIAL_STATE,
   action: Action,
 ): State {
-  return calculateFullModuleData(
-    state,
-    handleAction(state, action)
+  return withTimings('Reducer', action.type)(() =>
+    calculateFullModuleData(
+      state,
+      handleAction(state, action)
+    )
   );
 }

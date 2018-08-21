@@ -8,6 +8,8 @@ const NBSP = '\u00A0';
 
 type Props = {
   bytes: number,
+  className?: string,
+  elem?: 'span' | 'td',
 };
 
 function formatBytes(bytes) {
@@ -32,10 +34,10 @@ function toInt(n: number) {
 }
 
 export default function Unit(props: Props) {
+  const Elem = props.elem || 'span';
   return (
-    <span title={toInt(props.bytes) + ' bytes'}>
+    <Elem className={props.className} title={toInt(props.bytes) + ' bytes'}>
       {formatBytes(props.bytes)}
-    </span>
+    </Elem>
   );
 }
-

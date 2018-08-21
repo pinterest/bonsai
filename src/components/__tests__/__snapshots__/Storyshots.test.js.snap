@@ -23,6 +23,10 @@ exports[`Storyshots App Done loading 1`] = `
         <p
           className="navbar-text"
         >
+          <span
+            aria-hidden="true"
+            className="glyphicon glyphicon-tree-conifer"
+          />
           Trim your dependency trees
         </p>
       </div>
@@ -34,7 +38,11 @@ exports[`Storyshots App Done loading 1`] = `
             className="navbar-link"
             href="https://pinterest.github.io/bonsai/"
           >
-            Docs
+            <span
+              aria-hidden="true"
+              className="glyphicon glyphicon-book"
+            />
+              Docs
           </a>
         </li>
         <li>
@@ -142,6 +150,10 @@ exports[`Storyshots App Loading up a file 1`] = `
         <p
           className="navbar-text"
         >
+          <span
+            aria-hidden="true"
+            className="glyphicon glyphicon-tree-conifer"
+          />
           Trim your dependency trees
         </p>
       </div>
@@ -153,7 +165,11 @@ exports[`Storyshots App Loading up a file 1`] = `
             className="navbar-link"
             href="https://pinterest.github.io/bonsai/"
           >
-            Docs
+            <span
+              aria-hidden="true"
+              className="glyphicon glyphicon-book"
+            />
+              Docs
           </a>
         </li>
         <li>
@@ -236,6 +252,10 @@ exports[`Storyshots App No filename, empty list 1`] = `
         <p
           className="navbar-text"
         >
+          <span
+            aria-hidden="true"
+            className="glyphicon glyphicon-tree-conifer"
+          />
           Trim your dependency trees
         </p>
       </div>
@@ -247,7 +267,11 @@ exports[`Storyshots App No filename, empty list 1`] = `
             className="navbar-link"
             href="https://pinterest.github.io/bonsai/"
           >
-            Docs
+            <span
+              aria-hidden="true"
+              className="glyphicon glyphicon-book"
+            />
+              Docs
           </a>
         </li>
         <li>
@@ -371,7 +395,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
     </thead>
     <tbody>
       <tr
-        className="OffsetPageSection"
+        className="OffsetPageSection "
         id="300"
         tabIndex={-1}
       >
@@ -385,24 +409,21 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
         </td>
         <td
           className="vert-align numeric"
+          title="300 bytes"
         >
-          <span
-            title="300 bytes"
-          >
-            300 B
-          </span>
+          300 B
         </td>
         <td
           className="vert-align numeric"
         >
           <div
-            className="btn-group"
+            className="btn-group  "
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link dropdown-toggle"
+              className="btn btn-link  dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -420,13 +441,13 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           className="vert-align numeric"
         >
           <div
-            className="btn-group"
+            className="btn-group  "
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link dropdown-toggle"
+              className="btn btn-link  dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -444,7 +465,7 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           className="vert-align"
         >
           <button
-            className="btn btn-danger"
+            className="btn btn-danger  "
             disabled={null}
             onClick={[Function]}
             style={null}
@@ -481,12 +502,9 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
         </th>
         <td
           className="numeric"
+          title="300 bytes"
         >
-          <span
-            title="300 bytes"
-          >
-            300 B
-          </span>
+          300 B
         </td>
         <td
           colSpan="3"
@@ -537,7 +555,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
     </thead>
     <tbody>
       <tr
-        className="OffsetPageSection"
+        className="OffsetPageSection "
         id="1"
         tabIndex={-1}
       >
@@ -551,24 +569,21 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
         </td>
         <td
           className="vert-align numeric"
+          title="100 bytes"
         >
-          <span
-            title="100 bytes"
-          >
-            100 B
-          </span>
+          100 B
         </td>
         <td
           className="vert-align numeric"
         >
           <div
-            className="btn-group"
+            className="btn-group  "
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link dropdown-toggle"
+              className="btn btn-link  dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -586,13 +601,13 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           className="vert-align numeric"
         >
           <div
-            className="btn-group"
+            className="btn-group  "
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link dropdown-toggle"
+              className="btn btn-link  dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -610,7 +625,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           className="vert-align"
         >
           <button
-            className="btn btn-danger"
+            className="btn btn-danger  "
             disabled={null}
             onClick={[Function]}
             style={null}
@@ -627,7 +642,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           colSpan="6"
         >
           <button
-            className="btn btn-default btn-xs"
+            className="btn btn-default  btn-xs"
             disabled={null}
             onClick={[Function]}
             style={null}
@@ -670,12 +685,9 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
         </th>
         <td
           className="numeric"
+          title="1,000 bytes"
         >
-          <span
-            title="1,000 bytes"
-          >
-            1 KB
-          </span>
+          1 KB
         </td>
         <td
           colSpan="3"
@@ -688,7 +700,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
 
 exports[`Storyshots Bootstrap/Button Block 1`] = `
 <button
-  className="btn btn-default btn-block"
+  className="btn btn-default btn-block "
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -700,7 +712,7 @@ exports[`Storyshots Bootstrap/Button Block 1`] = `
 
 exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 <button
-  className="btn btn-default"
+  className="btn btn-default  "
   disabled="disabed"
   onClick={null}
   style={null}
@@ -712,7 +724,7 @@ exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 <button
-  className="btn btn-success"
+  className="btn btn-success  "
   disabled="disabed"
   onClick={null}
   style={null}
@@ -724,7 +736,7 @@ exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button Large 1`] = `
 <button
-  className="btn btn-default btn-lg"
+  className="btn btn-default  btn-lg"
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -736,7 +748,7 @@ exports[`Storyshots Bootstrap/Button Large 1`] = `
 
 exports[`Storyshots Bootstrap/Button Success 1`] = `
 <button
-  className="btn btn-success"
+  className="btn btn-success  "
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -748,7 +760,7 @@ exports[`Storyshots Bootstrap/Button Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button With onClick 1`] = `
 <button
-  className="btn btn-default"
+  className="btn btn-default  "
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -812,13 +824,13 @@ exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -835,13 +847,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-warning dropdown-toggle"
+    className="btn btn-warning  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -858,13 +870,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -881,7 +893,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={
     Object {
       "background": "red",
@@ -892,7 +904,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -909,13 +921,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled="disabed"
     onClick={null}
@@ -932,13 +944,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
 <div
-  className="btn-group open"
+  className="btn-group open "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -951,13 +963,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
     />
   </button>
   <div
-    className="dropdown-menu"
+    className="dropdown-menu "
   >
     <div
       className="col-sm-12"
     >
       <button
-        className="btn btn-success"
+        className="btn btn-success  "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -972,13 +984,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -995,13 +1007,13 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
 <div
-  className="btn-group open"
+  className="btn-group open "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1014,7 +1026,7 @@ exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu"
+    className="dropdown-menu "
   >
     <li>
       <a
@@ -1067,13 +1079,13 @@ exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List with long content 1`] = `
 <div
-  className="btn-group open"
+  className="btn-group open "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1086,7 +1098,7 @@ exports[`Storyshots Bootstrap/Dropdown List with long content 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu"
+    className="dropdown-menu "
   >
     <li>
       <a
@@ -1547,13 +1559,13 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
     </li>
   </ul>
   <div
-    className="btn-group open"
+    className="btn-group open "
     style={undefined}
   >
     <button
       aria-expanded={true}
       aria-haspopup="true"
-      className="btn btn-default dropdown-toggle"
+      className="btn btn-default  dropdown-toggle"
       data-toggle="dropdown"
       disabled={null}
       onClick={[Function]}
@@ -1566,7 +1578,7 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
       />
     </button>
     <ul
-      className="dropdown-menu"
+      className="dropdown-menu "
     >
       <li>
         <a
@@ -2477,11 +2489,11 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
 
 exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
-    className="btn btn-default"
+    className="btn btn-default  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2492,7 +2504,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2513,11 +2525,11 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
-    className="btn btn-success"
+    className="btn btn-success  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2528,7 +2540,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-success dropdown-toggle"
+    className="btn btn-success  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2549,11 +2561,11 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
-    className="btn btn-default"
+    className="btn btn-default  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2564,7 +2576,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2585,11 +2597,11 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
-    className="btn btn-default"
+    className="btn btn-default  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2600,7 +2612,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2621,13 +2633,13 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Basic 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2644,13 +2656,13 @@ exports[`Storyshots Bootstrap/DropdownList Basic 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Custom filter 1`] = `
 <div
-  className="btn-group"
+  className="btn-group  "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2667,13 +2679,13 @@ exports[`Storyshots Bootstrap/DropdownList Custom filter 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
 <div
-  className="btn-group open"
+  className="btn-group open "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2686,11 +2698,11 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu"
+    className="dropdown-menu "
   >
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2701,7 +2713,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2712,7 +2724,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2723,7 +2735,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2734,7 +2746,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2745,7 +2757,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2756,7 +2768,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block"
+        className="btn btn-default btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2771,13 +2783,13 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
 <div
-  className="btn-group open"
+  className="btn-group open "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2805,11 +2817,11 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu"
+    className="dropdown-menu "
   >
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2824,7 +2836,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2839,7 +2851,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2854,7 +2866,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2869,7 +2881,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2884,7 +2896,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2899,7 +2911,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2918,13 +2930,13 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
 <div
-  className="btn-group open"
+  className="btn-group open "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default dropdown-toggle"
+    className="btn btn-default  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2937,11 +2949,11 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu"
+    className="dropdown-menu "
   >
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2956,7 +2968,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2971,7 +2983,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2986,7 +2998,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -3001,7 +3013,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -3016,7 +3028,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -3031,7 +3043,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-link btn-block"
+        className="btn btn-link btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -3050,7 +3062,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
 
 exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 <a
-  className="btn btn-link"
+  className="btn btn-link "
   disabled="disabled"
   href="#"
   role="button"
@@ -3062,7 +3074,7 @@ exports[`Storyshots Bootstrap/Link Disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Link Disabled Success 1`] = `
 <a
-  className="btn btn-success"
+  className="btn btn-success "
   disabled="disabled"
   href="#"
   role="button"
@@ -3086,7 +3098,7 @@ exports[`Storyshots Bootstrap/Link Large 1`] = `
 
 exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
 <a
-  className="btn btn-link"
+  className="btn btn-link "
   disabled={null}
   href="example.com"
   role="button"
@@ -3101,7 +3113,7 @@ exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
 
 exports[`Storyshots Bootstrap/Link Success 1`] = `
 <a
-  className="btn btn-success"
+  className="btn btn-success "
   disabled={null}
   href="javascript: alert('Linked!');"
   role="button"
@@ -3113,7 +3125,7 @@ exports[`Storyshots Bootstrap/Link Success 1`] = `
 
 exports[`Storyshots Bootstrap/Link With href 1`] = `
 <a
-  className="btn btn-link"
+  className="btn btn-link "
   disabled={null}
   href="javascript: alert('Linked!');"
   role="button"
@@ -3485,7 +3497,7 @@ exports[`Storyshots ChunkBreadcrumb First module without a parent 1`] = `
 
 exports[`Storyshots ExternalModuleLink Default 1`] = `
 <a
-  className="btn btn-link"
+  className="btn btn-link "
   disabled={null}
   href="http://example.com/./app/analytics/modules/AnalyticsMetric/AnalyticsMetric.js"
   role="button"
@@ -3521,13 +3533,13 @@ exports[`Storyshots FileSelectors Filename picked 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group"
+          className="btn-group  "
           style={undefined}
         >
           <button
             aria-expanded={false}
             aria-haspopup="true"
-            className="btn btn-default dropdown-toggle"
+            className="btn btn-default  dropdown-toggle"
             data-toggle="dropdown"
             disabled={null}
             onClick={[Function]}
@@ -3571,13 +3583,13 @@ exports[`Storyshots FileSelectors No filename, items in list 1`] = `
         onClick={[Function]}
       >
         <div
-          className="btn-group"
+          className="btn-group  "
           style={undefined}
         >
           <button
             aria-expanded={false}
             aria-haspopup="true"
-            className="btn btn-default dropdown-toggle"
+            className="btn btn-default  dropdown-toggle"
             data-toggle="dropdown"
             disabled={null}
             onClick={[Function]}
@@ -3647,7 +3659,7 @@ exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 
 exports[`Storyshots ToggleExpandModeButton Collapse-all mode picked 1`] = `
 <div
-  className="btn-group btn-xs"
+  className="btn-group  btn-xs"
   style={undefined}
 >
   <button
@@ -3670,7 +3682,7 @@ exports[`Storyshots ToggleExpandModeButton Collapse-all mode picked 1`] = `
 
 exports[`Storyshots ToggleExpandModeButton Expand-all mode picked 1`] = `
 <div
-  className="btn-group btn-xs"
+  className="btn-group  btn-xs"
   style={undefined}
 >
   <button
@@ -3693,7 +3705,7 @@ exports[`Storyshots ToggleExpandModeButton Expand-all mode picked 1`] = `
 
 exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
 <div
-  className="btn-group btn-xs"
+  className="btn-group  btn-xs"
   style={undefined}
 >
   <button
@@ -3714,48 +3726,80 @@ exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
 </div>
 `;
 
-exports[`Storyshots Unit 0 Bytes (b) 1`] = `
+exports[`Storyshots Unit/html with className 1`] = `
 <span
-  title="0 bytes"
->
-  0 B
-</span>
-`;
-
-exports[`Storyshots Unit 2.4 Bytes (b) 1`] = `
-<span
-  title="2 bytes"
->
-  2.4 B
-</span>
-`;
-
-exports[`Storyshots Unit 2.4 Gigabytes (GB) 1`] = `
-<span
-  title="2,400,000,000 bytes"
->
-  2.4 GB
-</span>
-`;
-
-exports[`Storyshots Unit 2.4 Kilobytes (KB) 1`] = `
-<span
+  className="pull-right"
   title="2,400 bytes"
 >
   2.4 KB
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Megabytes (MB) 1`] = `
+exports[`Storyshots Unit/html with elem=table-cell 1`] = `
+<table
+  className="table table-bordered"
+>
+  <tbody>
+    <tr>
+      <td
+        className={undefined}
+        title="2,400 bytes"
+      >
+        2.4 KB
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Unit/sizes 0 Bytes (b) 1`] = `
 <span
+  className={undefined}
+  title="0 bytes"
+>
+  0 B
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Bytes (b) 1`] = `
+<span
+  className={undefined}
+  title="2 bytes"
+>
+  2.4 B
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Gigabytes (GB) 1`] = `
+<span
+  className={undefined}
+  title="2,400,000,000 bytes"
+>
+  2.4 GB
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Kilobytes (KB) 1`] = `
+<span
+  className={undefined}
+  title="2,400 bytes"
+>
+  2.4 KB
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Megabytes (MB) 1`] = `
+<span
+  className={undefined}
   title="2,400,000 bytes"
 >
   2.4 MB
 </span>
 `;
 
-exports[`Storyshots Unit 2.4 Terabytes (TB) 1`] = `
+exports[`Storyshots Unit/sizes 2.4 Terabytes (TB) 1`] = `
 <span
+  className={undefined}
   title="2,400,000,000,000 bytes"
 >
   2.4 TB

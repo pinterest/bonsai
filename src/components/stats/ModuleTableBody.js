@@ -103,11 +103,9 @@ function ModuleTableRow(props: TRProps) {
   const eModule = props.eModule;
   const records = props.records;
 
-  const moduleSize = props.expanded
-    ? <Unit bytes={eModule.size} />
-    : <Unit
-      bytes={records.reduce((sum, eModule) => sum + eModule.size, 0)}
-    />;
+  const moduleSizeBytes = props.expanded
+    ? eModule.size
+    : records.reduce((sum, eModule) => sum + eModule.size, 0);
 
   const hasCollapsedChildren = records.length > 1;
   const isFirstRecord = eModule.id === records[0].id;
@@ -130,25 +128,29 @@ function ModuleTableRow(props: TRProps) {
           props.expanded && props.records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
-        ].filter(_ => _).join(' ')
+        ].join(' ')
       })}
     >
-      <td className="vert-align">
-        <ExternalModuleLink
-          prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
-          module={eModule}
-        />
-      </td>
-      <td className="vert-align">
+      {process.env.REACT_APP_EXTERNAL_URL_PREFIX
+        ? <td className="vert-align">
+          <ExternalModuleLink
+            prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
+            module={eModule}
+          />
+        </td>
+        : null}
+      <td className="vert-align ModuleTableBody-main-cell">
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
-      <td className="vert-align numeric">
-        <Unit bytes={eModule.cumulativeSize} />
-      </td>
-      <td className="vert-align numeric">
-        {moduleSize}
-      </td>
+      <Unit
+        elem='td'
+        className="vert-align numeric"
+        bytes={eModule.cumulativeSize} />
+      <Unit
+        elem='td'
+        className="vert-align numeric"
+        bytes={moduleSizeBytes} />
       <td className="vert-align numeric">
         <RequiredByPanelContainer eModule={eModule} />
       </td>

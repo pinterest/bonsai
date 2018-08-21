@@ -7,7 +7,7 @@ import OffsetPageAnchor from '../OffsetPageAnchor';
 describe('OffsetPageAnchor', () => {
   it('should return an object with the anchor set', () => {
     expect(OffsetPageAnchor('foobar')).toEqual({
-      className: 'OffsetPageSection',
+      className: 'OffsetPageSection ',
       tabIndex: -1,
       id: 'foobar',
     });
@@ -30,7 +30,7 @@ describe('OffsetPageAnchor', () => {
     };
     expect(OffsetPageAnchor('foobar', props)).toEqual({
       title: 'Click for Foo Bar',
-      className: 'OffsetPageSection',
+      className: 'OffsetPageSection ',
       tabIndex: -1,
       id: 'foobar',
     });

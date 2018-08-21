@@ -67,13 +67,23 @@ export default class Dropdown extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
+    if (this.state.isOpen) {
+      document.addEventListener('click', this.onDocumentClick);
 
-    if (this.state.waitForDropdownMenu) {
-      // force a re-render during mount to properly measure _dropDownMenu
-      this.setState({
-        waitForDropdownMenu: false,
-      });
+      if (this.state.waitForDropdownMenu) {
+        // force a re-render during mount to properly measure _dropDownMenu
+        this.setState({
+          waitForDropdownMenu: false,
+        });
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    if (this.state.isOpen && !prevState.isOpen) {
+      document.addEventListener('click', this.onDocumentClick);
+    } else if (!this.state.isOpen) {
+      document.removeEventListener('click', this.onDocumentClick);
     }
   }
 
@@ -93,11 +103,9 @@ export default class Dropdown extends React.Component<Props, State> {
           'btn-group',
           isOpenClass,
           sizeToClass(this.props.size),
-        ].filter(_ => _).join(' ')}
+        ].join(' ')}
         ref={(div) => {
-          if (div instanceof HTMLElement) {
-            this._dropDownMenu = div;
-          }
+          this._dropDownMenu = div;
         }}
         style={this.props.style}>
         {this.props.split
@@ -172,7 +180,7 @@ export default class Dropdown extends React.Component<Props, State> {
     const classNames = [
       'dropdown-menu',
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
-    ].filter(_ => _).join(' ');
+    ].join(' ');
 
     const content = this.props.getContent(this.onHide);
     if (Array.isArray(content)) {
@@ -181,9 +189,7 @@ export default class Dropdown extends React.Component<Props, State> {
           className={classNames}
           {...this.getScrollableProps()}
           ref={(ul) => {
-            if (ul instanceof HTMLElement) {
-              this._flyout = ul;
-            }
+            this._flyout = ul;
           }}>
           {content}
         </ul>
@@ -194,9 +200,7 @@ export default class Dropdown extends React.Component<Props, State> {
           className={classNames}
           {...this.getScrollableProps()}
           ref={(div) => {
-            if (div instanceof HTMLElement) {
-              this._flyout = div;
-            }
+            this._flyout = div;
           }}>
           {content}
         </div>

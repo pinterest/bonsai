@@ -33,7 +33,9 @@ export default function ModuleTableHead(props: Props) {
   return (
     <thead>
       <tr>
-        <th></th>
+        {process.env.REACT_APP_EXTERNAL_URL_PREFIX
+          ? <th></th>
+          : null}
         <th>
           <Button color="link" display="block" onClick={() => props.onSort('name')}>
             <div className="text-left">

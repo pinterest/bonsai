@@ -28,6 +28,7 @@
     "array-includes": "^3.0.3",
     "babel-cli": "^6.26.0",
     "bootstrap": "^3.3.7",
+    "console-shim": "^1.0.3",
     "flow-typed": "^2.1.2",
     "invariant": "^2.2.2",
     "load-pkg": "^3.0.1",
