@@ -139,7 +139,7 @@ function ModuleTableRow(props: TRProps) {
           />
         </td>
         : null}
-      <td className="vert-align">
+      <td className="vert-align ModuleTableBody-main-cell">
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
