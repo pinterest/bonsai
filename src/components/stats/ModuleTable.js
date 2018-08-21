@@ -20,6 +20,7 @@ import ModuleTableHead from './ModuleTableHead';
 import React, { Component } from 'react';
 import scrollToAndFocus from '../../utils/scrollToAndFocus';
 import sortModules from '../../stats/sortModules';
+import withTimings from '../../utils/withTimings';
 
 export type OwnProps = {
   extendedModules: Array<ExtendedModule>,
@@ -43,6 +44,22 @@ export type DispatchProps = {
 
 export type Props = OwnProps & StateProps & DispatchProps;
 
+function getRows(props: Props) {
+  const rows = collapseModulesToRows(
+    sortModules(
+      filterModules(
+        props.extendedModules,
+        props.filters,
+      ),
+      props.sort,
+    ),
+  );
+  rows.forEach((row) => {
+    row.records = sortModules(row.records, props.sort);
+  });
+  return rows;
+}
+
 export default class ModuleTable extends Component<Props> {
   componentDidUpdate() {
     if (this.props.focusedRowID) {
@@ -52,19 +69,7 @@ export default class ModuleTable extends Component<Props> {
 
   render() {
     const props = this.props;
-
-    const rows = collapseModulesToRows(
-      sortModules(
-        filterModules(
-          props.extendedModules,
-          props.filters,
-        ),
-        props.sort,
-      ),
-    );
-    rows.forEach((row) => {
-      row.records = sortModules(row.records, props.sort);
-    });
+    const rows = withTimings('ModuleTable', 'getRows')(getRows, props);
 
     return (
       <table className="table table-hover" cellPadding="0" cellSpacing="0">
