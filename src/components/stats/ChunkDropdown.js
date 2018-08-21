@@ -46,7 +46,7 @@ export default function ChunkDropdown(props: Props) {
                 className={[
                   'text-left',
                   chunk.indent ? 'ChunkDropdownPrefix' : '',
-                ].filter(_ => _).join(' ')}>
+                ].join(' ')}>
                 {chunk.name} ({chunk.id})
               </div>
             </Button>

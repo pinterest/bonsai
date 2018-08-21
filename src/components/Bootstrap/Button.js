@@ -44,7 +44,7 @@ export default function Button(props: ButtonProps) {
     colorToClass('btn', props.color, 'default'),
     displayToClass(props.display),
     sizeToClass(props.size),
-  ].filter(_ => _).join(' ');
+  ].join(' ');
 
   return (
     <button
@@ -71,7 +71,7 @@ export function Link(props: LinkProps) {
     'btn',
     colorToClass('btn', props.color, 'link'),
     sizeToClass(props.size),
-  ].filter(_ => _).join(' ');
+  ].join(' ');
 
   return (
     <a
@@ -96,7 +96,7 @@ export function DropdownToggleButton(props: DropdownToggleProps) {
     colorToClass('btn', props.color, 'default'),
     sizeToClass(props.size),
     'dropdown-toggle',
-  ].filter(_ => _).join(' ');
+  ].join(' ');
 
   return (
     <button

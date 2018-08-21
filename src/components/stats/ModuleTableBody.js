@@ -128,7 +128,7 @@ function ModuleTableRow(props: TRProps) {
           props.expanded && props.records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
-        ].filter(_ => _).join(' ')
+        ].join(' ')
       })}
     >
       {process.env.REACT_APP_EXTERNAL_URL_PREFIX
