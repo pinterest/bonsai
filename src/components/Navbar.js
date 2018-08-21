@@ -4,6 +4,8 @@
 
 import * as React from 'react';
 
+import {getClassName} from './Bootstrap/GlyphiconNames';
+
 export default function Navbar() {
   return (
     <nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -17,12 +19,18 @@ export default function Navbar() {
             Bonsai
           </a>
           <p className="navbar-text">
+            <span
+              className={getClassName('tree-conifer')}
+              aria-hidden="true"></span>
             Trim your dependency trees
           </p>
         </div>
         <ul className="nav navbar-nav navbar-right">
           <li>
             <a className="navbar-link" href="https://pinterest.github.io/bonsai/">
+              <span
+                className={getClassName('book')}
+                aria-hidden="true"></span>&nbsp;
               Docs
             </a>
           </li>
