@@ -58,7 +58,7 @@
     "nodemon": "^1.11.0",
     "react-scripts": "1.1.0",
     "react-test-renderer": "16.2.0",
-    "serve": "^9.2.0"
+    "serve": "^10.0.0"
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
