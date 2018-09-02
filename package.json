@@ -53,7 +53,7 @@
     "eslint-plugin-react": "^7.3.0",
     "flow-annotation-check": "1.8.1",
     "flow-bin": "0.69.0",
-    "flow-coverage-report": "^0.5.0",
+    "flow-coverage-report": "^0.6.0",
     "markdown-spellcheck": "^1.0.0",
     "nodemon": "^1.11.0",
     "react-scripts": "1.1.0",
