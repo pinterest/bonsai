@@ -57,7 +57,7 @@
     "markdown-spellcheck": "^1.0.0",
     "nodemon": "^1.11.0",
     "react-scripts": "1.1.0",
-    "react-test-renderer": "16.2.0",
+    "react-test-renderer": "16.5.1",
     "serve": "^9.2.0"
   },
   "scripts": {
