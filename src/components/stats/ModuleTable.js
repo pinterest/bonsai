@@ -2,24 +2,19 @@
  * @flow
  */
 
-import type { ExtendedModule } from '../../types/Stats';
-
+import * as React from 'react';
 import ModuleTableBodyContainer from './ModuleTableBodyContainer';
 import ModuleTableHeadContainer from './ModuleTableHeadContainer';
 import Panel from '../Bootstrap/Panel';
-import ToggleExpandModeButton from './ToggleExpandModeButton';
-import * as React from 'react';
 import scrollToAndFocus from '../../utils/scrollToAndFocus';
+import ToggleExpandModeButton from './ToggleExpandModeButton';
 
 export type Props = {
-  moduleData: ?{
-    included: Array<ExtendedModule>,
-    removed: Array<ExtendedModule>,
-  },
+  modulesIncludedLabel: ?string,
   focusedRowID: ?string,
 };
 
-export default class ModuleTable extends React.Component<Props> {
+export default class ModuleTable extends React.PureComponent<Props> {
   componentDidUpdate() {
     if (this.props.focusedRowID) {
       scrollToAndFocus(this.props.focusedRowID);
@@ -28,7 +23,7 @@ export default class ModuleTable extends React.Component<Props> {
 
   render() {
     const props = this.props;
-    if (!props.moduleData) {
+    if (!props.modulesIncludedLabel) {
       return null;
     }
 
@@ -40,9 +35,7 @@ export default class ModuleTable extends React.Component<Props> {
             <div className="pull-right">
               <ToggleExpandModeButton />
             </div>
-            {props.moduleData.removed.length === 0
-              ? 'All'
-              : props.moduleData.included.length} Modules Included
+            {props.modulesIncludedLabel}
           </div>
         )}>
         <table className="table table-hover" cellPadding="0" cellSpacing="0">
