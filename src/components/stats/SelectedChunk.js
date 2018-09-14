@@ -5,7 +5,7 @@
 import BlacklistTableContainer from './BlacklistTableContainer';
 import ChunkBreadcrumbContainer from './ChunkBreadcrumbContainer';
 import LoopTableContainer from './LoopTableContainer';
-import ModuleDataContainer from './ModuleDataContainer';
+import ModuleTableContainer from './ModuleTableContainer';
 import * as React from 'react';
 
 export default function SelectedChunk() {
@@ -28,7 +28,7 @@ export default function SelectedChunk() {
       </div>
       <div className="row">
         <div className="col-sm-12">
-          <ModuleDataContainer />
+          <ModuleTableContainer />
         </div>
       </div>
     </main>
