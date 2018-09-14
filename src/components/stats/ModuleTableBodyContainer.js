@@ -3,23 +3,19 @@
  */
 
 import type { Dispatch, State } from '../../utils/reducer';
-import type { DispatchProps, StateProps } from './ModuleTable';
-import type { RowRepresentation } from '../../types/Stats';
-
-import type { FilterProps } from '../../stats/filterModules';
-import type { SortProps } from '../../stats/sortModules';
+import type { DispatchProps, StateProps } from './ModuleTableBody';
 import type { ExtendedModule } from '../../types/Stats';
+import type { FilterProps } from '../../stats/filterModules';
+import type { RowRepresentation } from '../../types/Stats';
+import type { SortProps } from '../../stats/sortModules';
 
-import ModuleTable from './ModuleTable';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import ModuleTableBody from './ModuleTableBody';
 import {
-  FilteredTable,
   RemovedModule,
-  SortedTable,
   ExpandRecords,
   CollapseRecords,
 } from '../../utils/actions';
-
 import collapseModulesToRows from '../../stats/collapseModulesToRows';
 import filterModules from '../../stats/filterModules';
 import sortModules from '../../stats/sortModules';
@@ -45,29 +41,20 @@ function getRows(
 }
 
 const mapStateToProps = (state: State): StateProps => {
-  const props = {
-    extendedModules: (state.calculatedFullModuleData || {}).extendedModules,
-    filters: state.filters,
-    sort: state.sort,
-    expandMode: state.expandMode,
-    expandedRecords: state.expandedRecords,
-    focusedRowID: state.currentlyFocusedElementID,
-  };
   return {
     rows: getRows(
-      props.extendedModules,
-      props.filters,
-      props.sort,
+      (state.calculatedFullModuleData || {}).extendedModules,
+      state.filters,
+      state.sort,
     ),
-    ...props
+    expandMode: state.expandMode,
+    expandedRecords: state.expandedRecords,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    onFilterChanged: FilteredTable(dispatch),
     onRemoveModule: RemovedModule(dispatch),
-    onSortPicked: SortedTable(dispatch),
     onExpandRecords: ExpandRecords(dispatch),
     onCollapseRecords: CollapseRecords(dispatch),
   };
@@ -76,4 +63,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ModuleTable);
+)(ModuleTableBody);

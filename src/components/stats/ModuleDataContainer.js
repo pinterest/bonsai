@@ -2,55 +2,26 @@
  * @flow
  */
 
-import type { ExtendedModule } from '../../types/Stats';
 import type { State } from '../../utils/reducer';
+import type { Props as StateProps } from './ModuleTable';
 
-import * as React from 'react';
-import ModuleTableContainer from './ModuleTableContainer';
 import { connect } from 'react-redux';
-import Panel from '../Bootstrap/Panel';
-import ToggleExpandModeButton from './ToggleExpandModeButton';
+import ModuleTable from './ModuleTable';
 
-export type Props = {
-  moduleData: ?{
-    included: Array<ExtendedModule>,
-    removed: Array<ExtendedModule>,
-  },
-};
-
-function ModuleData(props: Props) {
-  return (
-    props.moduleData
-      ? <Panel
-        type='primary'
-        heading={(
-          <div>
-            <div className="pull-right">
-              <ToggleExpandModeButton />
-            </div>
-            {props.moduleData.removed.length === 0
-              ? 'All'
-              : props.moduleData.included.length} Modules Included
-          </div>
-        )}>
-        <ModuleTableContainer />
-      </Panel>
-      : null
-  );
-}
-
-const mapStateToProps = (state: State): Props => {
+const mapStateToProps = (state: State): StateProps => {
   if (state.calculatedFullModuleData) {
     return {
       moduleData: state.calculatedFullModuleData.moduleData,
+      focusedRowID: state.currentlyFocusedElementID,
     };
   } else {
     return {
       moduleData: null,
+      focusedRowID: state.currentlyFocusedElementID,
     };
   }
 };
 
 export default connect(
   mapStateToProps,
-)(ModuleData);
+)(ModuleTable);
