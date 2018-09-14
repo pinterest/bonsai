@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type { Child } from '../../stats/getEntryHeirarchy';
+import type { Child } from '../../stats/getEntryHierarchy';
 
 import * as React from 'react';
 

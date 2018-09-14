@@ -49,7 +49,7 @@ function getChildrenForChunk(
 
 export const ROOT_ID = Number.MIN_SAFE_INTEGER;
 
-export default function getEntryHeirarchy(
+export default function getEntryHierarchy(
   stats: RawStats,
 ): Child {
   const importedChunkNames = getChunkNamesFromImportedModules(stats);

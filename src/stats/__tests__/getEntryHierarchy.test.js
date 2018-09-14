@@ -3,9 +3,9 @@
  */
 
 import {defaultChunk} from '../../__test_helpers__/defaults';
-import getEntryHeirarchy, {
+import getEntryHierarchy, {
   flattenChunksByParent,
-} from '../getEntryHeirarchy';
+} from '../getEntryHierarchy';
 
 const stats = {
   chunks: [
@@ -26,15 +26,15 @@ const stats = {
   modules: [],
 };
 
-describe('getEntryHeirarchy', () => {
+describe('getEntryHierarchy', () => {
   it('should list all the chunks', () => {
-    const result = getEntryHeirarchy(stats);
+    const result = getEntryHierarchy(stats);
 
     expect(result).toMatchSnapshot();
   });
 
   it('should flatten the list of all chunks', () => {
-    const result = flattenChunksByParent(getEntryHeirarchy(stats).children);
+    const result = flattenChunksByParent(getEntryHierarchy(stats).children);
 
     expect(result).toEqual([
       {id: 0, name: 'chunk-zero', indent: 0},

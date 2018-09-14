@@ -9,10 +9,10 @@ import type {
   RawStats,
 } from '../types/Stats';
 
-import type {Child} from './getEntryHeirarchy';
+import type {Child} from './getEntryHierarchy';
 
 import getChunkModules from './getChunkModules';
-import getEntryHeirarchy from './getEntryHeirarchy';
+import getEntryHierarchy from './getEntryHierarchy';
 import getExtendedModulesById, {calculateModuleSizes} from './getExtendedModulesById';
 import getModulesById from './getModulesById';
 import getParentChunks from './getParentChunks';
@@ -33,7 +33,7 @@ export default function fullModuleData(
   selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
 ): FullModuleDataType {
-  const chunksByParent = getEntryHeirarchy(stats);
+  const chunksByParent = getEntryHierarchy(stats);
 
   if (selectedChunkId === null || selectedChunkId === undefined) {
     return {

@@ -2,11 +2,11 @@
  * @flow
  */
 
-import type {Child} from '../../stats/getEntryHeirarchy';
+import type {Child} from '../../stats/getEntryHierarchy';
 import type {ChunkID} from '../../types/Stats';
 
 import { isSameChunk } from '../../types/Stats';
-import { flattenChunksByParent } from '../../stats/getEntryHeirarchy';
+import { flattenChunksByParent } from '../../stats/getEntryHierarchy';
 import Button from '../Bootstrap/Button';
 import DropdownList from '../Bootstrap/DropdownList';
 import * as React from 'react';

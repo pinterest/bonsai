@@ -7,7 +7,7 @@ import type { ChunkID, RawStats } from '../types/Stats';
 import getChunkModules from './getChunkModules';
 import getChunkName from './getChunkName';
 import getChunkNamesFromImportedModules from './getChunkNamesFromImportedModules';
-import getEntryHeirarchy from './getEntryHeirarchy';
+import getEntryHierarchy from './getEntryHierarchy';
 import getParentChunks from './getParentChunks';
 import invariant from 'invariant';
 
@@ -22,7 +22,7 @@ export default function chunkSizes(
   rawStats: Array<RawStats>,
 ): Array<Array<ChunkSize>> {
   return rawStats.map((stats) => {
-    const chunksByParent = getEntryHeirarchy(stats);
+    const chunksByParent = getEntryHierarchy(stats);
     const importedChunkNames = getChunkNamesFromImportedModules(stats);
 
     return stats.chunks.map((chunk) => {
