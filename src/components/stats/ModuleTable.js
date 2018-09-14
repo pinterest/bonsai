@@ -2,44 +2,24 @@
  * @flow
  */
 
-import type {
-  FilterableFields,
-  FilterProps,
-} from '../../stats/filterModules';
-import type {
-  SortableFields,
-  SortProps,
-} from '../../stats/sortModules';
-import type { ModuleID } from '../../types/Stats';
 import type { ExtendedModule } from '../../types/Stats';
-import type { RowRepresentation } from '../../types/Stats';
 
-import ModuleTableBody from './ModuleTableBody';
-import ModuleTableHead from './ModuleTableHead';
-import React, { Component } from 'react';
+import ModuleTableBodyContainer from './ModuleTableBodyContainer';
+import ModuleTableHeadContainer from './ModuleTableHeadContainer';
+import Panel from '../Bootstrap/Panel';
+import ToggleExpandModeButton from './ToggleExpandModeButton';
+import * as React from 'react';
 import scrollToAndFocus from '../../utils/scrollToAndFocus';
 
-export type StateProps = {
-  extendedModules: Array<ExtendedModule>,
-  rows: Array<RowRepresentation>,
-  filters: FilterProps,
-  sort: SortProps,
-  expandMode: 'manual' | 'collapse-all' | 'expand-all',
-  expandedRecords: Set<ModuleID>,
+export type Props = {
+  moduleData: ?{
+    included: Array<ExtendedModule>,
+    removed: Array<ExtendedModule>,
+  },
   focusedRowID: ?string,
 };
 
-export type DispatchProps = {
-  onSortPicked: (field: SortableFields) => void,
-  onFilterChanged: (changes: {[key: FilterableFields]: string}) => void,
-  onRemoveModule: (moduleID: ModuleID) => void,
-  onExpandRecords: (moduleID: ModuleID) => void,
-  onCollapseRecords: (moduleID: ModuleID) => void,
-};
-
-export type Props = StateProps & DispatchProps;
-
-export default class ModuleTable extends Component<Props> {
+export default class ModuleTable extends React.Component<Props> {
   componentDidUpdate() {
     if (this.props.focusedRowID) {
       scrollToAndFocus(this.props.focusedRowID);
@@ -48,24 +28,28 @@ export default class ModuleTable extends Component<Props> {
 
   render() {
     const props = this.props;
+    if (!props.moduleData) {
+      return null;
+    }
 
     return (
-      <table className="table table-hover" cellPadding="0" cellSpacing="0">
-        <ModuleTableHead
-          filters={props.filters}
-          sort={props.sort}
-          onSort={props.onSortPicked}
-          onFilter={props.onFilterChanged}
-        />
-        <ModuleTableBody
-          rows={props.rows}
-          expandMode={props.expandMode}
-          expandedRecords={props.expandedRecords}
-          onRemoveModule={props.onRemoveModule}
-          onExpandRecords={props.onExpandRecords}
-          onCollapseRecords={props.onCollapseRecords}
-        />
-      </table>
+      <Panel
+        type='primary'
+        heading={(
+          <div>
+            <div className="pull-right">
+              <ToggleExpandModeButton />
+            </div>
+            {props.moduleData.removed.length === 0
+              ? 'All'
+              : props.moduleData.included.length} Modules Included
+          </div>
+        )}>
+        <table className="table table-hover" cellPadding="0" cellSpacing="0">
+          <ModuleTableHeadContainer />
+          <ModuleTableBodyContainer />
+        </table>
+      </Panel>
     );
   }
 }

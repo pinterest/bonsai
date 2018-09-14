@@ -13,7 +13,7 @@ import ExternalModuleLink from './ExternalModuleLink';
 import formatModuleName from './formatModuleName';
 import flatten from '../../utils/flatten';
 import OffsetPageAnchor from '../OffsetPageAnchor';
-import React from 'react';
+import * as React from 'react';
 import Unit from '../Unit';
 import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 import {
@@ -23,14 +23,19 @@ import {
 
 import './ModuleTableBody.css';
 
-type TBodyProps = {
+export type StateProps = {
   rows: Array<RowRepresentation>,
   expandMode: 'manual' | 'collapse-all' | 'expand-all',
   expandedRecords: Set<ModuleID>,
+};
+
+export type DispatchProps = {
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
   onCollapseRecords: (moduleID: ModuleID) => void,
 };
+
+type TBodyProps = StateProps & DispatchProps;
 
 type GroupedTRProps = {
   row: RowRepresentation,
