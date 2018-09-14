@@ -12,21 +12,16 @@ import type {
 } from '../../stats/sortModules';
 import type { ModuleID } from '../../types/Stats';
 import type { ExtendedModule } from '../../types/Stats';
+import type { RowRepresentation } from '../../types/Stats';
 
-import collapseModulesToRows from '../../stats/collapseModulesToRows';
-import filterModules from '../../stats/filterModules';
 import ModuleTableBody from './ModuleTableBody';
 import ModuleTableHead from './ModuleTableHead';
 import React, { Component } from 'react';
 import scrollToAndFocus from '../../utils/scrollToAndFocus';
-import sortModules from '../../stats/sortModules';
-import withTimings from '../../utils/withTimings';
-
-export type OwnProps = {
-  extendedModules: Array<ExtendedModule>,
-};
 
 export type StateProps = {
+  extendedModules: Array<ExtendedModule>,
+  rows: Array<RowRepresentation>,
   filters: FilterProps,
   sort: SortProps,
   expandMode: 'manual' | 'collapse-all' | 'expand-all',
@@ -42,23 +37,7 @@ export type DispatchProps = {
   onCollapseRecords: (moduleID: ModuleID) => void,
 };
 
-export type Props = OwnProps & StateProps & DispatchProps;
-
-function getRows(props: Props) {
-  const rows = collapseModulesToRows(
-    sortModules(
-      filterModules(
-        props.extendedModules,
-        props.filters,
-      ),
-      props.sort,
-    ),
-  );
-  rows.forEach((row) => {
-    row.records = sortModules(row.records, props.sort);
-  });
-  return rows;
-}
+export type Props = StateProps & DispatchProps;
 
 export default class ModuleTable extends Component<Props> {
   componentDidUpdate() {
@@ -69,7 +48,6 @@ export default class ModuleTable extends Component<Props> {
 
   render() {
     const props = this.props;
-    const rows = withTimings('ModuleTable', 'getRows')(getRows, props);
 
     return (
       <table className="table table-hover" cellPadding="0" cellSpacing="0">
@@ -80,7 +58,7 @@ export default class ModuleTable extends Component<Props> {
           onFilter={props.onFilterChanged}
         />
         <ModuleTableBody
-          rows={rows}
+          rows={props.rows}
           expandMode={props.expandMode}
           expandedRecords={props.expandedRecords}
           onRemoveModule={props.onRemoveModule}

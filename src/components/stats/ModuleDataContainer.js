@@ -16,7 +16,6 @@ export type Props = {
     included: Array<ExtendedModule>,
     removed: Array<ExtendedModule>,
   },
-  extendedModules: Array<ExtendedModule>,
 };
 
 function ModuleData(props: Props) {
@@ -34,9 +33,7 @@ function ModuleData(props: Props) {
               : props.moduleData.included.length} Modules Included
           </div>
         )}>
-        <ModuleTableContainer
-          extendedModules={props.extendedModules}
-        />
+        <ModuleTableContainer />
       </Panel>
       : null
   );
@@ -46,12 +43,10 @@ const mapStateToProps = (state: State): Props => {
   if (state.calculatedFullModuleData) {
     return {
       moduleData: state.calculatedFullModuleData.moduleData,
-      extendedModules: state.calculatedFullModuleData.extendedModules,
     };
   } else {
     return {
       moduleData: null,
-      extendedModules: [],
     };
   }
 };
