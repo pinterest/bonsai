@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 
 import { defaultChunk } from '../../../__test_helpers__/defaults';
 import ChunkBreadcrumb from '../ChunkBreadcrumb';
-import getEntryHeirarchy from '../../../stats/getEntryHeirarchy';
+import getEntryHierarchy from '../../../stats/getEntryHierarchy';
 import getParentChunks from '../../../stats/getParentChunks';
 
 const stats = {
@@ -30,7 +30,7 @@ const stats = {
   modules: [],
 };
 
-const chunksByParent = getEntryHeirarchy(stats);
+const chunksByParent = getEntryHierarchy(stats);
 
 storiesOf('ChunkBreadcrumb', module)
   .add('Empty data', () => (

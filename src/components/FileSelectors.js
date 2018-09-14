@@ -3,7 +3,7 @@
  */
 
 import type { ChunkID } from '../types/Stats';
-import type { Child } from '../stats/getEntryHeirarchy';
+import type { Child } from '../stats/getEntryHierarchy';
 import type { ItemValue } from './Bootstrap/DropdownList';
 
 import ChunkDropdown from './stats/ChunkDropdown';
