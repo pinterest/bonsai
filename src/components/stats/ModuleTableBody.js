@@ -4,7 +4,6 @@
 
 import type {
   ModuleID,
-  ExtendedModule,
   RowRepresentation,
 } from '../../types/Stats';
 
@@ -46,8 +45,7 @@ type GroupedTRProps = {
 };
 
 type TRProps = {
-  eModule: ExtendedModule,
-  records: Array<ExtendedModule>,
+  row: RowRepresentation,
   expanded: boolean,
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
@@ -77,9 +75,10 @@ function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
     ? props.row.records.map((record) => (
       <ModuleTableRow
         key={record.id}
-        size="sm"
-        eModule={record}
-        records={props.row.records}
+        row={{
+          ...props.row,
+          displayModule: record,
+        }}
         expanded={props.expanded}
         onRemoveModule={props.onRemoveModule}
         onExpandRecords={props.onExpandRecords}
@@ -89,9 +88,7 @@ function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
     : [
       <ModuleTableRow
         key={props.row.displayModule.id}
-        size={null}
-        eModule={props.row.displayModule}
-        records={props.row.records}
+        row={props.row}
         expanded={props.expanded}
         onRemoveModule={props.onRemoveModule}
         onExpandRecords={props.onExpandRecords}
@@ -101,12 +98,13 @@ function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
 }
 
 function ModuleTableRow(props: TRProps) {
-  const eModule = props.eModule;
-  const records = props.records;
+  const eModule = props.row.displayModule;
+  const records = props.row.records;
+  const collapsedSizeBytes = props.row.collapsedSizeBytes;
 
   const moduleSizeBytes = props.expanded
     ? eModule.size
-    : records.reduce((sum, eModule) => sum + eModule.size, 0);
+    : collapsedSizeBytes;
 
   const hasCollapsedChildren = records.length > 1;
   const isFirstRecord = eModule.id === records[0].id;
@@ -126,7 +124,7 @@ function ModuleTableRow(props: TRProps) {
       {...OffsetPageAnchor(String(eModule.id), {
         className: [
           'ModuleTableBody-row',
-          props.expanded && props.records.length > 1
+          props.expanded && records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
         ].join(' ')

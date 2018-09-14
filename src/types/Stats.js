@@ -125,8 +125,8 @@ export type ExtendedModule = {
   loops: Array<Array<ExtendedModule>>,
 };
 
-
 export type RowRepresentation = {
   displayModule: ExtendedModule,
   records: Array<ExtendedModule>,
+  collapsedSizeBytes: number,
 };
