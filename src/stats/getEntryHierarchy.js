@@ -22,57 +22,82 @@ export type FlatChunk = {
   indent: number,
 };
 
-function getChildrenForChunk(
-  stats,
-  importedChunkNames,
-  parentChunk,
-  existingParents: Array<ChunkID>,
-): Array<Child> {
-  return getEntryChunks(stats)
-    .filter((chunk) =>
-      chunk.parents.includes(parentChunk.id) &&
-      !existingParents.includes(chunk.id)
-    )
-    .map((chunk) => ({
-      id: chunk.id,
-      ids: [chunk.id],
-      name: getChunkName(chunk, importedChunkNames),
-      names: chunk.names,
-      children: getChildrenForChunk(
-        stats,
-        importedChunkNames,
-        chunk,
-        existingParents.concat(chunk.id),
-      ),
-    }));
-}
-
 export const ROOT_ID = Number.MIN_SAFE_INTEGER;
+
+function getSyncName(name: string): string {
+  if (name.indexOf('./node_modules/promise-loader?') === 0) {
+    return name.replace('./node_modules/promise-loader?', '');
+  } else {
+    const match = name.match(/import\('([\w\S]+)'\)/);
+    if (match) {
+      return match[1];
+    } else {
+      return name;
+    }
+  }
+}
 
 export default function getEntryHierarchy(
   stats: RawStats,
 ): Child {
+  console.time('getChunkNamesFromImportedModules');
   const importedChunkNames = getChunkNamesFromImportedModules(stats);
+  console.timeEnd('getChunkNamesFromImportedModules');
+  console.time('getEntryChunks');
+  const entryChunks = getEntryChunks(stats);
+  console.timeEnd('getEntryChunks');
+
+  const rootChunks = [];
+  const chunksById = {};
+  const asyncChunksById = {};
+  entryChunks.forEach((chunk) => {
+    const name = getChunkName(chunk, importedChunkNames);
+    chunksById[chunk.id] = {
+      id: chunk.id,
+      ids: [chunk.id],
+      name: name,
+      names: chunk.names,
+      children: [],
+    };
+
+    const syncName = getSyncName(name);
+    if (syncName !== name) {
+      asyncChunksById[chunk.id] = {
+        id: chunk.id,
+        ids: [chunk.id],
+        name: getChunkName(chunk, importedChunkNames),
+        names: chunk.names,
+        children: [],
+      };
+    }
+  });
+
+  entryChunks.forEach((chunk) => {
+    const id = chunk.id;
+    const child = chunksById[id];
+    if (chunk.parents.length === 0) {
+      rootChunks.push(child);
+    } else {
+      chunk.parents.forEach((parentId) => {
+        const parent = chunksById[parentId];
+        const asyncParent = asyncChunksById[parentId];
+
+        if (asyncParent) {
+          asyncParent.children.push(child);
+        } else {
+          parent.children.push(child);
+        }
+      });
+    }
+  });
 
   return {
     id: ROOT_ID,
     ids: [],
     name: '',
     names: [],
-    children: getEntryChunks(stats)
-      .filter((chunk) => chunk.parents.length === 0)
-      .map((chunk) => ({
-        id: chunk.id,
-        ids: [chunk.id],
-        name: getChunkName(chunk, importedChunkNames),
-        names: chunk.names,
-        children: getChildrenForChunk(
-          stats,
-          importedChunkNames,
-          chunk,
-          [chunk.id],
-        ),
-      })),
+    // $FlowFixMe: Object.values has an Array<mixed> here
+    children: rootChunks.concat(Object.values(asyncChunksById)),
   };
 }
 
