@@ -10,9 +10,9 @@ import * as React from 'react';
 
 export default function SelectedChunk() {
   return (
-    <main className="container-fluid">
+    <React.Fragment>
       <div className="row">
-        <div className="col-sm-11 col-sm-push-1">
+        <div className="col-sm-11 ml-auto">
           <ChunkBreadcrumbContainer />
         </div>
       </div>
@@ -31,6 +31,6 @@ export default function SelectedChunk() {
           <ModuleTableContainer />
         </div>
       </div>
-    </main>
+    </React.Fragment>
   );
 }

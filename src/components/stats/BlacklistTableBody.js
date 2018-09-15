@@ -31,18 +31,18 @@ export default class BlacklistTableBody extends Component<Props, State> {
           {this.renderHideRow()}
           {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`} {...OffsetPageAnchor(String(eModule.id))}>
-              <td className="vert-align">
+              <td className="align-middle">
                 <ExternalModuleLink
                   prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
                   module={eModule}
                 />
               </td>
-              <td className="vert-align">
+              <td className="align-middle">
                 {eModule.name}
               </td>
               <Unit
                 elem='td'
-                className="vert-align numeric"
+                className="align-middle text-right"
                 bytes={eModule.size} />
               <td colSpan="3"></td>
             </tr>

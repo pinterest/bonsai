@@ -27,6 +27,8 @@ type ButtonProps = {
 function sizeToClass(size: ?Size) {
   if (!size) {
     return null;
+  } else if (size === 'xs') {
+    return `btn-sm`;
   }
   return `btn-${size}`;
 }
@@ -41,7 +43,7 @@ function displayToClass(display: ?Display) {
 export default function Button(props: ButtonProps) {
   const classNames = [
     'btn',
-    colorToClass('btn', props.color, 'default'),
+    colorToClass('btn', props.color, 'outline-secondary'),
     displayToClass(props.display),
     sizeToClass(props.size),
   ].join(' ');
@@ -93,7 +95,7 @@ type DropdownToggleProps = ButtonProps & {
 export function DropdownToggleButton(props: DropdownToggleProps) {
   const classNames = [
     'btn',
-    colorToClass('btn', props.color, 'default'),
+    colorToClass('btn', props.color, 'outline-secondary'),
     sizeToClass(props.size),
     'dropdown-toggle',
   ].join(' ');

@@ -58,12 +58,13 @@ function getExpandButton(
   callback: Function,
 ) {
   return (
-    <span className="pull-right">
+    <span className="float-right">
       <Button
         color="link"
         size="xs"
         onClick={callback}>
         <Octicon icon={expanded ? TriangleDown : TriangleRight} />
+        &nbsp;
         {`${recordCount} unique imports`}
       </Button>
     </span>
@@ -131,33 +132,33 @@ function ModuleTableRow(props: TRProps) {
       })}
     >
       {process.env.REACT_APP_EXTERNAL_URL_PREFIX
-        ? <td className="vert-align">
+        ? <td className="align-middle">
           <ExternalModuleLink
             prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
             module={eModule}
           />
         </td>
         : null}
-      <td className="vert-align ModuleTableBody-main-cell">
+      <td className="align-middle ModuleTableBody-main-cell">
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
       <Unit
         elem='td'
-        className="vert-align numeric"
+        className="align-middle text-right"
         bytes={eModule.cumulativeSize} />
       <Unit
         elem='td'
-        className="vert-align numeric"
+        className="align-middle text-right"
         bytes={moduleSizeBytes} />
-      <td className="vert-align numeric">
+      <td className="align-middle text-right">
         <RequiredByPanelContainer eModule={eModule} />
       </td>
-      <td className="vert-align numeric">
+      <td className="align-middle text-right">
         <RequirementsPanelContainer eModule={eModule} />
       </td>
-      <td className="vert-align">
-        <Button onClick={() => props.onRemoveModule(eModule.id)}>
+      <td className="align-middle">
+        <Button size='sm' onClick={() => props.onRemoveModule(eModule.id)}>
           Ignore
         </Button>
       </td>
