@@ -9,6 +9,7 @@ import ExternalModuleLink from './ExternalModuleLink';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, { Component } from 'react';
 import Unit from '../Unit';
+import { getClassName } from '../Bootstrap/GlyphiconNames';
 
 type Props = {
   removedModules: Array<ExtendedModule>,
@@ -57,8 +58,8 @@ export default class BlacklistTableBody extends Component<Props, State> {
               <Button
                 size="xs"
                 onClick={() => this.setState({ isOpen: true })}>
-                <span className="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                Show {this.props.removedModules.length} more removed modules
+                <span className={getClassName('triangle-right')} aria-hidden="true"></span>
+                &nbsp;Show {this.props.removedModules.length} more removed modules
               </Button>
             </td>
           </tr>
@@ -76,8 +77,8 @@ export default class BlacklistTableBody extends Component<Props, State> {
           <Button
             size="xs"
             onClick={() => this.setState({ isOpen: false })}>
-            <span className="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-            Hide extra modules
+            <span className={getClassName('triangle-bottom')} aria-hidden="true"></span>
+            &nbsp;Hide extra modules
           </Button>
         </td>
       </tr>
