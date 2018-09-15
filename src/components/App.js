@@ -8,6 +8,8 @@ import Navbar from './Navbar';
 import React, { Component } from 'react';
 import SelectedChunk from './stats/SelectedChunk';
 import LoadingSpinner from './LoadingSpinner';
+import ChunkDropdownContainer from './stats/ChunkDropdownContainer';
+import ConfigDropdownContainer from './stats/ConfigDropdownContainer';
 
 import './App.css';
 
@@ -39,6 +41,19 @@ function getContent(props: Props) {
   }
 }
 
+function DragDropHelp() {
+  return (
+    <div className="card my-3">
+      <div className="card-header">
+        <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
+        <p id="drag-drop-helpblock" className="col-sm-12 help-block">
+          Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default class App extends Component<Props, State> {
   state: State = {
     isDragging: false,
@@ -62,17 +77,14 @@ export default class App extends Component<Props, State> {
                 onDragLeave={() => this.setState({ isDragging: false })}
                 onChange={props.onPickedFile}
                 didGetFile={props.onDroppedFile}>
-                <FileSelectorsContainer />
-                {showHelp
-                  ? <div className="card">
-                    <div className="card-header">
-                      <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
-                      <p id="drag-drop-helpblock" className="col-sm-12 help-block">
-                        Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
-                      </p>
-                    </div>
-                  </div>
-                  : null}
+                <form>
+                  <FileSelectorsContainer />
+                  {showHelp
+                    ? <DragDropHelp />
+                    : null}
+                  <ConfigDropdownContainer />
+                  <ChunkDropdownContainer />
+                </form>
               </DragDropUpload>
             </aside>
             <main>
