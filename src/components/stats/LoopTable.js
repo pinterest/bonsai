@@ -42,8 +42,8 @@ export default class LoopTable extends Component<Props, State> {
           <span className={getClassName(this.state.expanded
             ? 'chevron-down'
             : 'chevron-right')} />
+          &nbsp;{loopingModules.length} Modules with circular dependencies
         </Button>
-        {loopingModules.length} Modules with circular dependencies
       </span>
     );
 
