@@ -9,34 +9,8 @@ ul, li {
   padding: 0;
 }
 
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-
-/* override default bootstrap `v-align: bottom` */
-.table>thead>tr>th {
-  vertical-align: top;
-}
-
 .table thead > tr:first-child > th {
   border-bottom: none;
-}
-.table thead > tr:last-child > th {
-  border-top: none;
-}
-
-.table tbody > tr > td.vert-align {
-  vertical-align: middle;
-}
-
-.table th.numeric,
-.table td.numeric {
-  text-align: right;
 }
 
 .dropdown-menu {

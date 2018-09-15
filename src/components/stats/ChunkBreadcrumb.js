@@ -18,12 +18,12 @@ export default function ChunkBreadcrumb(props: Props) {
   return (
     <ol className="breadcrumb">
       {props.parentChunks.map((chunk) => (
-        <li key={chunk.id}>
+        <li className="breadcrumb-item" key={chunk.id}>
           {chunk.name} ({String(chunk.id)})
         </li>
       ))}
       {props.totalModules
-        ? <li className="active">
+        ? <li className="breadcrumb-item active">
           {props.totalModules} modules
         </li>
         : null}

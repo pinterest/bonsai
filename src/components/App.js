@@ -52,34 +52,32 @@ export default class App extends Component<Props, State> {
       <div className="App">
         <Navbar />
         <div className="AppFixed">
-          <div className="AppView">
-            <aside className="container-fluid">
-              <div className="row">
-                <div className="col-sm-12">
-                  <DragDropUpload
-                    id="drag-drop-upload"
-                    aria-describedby="drag-drop-helpblock"
-                    className="form-control"
-                    onDragEnter={() => this.setState({ isDragging: true })}
-                    onDragLeave={() => this.setState({ isDragging: false })}
-                    onChange={props.onPickedFile}
-                    didGetFile={props.onDroppedFile}>
-                    <FileSelectorsContainer />
-                    {showHelp
-                      ? <div className="well well-sm clearfix">
-                        <div className="col-sm-12">
-                          <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
-                          <span id="drag-drop-helpblock" className="col-sm-12 help-block">
-                            Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
-                          </span>
-                        </div>
-                      </div>
-                      : null}
-                  </DragDropUpload>
-                </div>
-              </div>
+          <div className="AppView container-fluid">
+            <aside>
+              <DragDropUpload
+                id="drag-drop-upload"
+                aria-describedby="drag-drop-helpblock"
+                className="form-control"
+                onDragEnter={() => this.setState({ isDragging: true })}
+                onDragLeave={() => this.setState({ isDragging: false })}
+                onChange={props.onPickedFile}
+                didGetFile={props.onDroppedFile}>
+                <FileSelectorsContainer />
+                {showHelp
+                  ? <div className="card">
+                    <div className="card-header">
+                      <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
+                      <p id="drag-drop-helpblock" className="col-sm-12 help-block">
+                        Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
+                      </p>
+                    </div>
+                  </div>
+                  : null}
+              </DragDropUpload>
             </aside>
-            {getContent(props)}
+            <main>
+              {getContent(props)}
+            </main>
           </div>
         </div>
       </div>

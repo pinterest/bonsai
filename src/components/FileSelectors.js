@@ -39,9 +39,9 @@ export default function FileSelectors(props: Props) {
 
   const childPicker = (props.childrenIndexes && props.childrenIndexes.length > 1)
     ? (
-      <div className="form-group" onClick={willStopPropagation}>
+      <div className="row form-group" onClick={willStopPropagation}>
         <label
-          className="col-sm-1 control-label"
+          className="col-sm-1 col-form-label"
           htmlFor="data-child-picker">
           Config
         </label>
@@ -64,8 +64,8 @@ export default function FileSelectors(props: Props) {
 
   const chunkPicker = (props.selectedChildIndex !== null)
     ? (
-      <div className="form-group" onClick={willStopPropagation}>
-        <label className="col-sm-1 control-label">Chunk</label>
+      <div className="row form-group" onClick={willStopPropagation}>
+        <label className="col-sm-1 col-form-label">Chunk</label>
         <div className="col-sm-11">
           <ChunkDropdown
             chunksByParent={props.chunksByParent}
@@ -78,32 +78,30 @@ export default function FileSelectors(props: Props) {
     : null;
 
   return (
-    <div className="row form-horizontal">
-      <div className="col-sm-11">
-        <div className="form-group">
-          <label
-            className="col-sm-1 control-label"
-            htmlFor="data-file-picker">
-            Filename
-          </label>
-          <div className="col-sm-11" onClick={willStopPropagation}>
-            <DropdownList
-              filter="default"
-              items={props.dataPaths.map((path) => ({
-                label: path,
-                value: path,
-              }))}
-              onItemPicked={(value: ItemValue) => {
-                props.onPickedFile(String(value));
-              }}
-            >
-              {props.filename}
-            </DropdownList>
-          </div>
+    <form>
+      <div className="row form-group">
+        <label
+          className="col-sm-1 col-form-label"
+          htmlFor="data-file-picker">
+          Filename
+        </label>
+        <div className="col-sm-11" onClick={willStopPropagation}>
+          <DropdownList
+            filter="default"
+            items={props.dataPaths.map((path) => ({
+              label: path,
+              value: path,
+            }))}
+            onItemPicked={(value: ItemValue) => {
+              props.onPickedFile(String(value));
+            }}
+          >
+            {props.filename}
+          </DropdownList>
         </div>
-        {childPicker}
-        {chunkPicker}
       </div>
-    </div>
+      {childPicker}
+      {chunkPicker}
+    </form>
   );
 }

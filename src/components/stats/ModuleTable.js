@@ -29,16 +29,17 @@ export default class ModuleTable extends React.PureComponent<Props> {
 
     return (
       <Panel
+        className="my-3"
         type='primary'
         heading={(
           <div>
-            <div className="pull-right">
+            <div className="float-right">
               <ToggleExpandModeButton />
             </div>
             {props.modulesIncludedLabel}
           </div>
         )}>
-        <table className="table table-hover" cellPadding="0" cellSpacing="0">
+        <table className="table table-sm table-bordered table-hover" cellPadding="0" cellSpacing="0">
           <ModuleTableHeadContainer />
           <ModuleTableBodyContainer />
         </table>

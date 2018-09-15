@@ -72,7 +72,7 @@ export default function ModuleTableHead(props: Props) {
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('cumulativeSize')}>
             <div className="text-right">
               <SortLabel
@@ -107,7 +107,7 @@ export default function ModuleTableHead(props: Props) {
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('size')}>
             <div className="text-right">
               <SortLabel
@@ -119,7 +119,7 @@ export default function ModuleTableHead(props: Props) {
             </div>
           </Button>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('requiredByCount')}>
             <div className="text-right">
               <SortLabel
@@ -155,7 +155,7 @@ export default function ModuleTableHead(props: Props) {
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('requirementsCount')}>
             <div className="text-right">
               <SortLabel
