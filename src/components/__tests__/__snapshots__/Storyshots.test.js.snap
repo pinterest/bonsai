@@ -5,135 +5,120 @@ exports[`Storyshots App Done loading 1`] = `
   className="App"
 >
   <nav
-    className="navbar navbar-default navbar-fixed-top navbar-inverse"
+    className="navbar navbar-expand navbar-dark bg-dark fixed-top"
   >
-    <div
-      className="container-fluid"
+    <a
+      className="navbar-brand"
+      href="/"
+      onClick={[Function]}
     >
-      <div
-        className="navbar-header"
+      Bonsai
+    </a>
+    <span
+      className="navbar-text"
+    >
+      Trim your dependency trees
+    </span>
+    <ul
+      className="navbar-nav ml-auto"
+    >
+      <li
+        className="nav-item"
       >
         <a
-          className="navbar-brand"
-          href="/"
-          onClick={[Function]}
+          className="nav-link"
+          href="https://pinterest.github.io/bonsai/"
         >
-          Bonsai
+          <svg
+            aria-hidden="true"
+            aria-label={undefined}
+            className="octicon"
+            height={16}
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "fill": "currentColor",
+                "userSelect": "none",
+                "verticalAlign": "text-bottom",
+              }
+            }
+            viewBox="0 0 16 16"
+            width={16}
+          >
+            <path
+              d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
+              fillRule="evenodd"
+            />
+          </svg>
+            Docs
         </a>
-        <p
-          className="navbar-text"
-        >
-          Trim your dependency trees
-        </p>
-      </div>
-      <ul
-        className="nav navbar-nav navbar-right"
+      </li>
+      <li
+        className="nav-item"
       >
-        <li>
-          <a
-            className="navbar-link"
-            href="https://pinterest.github.io/bonsai/"
-          >
-            <svg
-              aria-hidden="true"
-              aria-label={undefined}
-              className="octicon"
-              height={16}
-              role="img"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "userSelect": "none",
-                  "verticalAlign": "text-bottom",
-                }
+        <a
+          className="nav-link"
+          href="https://github.com/pinterest/bonsai"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label={undefined}
+            className="octicon"
+            height={16}
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "fill": "currentColor",
+                "userSelect": "none",
+                "verticalAlign": "text-bottom",
               }
-              viewBox="0 0 16 16"
-              width={16}
-            >
-              <path
-                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
-                fillRule="evenodd"
-              />
-            </svg>
-              Docs
-          </a>
-        </li>
-        <li>
-          <a
-            className="navbar-link"
-            href="https://github.com/pinterest/bonsai"
+            }
+            viewBox="0 0 16 16"
+            width={16}
           >
-            <svg
-              aria-hidden="true"
-              aria-label={undefined}
-              className="octicon"
-              height={16}
-              role="img"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "userSelect": "none",
-                  "verticalAlign": "text-bottom",
-                }
-              }
-              viewBox="0 0 16 16"
-              width={16}
-            >
-              <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                fillRule="evenodd"
-              />
-            </svg>
-              Github
-          </a>
-        </li>
-      </ul>
-    </div>
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              fillRule="evenodd"
+            />
+          </svg>
+            Github
+        </a>
+      </li>
+    </ul>
   </nav>
   <div
     className="AppFixed"
   >
     <div
-      className="AppView"
+      className="AppView container-fluid"
     >
-      <aside
-        className="container-fluid"
-      >
+      <aside>
         <div
-          className="row"
+          onClick={[Function]}
+          style={undefined}
         >
-          <div
-            className="col-sm-12"
-          >
-            <div
-              onClick={[Function]}
-              style={undefined}
-            >
-              <input
-                className="form-control"
-                id="drag-drop-upload"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                type="file"
-              />
-            </div>
-          </div>
+          <input
+            className="form-control"
+            id="drag-drop-upload"
+            onChange={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            type="file"
+          />
+          <form />
         </div>
       </aside>
-      <main
-        className="container-fluid"
-      >
+      <main>
         <div
           className="row"
         >
           <div
-            className="col-sm-11 col-sm-push-1"
+            className="col-sm-11 ml-auto"
           />
         </div>
         <div
@@ -168,136 +153,35 @@ exports[`Storyshots App Loading up a file 1`] = `
   className="App"
 >
   <nav
-    className="navbar navbar-default navbar-fixed-top navbar-inverse"
+    className="navbar navbar-expand navbar-dark bg-dark fixed-top"
   >
-    <div
-      className="container-fluid"
+    <a
+      className="navbar-brand"
+      href="/"
+      onClick={[Function]}
     >
-      <div
-        className="navbar-header"
+      Bonsai
+    </a>
+    <span
+      className="navbar-text"
+    >
+      Trim your dependency trees
+    </span>
+    <ul
+      className="navbar-nav ml-auto"
+    >
+      <li
+        className="nav-item"
       >
         <a
-          className="navbar-brand"
-          href="/"
-          onClick={[Function]}
+          className="nav-link"
+          href="https://pinterest.github.io/bonsai/"
         >
-          Bonsai
-        </a>
-        <p
-          className="navbar-text"
-        >
-          Trim your dependency trees
-        </p>
-      </div>
-      <ul
-        className="nav navbar-nav navbar-right"
-      >
-        <li>
-          <a
-            className="navbar-link"
-            href="https://pinterest.github.io/bonsai/"
-          >
-            <svg
-              aria-hidden="true"
-              aria-label={undefined}
-              className="octicon"
-              height={16}
-              role="img"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "userSelect": "none",
-                  "verticalAlign": "text-bottom",
-                }
-              }
-              viewBox="0 0 16 16"
-              width={16}
-            >
-              <path
-                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
-                fillRule="evenodd"
-              />
-            </svg>
-              Docs
-          </a>
-        </li>
-        <li>
-          <a
-            className="navbar-link"
-            href="https://github.com/pinterest/bonsai"
-          >
-            <svg
-              aria-hidden="true"
-              aria-label={undefined}
-              className="octicon"
-              height={16}
-              role="img"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "userSelect": "none",
-                  "verticalAlign": "text-bottom",
-                }
-              }
-              viewBox="0 0 16 16"
-              width={16}
-            >
-              <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                fillRule="evenodd"
-              />
-            </svg>
-              Github
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div
-    className="AppFixed"
-  >
-    <div
-      className="AppView"
-    >
-      <aside
-        className="container-fluid"
-      >
-        <div
-          className="row"
-        >
-          <div
-            className="col-sm-12"
-          >
-            <div
-              onClick={[Function]}
-              style={undefined}
-            >
-              <input
-                className="form-control"
-                id="drag-drop-upload"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                type="file"
-              />
-            </div>
-          </div>
-        </div>
-      </aside>
-      <div
-        className="text-center"
-      >
-        <p>
           <svg
             aria-hidden="true"
             aria-label={undefined}
-            className="LoadingSpinner-icon"
-            height={64}
+            className="octicon"
+            height={16}
             role="img"
             style={
               Object {
@@ -307,21 +191,111 @@ exports[`Storyshots App Loading up a file 1`] = `
                 "verticalAlign": "text-bottom",
               }
             }
-            viewBox="0 0 12 16"
-            width={48}
+            viewBox="0 0 16 16"
+            width={16}
           >
             <path
-              d="M10.236 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54l1.17-1.14-4.3-.6.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.956 5a4.346 4.346 0 0 1 5.41-.54L7.196 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54-1.24 1.23-1.8 2.85-1.73 4.46l1.75.35A4.17 4.17 0 0 1 2.956 5z"
+              d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
               fillRule="evenodd"
             />
           </svg>
-        </p>
-        <p>
-          <em>
-            Loading
-          </em>
-        </p>
-      </div>
+            Docs
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="https://github.com/pinterest/bonsai"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label={undefined}
+            className="octicon"
+            height={16}
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "fill": "currentColor",
+                "userSelect": "none",
+                "verticalAlign": "text-bottom",
+              }
+            }
+            viewBox="0 0 16 16"
+            width={16}
+          >
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              fillRule="evenodd"
+            />
+          </svg>
+            Github
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="AppFixed"
+  >
+    <div
+      className="AppView container-fluid"
+    >
+      <aside>
+        <div
+          onClick={[Function]}
+          style={undefined}
+        >
+          <input
+            className="form-control"
+            id="drag-drop-upload"
+            onChange={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            type="file"
+          />
+          <form />
+        </div>
+      </aside>
+      <main>
+        <div
+          className="text-center"
+        >
+          <p>
+            <svg
+              aria-hidden="true"
+              aria-label={undefined}
+              className="LoadingSpinner-icon"
+              height={64}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 12 16"
+              width={48}
+            >
+              <path
+                d="M10.236 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54l1.17-1.14-4.3-.6.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.956 5a4.346 4.346 0 0 1 5.41-.54L7.196 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54-1.24 1.23-1.8 2.85-1.73 4.46l1.75.35A4.17 4.17 0 0 1 2.956 5z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </p>
+          <p>
+            <em>
+              Loading
+            </em>
+          </p>
+        </div>
+      </main>
     </div>
   </div>
 </div>
@@ -332,154 +306,143 @@ exports[`Storyshots App No filename, empty list 1`] = `
   className="App"
 >
   <nav
-    className="navbar navbar-default navbar-fixed-top navbar-inverse"
+    className="navbar navbar-expand navbar-dark bg-dark fixed-top"
   >
-    <div
-      className="container-fluid"
+    <a
+      className="navbar-brand"
+      href="/"
+      onClick={[Function]}
     >
-      <div
-        className="navbar-header"
+      Bonsai
+    </a>
+    <span
+      className="navbar-text"
+    >
+      Trim your dependency trees
+    </span>
+    <ul
+      className="navbar-nav ml-auto"
+    >
+      <li
+        className="nav-item"
       >
         <a
-          className="navbar-brand"
-          href="/"
-          onClick={[Function]}
+          className="nav-link"
+          href="https://pinterest.github.io/bonsai/"
         >
-          Bonsai
+          <svg
+            aria-hidden="true"
+            aria-label={undefined}
+            className="octicon"
+            height={16}
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "fill": "currentColor",
+                "userSelect": "none",
+                "verticalAlign": "text-bottom",
+              }
+            }
+            viewBox="0 0 16 16"
+            width={16}
+          >
+            <path
+              d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
+              fillRule="evenodd"
+            />
+          </svg>
+            Docs
         </a>
-        <p
-          className="navbar-text"
-        >
-          Trim your dependency trees
-        </p>
-      </div>
-      <ul
-        className="nav navbar-nav navbar-right"
+      </li>
+      <li
+        className="nav-item"
       >
-        <li>
-          <a
-            className="navbar-link"
-            href="https://pinterest.github.io/bonsai/"
-          >
-            <svg
-              aria-hidden="true"
-              aria-label={undefined}
-              className="octicon"
-              height={16}
-              role="img"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "userSelect": "none",
-                  "verticalAlign": "text-bottom",
-                }
+        <a
+          className="nav-link"
+          href="https://github.com/pinterest/bonsai"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label={undefined}
+            className="octicon"
+            height={16}
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "fill": "currentColor",
+                "userSelect": "none",
+                "verticalAlign": "text-bottom",
               }
-              viewBox="0 0 16 16"
-              width={16}
-            >
-              <path
-                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
-                fillRule="evenodd"
-              />
-            </svg>
-              Docs
-          </a>
-        </li>
-        <li>
-          <a
-            className="navbar-link"
-            href="https://github.com/pinterest/bonsai"
+            }
+            viewBox="0 0 16 16"
+            width={16}
           >
-            <svg
-              aria-hidden="true"
-              aria-label={undefined}
-              className="octicon"
-              height={16}
-              role="img"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "userSelect": "none",
-                  "verticalAlign": "text-bottom",
-                }
-              }
-              viewBox="0 0 16 16"
-              width={16}
-            >
-              <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                fillRule="evenodd"
-              />
-            </svg>
-              Github
-          </a>
-        </li>
-      </ul>
-    </div>
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              fillRule="evenodd"
+            />
+          </svg>
+            Github
+        </a>
+      </li>
+    </ul>
   </nav>
   <div
     className="AppFixed"
   >
     <div
-      className="AppView"
+      className="AppView container-fluid"
     >
-      <aside
-        className="container-fluid"
-      >
+      <aside>
         <div
-          className="row"
+          onClick={[Function]}
+          style={undefined}
         >
-          <div
-            className="col-sm-12"
-          >
+          <input
+            className="form-control"
+            id="drag-drop-upload"
+            onChange={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            type="file"
+          />
+          <form>
             <div
-              onClick={[Function]}
-              style={undefined}
+              className="card my-3"
             >
-              <input
-                className="form-control"
-                id="drag-drop-upload"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                type="file"
-              />
               <div
-                className="well well-sm clearfix"
+                className="card-header"
               >
-                <div
-                  className="col-sm-12"
+                <label
+                  className="control-label"
                 >
-                  <label
-                    className="control-label"
-                  >
-                    Drag & Drop your 
-                    <code>
-                      stats.json
-                    </code>
-                     file here
-                  </label>
-                  <span
-                    className="col-sm-12 help-block"
-                    id="drag-drop-helpblock"
-                  >
-                    Run 
-                    <kbd>
-                      webpack --json &gt; stats.json
-                    </kbd>
-                     to get started.
-                  </span>
-                </div>
+                  Drag & Drop your 
+                  <code>
+                    stats.json
+                  </code>
+                   file here
+                </label>
+                <p
+                  className="col-sm-12 help-block"
+                  id="drag-drop-helpblock"
+                >
+                  Run 
+                  <kbd>
+                    webpack --json &gt; stats.json
+                  </kbd>
+                   to get started.
+                </p>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </aside>
+      <main />
     </div>
   </div>
 </div>
@@ -491,17 +454,17 @@ exports[`Storyshots BlacklistTable Empty list 1`] = `null`;
 
 exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
 <div
-  className="panel panel-danger"
+  className="card border border-danger my-3"
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-danger"
   >
     1 Modules Ignored
   </div>
   <table
     cellPadding="0"
     cellSpacing="0"
-    className="table table-hover"
+    className="table table-sm table-hover"
   >
     <thead>
       <tr>
@@ -510,17 +473,17 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           Name
         </th>
         <th
-          className="numeric"
+          className="text-right"
         >
           Size
         </th>
         <th
-          className="numeric"
+          className="text-right"
         >
           Dependants
         </th>
         <th
-          className="numeric"
+          className="text-right"
         >
           Imports
         </th>
@@ -534,30 +497,30 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
         tabIndex={-1}
       >
         <td
-          className="vert-align"
+          className="align-middle"
         />
         <td
-          className="vert-align"
+          className="align-middle"
         >
           Module One-B
         </td>
         <td
-          className="vert-align numeric"
+          className="align-middle text-right"
           title="300 bytes"
         >
           300 B
         </td>
         <td
-          className="vert-align numeric"
+          className="align-middle text-right"
         >
           <div
-            className="btn-group  "
+            className="dropdown btn-sm"
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link  dropdown-toggle"
+              className="btn btn-link btn-sm dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -572,16 +535,16 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align numeric"
+          className="align-middle text-right"
         >
           <div
-            className="btn-group  "
+            className="dropdown btn-sm"
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link  dropdown-toggle"
+              className="btn btn-link btn-sm dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -596,10 +559,10 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align"
+          className="align-middle"
         >
           <button
-            className="btn btn-danger  "
+            className="btn btn-danger  btn-sm"
             disabled={null}
             onClick={[Function]}
             style={null}
@@ -614,12 +577,12 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
       <tr>
         <th />
         <th
-          className="numeric"
+          className="text-right"
         >
           Removed Modules
         </th>
         <td
-          className="numeric"
+          className="text-right"
         >
           1
         </td>
@@ -630,12 +593,12 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
       <tr>
         <th />
         <th
-          className="numeric"
+          className="text-right"
         >
           Total Size
         </th>
         <td
-          className="numeric"
+          className="text-right"
           title="300 bytes"
         >
           300 B
@@ -651,17 +614,17 @@ exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
 
 exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
 <div
-  className="panel panel-danger"
+  className="card border border-danger my-3"
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-danger"
   >
     3 Modules Ignored
   </div>
   <table
     cellPadding="0"
     cellSpacing="0"
-    className="table table-hover"
+    className="table table-sm table-hover"
   >
     <thead>
       <tr>
@@ -670,17 +633,17 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           Name
         </th>
         <th
-          className="numeric"
+          className="text-right"
         >
           Size
         </th>
         <th
-          className="numeric"
+          className="text-right"
         >
           Dependants
         </th>
         <th
-          className="numeric"
+          className="text-right"
         >
           Imports
         </th>
@@ -694,30 +657,30 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
         tabIndex={-1}
       >
         <td
-          className="vert-align"
+          className="align-middle"
         />
         <td
-          className="vert-align"
+          className="align-middle"
         >
           Entry One
         </td>
         <td
-          className="vert-align numeric"
+          className="align-middle text-right"
           title="100 bytes"
         >
           100 B
         </td>
         <td
-          className="vert-align numeric"
+          className="align-middle text-right"
         >
           <div
-            className="btn-group  "
+            className="dropdown btn-sm"
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link  dropdown-toggle"
+              className="btn btn-link btn-sm dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -732,16 +695,16 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align numeric"
+          className="align-middle text-right"
         >
           <div
-            className="btn-group  "
+            className="dropdown btn-sm"
             style={undefined}
           >
             <button
               aria-expanded={false}
               aria-haspopup="true"
-              className="btn btn-link  dropdown-toggle"
+              className="btn btn-link btn-sm dropdown-toggle"
               data-toggle="dropdown"
               disabled="disabed"
               onClick={null}
@@ -756,10 +719,10 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           </div>
         </td>
         <td
-          className="vert-align"
+          className="align-middle"
         >
           <button
-            className="btn btn-danger  "
+            className="btn btn-danger  btn-sm"
             disabled={null}
             onClick={[Function]}
             style={null}
@@ -776,7 +739,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
           colSpan="6"
         >
           <button
-            className="btn btn-default  btn-xs"
+            className="btn btn-outline-secondary  btn-sm"
             disabled={null}
             onClick={[Function]}
             style={null}
@@ -815,12 +778,12 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
       <tr>
         <th />
         <th
-          className="numeric"
+          className="text-right"
         >
           Removed Modules
         </th>
         <td
-          className="numeric"
+          className="text-right"
         >
           3
         </td>
@@ -831,12 +794,12 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
       <tr>
         <th />
         <th
-          className="numeric"
+          className="text-right"
         >
           Total Size
         </th>
         <td
-          className="numeric"
+          className="text-right"
           title="1,000 bytes"
         >
           1 KB
@@ -852,7 +815,7 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
 
 exports[`Storyshots Bootstrap/Button Block 1`] = `
 <button
-  className="btn btn-default btn-block "
+  className="btn btn-outline-secondary btn-block "
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -864,7 +827,7 @@ exports[`Storyshots Bootstrap/Button Block 1`] = `
 
 exports[`Storyshots Bootstrap/Button Disabled 1`] = `
 <button
-  className="btn btn-default  "
+  className="btn btn-outline-secondary  "
   disabled="disabed"
   onClick={null}
   style={null}
@@ -888,7 +851,7 @@ exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button Large 1`] = `
 <button
-  className="btn btn-default  btn-lg"
+  className="btn btn-outline-secondary  btn-lg"
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -912,7 +875,7 @@ exports[`Storyshots Bootstrap/Button Success 1`] = `
 
 exports[`Storyshots Bootstrap/Button With onClick 1`] = `
 <button
-  className="btn btn-default  "
+  className="btn btn-outline-secondary  "
   disabled={null}
   onClick={[Function]}
   style={null}
@@ -976,13 +939,13 @@ exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -999,7 +962,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
@@ -1022,13 +985,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic Warning 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1045,7 +1008,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic align right 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={
     Object {
       "background": "red",
@@ -1056,7 +1019,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1073,13 +1036,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic custom style 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled="disabed"
     onClick={null}
@@ -1096,13 +1059,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic disabled 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
 <div
-  className="btn-group open "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1115,7 +1078,7 @@ exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
     />
   </button>
   <div
-    className="dropdown-menu "
+    className="dropdown-menu show "
   >
     <div
       className="col-sm-12"
@@ -1136,13 +1099,13 @@ exports[`Storyshots Bootstrap/Dropdown Basic isOpen 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1159,13 +1122,13 @@ exports[`Storyshots Bootstrap/Dropdown List Content 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
 <div
-  className="btn-group open "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1178,7 +1141,7 @@ exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu "
+    className="dropdown-menu show "
   >
     <li>
       <a
@@ -1231,13 +1194,13 @@ exports[`Storyshots Bootstrap/Dropdown List Content isOpen 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown List with long content 1`] = `
 <div
-  className="btn-group open "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -1250,7 +1213,7 @@ exports[`Storyshots Bootstrap/Dropdown List with long content 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu "
+    className="dropdown-menu show "
   >
     <li>
       <a
@@ -1711,13 +1674,13 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
     </li>
   </ul>
   <div
-    className="btn-group open "
+    className="dropdown "
     style={undefined}
   >
     <button
       aria-expanded={true}
       aria-haspopup="true"
-      className="btn btn-default  dropdown-toggle"
+      className="btn btn-outline-secondary  dropdown-toggle"
       data-toggle="dropdown"
       disabled={null}
       onClick={[Function]}
@@ -1730,7 +1693,7 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
       />
     </button>
     <ul
-      className="dropdown-menu "
+      className="dropdown-menu show "
     >
       <li>
         <a
@@ -2641,11 +2604,11 @@ exports[`Storyshots Bootstrap/Dropdown List with long content on long page 1`] =
 
 exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
-    className="btn btn-default  "
+    className="btn btn-outline-secondary  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2656,7 +2619,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2695,7 +2658,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
@@ -2749,11 +2712,11 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
-    className="btn btn-default  "
+    className="btn btn-outline-secondary  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2764,7 +2727,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2803,11 +2766,11 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
 
 exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
-    className="btn btn-default  "
+    className="btn btn-outline-secondary  "
     disabled={null}
     onClick={[Function]}
     style={null}
@@ -2818,7 +2781,7 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2857,13 +2820,13 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Basic 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2880,13 +2843,13 @@ exports[`Storyshots Bootstrap/DropdownList Basic 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Custom filter 1`] = `
 <div
-  className="btn-group  "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2903,13 +2866,13 @@ exports[`Storyshots Bootstrap/DropdownList Custom filter 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
 <div
-  className="btn-group open "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -2922,11 +2885,11 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu "
+    className="dropdown-menu show "
   >
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2937,7 +2900,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2948,7 +2911,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2959,7 +2922,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2970,7 +2933,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2981,7 +2944,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -2992,7 +2955,7 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
     </li>
     <li>
       <button
-        className="btn btn-default btn-block "
+        className="btn btn-outline-secondary btn-block "
         disabled={null}
         onClick={[Function]}
         style={null}
@@ -3007,13 +2970,13 @@ exports[`Storyshots Bootstrap/DropdownList Custom items 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
 <div
-  className="btn-group open "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -3041,7 +3004,7 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu "
+    className="dropdown-menu show "
   >
     <li>
       <button
@@ -3154,13 +3117,13 @@ exports[`Storyshots Bootstrap/DropdownList Default filter 1`] = `
 
 exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
 <div
-  className="btn-group open "
+  className="dropdown "
   style={undefined}
 >
   <button
     aria-expanded={true}
     aria-haspopup="true"
-    className="btn btn-default  dropdown-toggle"
+    className="btn btn-outline-secondary  dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -3173,7 +3136,7 @@ exports[`Storyshots Bootstrap/DropdownList Open is default 1`] = `
     />
   </button>
   <ul
-    className="dropdown-menu "
+    className="dropdown-menu show "
   >
     <li>
       <button
@@ -3380,10 +3343,10 @@ exports[`Storyshots Bootstrap/Link With href 1`] = `
 
 exports[`Storyshots Bootstrap/Panel Body only 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-body"
+    className="card-body"
   >
     Panel content
   </div>
@@ -3392,17 +3355,17 @@ exports[`Storyshots Bootstrap/Panel Body only 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With React.Node heading 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     <h2>
       Panel Title
     </h2>
   </div>
   <div
-    className="panel-body"
+    className="card-body"
   >
     Panel content
   </div>
@@ -3412,85 +3375,85 @@ exports[`Storyshots Bootstrap/Panel With React.Node heading 1`] = `
 exports[`Storyshots Bootstrap/Panel With different Types 1`] = `
 <div>
   <div
-    className="panel panel-default"
+    className="card border border-default "
   >
     <div
-      className="panel-heading"
+      className="card-header text-white bg-default"
     >
       Default Panel Title
     </div>
     <div
-      className="panel-body"
+      className="card-body"
     >
       Panel content
     </div>
   </div>
   <div
-    className="panel panel-primary"
+    className="card border border-primary "
   >
     <div
-      className="panel-heading"
+      className="card-header text-white bg-primary"
     >
       Primary Panel Title
     </div>
     <div
-      className="panel-body"
+      className="card-body"
     >
       Panel content
     </div>
   </div>
   <div
-    className="panel panel-success"
+    className="card border border-success "
   >
     <div
-      className="panel-heading"
+      className="card-header text-white bg-success"
     >
       Success Panel Title
     </div>
     <div
-      className="panel-body"
+      className="card-body"
     >
       Panel content
     </div>
   </div>
   <div
-    className="panel panel-info"
+    className="card border border-info "
   >
     <div
-      className="panel-heading"
+      className="card-header text-white bg-info"
     >
       Info Panel Title
     </div>
     <div
-      className="panel-body"
+      className="card-body"
     >
       Panel content
     </div>
   </div>
   <div
-    className="panel panel-warning"
+    className="card border border-warning "
   >
     <div
-      className="panel-heading"
+      className="card-header text-white bg-warning"
     >
       Warning Panel Title
     </div>
     <div
-      className="panel-body"
+      className="card-body"
     >
       Panel content
     </div>
   </div>
   <div
-    className="panel panel-danger"
+    className="card border border-danger "
   >
     <div
-      className="panel-heading"
+      className="card-header text-white bg-danger"
     >
       Danger Panel Title
     </div>
     <div
-      className="panel-body"
+      className="card-body"
     >
       Panel content
     </div>
@@ -3500,10 +3463,10 @@ exports[`Storyshots Bootstrap/Panel With different Types 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With list-group child 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     <h2>
       Panel Title
@@ -3533,17 +3496,17 @@ exports[`Storyshots Bootstrap/Panel With list-group child 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With mixed content 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     <h2>
       Panel Title
     </h2>
   </div>
   <div
-    className="panel-body"
+    className="card-body"
   >
     <p>
       Paragraph content 1
@@ -3564,7 +3527,7 @@ exports[`Storyshots Bootstrap/Panel With mixed content 1`] = `
     </tbody>
   </table>
   <div
-    className="panel-body"
+    className="card-body"
   >
     <p>
       Paragraph content 2
@@ -3594,24 +3557,24 @@ exports[`Storyshots Bootstrap/Panel With mixed content 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With multiple children 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     <h2>
       Panel Title
     </h2>
   </div>
   <div
-    className="panel-body"
+    className="card-body"
   >
     <p>
       Panel content 1
     </p>
   </div>
   <div
-    className="panel-body"
+    className="card-body"
   >
     <p>
       Panel content 2
@@ -3622,17 +3585,17 @@ exports[`Storyshots Bootstrap/Panel With multiple children 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With single child 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     <h2>
       Panel Title
     </h2>
   </div>
   <div
-    className="panel-body"
+    className="card-body"
   >
     <p>
       Panel content
@@ -3643,15 +3606,15 @@ exports[`Storyshots Bootstrap/Panel With single child 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With string heading 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     Panel Title
   </div>
   <div
-    className="panel-body"
+    className="card-body"
   >
     Panel content
   </div>
@@ -3660,10 +3623,10 @@ exports[`Storyshots Bootstrap/Panel With string heading 1`] = `
 
 exports[`Storyshots Bootstrap/Panel With table child 1`] = `
 <div
-  className="panel panel-default"
+  className="card border border-light "
 >
   <div
-    className="panel-heading"
+    className="card-header text-white bg-light"
   >
     <h2>
       Panel Title
@@ -3690,26 +3653,32 @@ exports[`Storyshots ChunkBreadcrumb All three modules 1`] = `
 <ol
   className="breadcrumb"
 >
-  <li>
+  <li
+    className="breadcrumb-item"
+  >
     chunk-zero
      (
     0
     )
   </li>
-  <li>
+  <li
+    className="breadcrumb-item"
+  >
     chunk-one
      (
     1
     )
   </li>
-  <li>
+  <li
+    className="breadcrumb-item"
+  >
     chunk-two
      (
     2
     )
   </li>
   <li
-    className="active"
+    className="breadcrumb-item active"
   >
     3
      modules
@@ -3723,14 +3692,16 @@ exports[`Storyshots ChunkBreadcrumb First module without a parent 1`] = `
 <ol
   className="breadcrumb"
 >
-  <li>
+  <li
+    className="breadcrumb-item"
+  >
     chunk-zero
      (
     0
     )
   </li>
   <li
-    className="active"
+    className="breadcrumb-item active"
   >
     3
      modules
@@ -3781,45 +3752,37 @@ exports[`Storyshots ExternalModuleLink No prefix 1`] = `
 
 exports[`Storyshots FileSelectors Filename picked 1`] = `
 <div
-  className="row form-horizontal"
+  className="row form-group"
 >
+  <label
+    className="col-sm-1 col-form-label"
+    htmlFor="data-file-picker"
+  >
+    Filename
+  </label>
   <div
     className="col-sm-11"
+    onClick={[Function]}
   >
     <div
-      className="form-group"
+      className="dropdown "
+      style={undefined}
     >
-      <label
-        className="col-sm-1 control-label"
-        htmlFor="data-file-picker"
-      >
-        Filename
-      </label>
-      <div
-        className="col-sm-11"
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn btn-outline-secondary  dropdown-toggle"
+        data-toggle="dropdown"
+        disabled={null}
         onClick={[Function]}
+        type="button"
       >
-        <div
-          className="btn-group  "
-          style={undefined}
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup="true"
-            className="btn btn-default  dropdown-toggle"
-            data-toggle="dropdown"
-            disabled={null}
-            onClick={[Function]}
-            type="button"
-          >
-            stats.json
-             
-            <span
-              className="caret"
-            />
-          </button>
-        </div>
-      </div>
+        stats.json
+         
+        <span
+          className="caret"
+        />
+      </button>
     </div>
   </div>
 </div>
@@ -3831,44 +3794,36 @@ exports[`Storyshots FileSelectors No filename, empty list 1`] = `null`;
 
 exports[`Storyshots FileSelectors No filename, items in list 1`] = `
 <div
-  className="row form-horizontal"
+  className="row form-group"
 >
+  <label
+    className="col-sm-1 col-form-label"
+    htmlFor="data-file-picker"
+  >
+    Filename
+  </label>
   <div
     className="col-sm-11"
+    onClick={[Function]}
   >
     <div
-      className="form-group"
+      className="dropdown "
+      style={undefined}
     >
-      <label
-        className="col-sm-1 control-label"
-        htmlFor="data-file-picker"
-      >
-        Filename
-      </label>
-      <div
-        className="col-sm-11"
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn btn-outline-secondary  dropdown-toggle"
+        data-toggle="dropdown"
+        disabled={null}
         onClick={[Function]}
+        type="button"
       >
-        <div
-          className="btn-group  "
-          style={undefined}
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup="true"
-            className="btn btn-default  dropdown-toggle"
-            data-toggle="dropdown"
-            disabled={null}
-            onClick={[Function]}
-            type="button"
-          >
-             
-            <span
-              className="caret"
-            />
-          </button>
-        </div>
-      </div>
+         
+        <span
+          className="caret"
+        />
+      </button>
     </div>
   </div>
 </div>
@@ -5792,13 +5747,13 @@ exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 
 exports[`Storyshots ToggleExpandModeButton Collapse-all mode picked 1`] = `
 <div
-  className="btn-group  btn-xs"
+  className="dropdown btn-xs"
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default btn-xs dropdown-toggle"
+    className="btn btn-light btn-sm dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -5815,13 +5770,13 @@ exports[`Storyshots ToggleExpandModeButton Collapse-all mode picked 1`] = `
 
 exports[`Storyshots ToggleExpandModeButton Expand-all mode picked 1`] = `
 <div
-  className="btn-group  btn-xs"
+  className="dropdown btn-xs"
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default btn-xs dropdown-toggle"
+    className="btn btn-light btn-sm dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}
@@ -5838,13 +5793,13 @@ exports[`Storyshots ToggleExpandModeButton Expand-all mode picked 1`] = `
 
 exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
 <div
-  className="btn-group  btn-xs"
+  className="dropdown btn-xs"
   style={undefined}
 >
   <button
     aria-expanded={false}
     aria-haspopup="true"
-    className="btn btn-default btn-xs dropdown-toggle"
+    className="btn btn-light btn-sm dropdown-toggle"
     data-toggle="dropdown"
     disabled={null}
     onClick={[Function]}

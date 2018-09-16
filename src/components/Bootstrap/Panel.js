@@ -4,19 +4,20 @@
 
 import * as React from 'react';
 
-type PanelType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
+type PanelType = 'default' | 'light' | 'dark' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger';
 
 type Props = {
   heading?: React.Node,
   children: React.Node,
   type?: PanelType,
+  className?: string,
 };
 
 function panelTypeToClass(
   color?: PanelType,
-  fallback: PanelType = 'default',
+  fallback: PanelType = 'light',
 ): string {
-  return `panel panel-${color || fallback}`;
+  return `card border border-${color || fallback}`;
 }
 
 function wrapChildren(children: React.Node): any{
@@ -38,7 +39,7 @@ function wrapChildren(children: React.Node): any{
     }
 
     return (
-      <div className="panel-body">
+      <div className="card-body">
         {child}
       </div>
     );
@@ -47,14 +48,14 @@ function wrapChildren(children: React.Node): any{
 
 export default function Row(props: Props) {
   const heading = props.heading
-    ? <div className="panel-heading">
+    ? <div className={`card-header text-white bg-${props.type || 'light'}`}>
       {props.heading}
     </div>
     : null;
 
   return (
     <div
-      className={panelTypeToClass(props.type)}>
+      className={`${panelTypeToClass(props.type)} ${props.className || ''}`}>
       {heading}
       {wrapChildren(props.children)}
     </div>

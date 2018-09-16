@@ -47,6 +47,7 @@ export default class LoopTable extends Component<Props, State> {
 
     return (
       <Panel
+        className="my-3"
         type='warning'
         heading={heading}>
         {this.state.expanded

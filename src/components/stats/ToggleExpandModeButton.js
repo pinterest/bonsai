@@ -45,6 +45,7 @@ export function ToggleExpandModeButton(props: Props) {
   return (
     <Dropdown
       align='right'
+      color='light'
       size='xs'
       getContent={(hideContent) => {
         const pickedMode = (mode) => {

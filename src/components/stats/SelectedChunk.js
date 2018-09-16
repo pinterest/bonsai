@@ -5,14 +5,14 @@
 import BlacklistTableContainer from './BlacklistTableContainer';
 import ChunkBreadcrumbContainer from './ChunkBreadcrumbContainer';
 import LoopTableContainer from './LoopTableContainer';
-import ModuleDataContainer from './ModuleDataContainer';
+import ModuleTableContainer from './ModuleTableContainer';
 import * as React from 'react';
 
 export default function SelectedChunk() {
   return (
-    <main className="container-fluid">
+    <React.Fragment>
       <div className="row">
-        <div className="col-sm-11 col-sm-push-1">
+        <div className="col-sm-11 ml-auto">
           <ChunkBreadcrumbContainer />
         </div>
       </div>
@@ -28,9 +28,9 @@ export default function SelectedChunk() {
       </div>
       <div className="row">
         <div className="col-sm-12">
-          <ModuleDataContainer />
+          <ModuleTableContainer />
         </div>
       </div>
-    </main>
+    </React.Fragment>
   );
 }

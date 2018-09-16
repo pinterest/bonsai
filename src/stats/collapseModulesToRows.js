@@ -34,15 +34,16 @@ function collectSingleChildrenOf(
 export default function(
   modules: Array<ExtendedModule>,
 ): Array<RowRepresentation> {
-
   const modulesById = getModulesById(modules);
 
   return modules.filter((eModule) => {
     return eModule.requiredByCount !== 1;
   }).map((eModule) => {
+    const records = [eModule, ...collectSingleChildrenOf(modulesById, eModule)];
     return {
       displayModule: eModule,
-      records: [eModule, ...collectSingleChildrenOf(modulesById, eModule)],
+      records: records,
+      collapsedSizeBytes: records.reduce((sum, eModule) => sum + eModule.size, 0),
     };
   });
 }

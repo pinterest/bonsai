@@ -22,12 +22,17 @@ import SortLabel from '../SortLabel';
 const INFINITY = '\u221E';
 const NBSP = '\u00A0';
 
-type Props = {
+export type StateProps = {
   filters: FilterProps,
   sort: SortProps,
-  onSort: (field: SortableFields) => void,
-  onFilter: (changes: {[key: FilterableFields]: string}) => void,
 };
+
+export type DispatchProps = {
+  onFilter: (changes: {[key: FilterableFields]: string}) => void,
+  onSort: (field: SortableFields) => void,
+};
+
+type Props = StateProps & DispatchProps;
 
 export default function ModuleTableHead(props: Props) {
   return (
@@ -67,7 +72,7 @@ export default function ModuleTableHead(props: Props) {
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('cumulativeSize')}>
             <div className="text-right">
               <SortLabel
@@ -102,7 +107,7 @@ export default function ModuleTableHead(props: Props) {
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('size')}>
             <div className="text-right">
               <SortLabel
@@ -114,7 +119,7 @@ export default function ModuleTableHead(props: Props) {
             </div>
           </Button>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('requiredByCount')}>
             <div className="text-right">
               <SortLabel
@@ -150,7 +155,7 @@ export default function ModuleTableHead(props: Props) {
             </FilterDisplay>
           </Dropdown>
         </th>
-        <th className="numeric">
+        <th className="align-top text-right">
           <Button color="link" display="block" onClick={() => props.onSort('requirementsCount')}>
             <div className="text-right">
               <SortLabel

@@ -94,12 +94,10 @@ export default class Dropdown extends React.Component<Props, State> {
   }
 
   render() {
-    const isOpenClass = this.state.isOpen ? 'open': '';
     return (
       <div
         className={[
-          'btn-group',
-          isOpenClass,
+          'dropdown',
           sizeToClass(this.props.size),
         ].join(' ')}
         ref={(div) => {
@@ -184,6 +182,7 @@ export default class Dropdown extends React.Component<Props, State> {
   renderContent() {
     const classNames = [
       'dropdown-menu',
+      'show',
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
     ].join(' ');
 

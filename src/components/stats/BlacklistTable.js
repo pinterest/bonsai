@@ -52,16 +52,17 @@ export default function BlasklistTable(props: Props) {
 
   return (
     <Panel
+      className="my-3"
       type='danger'
       heading={`${removed.length} Modules Ignored`}>
-      <table className="table table-hover" cellPadding="0" cellSpacing="0">
+      <table className="table table-sm table-hover" cellPadding="0" cellSpacing="0">
         <thead>
           <tr>
             <th></th>
             <th>Name</th>
-            <th className="numeric">Size</th>
-            <th className="numeric">Dependants</th>
-            <th className="numeric">Imports</th>
+            <th className="text-right">Size</th>
+            <th className="text-right">Dependants</th>
+            <th className="text-right">Imports</th>
             <th></th>
           </tr>
         </thead>
@@ -69,28 +70,29 @@ export default function BlasklistTable(props: Props) {
           {blacklistedModulesList.map((modules) =>
             modules.map((eModule) => (
               <tr key={eModule.id} {...OffsetPageAnchor(String(eModule.id))}>
-                <td className="vert-align">
+                <td className="align-middle">
                   <ExternalModuleLink
                     prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
                     module={eModule}
                   />
                 </td>
-                <td className="vert-align">
+                <td className="align-middle">
                   {eModule.name}
                 </td>
                 <Unit
                   elem='td'
-                  className="vert-align numeric"
+                  className="align-middle text-right"
                   bytes={eModule.size} />
-                <td className="vert-align numeric">
+                <td className="align-middle text-right">
                   <RequiredByPanelContainer eModule={eModule} />
                 </td>
-                <td className="vert-align numeric">
+                <td className="align-middle text-right">
                   <RequirementsPanelContainer eModule={eModule} />
                 </td>
-                <td className="vert-align">
+                <td className="align-middle">
                   <Button
                     color="danger"
+                    size="sm"
                     onClick={() => props.onIncludeModule(eModule.id)}>
                     Restore
                   </Button>
@@ -103,16 +105,16 @@ export default function BlasklistTable(props: Props) {
         <tfoot>
           <tr>
             <th></th>
-            <th className="numeric">Removed Modules</th>
-            <td className="numeric">{removed.length}</td>
+            <th className="text-right">Removed Modules</th>
+            <td className="text-right">{removed.length}</td>
             <td colSpan="3"></td>
           </tr>
           <tr>
             <th></th>
-            <th className="numeric">Total Size</th>
+            <th className="text-right">Total Size</th>
             <Unit
               elem='td'
-              className='numeric'
+              className='text-right'
               bytes={sum} />
             <td colSpan="3"></td>
           </tr>

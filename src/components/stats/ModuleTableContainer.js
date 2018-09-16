@@ -2,40 +2,32 @@
  * @flow
  */
 
-import type { Dispatch, State } from '../../utils/reducer';
-import type { DispatchProps, StateProps } from './ModuleTable';
+import type { State } from '../../utils/reducer';
+import type { Props as StateProps } from './ModuleTable';
 
+import { connect } from 'react-redux';
 import ModuleTable from './ModuleTable';
-import {connect} from 'react-redux';
-import {
-  FilteredTable,
-  RemovedModule,
-  SortedTable,
-  ExpandRecords,
-  CollapseRecords,
-} from '../../utils/actions';
 
 const mapStateToProps = (state: State): StateProps => {
-  return {
-    filters: state.filters,
-    sort: state.sort,
-    expandMode: state.expandMode,
-    expandedRecords: state.expandedRecords,
-    focusedRowID: state.currentlyFocusedElementID,
-  };
-};
+  if (state.calculatedFullModuleData) {
+    const moduleData = state.calculatedFullModuleData.moduleData;
+    if (moduleData) {
+      const amount = moduleData.removed.length === 0
+        ? 'All'
+        : String(moduleData.included.length);
+      return {
+        modulesIncludedLabel: `${amount} Modules Included`,
+        focusedRowID: state.currentlyFocusedElementID,
+      };
+    }
+  }
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    onFilterChanged: FilteredTable(dispatch),
-    onRemoveModule: RemovedModule(dispatch),
-    onSortPicked: SortedTable(dispatch),
-    onExpandRecords: ExpandRecords(dispatch),
-    onCollapseRecords: CollapseRecords(dispatch),
+    modulesIncludedLabel: null,
+    focusedRowID: state.currentlyFocusedElementID,
   };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
 )(ModuleTable);
