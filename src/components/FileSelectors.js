@@ -2,8 +2,6 @@
  * @flow
  */
 
-import type { ChunkID } from '../types/Stats';
-import type { Child } from '../stats/getEntryHierarchy';
 import type { ItemValue } from './Bootstrap/DropdownList';
 
 import DropdownList from './Bootstrap/DropdownList';

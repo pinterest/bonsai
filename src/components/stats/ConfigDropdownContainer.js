@@ -6,12 +6,8 @@ import type { Dispatch, State } from '../../utils/reducer';
 import type { DispatchProps, StateProps } from './ConfigDropdown';
 
 import ConfigDropdown from './ConfigDropdown';
-import {connect} from 'react-redux';
-import {
-  fetchDataFile,
-  PickedChild,
-  PickedChunk,
-} from '../../utils/actions';
+import { connect } from 'react-redux';
+import { PickedChild } from '../../utils/actions';
 
 const mapStateToProps = (state: State): StateProps => {
   const children = (state.jsonChildren && state.selectedFilename)
