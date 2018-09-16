@@ -25,7 +25,7 @@ export default function SortLabel(props: Props) {
   return (
     <div>
       {isSameField
-        ? <Octicon icon={props.sort.direction == 'ASC' ? ArrowUp : ArrowDown} />
+        ? <Octicon icon={props.sort.direction === 'ASC' ? ArrowUp : ArrowDown} />
         : null}
       {isSameField ? NBSP : null}
       {props.children}
