@@ -15,7 +15,7 @@ import flatten from '../../utils/flatten';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React from 'react';
 import Unit from '../Unit';
-import {getClassName} from '../Bootstrap/GlyphiconNames';
+import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 import {
   RequiredByPanelContainer,
   RequirementsPanelContainer,
@@ -60,11 +60,7 @@ function getExpandButton(
         color="link"
         size="xs"
         onClick={callback}>
-        <span
-          className={expanded
-            ? getClassName('triangle-bottom')
-            : getClassName('triangle-right')}
-          aria-hidden="true"></span>
+        <Octicon icon={expanded ? TriangleDown : TriangleRight} />
         {`${recordCount} unique imports`}
       </Button>
     </span>

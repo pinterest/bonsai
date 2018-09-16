@@ -7,6 +7,7 @@ import FileSelectorsContainer from './FileSelectorsContainer';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import SelectedChunk from './stats/SelectedChunk';
+import LoadingSpinner from './LoadingSpinner';
 
 import './App.css';
 
@@ -30,7 +31,7 @@ function getContent(props: Props) {
     case 'empty':
       return null;
     case 'loading':
-      return <p className="center-block"><em>Loading...</em></p>;
+      return <LoadingSpinner />;
     case 'loaded':
       return <SelectedChunk />;
     default:

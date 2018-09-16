@@ -23,10 +23,6 @@ exports[`Storyshots App Done loading 1`] = `
         <p
           className="navbar-text"
         >
-          <span
-            aria-hidden="true"
-            className="glyphicon glyphicon-tree-conifer"
-          />
           Trim your dependency trees
         </p>
       </div>
@@ -38,10 +34,28 @@ exports[`Storyshots App Done loading 1`] = `
             className="navbar-link"
             href="https://pinterest.github.io/bonsai/"
           >
-            <span
+            <svg
               aria-hidden="true"
-              className="glyphicon glyphicon-book"
-            />
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 16 16"
+              width={16}
+            >
+              <path
+                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
+                fillRule="evenodd"
+              />
+            </svg>
               Docs
           </a>
         </li>
@@ -50,7 +64,29 @@ exports[`Storyshots App Done loading 1`] = `
             className="navbar-link"
             href="https://github.com/pinterest/bonsai"
           >
-            Github
+            <svg
+              aria-hidden="true"
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 16 16"
+              width={16}
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                fillRule="evenodd"
+              />
+            </svg>
+              Github
           </a>
         </li>
       </ul>
@@ -150,10 +186,6 @@ exports[`Storyshots App Loading up a file 1`] = `
         <p
           className="navbar-text"
         >
-          <span
-            aria-hidden="true"
-            className="glyphicon glyphicon-tree-conifer"
-          />
           Trim your dependency trees
         </p>
       </div>
@@ -165,10 +197,28 @@ exports[`Storyshots App Loading up a file 1`] = `
             className="navbar-link"
             href="https://pinterest.github.io/bonsai/"
           >
-            <span
+            <svg
               aria-hidden="true"
-              className="glyphicon glyphicon-book"
-            />
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 16 16"
+              width={16}
+            >
+              <path
+                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
+                fillRule="evenodd"
+              />
+            </svg>
               Docs
           </a>
         </li>
@@ -177,7 +227,29 @@ exports[`Storyshots App Loading up a file 1`] = `
             className="navbar-link"
             href="https://github.com/pinterest/bonsai"
           >
-            Github
+            <svg
+              aria-hidden="true"
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 16 16"
+              width={16}
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                fillRule="evenodd"
+              />
+            </svg>
+              Github
           </a>
         </li>
       </ul>
@@ -217,13 +289,39 @@ exports[`Storyshots App Loading up a file 1`] = `
           </div>
         </div>
       </aside>
-      <p
-        className="center-block"
+      <div
+        className="text-center"
       >
-        <em>
-          Loading...
-        </em>
-      </p>
+        <p>
+          <svg
+            aria-hidden="true"
+            aria-label={undefined}
+            className="LoadingSpinner-icon"
+            height={64}
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "fill": "currentColor",
+                "userSelect": "none",
+                "verticalAlign": "text-bottom",
+              }
+            }
+            viewBox="0 0 12 16"
+            width={48}
+          >
+            <path
+              d="M10.236 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54l1.17-1.14-4.3-.6.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.956 5a4.346 4.346 0 0 1 5.41-.54L7.196 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54-1.24 1.23-1.8 2.85-1.73 4.46l1.75.35A4.17 4.17 0 0 1 2.956 5z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </p>
+        <p>
+          <em>
+            Loading
+          </em>
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -252,10 +350,6 @@ exports[`Storyshots App No filename, empty list 1`] = `
         <p
           className="navbar-text"
         >
-          <span
-            aria-hidden="true"
-            className="glyphicon glyphicon-tree-conifer"
-          />
           Trim your dependency trees
         </p>
       </div>
@@ -267,10 +361,28 @@ exports[`Storyshots App No filename, empty list 1`] = `
             className="navbar-link"
             href="https://pinterest.github.io/bonsai/"
           >
-            <span
+            <svg
               aria-hidden="true"
-              className="glyphicon glyphicon-book"
-            />
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 16 16"
+              width={16}
+            >
+              <path
+                d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"
+                fillRule="evenodd"
+              />
+            </svg>
               Docs
           </a>
         </li>
@@ -279,7 +391,29 @@ exports[`Storyshots App No filename, empty list 1`] = `
             className="navbar-link"
             href="https://github.com/pinterest/bonsai"
           >
-            Github
+            <svg
+              aria-hidden="true"
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 16 16"
+              width={16}
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                fillRule="evenodd"
+              />
+            </svg>
+              Github
           </a>
         </li>
       </ul>
@@ -648,11 +782,29 @@ exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
             style={null}
             type="button"
           >
-            <span
+            <svg
               aria-hidden="true"
-              className="glyphicon glyphicon-triangle-right"
-            />
-            Show 
+              aria-label={undefined}
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 6 16"
+              width={6}
+            >
+              <path
+                d="M0 14l6-6-6-6v12z"
+                fillRule="evenodd"
+              />
+            </svg>
+             Show 
             2
              more removed modules
           </button>
@@ -2510,10 +2662,28 @@ exports[`Storyshots Bootstrap/Dropdown Split Button 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <span
+    <svg
       aria-hidden="true"
-      className="caret"
-    />
+      aria-label={undefined}
+      className="octicon"
+      height={16}
+      role="img"
+      style={
+        Object {
+          "display": "inline-block",
+          "fill": "currentColor",
+          "userSelect": "none",
+          "verticalAlign": "text-bottom",
+        }
+      }
+      viewBox="0 0 12 16"
+      width={12}
+    >
+      <path
+        d="M0 5l6 6 6-6H0z"
+        fillRule="evenodd"
+      />
+    </svg>
     <span
       className="sr-only"
     >
@@ -2546,10 +2716,28 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Color 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <span
+    <svg
       aria-hidden="true"
-      className="caret"
-    />
+      aria-label={undefined}
+      className="octicon"
+      height={16}
+      role="img"
+      style={
+        Object {
+          "display": "inline-block",
+          "fill": "currentColor",
+          "userSelect": "none",
+          "verticalAlign": "text-bottom",
+        }
+      }
+      viewBox="0 0 12 16"
+      width={12}
+    >
+      <path
+        d="M0 5l6 6 6-6H0z"
+        fillRule="evenodd"
+      />
+    </svg>
     <span
       className="sr-only"
     >
@@ -2582,10 +2770,28 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ Glyph 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <span
+    <svg
       aria-hidden="true"
-      className="glyphicon glyphicon-star"
-    />
+      aria-label={undefined}
+      className="octicon"
+      height={16}
+      role="img"
+      style={
+        Object {
+          "display": "inline-block",
+          "fill": "currentColor",
+          "userSelect": "none",
+          "verticalAlign": "text-bottom",
+        }
+      }
+      viewBox="0 0 14 16"
+      width={14}
+    >
+      <path
+        d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+        fillRule="evenodd"
+      />
+    </svg>
     <span
       className="sr-only"
     >
@@ -2618,10 +2824,28 @@ exports[`Storyshots Bootstrap/Dropdown Split Button w/ List Content 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <span
+    <svg
       aria-hidden="true"
-      className="caret"
-    />
+      aria-label={undefined}
+      className="octicon"
+      height={16}
+      role="img"
+      style={
+        Object {
+          "display": "inline-block",
+          "fill": "currentColor",
+          "userSelect": "none",
+          "verticalAlign": "text-bottom",
+        }
+      }
+      viewBox="0 0 12 16"
+      width={12}
+    >
+      <path
+        d="M0 5l6 6 6-6H0z"
+        fillRule="evenodd"
+      />
+    </svg>
     <span
       className="sr-only"
     >
@@ -3104,9 +3328,28 @@ exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
   role="button"
   target="_blank"
 >
-  <span
-    className="glyphicon glyphicon-new-window"
-  />
+  <svg
+    aria-hidden="true"
+    aria-label="Open in new window"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 12 16"
+    width={12}
+  >
+    <path
+      d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"
+      fillRule="evenodd"
+    />
+  </svg>
    Open External Site
 </a>
 `;
@@ -3503,14 +3746,38 @@ exports[`Storyshots ExternalModuleLink Default 1`] = `
   role="button"
   target="_blank"
 >
-  <span
+  <svg
+    aria-hidden="true"
     aria-label="Open in new window"
-    className="glyphicon glyphicon-new-window"
-  />
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 12 16"
+    width={12}
+  >
+    <path
+      d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"
+      fillRule="evenodd"
+    />
+  </svg>
 </a>
 `;
 
-exports[`Storyshots ExternalModuleLink No prefix 1`] = `null`;
+exports[`Storyshots ExternalModuleLink No prefix 1`] = `
+<div>
+  <em>
+    expected to show no icon
+  </em>
+</div>
+`;
 
 exports[`Storyshots FileSelectors Filename picked 1`] = `
 <div
@@ -3607,6 +3874,42 @@ exports[`Storyshots FileSelectors No filename, items in list 1`] = `
 </div>
 `;
 
+exports[`Storyshots LoadingSpinner Default 1`] = `
+<div
+  className="text-center"
+>
+  <p>
+    <svg
+      aria-hidden="true"
+      aria-label={undefined}
+      className="LoadingSpinner-icon"
+      height={64}
+      role="img"
+      style={
+        Object {
+          "display": "inline-block",
+          "fill": "currentColor",
+          "userSelect": "none",
+          "verticalAlign": "text-bottom",
+        }
+      }
+      viewBox="0 0 12 16"
+      width={48}
+    >
+      <path
+        d="M10.236 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54l1.17-1.14-4.3-.6.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.956 5a4.346 4.346 0 0 1 5.41-.54L7.196 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54-1.24 1.23-1.8 2.85-1.73 4.46l1.75.35A4.17 4.17 0 0 1 2.956 5z"
+        fillRule="evenodd"
+      />
+    </svg>
+  </p>
+  <p>
+    <em>
+      Loading
+    </em>
+  </p>
+</div>
+`;
+
 exports[`Storyshots SortLabel Something else is sorted 1`] = `
 <div>
   Size
@@ -3615,10 +3918,28 @@ exports[`Storyshots SortLabel Something else is sorted 1`] = `
 
 exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
 <div>
-  <span
+  <svg
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-attributes"
-  />
+    aria-label={undefined}
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M5 3L0 9h3v4h4V9h3L5 3z"
+      fillRule="evenodd"
+    />
+  </svg>
    
   Size
 </div>
@@ -3626,10 +3947,28 @@ exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
 
 exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
 <div>
-  <span
+  <svg
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-attributes-alt"
-  />
+    aria-label={undefined}
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M7 7V3H3v4H0l5 6 5-6H7z"
+      fillRule="evenodd"
+    />
+  </svg>
    
   Name
 </div>
@@ -3637,10 +3976,28 @@ exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
 
 exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
 <div>
-  <span
+  <svg
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-alphabet"
-  />
+    aria-label={undefined}
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M5 3L0 9h3v4h4V9h3L5 3z"
+      fillRule="evenodd"
+    />
+  </svg>
    
   Name
 </div>
@@ -3648,10 +4005,28 @@ exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
 
 exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
 <div>
-  <span
+  <svg
     aria-hidden="true"
-    className="glyphicon glyphicon-sort-by-order"
-  />
+    aria-label={undefined}
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M5 3L0 9h3v4h4V9h3L5 3z"
+      fillRule="evenodd"
+    />
+  </svg>
    
   Rank
 </div>

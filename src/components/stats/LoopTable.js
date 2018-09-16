@@ -6,7 +6,7 @@ import type {ExtendedModule} from '../../types/Stats';
 
 import formatModuleName from './formatModuleName';
 import React, { Component } from 'react';
-import {getClassName} from '../Bootstrap/GlyphiconNames';
+import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 import Button from '../Bootstrap/Button';
 import Panel from '../Bootstrap/Panel';
 
@@ -39,11 +39,9 @@ export default class LoopTable extends Component<Props, State> {
           color="link"
           size="sm"
           onClick={() => this.setState({expanded: !this.state.expanded})}>
-          <span className={getClassName(this.state.expanded
-            ? 'chevron-down'
-            : 'chevron-right')} />
+          <Octicon icon={this.state.expanded ? TriangleDown : TriangleRight} />
+          &nbsp;{loopingModules.length} Modules with circular dependencies
         </Button>
-        {loopingModules.length} Modules with circular dependencies
       </span>
     );
 

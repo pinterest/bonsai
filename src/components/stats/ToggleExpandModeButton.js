@@ -6,7 +6,6 @@ import type { State } from '../../utils/reducer';
 
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
-import { getClassName } from '../Bootstrap/GlyphiconNames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -27,20 +26,18 @@ function ModeOption(props) {
   const isSetToTarget = props.nextMode === props.expandMode;
 
   return (
-    <li>
-      <Button
-        color="link"
-        size="block"
-        style={{textAlign: 'left'}}
-        onClick={(e) => {
-          e.preventDefault();
-          props.onPickMode(props.nextMode);
-        }}>
-        <span className={getClassName(isSetToTarget ? 'check' : 'unchecked')} />
-        {' '}
-        {props.nextMode === 'expand-all' ? 'Expand' : 'Collapse'} All
-      </Button>
-    </li>
+    <Button
+      color="link"
+      size="block"
+      style={{textAlign: 'left'}}
+      onClick={(e) => {
+        e.preventDefault();
+        props.onPickMode(props.nextMode);
+      }}>
+      <input type='checkbox' checked={isSetToTarget ? 'check' : ''} />
+      {' '}
+      {props.nextMode === 'expand-all' ? 'Expand' : 'Collapse'} All
+    </Button>
   );
 }
 
@@ -56,18 +53,20 @@ export function ToggleExpandModeButton(props: Props) {
         };
 
         return [
-          <ModeOption
-            key='expand-all'
-            expandMode={props.expandMode}
-            nextMode={'expand-all'}
-            onPickMode={pickedMode}
-          />,
-          <ModeOption
-            key='collapse-all'
-            expandMode={props.expandMode}
-            nextMode={'collapse-all'}
-            onPickMode={pickedMode}
-          />,
+          <li key='expand-all'>
+            <ModeOption
+              expandMode={props.expandMode}
+              nextMode={'expand-all'}
+              onPickMode={pickedMode}
+            />
+          </li>,
+          <li key='collapse-all'>
+            <ModeOption
+              expandMode={props.expandMode}
+              nextMode={'collapse-all'}
+              onPickMode={pickedMode}
+            />
+          </li>,
         ];
       }}>
       Unqiue Imports

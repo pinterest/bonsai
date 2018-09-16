@@ -54,6 +54,12 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@github/octicons-react@^7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@github/octicons-react/-/octicons-react-7.4.0.tgz#d5f12a59cde67b07ce17a4c4b5cb51a030718a30"
+  dependencies:
+    prop-types "^15.6.1"
+
 "@storybook/addon-actions@3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.0.tgz#8f6f869f708856845dff210af9340e54b443f346"

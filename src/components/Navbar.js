@@ -4,7 +4,8 @@
 
 import * as React from 'react';
 
-import {getClassName} from './Bootstrap/GlyphiconNames';
+import Octicon, { Book, MarkGithub } from '@github/octicons-react';
+
 
 export default function Navbar() {
   return (
@@ -19,23 +20,21 @@ export default function Navbar() {
             Bonsai
           </a>
           <p className="navbar-text">
-            <span
-              className={getClassName('tree-conifer')}
-              aria-hidden="true"></span>
             Trim your dependency trees
           </p>
         </div>
         <ul className="nav navbar-nav navbar-right">
           <li>
             <a className="navbar-link" href="https://pinterest.github.io/bonsai/">
-              <span
-                className={getClassName('book')}
-                aria-hidden="true"></span>&nbsp;
+              <Octicon icon={Book} />
+              &nbsp;
               Docs
             </a>
           </li>
           <li>
             <a className="navbar-link" href="https://github.com/pinterest/bonsai">
+              <Octicon icon={MarkGithub} />
+              &nbsp;
               Github
             </a>
           </li>

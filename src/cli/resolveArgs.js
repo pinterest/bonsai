@@ -48,9 +48,9 @@ export default function resolveArgs(args: Args): Flags {
     path.resolve(args.root || DEFAULT_FLAGS.root)
   );
 
-  const defaults = (pkg && pkg['bonsai'])
+  const defaults = (pkg && pkg.bonsai)
     ? resolveDefaultArgs(
-      {...pkg['bonsai'], command: null},
+      {...pkg.bonsai, command: null},
       DEFAULT_FLAGS,
     )
     : DEFAULT_FLAGS;

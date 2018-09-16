@@ -8,6 +8,7 @@ import { action } from '@storybook/addon-actions';
 
 import Button from '../Button';
 import Dropdown from '../Dropdown';
+import { Star } from '@github/octicons-react';
 
 const alertOnClick = () => { alert('Clicked me'); };
 const noop = () => undefined;
@@ -150,7 +151,7 @@ storiesOf('Bootstrap/Dropdown', module)
       split={{
         label: 'expand',
         primaryOnClick: alertOnClick,
-        glyphicon: 'star',
+        octicon: Star,
       }}>
       Show list
     </Dropdown>
