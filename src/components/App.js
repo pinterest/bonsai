@@ -10,14 +10,17 @@ import SelectedChunk from './stats/SelectedChunk';
 import LoadingSpinner from './LoadingSpinner';
 import ChunkDropdownContainer from './stats/ChunkDropdownContainer';
 import ConfigDropdownContainer from './stats/ConfigDropdownContainer';
+import DebugViewContainer from './stats/DebugViewContainer';
 
 import './App.css';
 
 export type StateProps = {
+  mode: 'normal' | 'debug',
   appState: 'empty' | 'loading' | 'loaded',
 };
 
 export type DispatchProps = {
+  onSetAppMode: (mode: 'normal' | 'debug') => void,
   onPickedFile: (path: string) => void,
   onDroppedFile: (path: string, fileText: string) => void,
 };
@@ -35,7 +38,9 @@ function getContent(props: Props) {
     case 'loading':
       return <LoadingSpinner />;
     case 'loaded':
-      return <SelectedChunk />;
+      return props.mode === 'debug'
+        ? <DebugViewContainer />
+        : <SelectedChunk />;
     default:
       throw new Error(`Invalid appState: ${JSON.stringify(props.appState)}`);
   }
@@ -65,7 +70,7 @@ export default class App extends Component<Props, State> {
 
     return (
       <div className="App">
-        <Navbar />
+        <Navbar mode={props.mode} onSetAppMode={props.onSetAppMode} />
         <div className="AppFixed">
           <div className="AppView container-fluid">
             <aside>
@@ -82,8 +87,12 @@ export default class App extends Component<Props, State> {
                   {showHelp
                     ? <DragDropHelp />
                     : null}
-                  <ConfigDropdownContainer />
-                  <ChunkDropdownContainer />
+                  {props.mode == 'normal'
+                    ? <ConfigDropdownContainer />
+                    : null}
+                  {props.mode == 'normal'
+                    ? <ChunkDropdownContainer />
+                    : null}
                 </form>
               </DragDropUpload>
             </aside>

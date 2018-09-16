@@ -11,6 +11,13 @@ import fetchJSON from './fetchJSON';
 import getRawStats from '../types/getRawStats';
 import invariant from 'invariant';
 
+export function SetAppMode(dispatch: Dispatch) {
+  return (mode: 'normal' | 'debug') => dispatch({
+    type: 'setAppMode',
+    mode,
+  });
+}
+
 export function DiscoveredDataPaths(dispatch: Dispatch) {
   return (paths: Array<string>) => dispatch({
     type: 'discoveredDataPaths',

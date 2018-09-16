@@ -18,6 +18,10 @@ import withTimings from './withTimings';
 
 export type Action =
   | {
+    type: 'setAppMode',
+    mode: 'normal' | 'debug',
+  }
+  | {
     type: 'discoveredDataPaths',
     paths: Array<string>,
   }
@@ -83,6 +87,7 @@ export type Action =
 
 type DataPathState = 'unknown' | 'loading' | 'error' | 'ready';
 export type State = {
+  mode: 'normal' | 'debug',
   dataPaths: {[path: string]: DataPathState},
   selectedFilename: ?string,
   selectedChildIndex: ?number,
@@ -99,7 +104,11 @@ export type State = {
 
 export type Dispatch = (action: Action) => any;
 
+const defaultMode = window.localStorage && window.localStorage.getItem('mode') || 'normal';
+console.log('defaultMode', defaultMode);
+
 export const INITIAL_STATE: State = {
+  mode: defaultMode,
   dataPaths: {},
   selectedFilename: null,
   selectedChildIndex: null,
@@ -152,6 +161,14 @@ function handleAction(
   action: Action,
 ): State {
   switch(action.type) {
+    case 'setAppMode':
+      if (window.localStorage) {
+        window.localStorage.setItem('mode', action.mode);
+      }
+      return {
+        ...state,
+        mode: action.mode,
+      };
     case 'discoveredDataPaths':
       return {
         ...state,
@@ -373,10 +390,12 @@ export default function reducer(
   state: State = INITIAL_STATE,
   action: Action,
 ): State {
-  return withTimings('Reducer', action.type)(() =>
-    calculateFullModuleData(
-      state,
-      handleAction(state, action)
-    )
-  );
+  const earlyState = handleAction(state, action)
+  if (earlyState.mode !== 'debug') {
+    return withTimings('Reducer', action.type)(() =>
+      calculateFullModuleData(state, earlyState)
+    );
+  } else {
+    return earlyState;
+  }
 }

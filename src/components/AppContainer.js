@@ -8,6 +8,7 @@ import type { DispatchProps, StateProps } from './App';
 import App from './App';
 import {connect} from 'react-redux';
 import {
+  SetAppMode,
   PickDataPath,
   DroppedDataFile,
 } from '../utils/actions';
@@ -30,12 +31,14 @@ function getAppState(state: State): * {
 
 const mapStateToProps = (state: State): StateProps => {
   return {
+    mode: state.mode,
     appState: getAppState(state),
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
+    onSetAppMode: SetAppMode(dispatch),
     onPickedFile: PickDataPath(dispatch),
     onDroppedFile: DroppedDataFile(dispatch),
   };
