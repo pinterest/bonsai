@@ -9,7 +9,7 @@ import ExternalModuleLink from './ExternalModuleLink';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, { Component } from 'react';
 import Unit from '../Unit';
-import { getClassName } from '../Bootstrap/GlyphiconNames';
+import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 
 type Props = {
   removedModules: Array<ExtendedModule>,
@@ -58,7 +58,7 @@ export default class BlacklistTableBody extends Component<Props, State> {
               <Button
                 size="xs"
                 onClick={() => this.setState({ isOpen: true })}>
-                <span className={getClassName('triangle-right')} aria-hidden="true"></span>
+                <Octicon icon={TriangleRight} />
                 &nbsp;Show {this.props.removedModules.length} more removed modules
               </Button>
             </td>
@@ -77,7 +77,7 @@ export default class BlacklistTableBody extends Component<Props, State> {
           <Button
             size="xs"
             onClick={() => this.setState({ isOpen: false })}>
-            <span className={getClassName('triangle-bottom')} aria-hidden="true"></span>
+            <Octicon icon={TriangleDown} />
             &nbsp;Hide extra modules
           </Button>
         </td>

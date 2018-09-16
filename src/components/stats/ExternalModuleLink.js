@@ -5,8 +5,8 @@
 import type {Module} from '../../types/Stats';
 
 import * as React from 'react';
-import {getClassName} from '../Bootstrap/GlyphiconNames';
 import {Link} from '../Bootstrap/Button';
+import Octicon, { LinkExternal } from '@github/octicons-react';
 
 type Props = {
   prefix: ?string,
@@ -19,10 +19,9 @@ export default function ExternalModuleLink(props: Props) {
     const href = props.prefix + file;
     return (
       <Link href={href} newtab={true}>
-        <span
-          aria-label="Open in new window"
-          className={getClassName('new-window')}
-        />
+        <Octicon
+          icon={LinkExternal}
+          ariaLabel="Open in new window" />
       </Link>
     );
   } else {

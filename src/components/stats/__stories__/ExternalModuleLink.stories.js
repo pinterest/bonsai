@@ -43,5 +43,8 @@ storiesOf('ExternalModuleLink', module)
     <ExternalModuleLink prefix={'http://example.com/'} module={MODULE} />
   ))
   .add('No prefix', () => (
-    <ExternalModuleLink prefix={null} module={MODULE} />
+    <div>
+      <ExternalModuleLink prefix={null} module={MODULE} />
+      <em>expected to show no icon</em>
+    </div>
   ));

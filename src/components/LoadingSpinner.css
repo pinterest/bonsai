@@ -1,6 +1,4 @@
-.LoadingSpinner-spinner .glyphicon {
-  font-size: 5em;
-
+.LoadingSpinner-icon {
   animation: spin 3s infinite linear;
 }
 

@@ -5,13 +5,16 @@
 import './LoadingSpinner.css';
 
 import * as React from 'react';
-import { getClassName } from './Bootstrap/GlyphiconNames';
+import Octicon, { Sync } from '@github/octicons-react';
 
 export default function LoadingSpinner() {
   return (
-    <div className="LoadingSpinner-spinner text-center">
+    <div className="text-center">
       <p>
-        <span className={getClassName('refresh')} />
+        <Octicon
+          icon={Sync}
+          size='large'
+          className="LoadingSpinner-icon" />
       </p>
       <p>
         <em>Loading</em>
