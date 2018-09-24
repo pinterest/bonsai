@@ -4,7 +4,6 @@
 
 import type {
   ModuleID,
-  ExtendedModule,
   RowRepresentation,
 } from '../../types/Stats';
 
@@ -13,9 +12,9 @@ import ExternalModuleLink from './ExternalModuleLink';
 import formatModuleName from './formatModuleName';
 import flatten from '../../utils/flatten';
 import OffsetPageAnchor from '../OffsetPageAnchor';
-import React from 'react';
+import * as React from 'react';
 import Unit from '../Unit';
-import {getClassName} from '../Bootstrap/GlyphiconNames';
+import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 import {
   RequiredByPanelContainer,
   RequirementsPanelContainer,
@@ -23,14 +22,19 @@ import {
 
 import './ModuleTableBody.css';
 
-type TBodyProps = {
+export type StateProps = {
   rows: Array<RowRepresentation>,
   expandMode: 'manual' | 'collapse-all' | 'expand-all',
   expandedRecords: Set<ModuleID>,
+};
+
+export type DispatchProps = {
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
   onCollapseRecords: (moduleID: ModuleID) => void,
 };
+
+type TBodyProps = StateProps & DispatchProps;
 
 type GroupedTRProps = {
   row: RowRepresentation,
@@ -41,8 +45,7 @@ type GroupedTRProps = {
 };
 
 type TRProps = {
-  eModule: ExtendedModule,
-  records: Array<ExtendedModule>,
+  row: RowRepresentation,
   expanded: boolean,
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
@@ -55,16 +58,13 @@ function getExpandButton(
   callback: Function,
 ) {
   return (
-    <span className="pull-right">
+    <span className="float-right">
       <Button
         color="link"
         size="xs"
         onClick={callback}>
-        <span
-          className={expanded
-            ? getClassName('triangle-bottom')
-            : getClassName('triangle-right')}
-          aria-hidden="true"></span>
+        <Octicon icon={expanded ? TriangleDown : TriangleRight} />
+        &nbsp;
         {`${recordCount} unique imports`}
       </Button>
     </span>
@@ -76,9 +76,10 @@ function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
     ? props.row.records.map((record) => (
       <ModuleTableRow
         key={record.id}
-        size="sm"
-        eModule={record}
-        records={props.row.records}
+        row={{
+          ...props.row,
+          displayModule: record,
+        }}
         expanded={props.expanded}
         onRemoveModule={props.onRemoveModule}
         onExpandRecords={props.onExpandRecords}
@@ -88,9 +89,7 @@ function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
     : [
       <ModuleTableRow
         key={props.row.displayModule.id}
-        size={null}
-        eModule={props.row.displayModule}
-        records={props.row.records}
+        row={props.row}
         expanded={props.expanded}
         onRemoveModule={props.onRemoveModule}
         onExpandRecords={props.onExpandRecords}
@@ -100,12 +99,13 @@ function ModuleTableGroupedRows(props: GroupedTRProps): Array<*> {
 }
 
 function ModuleTableRow(props: TRProps) {
-  const eModule = props.eModule;
-  const records = props.records;
+  const eModule = props.row.displayModule;
+  const records = props.row.records;
+  const collapsedSizeBytes = props.row.collapsedSizeBytes;
 
   const moduleSizeBytes = props.expanded
     ? eModule.size
-    : records.reduce((sum, eModule) => sum + eModule.size, 0);
+    : collapsedSizeBytes;
 
   const hasCollapsedChildren = records.length > 1;
   const isFirstRecord = eModule.id === records[0].id;
@@ -125,40 +125,40 @@ function ModuleTableRow(props: TRProps) {
       {...OffsetPageAnchor(String(eModule.id), {
         className: [
           'ModuleTableBody-row',
-          props.expanded && props.records.length > 1
+          props.expanded && records.length > 1
             ? 'ModuleTableBody-expanded-border'
             : null,
         ].join(' ')
       })}
     >
       {process.env.REACT_APP_EXTERNAL_URL_PREFIX
-        ? <td className="vert-align">
+        ? <td className="align-middle">
           <ExternalModuleLink
             prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
             module={eModule}
           />
         </td>
         : null}
-      <td className="vert-align ModuleTableBody-main-cell">
+      <td className="align-middle ModuleTableBody-main-cell">
         {uniqueImports}
         {formatModuleName(eModule.name)}
       </td>
       <Unit
         elem='td'
-        className="vert-align numeric"
+        className="align-middle text-right"
         bytes={eModule.cumulativeSize} />
       <Unit
         elem='td'
-        className="vert-align numeric"
+        className="align-middle text-right"
         bytes={moduleSizeBytes} />
-      <td className="vert-align numeric">
+      <td className="align-middle text-right">
         <RequiredByPanelContainer eModule={eModule} />
       </td>
-      <td className="vert-align numeric">
+      <td className="align-middle text-right">
         <RequirementsPanelContainer eModule={eModule} />
       </td>
-      <td className="vert-align">
-        <Button onClick={() => props.onRemoveModule(eModule.id)}>
+      <td className="align-middle">
+        <Button size='sm' onClick={() => props.onRemoveModule(eModule.id)}>
           Ignore
         </Button>
       </td>

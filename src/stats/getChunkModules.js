@@ -4,7 +4,7 @@
 
 import type {RawStats, Module} from '../types/Stats';
 
-import type {Child} from './getEntryHeirarchy';
+import type {Child} from './getEntryHierarchy';
 
 import getModulesByChunk from './getModulesByChunk';
 

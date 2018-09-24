@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Button, {Link, CloseButton} from '../Button';
-import {getClassName} from '../GlyphiconNames';
+import Octicon, { LinkExternal } from '@github/octicons-react';
 
 storiesOf('Bootstrap/Button', module)
   .add('With onClick', () => (
@@ -69,7 +69,9 @@ storiesOf('Bootstrap/Link', module)
   ))
   .add('Opens new tab', () => (
     <Link href="example.com" newtab={true}>
-      <span className={getClassName('new-window')} /> Open External Site
+      <Octicon
+        icon={LinkExternal}
+        ariaLabel="Open in new window" /> Open External Site
     </Link>
   ));
 

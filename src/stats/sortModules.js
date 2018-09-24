@@ -25,6 +25,7 @@ function checkDirection(
   }
 }
 
+// flowlint-next-line unclear-type:off
 function compare(a: any, b: any): SortResult {
   return (a === b ? 0 : (a > b ? 1 : -1));
 }
@@ -32,7 +33,7 @@ function compare(a: any, b: any): SortResult {
 export default function sortModules(
   extendedModules: Array<ExtendedModule>,
   sort: SortProps,
-) {
+): Array<ExtendedModule> {
   return extendedModules
     .sort((a: ExtendedModule, b: ExtendedModule) => {
       const {field, direction} = sort;

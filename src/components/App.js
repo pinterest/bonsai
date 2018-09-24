@@ -7,6 +7,9 @@ import FileSelectorsContainer from './FileSelectorsContainer';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
 import SelectedChunk from './stats/SelectedChunk';
+import LoadingSpinner from './LoadingSpinner';
+import ChunkDropdownContainer from './stats/ChunkDropdownContainer';
+import ConfigDropdownContainer from './stats/ConfigDropdownContainer';
 
 import './App.css';
 
@@ -30,12 +33,25 @@ function getContent(props: Props) {
     case 'empty':
       return null;
     case 'loading':
-      return <p className="center-block"><em>Loading...</em></p>;
+      return <LoadingSpinner />;
     case 'loaded':
       return <SelectedChunk />;
     default:
       throw new Error(`Invalid appState: ${JSON.stringify(props.appState)}`);
   }
+}
+
+function DragDropHelp() {
+  return (
+    <div className="card my-3">
+      <div className="card-header">
+        <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
+        <p id="drag-drop-helpblock" className="col-sm-12 help-block">
+          Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default class App extends Component<Props, State> {
@@ -51,34 +67,29 @@ export default class App extends Component<Props, State> {
       <div className="App">
         <Navbar />
         <div className="AppFixed">
-          <div className="AppView">
-            <aside className="container-fluid">
-              <div className="row">
-                <div className="col-sm-12">
-                  <DragDropUpload
-                    id="drag-drop-upload"
-                    aria-describedby="drag-drop-helpblock"
-                    className="form-control"
-                    onDragEnter={() => this.setState({ isDragging: true })}
-                    onDragLeave={() => this.setState({ isDragging: false })}
-                    onChange={props.onPickedFile}
-                    didGetFile={props.onDroppedFile}>
-                    <FileSelectorsContainer />
-                    {showHelp
-                      ? <div className="well well-sm clearfix">
-                        <div className="col-sm-12">
-                          <label className="control-label">Drag & Drop your <code>stats.json</code> file here</label>
-                          <span id="drag-drop-helpblock" className="col-sm-12 help-block">
-                            Run <kbd>webpack --json &gt; stats.json</kbd> to get started.
-                          </span>
-                        </div>
-                      </div>
-                      : null}
-                  </DragDropUpload>
-                </div>
-              </div>
+          <div className="AppView container-fluid">
+            <aside>
+              <DragDropUpload
+                id="drag-drop-upload"
+                aria-describedby="drag-drop-helpblock"
+                className="form-control"
+                onDragEnter={() => this.setState({ isDragging: true })}
+                onDragLeave={() => this.setState({ isDragging: false })}
+                onChange={props.onPickedFile}
+                didGetFile={props.onDroppedFile}>
+                <form>
+                  <FileSelectorsContainer />
+                  {showHelp
+                    ? <DragDropHelp />
+                    : null}
+                  <ConfigDropdownContainer />
+                  <ChunkDropdownContainer />
+                </form>
+              </DragDropUpload>
             </aside>
-            {getContent(props)}
+            <main>
+              {getContent(props)}
+            </main>
           </div>
         </div>
       </div>

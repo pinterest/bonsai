@@ -2,7 +2,7 @@
  * @flow
  */
 
-import getEntryHeirarchy from '../getEntryHeirarchy';
+import getEntryHierarchy from '../getEntryHierarchy';
 import getParentChunks from '../getParentChunks';
 import {defaultChunk} from '../../__test_helpers__/defaults';
 
@@ -41,7 +41,7 @@ const stats = {
   modules: [],
 };
 
-const chunksByParent = getEntryHeirarchy(stats);
+const chunksByParent = getEntryHierarchy(stats);
 
 describe('getParentChunks', () => {
   it('should list some for a chunk in the middle', () => {

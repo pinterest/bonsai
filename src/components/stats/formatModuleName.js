@@ -6,7 +6,7 @@ import * as React from 'react';
 
 const ELLIPSIS = '\u2026';
 
-function joinWithBR(nodes, label, index, values) {
+function joinWithBR(nodes: Array<React.Node>, label, index, values) {
   if (index === values.length - 1) {
     return nodes.concat(label);
   } else {

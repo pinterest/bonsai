@@ -3,10 +3,10 @@
  */
 
 import type {ChunkID} from '../types/Stats';
-import type {Child} from './getEntryHeirarchy';
+import type {Child} from './getEntryHierarchy';
 
 import {isSameChunk} from '../types/Stats';
-import {ROOT_ID} from './getEntryHeirarchy';
+import {ROOT_ID} from './getEntryHierarchy';
 
 function findChunk(
   root: Child,

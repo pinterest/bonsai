@@ -1,14 +1,24 @@
 [ignore]
 .*/__tests__/.*
 .*/integration/.*
+
 src/registerServiceWorker.js
+
 .*/node_modules/flow-coverage-report/.*
 .*/node_modules/immutable/.*
 .*/node_modules/radium/.*
+
 .*/scripts/clone-webpack/.*
 
 [include]
 
 [libs]
 
+[lints]
+all=warn
+
 [options]
+module.use_strict=true
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError

@@ -55,4 +55,22 @@ ReactDOM.render(
   root,
 );
 
+// $FlowFixMe
+if (module.hot) {
+  // $FlowFixMe
+  module.hot.accept('./utils/reducer', () => {
+    store.replaceReducer(handleAction);
+  });
+  // $FlowFixMe
+  module.hot.accept('./components/AppContainer', () => {
+    const NextApp = require('./components/AppContainer').default;
+    ReactDOM.render(
+      <Provider store={store}>
+        <NextApp />
+      </Provider>,
+      root
+    );
+  });
+}
+
 registerServiceWorker();

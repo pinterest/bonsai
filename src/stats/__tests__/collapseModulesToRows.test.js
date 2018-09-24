@@ -13,10 +13,12 @@ describe('collapseModulesToRows', () => {
 
     expect(collapseModulesToRows(modules)).toEqual([
       {
+        collapsedSizeBytes: 0,
         displayModule: m1,
         records: [m1],
       },
       {
+        collapsedSizeBytes: 0,
         displayModule: m2,
         records: [m2],
       },
@@ -38,6 +40,7 @@ describe('collapseModulesToRows', () => {
 
     expect(collapseModulesToRows(modules)).toEqual([
       {
+        collapsedSizeBytes: 0,
         displayModule: m1,
         records: [m1, m2],
       },
@@ -66,6 +69,7 @@ describe('collapseModulesToRows', () => {
 
     expect(collapseModulesToRows(modules)).toEqual([
       {
+        collapsedSizeBytes: 0,
         displayModule: m1,
         records: [m1, m2, m3],
       },

@@ -9,6 +9,7 @@ import ExternalModuleLink from './ExternalModuleLink';
 import OffsetPageAnchor from '../OffsetPageAnchor';
 import React, { Component } from 'react';
 import Unit from '../Unit';
+import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 
 type Props = {
   removedModules: Array<ExtendedModule>,
@@ -30,18 +31,18 @@ export default class BlacklistTableBody extends Component<Props, State> {
           {this.renderHideRow()}
           {this.props.removedModules.map((eModule, i) =>
             <tr key={`blacklist-${i}`} {...OffsetPageAnchor(String(eModule.id))}>
-              <td className="vert-align">
+              <td className="align-middle">
                 <ExternalModuleLink
                   prefix={process.env.REACT_APP_EXTERNAL_URL_PREFIX}
                   module={eModule}
                 />
               </td>
-              <td className="vert-align">
+              <td className="align-middle">
                 {eModule.name}
               </td>
               <Unit
                 elem='td'
-                className="vert-align numeric"
+                className="align-middle text-right"
                 bytes={eModule.size} />
               <td colSpan="3"></td>
             </tr>
@@ -57,8 +58,8 @@ export default class BlacklistTableBody extends Component<Props, State> {
               <Button
                 size="xs"
                 onClick={() => this.setState({ isOpen: true })}>
-                <span className="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                Show {this.props.removedModules.length} more removed modules
+                <Octicon icon={TriangleRight} />
+                &nbsp;Show {this.props.removedModules.length} more removed modules
               </Button>
             </td>
           </tr>
@@ -76,8 +77,8 @@ export default class BlacklistTableBody extends Component<Props, State> {
           <Button
             size="xs"
             onClick={() => this.setState({ isOpen: false })}>
-            <span className="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-            Hide extra modules
+            <Octicon icon={TriangleDown} />
+            &nbsp;Hide extra modules
           </Button>
         </td>
       </tr>

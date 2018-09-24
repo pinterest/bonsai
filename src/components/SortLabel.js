@@ -4,9 +4,9 @@
 
 import * as React from 'react';
 
-import type {SortProps, SortDirection} from '../stats/sortModules';
+import type { SortProps } from '../stats/sortModules';
 
-import {getClassName} from './Bootstrap/GlyphiconNames';
+import Octicon, { ArrowDown, ArrowUp } from '@github/octicons-react';
 
 const NBSP = '\u00A0';
 
@@ -19,35 +19,13 @@ type Props = {
   children?: string | React.Element<any>,
 };
 
-function getSortIconClass(direction: SortDirection, type: ?SortType) {
-  switch(type) {
-    case 'alpha':
-      return direction === 'ASC'
-        ? getClassName('sort-by-alphabet')
-        : getClassName('sort-by-alphabet-alt');
-
-    case 'order':
-      return direction === 'ASC'
-        ? getClassName('sort-by-order')
-        : getClassName('sort-by-order-alt');
-    case 'size':
-    default:
-      return direction === 'ASC'
-        ? getClassName('sort-by-attributes')
-        : getClassName('sort-by-attributes-alt');
-  }
-}
-
 export default function SortLabel(props: Props) {
   const isSameField = props.sort.field === props.field;
 
   return (
     <div>
       {isSameField
-        ? <span
-          aria-hidden="true"
-          className={getSortIconClass(props.sort.direction, props.fieldType)}
-        />
+        ? <Octicon icon={props.sort.direction === 'ASC' ? ArrowUp : ArrowDown} />
         : null}
       {isSameField ? NBSP : null}
       {props.children}

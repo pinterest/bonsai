@@ -3,10 +3,8 @@
  */
 
 import type {Color} from './Color';
-import type {GlyphiconName} from './GlyphiconNames';
-
+import Octicon, { typeof Icon, TriangleDown } from '@github/octicons-react';
 import Button, {DropdownToggleButton} from './Button';
-import {getClassName} from './GlyphiconNames';
 import * as React from 'react';
 
 type Alignment = 'left' | 'right';
@@ -34,7 +32,7 @@ export type Props = {
   split?: {
     primaryOnClick: (e: MouseEvent) => void,
     label: React.Node,
-    glyphicon?: GlyphiconName,
+    octicon?: Icon,
   },
 };
 
@@ -96,12 +94,10 @@ export default class Dropdown extends React.Component<Props, State> {
   }
 
   render() {
-    const isOpenClass = this.state.isOpen ? 'open': '';
     return (
       <div
         className={[
-          'btn-group',
-          isOpenClass,
+          'dropdown',
           sizeToClass(this.props.size),
         ].join(' ')}
         ref={(div) => {
@@ -137,10 +133,17 @@ export default class Dropdown extends React.Component<Props, State> {
   renderToggleLabel() {
     if (this.props.split) {
       const split = this.props.split;
-      return [
-        <span key="icon" className={getClassName(split.glyphicon)} aria-hidden="true"></span>,
-        <span key="label" className="sr-only">{split.label}</span>,
-      ];
+      if (split.octicon) {
+        return [
+          <Octicon key="icon" icon={split.octicon} />,
+          <span key="label" className="sr-only">{split.label}</span>,
+        ];
+      } else {
+        return [
+          <Octicon key="icon" icon={TriangleDown} />,
+          <span key="label" className="sr-only">{split.label}</span>,
+        ];
+      }
     } else {
       return this.props.children;
     }
@@ -179,6 +182,7 @@ export default class Dropdown extends React.Component<Props, State> {
   renderContent() {
     const classNames = [
       'dropdown-menu',
+      'show',
       this.props.align === 'right' ? 'dropdown-menu-right' : '',
     ].join(' ');
 
