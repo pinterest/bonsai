@@ -41,6 +41,7 @@
     "redux": "^3.7.0"
   },
   "devDependencies": {
+    "@applitools/eyes.storybook": "^2.1.5",
     "@storybook/addon-actions": "3.4.11",
     "@storybook/addon-storyshots": "3.4.11",
     "@storybook/react": "3.4.11",
@@ -67,6 +68,7 @@
     "flow:update-dfns": "flow-typed update && flow-typed install jest@21.0.0",
     "eslint:watch": "eslint ./src && echo 'No Lint Problems'; fswatch -e \"/\\.\" -o -r ./src | xargs -n1 -I{} eslint ./src && echo 'No Lint Problems'",
     "test": "react-scripts test --env=jsdom --testPathPattern='src/(?!integration)'",
+    "test:visual": "npx eyes-storybook",
     "test:all": "react-scripts test --env=jsdom",
     "build": "react-scripts build",
     "build:cli": "NODE_ENV=development babel src --watch --out-dir bin --ignore __tests__,src/components",
