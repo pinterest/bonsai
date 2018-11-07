@@ -49,7 +49,7 @@
     "eslint": "^4.5.0",
     "eslint-plugin-eslint-comments": "2.0.2",
     "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-jest": "^21.0.0",
+    "eslint-plugin-jest": "^22.0.0",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-react": "^7.3.0",
     "flow-annotation-check": "1.8.1",
