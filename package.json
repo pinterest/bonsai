@@ -28,7 +28,7 @@
     "argparse": "^1.0.9",
     "array-includes": "^3.0.3",
     "babel-cli": "^6.26.0",
-    "bootstrap": "4.1.3",
+    "bootstrap": "4.2.1",
     "console-shim": "^1.0.3",
     "flow-typed": "^2.1.2",
     "invariant": "^2.2.2",
