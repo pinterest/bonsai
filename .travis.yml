@@ -21,7 +21,7 @@ script:
   - yarn flow-coverage-report -t text
 
   - yarn rebuild:integration-fixtures
-  - yarn react-scripts test --env=jsdom --coverage
+  - yarn react-scripts test --coverage
   - yarn codecov
   - yarn build-storybook -o 'docs/storybook'
   - |

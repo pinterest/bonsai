@@ -2,7 +2,10 @@
  * @flow
  */
 
-var config = require('../../node_modules/react-scripts/config/webpack.config.prod.js');
+var config = require('../../node_modules/react-scripts/config/webpack.config.js');
 
-// use Object.assign so flow has something to analyze
-module.exports = Object.assign({}, config);
+module.exports = Object.assign(
+  {},
+  config(process.env.NODE_ENV),
+  { stats: { source: false } }
+);

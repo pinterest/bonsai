@@ -3,12 +3,13 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import * as React from 'react';
 import handleAction from '../src/utils/reducer';
+import requireContext from 'require-context.macro';
 
 function loadStories() {
   require('../src/components/stories');
 
-  const req = require.context('../src/components', true, /\.stories\.js$/);
-  req.keys().forEach(req);
+  const req = requireContext('../src/components', true, /\.stories\.js$/);
+  req.keys().forEach(filename => req(filename));
 }
 
 const store = createStore(handleAction);
