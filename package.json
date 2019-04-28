@@ -32,7 +32,7 @@
     "console-shim": "^1.0.3",
     "flow-typed": "^2.1.2",
     "invariant": "^2.2.2",
-    "load-pkg": "^3.0.1",
+    "load-pkg": "^4.0.0",
     "object.values": "^1.0.4",
     "raf": "^3.4.0",
     "react": "16.5.2",
