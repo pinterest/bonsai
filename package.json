@@ -48,9 +48,9 @@
     "codecov": "^3.0.0",
     "eslint": "^4.5.0",
     "eslint-plugin-eslint-comments": "2.0.2",
-    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-flowtype": "^3.6.1",
     "eslint-plugin-jest": "^22.5.1",
-    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-react": "^7.3.0",
     "flow-annotation-check": "1.8.1",
     "flow-bin": "0.81.0",
@@ -59,7 +59,7 @@
     "nodemon": "^1.11.0",
     "react-scripts": "1.1.0",
     "react-test-renderer": "16.5.2",
-    "serve": "^10.0.1"
+    "serve": "^11.0.0"
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
