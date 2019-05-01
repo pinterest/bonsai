@@ -56,7 +56,7 @@
     "flow-bin": "0.81.0",
     "flow-coverage-report": "^0.6.0",
     "markdown-spellcheck": "^1.0.0",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.19.0",
     "react-scripts": "1.1.0",
     "react-test-renderer": "16.5.2",
     "serve": "^11.0.0"
