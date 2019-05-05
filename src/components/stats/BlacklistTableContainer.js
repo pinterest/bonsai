@@ -2,8 +2,9 @@
  * @flow
  */
 
+import type { Dispatch } from '../../utils/reducer';
 import type { State } from '../../utils/reducer';
-import type { StateProps, DispatchProps } from './BlacklistTable';
+import type { Props, StateProps, DispatchProps } from './BlacklistTable';
 
 import BlacklistTable from './BlacklistTable';
 import { connect } from 'react-redux';
@@ -24,7 +25,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export default connect(
+export default connect<Props, {||}, _, _, _, _>(
   mapStateToProps,
   mapDispatchToProps
 )(BlacklistTable);

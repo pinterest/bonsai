@@ -28,6 +28,7 @@ const mapStateToProps = (state: State): StateProps => {
   };
 };
 
-export default connect(
+export default connect<StateProps, {||}, _, _, _, _>(
   mapStateToProps,
+  () => ({}),
 )(ModuleTable);

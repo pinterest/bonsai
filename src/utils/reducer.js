@@ -81,27 +81,33 @@ export type Action =
   }
   ;
 
-type DataPathState = 'unknown' | 'loading' | 'error' | 'ready';
+export type AppState = 'empty' | 'loading' | 'loaded'
+export type DataPathState = 'unknown' | 'loading' | 'error' | 'ready';
+export type ExpandMode = 'manual' | 'expand-all' | 'collapse-all';
 export type State = {
+  appState: AppState,
   dataPaths: {[path: string]: DataPathState},
   selectedFilename: ?string,
+  childrenIndexes: Array<number>,
   selectedChildIndex: ?number,
   selectedChunkId: ?ChunkID,
   blacklistedModuleIds: Array<ModuleID>,
   jsonChildren: {[filename: string]: Array<RawStats>},
   sort: SortProps,
   filters: FilterProps,
-  expandMode: 'manual' | 'expand-all' | 'collapse-all',
+  expandMode: ExpandMode,
   expandedRecords: Set<ModuleID>,
   currentlyFocusedElementID: ?string,
   calculatedFullModuleData: ?FullModuleDataType,
 };
 
-export type Dispatch = (action: Action) => any;
+export type Dispatch = (action: Action) => any | void;
 
 export const INITIAL_STATE: State = {
+  appState: 'empty',
   dataPaths: {},
   selectedFilename: null,
+  childrenIndexes: [],
   selectedChildIndex: null,
   selectedChunkId: null,
   blacklistedModuleIds: [],

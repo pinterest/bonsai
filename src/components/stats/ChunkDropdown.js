@@ -13,16 +13,19 @@ import * as React from 'react';
 
 import './ChunkDropdown.css';
 
-export type StateProps = {
+export type StateProps = {|
   chunksByParent: Array<Child>,
   selectedChunkId: ?ChunkID,
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onSelectChunkId: (chunkId: ChunkID) => void,
-};
+|};
 
-type Props = StateProps & DispatchProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 function willStopPropagation(event: SyntheticEvent<>) {
   event.stopPropagation();

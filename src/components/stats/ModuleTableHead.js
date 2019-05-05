@@ -22,17 +22,20 @@ import SortLabel from '../SortLabel';
 const INFINITY = '\u221E';
 const NBSP = '\u00A0';
 
-export type StateProps = {
+export type StateProps = {|
   filters: FilterProps,
   sort: SortProps,
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onFilter: (changes: {[key: FilterableFields]: string}) => void,
   onSort: (field: SortableFields) => void,
-};
+|};
 
-type Props = StateProps & DispatchProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 export default function ModuleTableHead(props: Props) {
   return (

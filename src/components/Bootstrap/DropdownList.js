@@ -17,13 +17,15 @@ type Size =
   | 'block';
 
 export type ItemValue = string | number;
-export type Item = {
+type LabelItem = {|
   label: string,
   value: ItemValue,
-} | {
+|};
+type NodeItem = {|
   node: (hideContent: () => void) => React.Node,
   value: ItemValue,
-};
+|};
+export type Item = LabelItem | NodeItem;
 
 type Props = {
   align?: Alignment,
@@ -75,15 +77,14 @@ export default class DropdownList extends React.Component<Props, State> {
     const props = this.props;
 
     return props.items
-      .filter((item) =>
+      .filter((item: Item) =>
         (props.filter === 'default'
           ? String(item.label || item.value).toLowerCase().includes(this.state.filter.toLowerCase())
           : (props.filter
             ? props.filter(this.state.filter, item)
             : true)
-        )
-      )
-      .map((item) => {
+        ))
+      .map<React.Node>((item: Item) => {
         if (item.label) {
           return (
             <li key={item.value}>
@@ -103,7 +104,7 @@ export default class DropdownList extends React.Component<Props, State> {
               </Button>
             </li>
           );
-        } else if (typeof item.node === 'function') {
+        } else if (item.node) {
           return (
             <li key={item.value}>
               {item.node(hideContent)}

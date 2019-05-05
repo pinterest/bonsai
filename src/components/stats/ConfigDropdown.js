@@ -7,16 +7,19 @@ import type { ItemValue } from '../Bootstrap/DropdownList';
 import * as React from 'react';
 import DropdownList from '../Bootstrap/DropdownList';
 
-export type StateProps = {
+export type StateProps = {|
   childrenIndexes: Array<number>,
   selectedChildIndex: ?number,
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onPickedChild: (childIndex: number) => void,
-};
+|};
 
-type Props = StateProps & DispatchProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 function willStopPropagation(event: SyntheticEvent<>) {
   event.stopPropagation();

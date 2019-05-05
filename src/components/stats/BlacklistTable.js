@@ -16,19 +16,22 @@ import {
   RequirementsPanelContainer,
 } from './ModulePanelContainers';
 
-export type StateProps = {
+export type StateProps = {|
   blacklistedModuleIds: Array<ModuleID>,
   moduleData: ?{
     included: Array<ExtendedModule>,
     removed: Array<ExtendedModule>,
   },
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onIncludeModule: (moduleID: ModuleID) => void,
-};
+|};
 
-export type Props = StateProps & DispatchProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 export default function BlasklistTable(props: Props) {
   if (!props.moduleData || props.moduleData.removed.length === 0) {

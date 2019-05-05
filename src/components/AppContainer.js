@@ -2,8 +2,9 @@
  * @flow
  */
 
+import type { AppState } from '../utils/reducer';
 import type { Dispatch, State } from '../utils/reducer';
-import type { DispatchProps, StateProps } from './App';
+import type { Props, DispatchProps, StateProps } from './App';
 
 import App from './App';
 import {connect} from 'react-redux';
@@ -12,7 +13,7 @@ import {
   DroppedDataFile,
 } from '../utils/actions';
 
-function getAppState(state: State): * {
+function getAppState(state: State): AppState {
   if (!state.selectedFilename || !state.dataPaths[state.selectedFilename]) {
     return 'empty';
   }
@@ -41,7 +42,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export default connect(
+export default connect<Props, {||}, _, _, _, _>(
   mapStateToProps,
   mapDispatchToProps
 )(App);

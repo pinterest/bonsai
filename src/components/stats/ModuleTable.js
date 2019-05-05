@@ -9,10 +9,10 @@ import Panel from '../Bootstrap/Panel';
 import scrollToAndFocus from '../../utils/scrollToAndFocus';
 import ToggleExpandModeButton from './ToggleExpandModeButton';
 
-export type Props = {
+export type Props = {|
   modulesIncludedLabel: ?string,
   focusedRowID: ?string,
-};
+|};
 
 export default class ModuleTable extends React.PureComponent<Props> {
   componentDidUpdate() {
