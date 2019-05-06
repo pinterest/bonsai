@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots BlacklistTable Empty data 1`] = `null`;
+
+exports[`Storyshots BlacklistTable Empty list 1`] = `null`;
+
+exports[`Storyshots BlacklistTable Module with no children removed 1`] = `
+<div
+  className="card border border-danger my-3"
+>
+  <div
+    className="card-header text-white bg-danger"
+  >
+    1 Modules Ignored
+  </div>
+  <table
+    cellPadding="0"
+    cellSpacing="0"
+    className="table table-sm table-hover"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th>
+          Name
+        </th>
+        <th
+          className="text-right"
+        >
+          Size
+        </th>
+        <th
+          className="text-right"
+        >
+          Dependants
+        </th>
+        <th
+          className="text-right"
+        >
+          Imports
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="OffsetPageAnchor "
+        id="300"
+        tabIndex={-1}
+      >
+        <td
+          className="align-middle"
+        />
+        <td
+          className="align-middle"
+        >
+          Module One-B
+        </td>
+        <td
+          className="align-middle text-right"
+          title="300 bytes"
+        >
+          300 B
+        </td>
+        <td
+          className="align-middle text-right"
+        >
+          <div
+            className="dropdown btn-sm"
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="align-middle text-right"
+        >
+          <div
+            className="dropdown btn-sm"
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="align-middle"
+        >
+          <button
+            className="btn btn-danger  btn-sm"
+            disabled={null}
+            onClick={[Function]}
+            style={null}
+            type="button"
+          >
+            Restore
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th />
+        <th
+          className="text-right"
+        >
+          Removed Modules
+        </th>
+        <td
+          className="text-right"
+        >
+          1
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+      <tr>
+        <th />
+        <th
+          className="text-right"
+        >
+          Total Size
+        </th>
+        <td
+          className="text-right"
+          title="300 bytes"
+        >
+          300 B
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`Storyshots BlacklistTable Module with some children removed 1`] = `
+<div
+  className="card border border-danger my-3"
+>
+  <div
+    className="card-header text-white bg-danger"
+  >
+    3 Modules Ignored
+  </div>
+  <table
+    cellPadding="0"
+    cellSpacing="0"
+    className="table table-sm table-hover"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th>
+          Name
+        </th>
+        <th
+          className="text-right"
+        >
+          Size
+        </th>
+        <th
+          className="text-right"
+        >
+          Dependants
+        </th>
+        <th
+          className="text-right"
+        >
+          Imports
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="OffsetPageAnchor "
+        id="1"
+        tabIndex={-1}
+      >
+        <td
+          className="align-middle"
+        />
+        <td
+          className="align-middle"
+        >
+          Entry One
+        </td>
+        <td
+          className="align-middle text-right"
+          title="100 bytes"
+        >
+          100 B
+        </td>
+        <td
+          className="align-middle text-right"
+        >
+          <div
+            className="dropdown btn-sm"
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="align-middle text-right"
+        >
+          <div
+            className="dropdown btn-sm"
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btn btn-link btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+              disabled="disabed"
+              onClick={null}
+              type="button"
+            >
+              0
+               
+              <span
+                className="caret"
+              />
+            </button>
+          </div>
+        </td>
+        <td
+          className="align-middle"
+        >
+          <button
+            className="btn btn-danger  btn-sm"
+            disabled={null}
+            onClick={[Function]}
+            style={null}
+            type="button"
+          >
+            Restore
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td
+          colSpan="6"
+        >
+          <button
+            className="btn btn-outline-secondary  btn-sm"
+            disabled={null}
+            onClick={[Function]}
+            style={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="octicon"
+              height={16}
+              role="img"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "fill": "currentColor",
+                  "userSelect": "none",
+                  "verticalAlign": "text-bottom",
+                }
+              }
+              viewBox="0 0 6 16"
+              width={6}
+            >
+              <path
+                d="M0 14l6-6-6-6v12z"
+                fillRule="evenodd"
+              />
+            </svg>
+             Show 
+            2
+             more removed modules
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th />
+        <th
+          className="text-right"
+        >
+          Removed Modules
+        </th>
+        <td
+          className="text-right"
+        >
+          3
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+      <tr>
+        <th />
+        <th
+          className="text-right"
+        >
+          Total Size
+        </th>
+        <td
+          className="text-right"
+          title="1,000 bytes"
+        >
+          1 KB
+        </td>
+        <td
+          colSpan="3"
+        />
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;

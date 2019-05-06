@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots FileSelectors Filename picked 1`] = `
+<div
+  className="row form-group"
+>
+  <label
+    className="col-sm-1 col-form-label"
+    htmlFor="data-file-picker"
+  >
+    Filename
+  </label>
+  <div
+    className="col-sm-11"
+    onClick={[Function]}
+  >
+    <div
+      className="dropdown "
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn btn-outline-secondary  dropdown-toggle"
+        data-toggle="dropdown"
+        disabled={null}
+        onClick={[Function]}
+        type="button"
+      >
+        stats.json
+         
+        <span
+          className="caret"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileSelectors Invalid: empty list, filename picked 1`] = `null`;
+
+exports[`Storyshots FileSelectors No filename, empty list 1`] = `null`;
+
+exports[`Storyshots FileSelectors No filename, items in list 1`] = `
+<div
+  className="row form-group"
+>
+  <label
+    className="col-sm-1 col-form-label"
+    htmlFor="data-file-picker"
+  >
+    Filename
+  </label>
+  <div
+    className="col-sm-11"
+    onClick={[Function]}
+  >
+    <div
+      className="dropdown "
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn btn-outline-secondary  dropdown-toggle"
+        data-toggle="dropdown"
+        disabled={null}
+        onClick={[Function]}
+        type="button"
+      >
+         
+        <span
+          className="caret"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

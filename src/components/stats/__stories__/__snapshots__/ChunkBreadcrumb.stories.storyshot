@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ChunkBreadcrumb All three modules 1`] = `
+<ol
+  className="breadcrumb"
+>
+  <li
+    className="breadcrumb-item"
+  >
+    chunk-zero
+     (
+    0
+    )
+  </li>
+  <li
+    className="breadcrumb-item"
+  >
+    chunk-one
+     (
+    1
+    )
+  </li>
+  <li
+    className="breadcrumb-item"
+  >
+    chunk-two
+     (
+    2
+    )
+  </li>
+  <li
+    className="breadcrumb-item active"
+  >
+    3
+     modules
+  </li>
+</ol>
+`;
+
+exports[`Storyshots ChunkBreadcrumb Empty data 1`] = `null`;
+
+exports[`Storyshots ChunkBreadcrumb First module without a parent 1`] = `
+<ol
+  className="breadcrumb"
+>
+  <li
+    className="breadcrumb-item"
+  >
+    chunk-zero
+     (
+    0
+    )
+  </li>
+  <li
+    className="breadcrumb-item active"
+  >
+    3
+     modules
+  </li>
+</ol>
+`;

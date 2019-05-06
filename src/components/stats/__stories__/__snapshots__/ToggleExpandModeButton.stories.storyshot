@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ToggleExpandModeButton Collapse-all mode picked 1`] = `
+<div
+  className="dropdown btn-xs"
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-light btn-sm dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Unqiue Imports
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots ToggleExpandModeButton Expand-all mode picked 1`] = `
+<div
+  className="dropdown btn-xs"
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-light btn-sm dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Unqiue Imports
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots ToggleExpandModeButton Manual mode picked 1`] = `
+<div
+  className="dropdown btn-xs"
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-light btn-sm dropdown-toggle"
+    data-toggle="dropdown"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Unqiue Imports
+     
+    <span
+      className="caret"
+    />
+  </button>
+</div>
+`;

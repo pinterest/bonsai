@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ExternalModuleLink Default 1`] = `
+<a
+  className="btn btn-link "
+  disabled={null}
+  href="http://example.com/./app/analytics/modules/AnalyticsMetric/AnalyticsMetric.js"
+  role="button"
+  target="_blank"
+>
+  <svg
+    aria-hidden="true"
+    aria-label="Open in new window"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 12 16"
+    width={12}
+  >
+    <path
+      d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"
+      fillRule="evenodd"
+    />
+  </svg>
+</a>
+`;
+
+exports[`Storyshots ExternalModuleLink No prefix 1`] = `
+<div>
+  <em>
+    expected to show no icon
+  </em>
+</div>
+`;
