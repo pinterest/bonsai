@@ -66,6 +66,9 @@
     "serve": "^11.0.0",
     "webpack-cli": "^3.3.2"
   },
+  "resolutions": {
+    "babel-jest": "24.7.1"
+  },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
     "flow:stop": "flow stop",
