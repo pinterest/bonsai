@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Bootstrap/Panel Body only 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With React.Node heading 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="card-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With different Types 1`] = `
+<div>
+  <div
+    className="card border border-default "
+  >
+    <div
+      className="card-header text-white bg-default"
+    >
+      Default Panel Title
+    </div>
+    <div
+      className="card-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="card border border-primary "
+  >
+    <div
+      className="card-header text-white bg-primary"
+    >
+      Primary Panel Title
+    </div>
+    <div
+      className="card-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="card border border-success "
+  >
+    <div
+      className="card-header text-white bg-success"
+    >
+      Success Panel Title
+    </div>
+    <div
+      className="card-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="card border border-info "
+  >
+    <div
+      className="card-header text-white bg-info"
+    >
+      Info Panel Title
+    </div>
+    <div
+      className="card-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="card border border-warning "
+  >
+    <div
+      className="card-header text-white bg-warning"
+    >
+      Warning Panel Title
+    </div>
+    <div
+      className="card-body"
+    >
+      Panel content
+    </div>
+  </div>
+  <div
+    className="card border border-danger "
+  >
+    <div
+      className="card-header text-white bg-danger"
+    >
+      Danger Panel Title
+    </div>
+    <div
+      className="card-body"
+    >
+      Panel content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With list-group child 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With mixed content 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="card-body"
+  >
+    <p>
+      Paragraph content 1
+    </p>
+  </div>
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <th>
+          Table Heading
+        </th>
+        <td>
+          Table Cell
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="card-body"
+  >
+    <p>
+      Paragraph content 2
+    </p>
+  </div>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+    <li
+      className="list-group-item"
+    >
+      List Item
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With multiple children 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="card-body"
+  >
+    <p>
+      Panel content 1
+    </p>
+  </div>
+  <div
+    className="card-body"
+  >
+    <p>
+      Panel content 2
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With single child 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <div
+    className="card-body"
+  >
+    <p>
+      Panel content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With string heading 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    Panel Title
+  </div>
+  <div
+    className="card-body"
+  >
+    Panel content
+  </div>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Panel With table child 1`] = `
+<div
+  className="card border border-light "
+>
+  <div
+    className="card-header text-white bg-light"
+  >
+    <h2>
+      Panel Title
+    </h2>
+  </div>
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <th>
+          Table Heading
+        </th>
+        <td>
+          Table Cell
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

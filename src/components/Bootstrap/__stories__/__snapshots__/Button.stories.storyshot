@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Bootstrap/Button Block 1`] = `
+<button
+  className="btn btn-outline-secondary btn-block "
+  disabled={null}
+  onClick={[Function]}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/Button Disabled 1`] = `
+<button
+  className="btn btn-outline-secondary  "
+  disabled="disabed"
+  onClick={null}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/Button Disabled Success 1`] = `
+<button
+  className="btn btn-success  "
+  disabled="disabed"
+  onClick={null}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/Button Large 1`] = `
+<button
+  className="btn btn-outline-secondary  btn-lg"
+  disabled={null}
+  onClick={[Function]}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/Button Success 1`] = `
+<button
+  className="btn btn-success  "
+  disabled={null}
+  onClick={[Function]}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/Button With onClick 1`] = `
+<button
+  className="btn btn-outline-secondary  "
+  disabled={null}
+  onClick={[Function]}
+  style={null}
+  type="button"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Storyshots Bootstrap/CloseButton Disabled 1`] = `
+<div
+  style={
+    Object {
+      "background": "#ddd",
+      "height": "100px",
+      "width": "100px",
+    }
+  }
+>
+  <button
+    aria-label="Close"
+    className="close"
+    disabled="disabed"
+    onClick={null}
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ×
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/CloseButton With onClick 1`] = `
+<div
+  style={
+    Object {
+      "background": "#ddd",
+      "height": "100px",
+      "width": "100px",
+    }
+  }
+>
+  <button
+    aria-label="Close"
+    className="close"
+    disabled={null}
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ×
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Bootstrap/Link Disabled 1`] = `
+<a
+  className="btn btn-link "
+  disabled="disabled"
+  href="#"
+  role="button"
+  target={null}
+>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Disabled Success 1`] = `
+<a
+  className="btn btn-success "
+  disabled="disabled"
+  href="#"
+  role="button"
+  target={null}
+>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Large 1`] = `
+<a
+  className="btn btn-link btn-lg"
+  disabled={null}
+  href="javascript: alert('Linked!');"
+  role="button"
+  target={null}
+>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Opens new tab 1`] = `
+<a
+  className="btn btn-link "
+  disabled={null}
+  href="example.com"
+  role="button"
+  target="_blank"
+>
+  <svg
+    aria-hidden="true"
+    aria-label="Open in new window"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 12 16"
+    width={12}
+  >
+    <path
+      d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"
+      fillRule="evenodd"
+    />
+  </svg>
+   Open External Site
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link Success 1`] = `
+<a
+  className="btn btn-success "
+  disabled={null}
+  href="javascript: alert('Linked!');"
+  role="button"
+  target={null}
+>
+  Click Me!
+</a>
+`;
+
+exports[`Storyshots Bootstrap/Link With href 1`] = `
+<a
+  className="btn btn-link "
+  disabled={null}
+  href="javascript: alert('Linked!');"
+  role="button"
+  target={null}
+>
+  Click Me!
+</a>
+`;

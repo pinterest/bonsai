@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots formatModuleName delegated dll 1`] = `
+<span>
+  <span>
+    delegated ./node_modules/classnames/index.js from dll-reference vendor
+  </span>
+</span>
+`;
+
+exports[`Storyshots formatModuleName loader 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }
+    title="./~/html-webpack-plugin/lib/loader.js!./public/index.html"
+  >
+     
+    ./~/html-webpack-plugin/lib/loader.js!
+  </span>
+  <span
+    title="./~/html-webpack-plugin/lib/loader.js!./public/index.html"
+  >
+    ./public/index.html
+  </span>
+</span>
+`;
+
+exports[`Storyshots formatModuleName loader with query 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }
+    title="./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
+     
+    ./node_modules/babel-loader/lib/index.js?{"babel…":true}!./node_modules/eslint-loader/index.js!
+  </span>
+  <span
+    title="./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
+    ./src/index.js
+  </span>
+</span>
+`;
+
+exports[`Storyshots formatModuleName main and loader with query 1`] = `
+<span>
+  <span
+    style={
+      Object {
+        "color": "#aaa",
+      }
+    }
+    title="main ./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
+     
+    main ./node_modules/babel-loader/lib/index.js?{"babel…":true}!./node_modules/eslint-loader/index.js!
+  </span>
+  <span
+    title="main ./node_modules/babel-loader/lib/index.js?{\\"babelrc\\":false,\\"presets\\":[\\"./node_modules/react-scripts/node_modules/babel-preset-react-app/index.js\\"],\\"cacheDirectory\\":true}./node_modules/eslint-loader/index.js!./src/index.js"
+  >
+    ./src/index.js
+  </span>
+</span>
+`;
+
+exports[`Storyshots formatModuleName multi 1`] = `
+<span>
+  <span>
+    multi
+  </span>
+  <br />
+  <span>
+    main
+  </span>
+</span>
+`;
+
+exports[`Storyshots formatModuleName node module 1`] = `
+<span>
+  <span>
+    ./~/react-dev-utils/webpackHotDevClient.js
+  </span>
+</span>
+`;
+
+exports[`Storyshots formatModuleName plain filepath 1`] = `
+<span>
+  <span>
+    components/stats/__stories__/formatModuleName.stories.js
+  </span>
+</span>
+`;

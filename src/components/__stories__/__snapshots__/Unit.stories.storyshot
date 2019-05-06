@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Unit/html with className 1`] = `
+<span
+  className="pull-right"
+  title="2,400 bytes"
+>
+  2.4 KB
+</span>
+`;
+
+exports[`Storyshots Unit/html with elem=table-cell 1`] = `
+<table
+  className="table table-bordered"
+>
+  <tbody>
+    <tr>
+      <td
+        title="2,400 bytes"
+      >
+        2.4 KB
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Unit/sizes 0 Bytes (b) 1`] = `
+<span
+  title="0 bytes"
+>
+  0 B
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Bytes (b) 1`] = `
+<span
+  title="2 bytes"
+>
+  2.4 B
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Gigabytes (GB) 1`] = `
+<span
+  title="2,400,000,000 bytes"
+>
+  2.4 GB
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Kilobytes (KB) 1`] = `
+<span
+  title="2,400 bytes"
+>
+  2.4 KB
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Megabytes (MB) 1`] = `
+<span
+  title="2,400,000 bytes"
+>
+  2.4 MB
+</span>
+`;
+
+exports[`Storyshots Unit/sizes 2.4 Terabytes (TB) 1`] = `
+<span
+  title="2,400,000,000,000 bytes"
+>
+  2.4 TB
+</span>
+`;

@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots SortLabel Something else is sorted 1`] = `
+<div>
+  Size
+</div>
+`;
+
+exports[`Storyshots SortLabel This field is sorted ASC 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M5 3L0 9h3v4h4V9h3L5 3z"
+      fillRule="evenodd"
+    />
+  </svg>
+   
+  Size
+</div>
+`;
+
+exports[`Storyshots SortLabel This field is sorted DESC 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M7 7V3H3v4H0l5 6 5-6H7z"
+      fillRule="evenodd"
+    />
+  </svg>
+   
+  Name
+</div>
+`;
+
+exports[`Storyshots SortLabel This field is type \`alpha\` 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M5 3L0 9h3v4h4V9h3L5 3z"
+      fillRule="evenodd"
+    />
+  </svg>
+   
+  Name
+</div>
+`;
+
+exports[`Storyshots SortLabel This field is type \`order\` 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    className="octicon"
+    height={16}
+    role="img"
+    style={
+      Object {
+        "display": "inline-block",
+        "fill": "currentColor",
+        "userSelect": "none",
+        "verticalAlign": "text-bottom",
+      }
+    }
+    viewBox="0 0 10 16"
+    width={10}
+  >
+    <path
+      d="M5 3L0 9h3v4h4V9h3L5 3z"
+      fillRule="evenodd"
+    />
+  </svg>
+   
+  Rank
+</div>
+`;

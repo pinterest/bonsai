@@ -10,6 +10,6 @@ fi
 
 ./scripts/clean.sh
 ./src/__test_helpers__/build-integration-fixtures.sh
-CI=true yarn react-scripts test --env=jsdom
+CI=true yarn react-scripts test
 yarn build
 yarn build:cli

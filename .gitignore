@@ -15,6 +15,7 @@
 # production
 /bin
 /build
+/dist
 /storybook-static
 
 # docs artifacts
