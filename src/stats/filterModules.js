@@ -16,8 +16,10 @@ export type FilterProps = {
 
 export type FilterableFields = $Keys<FilterProps>;
 
-function makeRecordLikeRegExpFilter(field: string, re: RegExp | '') {
-  return function(eModule: ExtendedModule) {
+type FilterMethod = (eModule: ExtendedModule) => boolean;
+
+function makeRecordLikeRegExpFilter(field: string, re: RegExp | ''): FilterMethod {
+  return function(eModule: ExtendedModule): boolean {
     if (re && !re.test(eModule[field])) {
       return false;
     }
@@ -33,8 +35,8 @@ function makeRecordRangeFilter(
   field: string,
   min: number | '',
   max: number | '',
-) {
-  return function(eModule: ExtendedModule) {
+): FilterMethod {
+  return function(eModule: ExtendedModule): boolean {
     if (min !== '' && max !== '') {
       return eModule[field] >= min && eModule[field] <= max;
     }

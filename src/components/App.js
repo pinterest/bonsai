@@ -2,6 +2,8 @@
  * @flow
  */
 
+import type { AppState } from '../utils/reducer';
+
 import DragDropUpload from './DragDropUpload';
 import FileSelectorsContainer from './FileSelectorsContainer';
 import Navbar from './Navbar';
@@ -13,16 +15,19 @@ import ConfigDropdownContainer from './stats/ConfigDropdownContainer';
 
 import './App.css';
 
-export type StateProps = {
-  appState: 'empty' | 'loading' | 'loaded',
-};
+export type StateProps = {|
+  appState: AppState,
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onPickedFile: (path: string) => void,
   onDroppedFile: (path: string, fileText: string) => void,
-};
+|};
 
-type Props = StateProps & DispatchProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 type State = {
   isDragging: boolean,

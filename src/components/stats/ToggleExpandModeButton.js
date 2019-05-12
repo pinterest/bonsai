@@ -2,7 +2,8 @@
  * @flow
  */
 
-import type { State } from '../../utils/reducer';
+import type { Dispatch } from '../../utils/reducer';
+import type { ExpandMode, State } from '../../utils/reducer';
 
 import Button from '../Bootstrap/Button';
 import Dropdown from '../Bootstrap/Dropdown';
@@ -12,15 +13,20 @@ import {
   ChangeExpandMode,
 } from '../../utils/actions';
 
-type StateProps = {
-  expandMode: 'manual' | 'collapse-all' | 'expand-all',
-};
+type OwnProps = {||};
 
-type DispatchProps = {
-  onChangedExpandMode: (mode: 'manual' | 'collapse-all' | 'expand-all') => void,
-};
+type StateProps = {|
+  expandMode: ExpandMode,
+|};
 
-export type Props = StateProps & DispatchProps;
+type DispatchProps = {|
+  onChangedExpandMode: (mode: ExpandMode) => void,
+|};
+
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 function ModeOption(props) {
   const isSetToTarget = props.nextMode === props.expandMode;
@@ -89,7 +95,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export default connect(
+export default connect<Props, OwnProps, _, _, _, _>(
   mapStateToProps,
   mapDispatchToProps,
 )(ToggleExpandModeButton);

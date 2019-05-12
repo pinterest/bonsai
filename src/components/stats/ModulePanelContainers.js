@@ -3,8 +3,7 @@
  */
 
 import type { Dispatch } from '../../utils/reducer';
-import type { DispatchProps } from './ModulePanels';
-import type {ExtendedModule} from '../../types/Stats';
+import type { Props, OwnProps, DispatchProps } from './ModulePanels';
 
 import {connect} from 'react-redux';
 import {
@@ -15,22 +14,18 @@ import {
   RequirementsPanel,
 } from './ModulePanels';
 
-export type OwnProps = {
-  extendedModules: ExtendedModule,
-};
-
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onFocusChanged: FocusElement(dispatch),
   };
 };
 
-export const RequiredByPanelContainer = connect(
+export const RequiredByPanelContainer = connect<Props, OwnProps, _, _, _, _>(
   null,
   mapDispatchToProps,
 )(RequiredByPanel);
 
-export const RequirementsPanelContainer = connect(
+export const RequirementsPanelContainer = connect<Props, OwnProps, _, _, _, _>(
   null,
   mapDispatchToProps,
 )(RequirementsPanel);

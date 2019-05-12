@@ -7,16 +7,19 @@ import type { ItemValue } from './Bootstrap/DropdownList';
 import DropdownList from './Bootstrap/DropdownList';
 import * as React from 'react';
 
-export type StateProps = {
+export type StateProps = {|
   dataPaths: Array<string>,
   filename: ?string,
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onPickedFile: (path: string) => void,
-};
+|};
 
-type Props = DispatchProps & StateProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 function willStopPropagation(event: SyntheticEvent<>) {
   event.stopPropagation();
@@ -45,7 +48,7 @@ export default function FileSelectors(props: Props) {
             props.onPickedFile(String(value));
           }}
         >
-          {props.filename}
+          {props.filename ? props.filename : null}
         </DropdownList>
       </div>
     </div>

@@ -3,7 +3,7 @@
  */
 
 import type { Dispatch, State } from '../../utils/reducer';
-import type { DispatchProps, StateProps } from './ModuleTableBody';
+import type { Props, DispatchProps, StateProps } from './ModuleTableBody';
 import type { ExtendedModule } from '../../types/Stats';
 import type { FilterProps } from '../../stats/filterModules';
 import type { RowRepresentation } from '../../types/Stats';
@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export default connect(
+export default connect<Props, {||}, _, _, _, _>(
   mapStateToProps,
   mapDispatchToProps,
 )(ModuleTableBody);

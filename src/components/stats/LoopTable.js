@@ -10,12 +10,12 @@ import Octicon, { TriangleRight, TriangleDown } from '@github/octicons-react';
 import Button from '../Bootstrap/Button';
 import Panel from '../Bootstrap/Panel';
 
-export type Props = {
+export type Props = {|
   extendedModules: Array<ExtendedModule>,
-};
-type State = {
+|};
+type State = {|
   expanded: boolean,
-};
+|};
 
 export default class LoopTable extends Component<Props, State> {
   state = {

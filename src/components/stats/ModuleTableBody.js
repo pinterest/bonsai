@@ -22,19 +22,22 @@ import {
 
 import './ModuleTableBody.css';
 
-export type StateProps = {
+export type StateProps = {|
   rows: Array<RowRepresentation>,
   expandMode: 'manual' | 'collapse-all' | 'expand-all',
   expandedRecords: Set<ModuleID>,
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onRemoveModule: (moduleID: ModuleID) => void,
   onExpandRecords: (moduleID: ModuleID) => void,
   onCollapseRecords: (moduleID: ModuleID) => void,
-};
+|};
 
-type TBodyProps = StateProps & DispatchProps;
+export type Props = {|
+  ...$Exact<StateProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 type GroupedTRProps = {
   row: RowRepresentation,
@@ -166,7 +169,7 @@ function ModuleTableRow(props: TRProps) {
   );
 }
 
-export default function ModuleTableBody(props: TBodyProps) {
+export default function ModuleTableBody(props: Props) {
   return (
     <tbody>
       {flatten(

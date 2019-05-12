@@ -9,15 +9,18 @@ import Dropdown from '../Bootstrap/Dropdown';
 import formatModuleName from './formatModuleName';
 import * as React from 'react';
 
-export type OwnProps = {
+export type OwnProps = {|
   eModule: ExtendedModule,
-};
+|};
 
-export type DispatchProps = {
+export type DispatchProps = {|
   onFocusChanged: (elementID: string) => void,
-};
+|};
 
-export type Props = OwnProps & DispatchProps;
+export type Props = {|
+  ...$Exact<OwnProps>,
+  ...$Exact<DispatchProps>,
+|};
 
 export function RequiredByPanel(props: Props) {
   return (

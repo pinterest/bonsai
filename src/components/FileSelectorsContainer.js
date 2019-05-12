@@ -3,7 +3,7 @@
  */
 
 import type { Dispatch, State } from '../utils/reducer';
-import type { DispatchProps, StateProps } from './FileSelectors';
+import type { Props, DispatchProps, StateProps } from './FileSelectors';
 
 import FileSelectors from './FileSelectors';
 import {connect} from 'react-redux';
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export default connect(
+export default connect<Props, {||}, _, _, _, _>(
   mapStateToProps,
   mapDispatchToProps
 )(FileSelectors);

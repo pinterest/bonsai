@@ -3,7 +3,7 @@
  */
 
 import type { Dispatch, State } from '../../utils/reducer';
-import type { DispatchProps, StateProps } from './ModuleTableHead';
+import type { Props, DispatchProps, StateProps } from './ModuleTableHead';
 
 import { connect } from 'react-redux';
 import ModuleTableHead from './ModuleTableHead';
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export default connect(
+export default connect<Props, {||}, _, _, _, _>(
   mapStateToProps,
   mapDispatchToProps,
 )(ModuleTableHead);
