@@ -62,14 +62,14 @@
     "nodemon": "^1.19.0",
     "object.values": "^1.0.4",
     "raf": "^3.4.0",
-    "react-scripts": "3.0.0",
+    "react-scripts": "3.0.1",
     "react-test-renderer": "16.8.6",
     "require-context.macro": "^1.0.4",
     "serve": "^11.0.0",
     "webpack-cli": "^3.3.2"
   },
   "resolutions": {
-    "babel-jest": "24.7.1"
+    "babel-jest": "24.8.0"
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
