@@ -88,6 +88,7 @@
     "start:cli": "nodemon --watch bin --delay 1250ms bin/cli.js",
     "start:storybook": "start-storybook -p 9006",
     "clean": "./scripts/clean.sh",
+    "predeploy": "NODE_ENV=production webpack --config ./webpack.config.js --json > 'docs/example.json'",
     "preversion": "./scripts/preversion.sh",
     "postversion": "./scripts/postversion.sh",
     "eject": "react-scripts eject"

@@ -39,11 +39,8 @@ after_script:
   - greenkeeper-lockfile-upload
 
 before_deploy:
-  - |
-    NODE_ENV=production \
-    ./node_modules/webpack/bin/webpack.js \
-    --config ./node_modules/react-scripts/config/webpack.config.js \
-    --json > 'docs/example.json'
+  - yarn predeploy
+
 deploy:
   - provider: pages
     target_branch: gh-pages
