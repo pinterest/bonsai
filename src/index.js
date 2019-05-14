@@ -2,7 +2,7 @@
  * @flow
  */
 
-import './__test_helpers__/shims';
+import './shims';
 
 import AppContainer from './components/AppContainer';
 import * as React from 'react';
