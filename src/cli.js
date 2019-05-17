@@ -4,14 +4,19 @@
  * @flow
  */
 
-import getParser from './cli/getParser';
-import main from './cli/main';
-import resolveArgs from './cli/resolveArgs';
+if (process.env.NODE_ENV !== 'production') {
+  require('@babel/register')({
+    babelrc: false,
+    configFile: './.babelrc.cli',
+    plugins: [
+      [
+        'transform-define',
+        {
+          'process.env.NODE_ENV': process.env.NODE_ENV,
+        }
+      ],
+    ]
+  });
+}
 
-const parser = getParser();
-
-main(
-  resolveArgs(
-    parser.parseArgs()
-  )
-);
+require('./cli/main').default();
