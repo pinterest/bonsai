@@ -39,12 +39,17 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/plugin-transform-strict-mode": "^7.2.0",
+    "@babel/register": "^7.4.0",
     "@storybook/addon-actions": "5.0.11",
     "@storybook/addon-storyshots": "5.0.11",
     "@storybook/react": "5.0.11",
     "@storybook/theming": "^5.0.11",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "8.0.5",
+    "babel-plugin-transform-define": "^1.3.1",
     "codecov": "^3.0.0",
     "console-shim": "^1.0.3",
     "emotion-theming": "^10.0.10",
@@ -69,7 +74,8 @@
     "webpack-cli": "^3.3.2"
   },
   "resolutions": {
-    "babel-jest": "24.8.0"
+    "babel-jest": "24.8.0",
+    "babel-loader": "8.0.5"
   },
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
@@ -79,13 +85,13 @@
     "test": "react-scripts test --testPathPattern='src/(?!integration)'",
     "test:all": "react-scripts test",
     "build": "react-scripts build",
-    "build:cli": "NODE_ENV=development babel src --watch --out-dir bin --ignore __tests__,src/components",
+    "build:cli": "NODE_ENV=production babel --no-babelrc --config-file ./.babelrc.cli src --out-dir bin --ignore src/index.js,__tests__,src/components",
     "rebuild:integration-fixtures": "./scripts/build-integration-fixtures.sh",
     "rebuild:webpack-examples": "./scripts/build-webpack-examples.sh",
     "start": "react-scripts start",
     "start:with-stats": "REACT_APP_STATS_URL=https://pinterest.github.io/bonsai/example.json react-scripts start",
     "start:with-server": "serve -n -p 9007 dev-server & REACT_APP_API_LIST_ENDPOINT=/api/index.json react-scripts start",
-    "start:cli": "nodemon --watch bin --delay 1250ms bin/cli.js",
+    "start:cli": "NODE_ENV=development ./src/cli.js",
     "start:storybook": "start-storybook -p 9006",
     "clean": "./scripts/clean.sh",
     "predeploy": "NODE_ENV=production webpack --config ./webpack.config.js --json > 'docs/example.json'",

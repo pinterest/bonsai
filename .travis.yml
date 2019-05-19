@@ -31,10 +31,7 @@ script:
     REACT_APP_EXTERNAL_URL_PREFIX= \
     yarn react-scripts build && \
     mv build docs/analyze
-  - |
-    NODE_ENV=production \
-    yarn babel src --out-dir bin --ignore __tests__,src/components && \
-    chmod +x bin/cli.js
+  - yarn build:cli
 after_script:
   - greenkeeper-lockfile-upload
 
