@@ -17,7 +17,7 @@ export function isSameChunk(a: ?ChunkID, b: ?ChunkID): boolean {
 export type Asset = {
   name: string,
   size: number,
-  chunks: Array<string>,
+  chunks: Array<number>,
   chunkNames: Array<string>,
   emitted: boolean,
 };
@@ -86,7 +86,7 @@ export type Module = {
 };
 
 export type RawStats = {
-  assets?: Array<Asset>,
+  assets: Array<Asset>,
   entrypoints?: {
     [key: string]: EntryPoint,
   },

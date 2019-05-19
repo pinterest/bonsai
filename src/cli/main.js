@@ -7,14 +7,14 @@ import type { Flags } from './resolveArgs';
 import getParser from './getParser';
 import resolveArgs from './resolveArgs';
 
+import assetBasics from '../stats/assetBasics';
+import getEntryHierarchy from '../stats/getEntryHierarchy';
 import chunkSizes from '../stats/chunkSizes';
 import chunkSizesDiff from '../stats/chunkSizesDiff';
 import { openRawStatsFile } from './fileSystemHelper';
 
-const parser = getParser();
-
 export default function main(): void {
-  run(resolveArgs(parser.parseArgs()));
+  run(resolveArgs(getParser().parseArgs()));
 }
 
 function run(flags: Flags): void {
@@ -23,6 +23,15 @@ function run(flags: Flags): void {
   }
 
   switch(flags.command) {
+    case 'assets': {
+      const stats = openRawStatsFile(flags.statsFile);
+      const assetInfo = stats.map((stat) => {
+        return assetBasics(flags.statsFile, stat);
+      });
+
+      console.log(JSON.stringify(assetInfo, null, '\t'));
+      break;
+    }
     case 'chunk-sizes':
       console.log( // eslint-disable-line no-console
         chunkSizes(openRawStatsFile(flags.statsFile))

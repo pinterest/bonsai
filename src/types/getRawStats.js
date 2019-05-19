@@ -19,6 +19,7 @@ export default function getRawStats(
     const stats = getStatsJson(json);
     return [stats];
   } catch (singleError) {
+    console.log('Looks like a multi-config stat file.');
     try {
       const multiStats = getMultiStatsJson(json);
       return multiStats.children;
@@ -33,6 +34,7 @@ export function getStatsJson(
 ): RawStats {
   invariant(json, 'Empty object found. Stats file must be a populated object.');
 
+  invariant(json.assets, `Could not find 'assets' field.`);
   invariant(json.chunks, `Could not find 'chunks' field.`);
   invariant(json.modules, `Could not find 'modules' field.`);
 
