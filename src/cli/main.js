@@ -8,6 +8,7 @@ import getParser from './getParser';
 import resolveArgs from './resolveArgs';
 
 import assetBasics from '../stats/assetBasics';
+import chunkBasics from '../stats/chunkBasics';
 import getEntryHierarchy from '../stats/getEntryHierarchy';
 import chunkSizes from '../stats/chunkSizes';
 import chunkSizesDiff from '../stats/chunkSizesDiff';
@@ -30,6 +31,14 @@ function run(flags: Flags): void {
       });
 
       console.log(JSON.stringify(assetInfo, null, '\t'));
+      break;
+    }
+    case 'chunks': {
+      const stats = openRawStatsFile(flags.statsFile);
+      const data = stats.map((stat) => {
+        return chunkBasics(flags.statsFile, stat);
+      });
+      console.log(JSON.stringify(data, null, '\t'));
       break;
     }
     case 'chunk-sizes':

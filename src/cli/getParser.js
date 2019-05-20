@@ -45,7 +45,12 @@ export default function getParser(): ArgumentParser {
   });
 
   addStatsFileArg(subparsers.addParser('assets', {
-    help: 'Foreach asset list some basic/summary data.',
+    help: 'Foreach asset: list some basic/summary data.',
+    addHelp: true,
+  }));
+
+  addStatsFileArg(subparsers.addParser('chunks', {
+    help: 'Foreach chunk list some basic/summary data.',
     addHelp: true,
   }));
 

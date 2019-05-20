@@ -1,0 +1,3346 @@
+yarn run v1.12.3
+$ NODE_ENV=development ./src/cli.js chunks www.json
+[
+	{
+		"filename": "www.json",
+		"config": {
+			"hash": "28f20fa032ae484cf484",
+			"time": 71529,
+			"publicPath": "/static/webapp/js/"
+		},
+		"entryChunkCount": 15,
+		"chunkCount": 358,
+		"entryChunks": [
+			{
+				"id": "bundle-socialConnectPopup",
+				"size": 2542,
+				"name": "bundle-socialConnectPopup",
+				"jsFile": "bundle-socialConnectPopup-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "common_desktop",
+				"size": 41,
+				"name": "common_desktop",
+				"jsFile": "common_desktop-dev.js",
+				"filesCount": 2
+			},
+			{
+				"id": "entryChunk-amp-extension",
+				"size": 1498687,
+				"name": "entryChunk-amp-extension",
+				"jsFile": "entryChunk-amp-extension-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "entryChunk-amp-iframe",
+				"size": 1498191,
+				"name": "entryChunk-amp-iframe",
+				"jsFile": "entryChunk-amp-iframe-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "entryChunk-core",
+				"size": 2397387,
+				"name": "entryChunk-core",
+				"jsFile": "entryChunk-core-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "entryChunk-react-UnauthHomeReactPage",
+				"size": 6319990,
+				"name": "entryChunk-react-UnauthHomeReactPage",
+				"jsFile": "entryChunk-react-UnauthHomeReactPage-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "entryChunk-react-UnauthLoginReactWrapper",
+				"size": 6134305,
+				"name": "entryChunk-react-UnauthLoginReactWrapper",
+				"jsFile": "entryChunk-react-UnauthLoginReactWrapper-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "entryChunk-react-common",
+				"size": 11713992,
+				"name": "entryChunk-react-common",
+				"jsFile": "entryChunk-react-common-dev.js",
+				"filesCount": 2
+			},
+			{
+				"id": "entryChunk-www",
+				"size": 5358939,
+				"name": "entryChunk-www",
+				"jsFile": "entryChunk-www-dev.js",
+				"filesCount": 2
+			},
+			{
+				"id": "entryChunk-www-unauth",
+				"size": 3876712,
+				"name": "entryChunk-www-unauth",
+				"jsFile": "entryChunk-www-unauth-dev.js",
+				"filesCount": 2
+			},
+			{
+				"id": "entryChunk-www-unauth-limited-home-page",
+				"size": 118,
+				"name": "entryChunk-www-unauth-limited-home-page",
+				"jsFile": "entryChunk-www-unauth-limited-home-page-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "external-core-1",
+				"size": 262718,
+				"name": "external-core-1",
+				"jsFile": "external-core-1-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "external-core-2",
+				"size": 555620,
+				"name": "external-core-2",
+				"jsFile": "external-core-2-dev.js",
+				"filesCount": 1
+			},
+			{
+				"id": "gestalt",
+				"size": 41,
+				"name": "gestalt",
+				"jsFile": "gestalt-dev.js",
+				"filesCount": 2
+			},
+			{
+				"id": "vendor-react",
+				"size": 2783450,
+				"name": "vendor-react",
+				"jsFile": "vendor-react-dev.js",
+				"filesCount": 1
+			}
+		],
+		"chunks": [
+			{
+				"id": 0,
+				"size": 17141,
+				"name": null,
+				"jsFile": "pjs-0-dev.js",
+				"parentsCount": 97,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 1,
+				"size": 1035031,
+				"name": null,
+				"jsFile": "pjs-1-dev.js",
+				"parentsCount": 17,
+				"modulesCount": 14,
+				"originsCount": 2
+			},
+			{
+				"id": 2,
+				"size": 14593,
+				"name": null,
+				"jsFile": "pjs-2-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 22,
+				"originsCount": 1
+			},
+			{
+				"id": 3,
+				"size": 4225,
+				"name": null,
+				"jsFile": "pjs-3-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 4,
+				"size": 61823,
+				"name": null,
+				"jsFile": "pjs-4-dev.js",
+				"parentsCount": 135,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 5,
+				"size": 207108,
+				"name": null,
+				"jsFile": "pjs-5-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 33,
+				"originsCount": 1
+			},
+			{
+				"id": 6,
+				"size": 92793,
+				"name": null,
+				"jsFile": "pjs-6-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 14,
+				"originsCount": 1
+			},
+			{
+				"id": 7,
+				"size": 89123,
+				"name": null,
+				"jsFile": "pjs-7-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 12,
+				"originsCount": 1
+			},
+			{
+				"id": 8,
+				"size": 47172,
+				"name": null,
+				"jsFile": "pjs-8-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 8,
+				"originsCount": 1
+			},
+			{
+				"id": 9,
+				"size": 43220,
+				"name": null,
+				"jsFile": "pjs-9-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 8,
+				"originsCount": 1
+			},
+			{
+				"id": 10,
+				"size": 31514,
+				"name": null,
+				"jsFile": "pjs-10-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 5,
+				"originsCount": 1
+			},
+			{
+				"id": 11,
+				"size": 21175,
+				"name": null,
+				"jsFile": "pjs-11-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 5,
+				"originsCount": 1
+			},
+			{
+				"id": 12,
+				"size": 27659,
+				"name": null,
+				"jsFile": "pjs-12-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": 13,
+				"size": 14831,
+				"name": null,
+				"jsFile": "pjs-13-dev.js",
+				"parentsCount": 77,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": 14,
+				"size": 13210,
+				"name": null,
+				"jsFile": "pjs-14-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": 15,
+				"size": 171684,
+				"name": null,
+				"jsFile": "pjs-15-dev.js",
+				"parentsCount": 24,
+				"modulesCount": 74,
+				"originsCount": 1
+			},
+			{
+				"id": 16,
+				"size": 318044,
+				"name": null,
+				"jsFile": "pjs-16-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 54,
+				"originsCount": 1
+			},
+			{
+				"id": 17,
+				"size": 76223,
+				"name": null,
+				"jsFile": "pjs-17-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 17,
+				"originsCount": 1
+			},
+			{
+				"id": 18,
+				"size": 38942,
+				"name": null,
+				"jsFile": "pjs-18-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 11,
+				"originsCount": 1
+			},
+			{
+				"id": 19,
+				"size": 24517,
+				"name": null,
+				"jsFile": "pjs-19-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 6,
+				"originsCount": 1
+			},
+			{
+				"id": 20,
+				"size": 5788,
+				"name": null,
+				"jsFile": "pjs-20-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 21,
+				"size": 20492,
+				"name": null,
+				"jsFile": "pjs-21-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 22,
+				"size": 4770,
+				"name": null,
+				"jsFile": "pjs-22-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 23,
+				"size": 1923,
+				"name": null,
+				"jsFile": "pjs-23-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 24,
+				"size": 3222,
+				"name": null,
+				"jsFile": "pjs-24-dev.js",
+				"parentsCount": 90,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 25,
+				"size": 2800,
+				"name": null,
+				"jsFile": "pjs-25-dev.js",
+				"parentsCount": 121,
+				"modulesCount": 1,
+				"originsCount": 5
+			},
+			{
+				"id": 26,
+				"size": 86582,
+				"name": null,
+				"jsFile": "pjs-26-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 20,
+				"originsCount": 1
+			},
+			{
+				"id": 27,
+				"size": 12483,
+				"name": null,
+				"jsFile": "pjs-27-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": 28,
+				"size": 12749,
+				"name": null,
+				"jsFile": "pjs-28-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 29,
+				"size": 1874,
+				"name": null,
+				"jsFile": "pjs-29-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 30,
+				"size": 17623,
+				"name": null,
+				"jsFile": "pjs-30-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 31,
+				"size": 590518,
+				"name": null,
+				"jsFile": "pjs-31-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 370,
+				"originsCount": 1
+			},
+			{
+				"id": 32,
+				"size": 436189,
+				"name": null,
+				"jsFile": "pjs-32-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 43,
+				"originsCount": 1
+			},
+			{
+				"id": 33,
+				"size": 257360,
+				"name": null,
+				"jsFile": "pjs-33-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 40,
+				"originsCount": 1
+			},
+			{
+				"id": 34,
+				"size": 443432,
+				"name": null,
+				"jsFile": "pjs-34-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 36,
+				"originsCount": 1
+			},
+			{
+				"id": 35,
+				"size": 85797,
+				"name": null,
+				"jsFile": "pjs-35-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 16,
+				"originsCount": 1
+			},
+			{
+				"id": 36,
+				"size": 68044,
+				"name": null,
+				"jsFile": "pjs-36-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 14,
+				"originsCount": 1
+			},
+			{
+				"id": 37,
+				"size": 47915,
+				"name": null,
+				"jsFile": "pjs-37-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 7,
+				"originsCount": 1
+			},
+			{
+				"id": 38,
+				"size": 3219,
+				"name": null,
+				"jsFile": "pjs-38-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": 39,
+				"size": 3340,
+				"name": null,
+				"jsFile": "pjs-39-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 40,
+				"size": 1604,
+				"name": null,
+				"jsFile": "pjs-40-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 41,
+				"size": 397022,
+				"name": null,
+				"jsFile": "pjs-41-dev.js",
+				"parentsCount": 7,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 42,
+				"size": 21441,
+				"name": null,
+				"jsFile": "pjs-42-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 43,
+				"size": 5795,
+				"name": null,
+				"jsFile": "pjs-43-dev.js",
+				"parentsCount": 7,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 44,
+				"size": 4072,
+				"name": null,
+				"jsFile": "pjs-44-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 45,
+				"size": 4503,
+				"name": null,
+				"jsFile": "pjs-45-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 46,
+				"size": 6146,
+				"name": null,
+				"jsFile": "pjs-46-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 47,
+				"size": 1724,
+				"name": null,
+				"jsFile": "pjs-47-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 48,
+				"size": 1021,
+				"name": null,
+				"jsFile": "pjs-48-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 49,
+				"size": 1761369,
+				"name": null,
+				"jsFile": "pjs-49-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 50,
+				"size": 15377,
+				"name": null,
+				"jsFile": "pjs-50-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 4
+			},
+			{
+				"id": 51,
+				"size": 15633,
+				"name": null,
+				"jsFile": "pjs-51-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 3
+			},
+			{
+				"id": 52,
+				"size": 6985,
+				"name": null,
+				"jsFile": "pjs-52-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 53,
+				"size": 5021,
+				"name": null,
+				"jsFile": "pjs-53-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 54,
+				"size": 9214,
+				"name": null,
+				"jsFile": "pjs-54-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 55,
+				"size": 8041,
+				"name": null,
+				"jsFile": "pjs-55-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 56,
+				"size": 11297,
+				"name": null,
+				"jsFile": "pjs-56-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 57,
+				"size": 11885,
+				"name": null,
+				"jsFile": "pjs-57-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 58,
+				"size": 10038,
+				"name": null,
+				"jsFile": "pjs-58-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 59,
+				"size": 9637,
+				"name": null,
+				"jsFile": "pjs-59-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 60,
+				"size": 10855,
+				"name": null,
+				"jsFile": "pjs-60-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 61,
+				"size": 9350,
+				"name": null,
+				"jsFile": "pjs-61-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 62,
+				"size": 8475,
+				"name": null,
+				"jsFile": "pjs-62-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 63,
+				"size": 10424,
+				"name": null,
+				"jsFile": "pjs-63-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 64,
+				"size": 8831,
+				"name": null,
+				"jsFile": "pjs-64-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 65,
+				"size": 8352,
+				"name": null,
+				"jsFile": "pjs-65-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 66,
+				"size": 7592,
+				"name": null,
+				"jsFile": "pjs-66-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 67,
+				"size": 7312,
+				"name": null,
+				"jsFile": "pjs-67-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 68,
+				"size": 9346,
+				"name": null,
+				"jsFile": "pjs-68-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 69,
+				"size": 5438,
+				"name": null,
+				"jsFile": "pjs-69-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 70,
+				"size": 4193,
+				"name": null,
+				"jsFile": "pjs-70-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 71,
+				"size": 9037,
+				"name": null,
+				"jsFile": "pjs-71-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 72,
+				"size": 9061,
+				"name": null,
+				"jsFile": "pjs-72-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 73,
+				"size": 9050,
+				"name": null,
+				"jsFile": "pjs-73-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 74,
+				"size": 5890,
+				"name": null,
+				"jsFile": "pjs-74-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 75,
+				"size": 13541,
+				"name": null,
+				"jsFile": "pjs-75-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 86,
+				"size": 3563848,
+				"name": null,
+				"jsFile": "pjs-86-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 875,
+				"originsCount": 1
+			},
+			{
+				"id": "BenchmarkPage",
+				"size": 132,
+				"name": "BenchmarkPage",
+				"jsFile": "pjs-BenchmarkPage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 76,
+				"size": 11469,
+				"name": null,
+				"jsFile": "pjs-76-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 77,
+				"size": 6726,
+				"name": null,
+				"jsFile": "pjs-77-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 78,
+				"size": 8629,
+				"name": null,
+				"jsFile": "pjs-78-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 79,
+				"size": 8629,
+				"name": null,
+				"jsFile": "pjs-79-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 80,
+				"size": 8570,
+				"name": null,
+				"jsFile": "pjs-80-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 81,
+				"size": 4608,
+				"name": null,
+				"jsFile": "pjs-81-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 82,
+				"size": 7228,
+				"name": null,
+				"jsFile": "pjs-82-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 83,
+				"size": 9749,
+				"name": null,
+				"jsFile": "pjs-83-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 84,
+				"size": 8228,
+				"name": null,
+				"jsFile": "pjs-84-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 85,
+				"size": 11870,
+				"name": null,
+				"jsFile": "pjs-85-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 1,
+				"originsCount": 0
+			},
+			{
+				"id": 87,
+				"size": 2299200,
+				"name": null,
+				"jsFile": "pjs-87-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 490,
+				"originsCount": 1
+			},
+			{
+				"id": 88,
+				"size": 1201865,
+				"name": null,
+				"jsFile": "pjs-88-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 380,
+				"originsCount": 1
+			},
+			{
+				"id": 89,
+				"size": 307197,
+				"name": null,
+				"jsFile": "pjs-89-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 62,
+				"originsCount": 1
+			},
+			{
+				"id": 90,
+				"size": 292491,
+				"name": null,
+				"jsFile": "pjs-90-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 59,
+				"originsCount": 1
+			},
+			{
+				"id": 91,
+				"size": 308447,
+				"name": null,
+				"jsFile": "pjs-91-dev.js",
+				"parentsCount": 10,
+				"modulesCount": 58,
+				"originsCount": 1
+			},
+			{
+				"id": 92,
+				"size": 267463,
+				"name": null,
+				"jsFile": "pjs-92-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 51,
+				"originsCount": 1
+			},
+			{
+				"id": 93,
+				"size": 255694,
+				"name": null,
+				"jsFile": "pjs-93-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 45,
+				"originsCount": 1
+			},
+			{
+				"id": 94,
+				"size": 1041174,
+				"name": null,
+				"jsFile": "pjs-94-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 15,
+				"originsCount": 1
+			},
+			{
+				"id": 95,
+				"size": 27073,
+				"name": null,
+				"jsFile": "pjs-95-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 14,
+				"originsCount": 1
+			},
+			{
+				"id": "ActivityFeedPageDesktop",
+				"size": 4426153,
+				"name": "ActivityFeedPageDesktop",
+				"jsFile": "pjs-ActivityFeedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1052,
+				"originsCount": 1
+			},
+			{
+				"id": "ArticlePageDesktop",
+				"size": 2458226,
+				"name": "ArticlePageDesktop",
+				"jsFile": "pjs-ArticlePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 481,
+				"originsCount": 1
+			},
+			{
+				"id": "AuthHomePageDesktop",
+				"size": 3217848,
+				"name": "AuthHomePageDesktop",
+				"jsFile": "pjs-AuthHomePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 620,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardActivityCommentPageDesktop",
+				"size": 3100980,
+				"name": "BoardActivityCommentPageDesktop",
+				"jsFile": "pjs-BoardActivityCommentPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 794,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardActivityItemPageDesktop",
+				"size": 3102317,
+				"name": "BoardActivityItemPageDesktop",
+				"jsFile": "pjs-BoardActivityItemPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 794,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardActivityPinRepReactionsCommon",
+				"size": 29722,
+				"name": "BoardActivityPinRepReactionsCommon",
+				"jsFile": "pjs-BoardActivityPinRepReactionsCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 9,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardActivityReactionsCommon",
+				"size": 10943,
+				"name": "BoardActivityReactionsCommon",
+				"jsFile": "pjs-BoardActivityReactionsCommon-dev.js",
+				"parentsCount": 32,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardIdeasCardFeedPageDesktop",
+				"size": 2480435,
+				"name": "BoardIdeasCardFeedPageDesktop",
+				"jsFile": "pjs-BoardIdeasCardFeedPageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 487,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardMoreIdeasTabContentCommon",
+				"size": 57849,
+				"name": "BoardMoreIdeasTabContentCommon",
+				"jsFile": "pjs-BoardMoreIdeasTabContentCommon-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 14,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardPageContainerDesktop",
+				"size": 4454689,
+				"name": "BoardPageContainerDesktop",
+				"jsFile": "pjs-BoardPageContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1055,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardPageContainerExperimentDesktop",
+				"size": 4454200,
+				"name": "BoardPageContainerExperimentDesktop",
+				"jsFile": "pjs-BoardPageContainerExperimentDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1055,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardPageDesktop",
+				"size": 4441718,
+				"name": "BoardPageDesktop",
+				"jsFile": "pjs-BoardPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1052,
+				"originsCount": 1
+			},
+			{
+				"id": "BoardSectionPageDesktop",
+				"size": 3484356,
+				"name": "BoardSectionPageDesktop",
+				"jsFile": "pjs-BoardSectionPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 892,
+				"originsCount": 1
+			},
+			{
+				"id": "BrowserButtonCreatePinPageDesktop",
+				"size": 439881,
+				"name": "BrowserButtonCreatePinPageDesktop",
+				"jsFile": "pjs-BrowserButtonCreatePinPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 90,
+				"originsCount": 1
+			},
+			{
+				"id": "BusinessAccountConvertPageDesktop",
+				"size": 66432,
+				"name": "BusinessAccountConvertPageDesktop",
+				"jsFile": "pjs-BusinessAccountConvertPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 22,
+				"originsCount": 1
+			},
+			{
+				"id": "BusinessAccountCreatePageDesktop",
+				"size": 178560,
+				"name": "BusinessAccountCreatePageDesktop",
+				"jsFile": "pjs-BusinessAccountCreatePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 38,
+				"originsCount": 2
+			},
+			{
+				"id": "CatalogsPageDesktop",
+				"size": 328924,
+				"name": "CatalogsPageDesktop",
+				"jsFile": "pjs-CatalogsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 63,
+				"originsCount": 2
+			},
+			{
+				"id": "CatalogsProductGroupEditorPageDesktop",
+				"size": 526866,
+				"name": "CatalogsProductGroupEditorPageDesktop",
+				"jsFile": "pjs-CatalogsProductGroupEditorPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 198,
+				"originsCount": 1
+			},
+			{
+				"id": "CategoriesPageDesktop",
+				"size": 12619,
+				"name": "CategoriesPageDesktop",
+				"jsFile": "pjs-CategoriesPageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "CategoryPageDesktop",
+				"size": 2441719,
+				"name": "CategoryPageDesktop",
+				"jsFile": "pjs-CategoryPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 481,
+				"originsCount": 1
+			},
+			{
+				"id": "CloseupActionBarCommon",
+				"size": 48840,
+				"name": "CloseupActionBarCommon",
+				"jsFile": "pjs-CloseupActionBarCommon-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 12,
+				"originsCount": 1
+			},
+			{
+				"id": "CloseupPageDesktop",
+				"size": 4293768,
+				"name": "CloseupPageDesktop",
+				"jsFile": "pjs-CloseupPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1029,
+				"originsCount": 1
+			},
+			{
+				"id": "CloseupPromotePageDesktop",
+				"size": 4290948,
+				"name": "CloseupPromotePageDesktop",
+				"jsFile": "pjs-CloseupPromotePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1029,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunitiesPageDesktop",
+				"size": 862326,
+				"name": "CommunitiesPageDesktop",
+				"jsFile": "pjs-CommunitiesPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 361,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityCommentPageDesktop",
+				"size": 795416,
+				"name": "CommunityCommentPageDesktop",
+				"jsFile": "pjs-CommunityCommentPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 346,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityCreatePageDesktop",
+				"size": 508465,
+				"name": "CommunityCreatePageDesktop",
+				"jsFile": "pjs-CommunityCreatePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 297,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityCreatePostPageDesktop",
+				"size": 554348,
+				"name": "CommunityCreatePostPageDesktop",
+				"jsFile": "pjs-CommunityCreatePostPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 304,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityEditPageDesktop",
+				"size": 513507,
+				"name": "CommunityEditPageDesktop",
+				"jsFile": "pjs-CommunityEditPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 297,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityExternalInvitePageDesktop",
+				"size": 140686,
+				"name": "CommunityExternalInvitePageDesktop",
+				"jsFile": "pjs-CommunityExternalInvitePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 26,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityInternalInvitePageDesktop",
+				"size": 141573,
+				"name": "CommunityInternalInvitePageDesktop",
+				"jsFile": "pjs-CommunityInternalInvitePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 26,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityItemReplyPageDesktop",
+				"size": 522564,
+				"name": "CommunityItemReplyPageDesktop",
+				"jsFile": "pjs-CommunityItemReplyPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 293,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityPageDesktop",
+				"size": 1050536,
+				"name": "CommunityPageDesktop",
+				"jsFile": "pjs-CommunityPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 402,
+				"originsCount": 1
+			},
+			{
+				"id": "CommunityPostPageDesktop",
+				"size": 793344,
+				"name": "CommunityPostPageDesktop",
+				"jsFile": "pjs-CommunityPostPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 346,
+				"originsCount": 1
+			},
+			{
+				"id": "CreativeEditorPageDesktop",
+				"size": 1099106,
+				"name": "CreativeEditorPageDesktop",
+				"jsFile": "pjs-CreativeEditorPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 266,
+				"originsCount": 1
+			},
+			{
+				"id": "CreatorsPageDesktop",
+				"size": 628637,
+				"name": "CreatorsPageDesktop",
+				"jsFile": "pjs-CreatorsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 322,
+				"originsCount": 1
+			},
+			{
+				"id": "CsrfErrorPageDesktop",
+				"size": 3508,
+				"name": "CsrfErrorPageDesktop",
+				"jsFile": "pjs-CsrfErrorPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "DidItProfileFeedContainerDesktop",
+				"size": 1892435,
+				"name": "DidItProfileFeedContainerDesktop",
+				"jsFile": "pjs-DidItProfileFeedContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 411,
+				"originsCount": 2
+			},
+			{
+				"id": "DomainFeedPageDesktop",
+				"size": 1240738,
+				"name": "DomainFeedPageDesktop",
+				"jsFile": "pjs-DomainFeedPageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 95,
+				"originsCount": 2
+			},
+			{
+				"id": "EmailDisassociatePageDesktop",
+				"size": 30687,
+				"name": "EmailDisassociatePageDesktop",
+				"jsFile": "pjs-EmailDisassociatePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 5,
+				"originsCount": 2
+			},
+			{
+				"id": "EmailUnsubscribePageDesktop",
+				"size": 40404,
+				"name": "EmailUnsubscribePageDesktop",
+				"jsFile": "pjs-EmailUnsubscribePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 6,
+				"originsCount": 2
+			},
+			{
+				"id": "EmailVerificationErrorPageDesktop",
+				"size": 10735,
+				"name": "EmailVerificationErrorPageDesktop",
+				"jsFile": "pjs-EmailVerificationErrorPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 4,
+				"originsCount": 2
+			},
+			{
+				"id": "Error404PageDesktop",
+				"size": 1538,
+				"name": "Error404PageDesktop",
+				"jsFile": "pjs-Error404PageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 2,
+				"originsCount": 2
+			},
+			{
+				"id": "ExperienceHeroCommon",
+				"size": 196163,
+				"name": "ExperienceHeroCommon",
+				"jsFile": "pjs-ExperienceHeroCommon-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 34,
+				"originsCount": 1
+			},
+			{
+				"id": "ExperienceSurveyCommon",
+				"size": 17167,
+				"name": "ExperienceSurveyCommon",
+				"jsFile": "pjs-ExperienceSurveyCommon-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": "ExplorePageDesktop",
+				"size": 2255474,
+				"name": "ExplorePageDesktop",
+				"jsFile": "pjs-ExplorePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 486,
+				"originsCount": 1
+			},
+			{
+				"id": "FirstAdCreatePageDesktop",
+				"size": 3642288,
+				"name": "FirstAdCreatePageDesktop",
+				"jsFile": "pjs-FirstAdCreatePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 907,
+				"originsCount": 1
+			},
+			{
+				"id": "FlashlightPageDesktop",
+				"size": 1318572,
+				"name": "FlashlightPageDesktop",
+				"jsFile": "pjs-FlashlightPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 115,
+				"originsCount": 1
+			},
+			{
+				"id": "FollowersPageDesktop",
+				"size": 458951,
+				"name": "FollowersPageDesktop",
+				"jsFile": "pjs-FollowersPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 101,
+				"originsCount": 1
+			},
+			{
+				"id": "FollowingFeedBuildPageDesktop",
+				"size": 130152,
+				"name": "FollowingFeedBuildPageDesktop",
+				"jsFile": "pjs-FollowingFeedBuildPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 25,
+				"originsCount": 1
+			},
+			{
+				"id": "FollowingFeedManagePageDesktop",
+				"size": 209330,
+				"name": "FollowingFeedManagePageDesktop",
+				"jsFile": "pjs-FollowingFeedManagePageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 46,
+				"originsCount": 1
+			},
+			{
+				"id": "FollowingFeedPageDesktop",
+				"size": 18412,
+				"name": "FollowingFeedPageDesktop",
+				"jsFile": "pjs-FollowingFeedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 5,
+				"originsCount": 1
+			},
+			{
+				"id": "FollowingPageDesktop",
+				"size": 772813,
+				"name": "FollowingPageDesktop",
+				"jsFile": "pjs-FollowingPageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 174,
+				"originsCount": 1
+			},
+			{
+				"id": "HowToWearItCarouselCommon",
+				"size": 14721,
+				"name": "HowToWearItCarouselCommon",
+				"jsFile": "pjs-HowToWearItCarouselCommon-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": "ImagesFeedPageDesktop",
+				"size": 1730118,
+				"name": "ImagesFeedPageDesktop",
+				"jsFile": "pjs-ImagesFeedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 201,
+				"originsCount": 1
+			},
+			{
+				"id": "InterestFeedPageDesktop",
+				"size": 3035658,
+				"name": "InterestFeedPageDesktop",
+				"jsFile": "pjs-InterestFeedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 590,
+				"originsCount": 1
+			},
+			{
+				"id": "InvitedPageDesktop",
+				"size": 13246,
+				"name": "InvitedPageDesktop",
+				"jsFile": "pjs-InvitedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": "LoginPageDesktop",
+				"size": 688696,
+				"name": "LoginPageDesktop",
+				"jsFile": "pjs-LoginPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 144,
+				"originsCount": 1
+			},
+			{
+				"id": "LogoutPageDesktop",
+				"size": 23389,
+				"name": "LogoutPageDesktop",
+				"jsFile": "pjs-LogoutPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 9,
+				"originsCount": 1
+			},
+			{
+				"id": "MobileLandingPageDesktop",
+				"size": 18464,
+				"name": "MobileLandingPageDesktop",
+				"jsFile": "pjs-MobileLandingPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 4,
+				"originsCount": 2
+			},
+			{
+				"id": "NewsHubLandingPageDesktop",
+				"size": 3721477,
+				"name": "NewsHubLandingPageDesktop",
+				"jsFile": "pjs-NewsHubLandingPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 913,
+				"originsCount": 1
+			},
+			{
+				"id": "NuxOneClickSaveButtonCommon",
+				"size": 46555,
+				"name": "NuxOneClickSaveButtonCommon",
+				"jsFile": "pjs-NuxOneClickSaveButtonCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 11,
+				"originsCount": 1
+			},
+			{
+				"id": "OrderHistoryPageDesktop",
+				"size": 59540,
+				"name": "OrderHistoryPageDesktop",
+				"jsFile": "pjs-OrderHistoryPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 14,
+				"originsCount": 1
+			},
+			{
+				"id": "ParentalConsentConfirmationPageDesktop",
+				"size": 19615,
+				"name": "ParentalConsentConfirmationPageDesktop",
+				"jsFile": "pjs-ParentalConsentConfirmationPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 4,
+				"originsCount": 2
+			},
+			{
+				"id": "PasswordResetPageDesktop",
+				"size": 43958,
+				"name": "PasswordResetPageDesktop",
+				"jsFile": "pjs-PasswordResetPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 13,
+				"originsCount": 1
+			},
+			{
+				"id": "PasswordUsernamePage",
+				"size": 25794,
+				"name": "PasswordUsernamePage",
+				"jsFile": "pjs-PasswordUsernamePage-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 5,
+				"originsCount": 1
+			},
+			{
+				"id": "PinAnalyticsPageDesktop",
+				"size": 525319,
+				"name": "PinAnalyticsPageDesktop",
+				"jsFile": "pjs-PinAnalyticsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 92,
+				"originsCount": 1
+			},
+			{
+				"id": "PinBetterSaveCommon",
+				"size": 594891,
+				"name": "PinBetterSaveCommon",
+				"jsFile": "pjs-PinBetterSaveCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 115,
+				"originsCount": 2
+			},
+			{
+				"id": "PinBookmarkletPageDesktop",
+				"size": 557614,
+				"name": "PinBookmarkletPageDesktop",
+				"jsFile": "pjs-PinBookmarkletPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 118,
+				"originsCount": 1
+			},
+			{
+				"id": "PinBuilderPageDesktop",
+				"size": 2710668,
+				"name": "PinBuilderPageDesktop",
+				"jsFile": "pjs-PinBuilderPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 793,
+				"originsCount": 1
+			},
+			{
+				"id": "PinCollagePageDesktop",
+				"size": 535779,
+				"name": "PinCollagePageDesktop",
+				"jsFile": "pjs-PinCollagePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 319,
+				"originsCount": 1
+			},
+			{
+				"id": "PinDebugToolDesktop",
+				"size": 1239501,
+				"name": "PinDebugToolDesktop",
+				"jsFile": "pjs-PinDebugToolDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 95,
+				"originsCount": 1
+			},
+			{
+				"id": "PinFeedbackButtonCommon",
+				"size": 13610,
+				"name": "PinFeedbackButtonCommon",
+				"jsFile": "pjs-PinFeedbackButtonCommon-dev.js",
+				"parentsCount": 40,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": "PinFeedbackConfirmationCommon",
+				"size": 10348,
+				"name": "PinFeedbackConfirmationCommon",
+				"jsFile": "pjs-PinFeedbackConfirmationCommon-dev.js",
+				"parentsCount": 38,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "PinFeedbackPageDesktop",
+				"size": 1117972,
+				"name": "PinFeedbackPageDesktop",
+				"jsFile": "pjs-PinFeedbackPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 223,
+				"originsCount": 1
+			},
+			{
+				"id": "PinLandingPageDesktop",
+				"size": 3339366,
+				"name": "PinLandingPageDesktop",
+				"jsFile": "pjs-PinLandingPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 652,
+				"originsCount": 1
+			},
+			{
+				"id": "PinPromoteButtonCommon",
+				"size": 78436,
+				"name": "PinPromoteButtonCommon",
+				"jsFile": "pjs-PinPromoteButtonCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": "PinRepEditButtonCommon",
+				"size": 217790,
+				"name": "PinRepEditButtonCommon",
+				"jsFile": "pjs-PinRepEditButtonCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 45,
+				"originsCount": 1
+			},
+			{
+				"id": "PinRepSavedCommon",
+				"size": 5320,
+				"name": "PinRepSavedCommon",
+				"jsFile": "pjs-PinRepSavedCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": "PinRepSendShareFlyoutButtonCommon",
+				"size": 176531,
+				"name": "PinRepSendShareFlyoutButtonCommon",
+				"jsFile": "pjs-PinRepSendShareFlyoutButtonCommon-dev.js",
+				"parentsCount": 41,
+				"modulesCount": 38,
+				"originsCount": 1
+			},
+			{
+				"id": "PinSaveButtonCommon",
+				"size": 454244,
+				"name": "PinSaveButtonCommon",
+				"jsFile": "pjs-PinSaveButtonCommon-dev.js",
+				"parentsCount": 39,
+				"modulesCount": 90,
+				"originsCount": 2
+			},
+			{
+				"id": "PinSavedBoardsPageDesktop",
+				"size": 430520,
+				"name": "PinSavedBoardsPageDesktop",
+				"jsFile": "pjs-PinSavedBoardsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 80,
+				"originsCount": 1
+			},
+			{
+				"id": "PinToBoardPageDesktop",
+				"size": 545994,
+				"name": "PinToBoardPageDesktop",
+				"jsFile": "pjs-PinToBoardPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 115,
+				"originsCount": 1
+			},
+			{
+				"id": "PopupPackageDebugger",
+				"size": 13730,
+				"name": "PopupPackageDebugger",
+				"jsFile": "pjs-PopupPackageDebugger-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileActivitiesContainerDesktop",
+				"size": 2463507,
+				"name": "ProfileActivitiesContainerDesktop",
+				"jsFile": "pjs-ProfileActivitiesContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 481,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileBoardsPageContainerDesktop",
+				"size": 874724,
+				"name": "ProfileBoardsPageContainerDesktop",
+				"jsFile": "pjs-ProfileBoardsPageContainerDesktop-dev.js",
+				"parentsCount": 11,
+				"modulesCount": 392,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileDeciderContainerDesktop",
+				"size": 4309787,
+				"name": "ProfileDeciderContainerDesktop",
+				"jsFile": "pjs-ProfileDeciderContainerDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 999,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileFollowersContainerDesktop",
+				"size": 39071,
+				"name": "ProfileFollowersContainerDesktop",
+				"jsFile": "pjs-ProfileFollowersContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 11,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileFollowingContainerDesktop",
+				"size": 524226,
+				"name": "ProfileFollowingContainerDesktop",
+				"jsFile": "pjs-ProfileFollowingContainerDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 111,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileOverviewContainerDesktop",
+				"size": 4283012,
+				"name": "ProfileOverviewContainerDesktop",
+				"jsFile": "pjs-ProfileOverviewContainerDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 991,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfilePageDesktop",
+				"size": 1438801,
+				"name": "ProfilePageDesktop",
+				"jsFile": "pjs-ProfilePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 345,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileStoryPinsContainerDesktop",
+				"size": 2455551,
+				"name": "ProfileStoryPinsContainerDesktop",
+				"jsFile": "pjs-ProfileStoryPinsContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 479,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileTopicsDesktop",
+				"size": 65278,
+				"name": "ProfileTopicsDesktop",
+				"jsFile": "pjs-ProfileTopicsDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 23,
+				"originsCount": 1
+			},
+			{
+				"id": "ProfileVideoPinsContainerDesktop",
+				"size": 2455418,
+				"name": "ProfileVideoPinsContainerDesktop",
+				"jsFile": "pjs-ProfileVideoPinsContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 479,
+				"originsCount": 1
+			},
+			{
+				"id": "RecipeFeedPageDesktop",
+				"size": 1250380,
+				"name": "RecipeFeedPageDesktop",
+				"jsFile": "pjs-RecipeFeedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 95,
+				"originsCount": 1
+			},
+			{
+				"id": "RelatedProductsPageDesktop",
+				"size": 1227329,
+				"name": "RelatedProductsPageDesktop",
+				"jsFile": "pjs-RelatedProductsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 93,
+				"originsCount": 1
+			},
+			{
+				"id": "ScheduledPinCloseupPageDesktop",
+				"size": 66633,
+				"name": "ScheduledPinCloseupPageDesktop",
+				"jsFile": "pjs-ScheduledPinCloseupPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 21,
+				"originsCount": 1
+			},
+			{
+				"id": "ScheduledPinFeedPageDesktop",
+				"size": 80375,
+				"name": "ScheduledPinFeedPageDesktop",
+				"jsFile": "pjs-ScheduledPinFeedPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 22,
+				"originsCount": 1
+			},
+			{
+				"id": "SearchPageDesktop",
+				"size": 3381749,
+				"name": "SearchPageDesktop",
+				"jsFile": "pjs-SearchPageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 775,
+				"originsCount": 1
+			},
+			{
+				"id": "ShowcaseSettingsPageDesktop",
+				"size": 66445,
+				"name": "ShowcaseSettingsPageDesktop",
+				"jsFile": "pjs-ShowcaseSettingsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 13,
+				"originsCount": 1
+			},
+			{
+				"id": "SocialManagerPageDesktop",
+				"size": 18383,
+				"name": "SocialManagerPageDesktop",
+				"jsFile": "pjs-SocialManagerPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 5,
+				"originsCount": 1
+			},
+			{
+				"id": "StoryPinsFeedDesktop",
+				"size": 1188840,
+				"name": "StoryPinsFeedDesktop",
+				"jsFile": "pjs-StoryPinsFeedDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 88,
+				"originsCount": 1
+			},
+			{
+				"id": "TakedownFormDesktop",
+				"size": 75296,
+				"name": "TakedownFormDesktop",
+				"jsFile": "pjs-TakedownFormDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 20,
+				"originsCount": 1
+			},
+			{
+				"id": "TopicFeedPageDesktop",
+				"size": 3141776,
+				"name": "TopicFeedPageDesktop",
+				"jsFile": "pjs-TopicFeedPageDesktop-dev.js",
+				"parentsCount": 12,
+				"modulesCount": 625,
+				"originsCount": 1
+			},
+			{
+				"id": "TopicPageDesktop",
+				"size": 1412392,
+				"name": "TopicPageDesktop",
+				"jsFile": "pjs-TopicPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 124,
+				"originsCount": 1
+			},
+			{
+				"id": "TrademarkFormDesktop",
+				"size": 298835,
+				"name": "TrademarkFormDesktop",
+				"jsFile": "pjs-TrademarkFormDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 216,
+				"originsCount": 1
+			},
+			{
+				"id": "TrademarkFormSelectorDesktop",
+				"size": 18748,
+				"name": "TrademarkFormSelectorDesktop",
+				"jsFile": "pjs-TrademarkFormSelectorDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 6,
+				"originsCount": 1
+			},
+			{
+				"id": "TvActivatePageDesktop",
+				"size": 16134,
+				"name": "TvActivatePageDesktop",
+				"jsFile": "pjs-TvActivatePageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthBoardPageLazyContainer",
+				"size": 1356426,
+				"name": "UnauthBoardPageLazyContainer",
+				"jsFile": "pjs-UnauthBoardPageLazyContainer-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 283,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthBoardPagePreloadSignupContainer",
+				"size": 1356576,
+				"name": "UnauthBoardPagePreloadSignupContainer",
+				"jsFile": "pjs-UnauthBoardPagePreloadSignupContainer-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 283,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthCommunityInvitePage",
+				"size": 682866,
+				"name": "UnauthCommunityInvitePage",
+				"jsFile": "pjs-UnauthCommunityInvitePage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 132,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthFollowersPage",
+				"size": 436889,
+				"name": "UnauthFollowersPage",
+				"jsFile": "pjs-UnauthFollowersPage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 96,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthFollowingPage",
+				"size": 750751,
+				"name": "UnauthFollowingPage",
+				"jsFile": "pjs-UnauthFollowingPage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 169,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthHome",
+				"size": 864163,
+				"name": "UnauthHome",
+				"jsFile": "pjs-UnauthHome-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 172,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthInterestFeedPageContainer",
+				"size": 1135149,
+				"name": "UnauthInterestFeedPageContainer",
+				"jsFile": "pjs-UnauthInterestFeedPageContainer-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 243,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthInvitedPage",
+				"size": 528049,
+				"name": "UnauthInvitedPage",
+				"jsFile": "pjs-UnauthInvitedPage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 109,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthLoginPage",
+				"size": 654261,
+				"name": "UnauthLoginPage",
+				"jsFile": "pjs-UnauthLoginPage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 134,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthPasswordResetPage",
+				"size": 822696,
+				"name": "UnauthPasswordResetPage",
+				"jsFile": "pjs-UnauthPasswordResetPage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 179,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthPasswordUserNamePage",
+				"size": 796078,
+				"name": "UnauthPasswordUserNamePage",
+				"jsFile": "pjs-UnauthPasswordUserNamePage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 171,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthPinFeedbackPageContainer",
+				"size": 1292389,
+				"name": "UnauthPinFeedbackPageContainer",
+				"jsFile": "pjs-UnauthPinFeedbackPageContainer-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 268,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthPinPageContainer",
+				"size": 1429951,
+				"name": "UnauthPinPageContainer",
+				"jsFile": "pjs-UnauthPinPageContainer-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 293,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthProfilePage",
+				"size": 2343752,
+				"name": "UnauthProfilePage",
+				"jsFile": "pjs-UnauthProfilePage-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 526,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthSearchPageWrapper",
+				"size": 1081375,
+				"name": "UnauthSearchPageWrapper",
+				"jsFile": "pjs-UnauthSearchPageWrapper-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 227,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthTopicPageWrapper",
+				"size": 2497531,
+				"name": "UnauthTopicPageWrapper",
+				"jsFile": "pjs-UnauthTopicPageWrapper-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 346,
+				"originsCount": 1
+			},
+			{
+				"id": "UnauthUserProfileContent",
+				"size": 1248863,
+				"name": "UnauthUserProfileContent",
+				"jsFile": "pjs-UnauthUserProfileContent-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 248,
+				"originsCount": 2
+			},
+			{
+				"id": "UserCommunitiesContainerDesktop",
+				"size": 47535,
+				"name": "UserCommunitiesContainerDesktop",
+				"jsFile": "pjs-UserCommunitiesContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": "UserProfilePinGridContainerDesktop",
+				"size": 2467989,
+				"name": "UserProfilePinGridContainerDesktop",
+				"jsFile": "pjs-UserProfilePinGridContainerDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 481,
+				"originsCount": 2
+			},
+			{
+				"id": "UserSettingsPageDesktop",
+				"size": 459219,
+				"name": "UserSettingsPageDesktop",
+				"jsFile": "pjs-UserSettingsPageDesktop-dev.js",
+				"parentsCount": 13,
+				"modulesCount": 86,
+				"originsCount": 8
+			},
+			{
+				"id": "app-common-react-components-Business-FirstAdCreateProfileTakeover",
+				"size": 3307642,
+				"name": "app-common-react-components-Business-FirstAdCreateProfileTakeover",
+				"jsFile": "pjs-app-common-react-components-Business-FirstAdCreateProfileTakeover-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 840,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-Business-FirstPinCreateProfileTakeover",
+				"size": 2873579,
+				"name": "app-common-react-components-Business-FirstPinCreateProfileTakeover",
+				"jsFile": "pjs-app-common-react-components-Business-FirstPinCreateProfileTakeover-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 617,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-LoginModal-LoginModal",
+				"size": 560192,
+				"name": "app-common-react-components-LoginModal-LoginModal",
+				"jsFile": "pjs-app-common-react-components-LoginModal-LoginModal-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 116,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-UnauthBanner-UnauthBannerSignupModal",
+				"size": 16914,
+				"name": "app-common-react-components-growth-unauth-UnauthBanner-UnauthBannerSignupModal",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-UnauthBanner-UnauthBannerSignupModal-dev.js",
+				"parentsCount": 10,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-UnauthBanner-UnauthGiftWrapper",
+				"size": 11133,
+				"name": "app-common-react-components-growth-unauth-UnauthBanner-UnauthGiftWrapper",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-UnauthBanner-UnauthGiftWrapper-dev.js",
+				"parentsCount": 11,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-Video-UnauthVideo",
+				"size": 11724,
+				"name": "app-common-react-components-growth-unauth-Video-UnauthVideo",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-Video-UnauthVideo-dev.js",
+				"parentsCount": 22,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-internal-InternalHybridHelper-InternalHybridHelper",
+				"size": 1469,
+				"name": "app-common-react-components-growth-unauth-internal-InternalHybridHelper-InternalHybridHelper",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-internal-InternalHybridHelper-InternalHybridHelper-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-personalized-PersonalizedLoginFlyout",
+				"size": 279354,
+				"name": "app-common-react-components-growth-unauth-personalized-PersonalizedLoginFlyout",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-personalized-PersonalizedLoginFlyout-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 51,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-signup-FacebookTwoTap-FacebookTwoTap",
+				"size": 19721,
+				"name": "app-common-react-components-growth-unauth-signup-FacebookTwoTap-FacebookTwoTap",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-signup-FacebookTwoTap-FacebookTwoTap-dev.js",
+				"parentsCount": 10,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-signup-FullPageSignup-FullPageSignup",
+				"size": 519256,
+				"name": "app-common-react-components-growth-unauth-signup-FullPageSignup-FullPageSignup",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-signup-FullPageSignup-FullPageSignup-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 104,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-growth-unauth-signup-GoogleOneTap-GoogleOneTapPresenter",
+				"size": 59545,
+				"name": "app-common-react-components-growth-unauth-signup-GoogleOneTap-GoogleOneTapPresenter",
+				"jsFile": "pjs-app-common-react-components-growth-unauth-signup-GoogleOneTap-GoogleOneTapPresenter-dev.js",
+				"parentsCount": 5,
+				"modulesCount": 8,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-static-StaticDemo1",
+				"size": 303,
+				"name": "app-common-react-components-static-StaticDemo1",
+				"jsFile": "pjs-app-common-react-components-static-StaticDemo1-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": "app-common-react-components-static-StaticDemo2",
+				"size": 303,
+				"name": "app-common-react-components-static-StaticDemo2",
+				"jsFile": "pjs-app-common-react-components-static-StaticDemo2-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-cs_CZ-index",
+				"size": 976034,
+				"name": "locale-cs_CZ-index",
+				"jsFile": "pjs-locale-cs_CZ-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-cs_CZ-lite",
+				"size": 901986,
+				"name": "locale-cs_CZ-lite",
+				"jsFile": "pjs-locale-cs_CZ-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-da_DK-index",
+				"size": 962712,
+				"name": "locale-da_DK-index",
+				"jsFile": "pjs-locale-da_DK-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-da_DK-lite",
+				"size": 891415,
+				"name": "locale-da_DK-lite",
+				"jsFile": "pjs-locale-da_DK-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-de-index",
+				"size": 1007979,
+				"name": "locale-de-index",
+				"jsFile": "pjs-locale-de-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-de-lite",
+				"size": 932290,
+				"name": "locale-de-lite",
+				"jsFile": "pjs-locale-de-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-el_GR-index",
+				"size": 1027674,
+				"name": "locale-el_GR-index",
+				"jsFile": "pjs-locale-el_GR-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-el_GR-lite",
+				"size": 951128,
+				"name": "locale-el_GR-lite",
+				"jsFile": "pjs-locale-el_GR-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_AU-index",
+				"size": 937082,
+				"name": "locale-en_AU-index",
+				"jsFile": "pjs-locale-en_AU-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_AU-lite",
+				"size": 867952,
+				"name": "locale-en_AU-lite",
+				"jsFile": "pjs-locale-en_AU-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_GB-index",
+				"size": 936788,
+				"name": "locale-en_GB-index",
+				"jsFile": "pjs-locale-en_GB-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_GB-lite",
+				"size": 867658,
+				"name": "locale-en_GB-lite",
+				"jsFile": "pjs-locale-en_GB-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_IN-index",
+				"size": 936810,
+				"name": "locale-en_IN-index",
+				"jsFile": "pjs-locale-en_IN-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_IN-lite",
+				"size": 867680,
+				"name": "locale-en_IN-lite",
+				"jsFile": "pjs-locale-en_IN-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_US-index",
+				"size": 24328,
+				"name": "locale-en_US-index",
+				"jsFile": "pjs-locale-en_US-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-en_US-lite",
+				"size": 24328,
+				"name": "locale-en_US-lite",
+				"jsFile": "pjs-locale-en_US-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_419-index",
+				"size": 996333,
+				"name": "locale-es_419-index",
+				"jsFile": "pjs-locale-es_419-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_419-lite",
+				"size": 923128,
+				"name": "locale-es_419-lite",
+				"jsFile": "pjs-locale-es_419-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_AR-index",
+				"size": 966936,
+				"name": "locale-es_AR-index",
+				"jsFile": "pjs-locale-es_AR-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_AR-lite",
+				"size": 893894,
+				"name": "locale-es_AR-lite",
+				"jsFile": "pjs-locale-es_AR-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_ES-index",
+				"size": 999267,
+				"name": "locale-es_ES-index",
+				"jsFile": "pjs-locale-es_ES-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_ES-lite",
+				"size": 926077,
+				"name": "locale-es_ES-lite",
+				"jsFile": "pjs-locale-es_ES-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_MX-index",
+				"size": 996335,
+				"name": "locale-es_MX-index",
+				"jsFile": "pjs-locale-es_MX-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_MX-lite",
+				"size": 923130,
+				"name": "locale-es_MX-lite",
+				"jsFile": "pjs-locale-es_MX-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_US-index",
+				"size": 996289,
+				"name": "locale-es_US-index",
+				"jsFile": "pjs-locale-es_US-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-es_US-lite",
+				"size": 923084,
+				"name": "locale-es_US-lite",
+				"jsFile": "pjs-locale-es_US-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-fi_FI-index",
+				"size": 947834,
+				"name": "locale-fi_FI-index",
+				"jsFile": "pjs-locale-fi_FI-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-fi_FI-lite",
+				"size": 876603,
+				"name": "locale-fi_FI-lite",
+				"jsFile": "pjs-locale-fi_FI-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-fr-index",
+				"size": 1032065,
+				"name": "locale-fr-index",
+				"jsFile": "pjs-locale-fr-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-fr-lite",
+				"size": 953782,
+				"name": "locale-fr-lite",
+				"jsFile": "pjs-locale-fr-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-hi_IN-index",
+				"size": 957851,
+				"name": "locale-hi_IN-index",
+				"jsFile": "pjs-locale-hi_IN-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-hi_IN-lite",
+				"size": 886048,
+				"name": "locale-hi_IN-lite",
+				"jsFile": "pjs-locale-hi_IN-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-hu_HU-index",
+				"size": 988105,
+				"name": "locale-hu_HU-index",
+				"jsFile": "pjs-locale-hu_HU-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-hu_HU-lite",
+				"size": 913993,
+				"name": "locale-hu_HU-lite",
+				"jsFile": "pjs-locale-hu_HU-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-id_ID-index",
+				"size": 949656,
+				"name": "locale-id_ID-index",
+				"jsFile": "pjs-locale-id_ID-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-id_ID-lite",
+				"size": 879573,
+				"name": "locale-id_ID-lite",
+				"jsFile": "pjs-locale-id_ID-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": 118,
+				"size": 52622,
+				"name": null,
+				"jsFile": "pjs-118-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 7,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-it-index",
+				"size": 991861,
+				"name": "locale-it-index",
+				"jsFile": "pjs-locale-it-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-it-lite",
+				"size": 918523,
+				"name": "locale-it-lite",
+				"jsFile": "pjs-locale-it-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ja-index",
+				"size": 812615,
+				"name": "locale-ja-index",
+				"jsFile": "pjs-locale-ja-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ja-lite",
+				"size": 754642,
+				"name": "locale-ja-lite",
+				"jsFile": "pjs-locale-ja-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ko_KR-index",
+				"size": 814759,
+				"name": "locale-ko_KR-index",
+				"jsFile": "pjs-locale-ko_KR-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ko_KR-lite",
+				"size": 757042,
+				"name": "locale-ko_KR-lite",
+				"jsFile": "pjs-locale-ko_KR-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ms_MY-index",
+				"size": 957046,
+				"name": "locale-ms_MY-index",
+				"jsFile": "pjs-locale-ms_MY-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ms_MY-lite",
+				"size": 886693,
+				"name": "locale-ms_MY-lite",
+				"jsFile": "pjs-locale-ms_MY-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-nb_NO-index",
+				"size": 964863,
+				"name": "locale-nb_NO-index",
+				"jsFile": "pjs-locale-nb_NO-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-nb_NO-lite",
+				"size": 893839,
+				"name": "locale-nb_NO-lite",
+				"jsFile": "pjs-locale-nb_NO-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-nl-index",
+				"size": 977281,
+				"name": "locale-nl-index",
+				"jsFile": "pjs-locale-nl-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-nl-lite",
+				"size": 904821,
+				"name": "locale-nl-lite",
+				"jsFile": "pjs-locale-nl-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-pl_PL-index",
+				"size": 996842,
+				"name": "locale-pl_PL-index",
+				"jsFile": "pjs-locale-pl_PL-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-pl_PL-lite",
+				"size": 921173,
+				"name": "locale-pl_PL-lite",
+				"jsFile": "pjs-locale-pl_PL-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-pt_BR-index",
+				"size": 985206,
+				"name": "locale-pt_BR-index",
+				"jsFile": "pjs-locale-pt_BR-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-pt_BR-lite",
+				"size": 913339,
+				"name": "locale-pt_BR-lite",
+				"jsFile": "pjs-locale-pt_BR-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-pt_PT-index",
+				"size": 990139,
+				"name": "locale-pt_PT-index",
+				"jsFile": "pjs-locale-pt_PT-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-pt_PT-lite",
+				"size": 916945,
+				"name": "locale-pt_PT-lite",
+				"jsFile": "pjs-locale-pt_PT-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ro_RO-index",
+				"size": 1006930,
+				"name": "locale-ro_RO-index",
+				"jsFile": "pjs-locale-ro_RO-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ro_RO-lite",
+				"size": 931108,
+				"name": "locale-ro_RO-lite",
+				"jsFile": "pjs-locale-ro_RO-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-tl_PH-lite",
+				"size": 902250,
+				"name": "locale-tl_PH-lite",
+				"jsFile": "pjs-locale-tl_PH-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": 120,
+				"size": 22062,
+				"name": null,
+				"jsFile": "pjs-120-dev.js",
+				"parentsCount": 20,
+				"modulesCount": 5,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ru_RU-index",
+				"size": 975474,
+				"name": "locale-ru_RU-index",
+				"jsFile": "pjs-locale-ru_RU-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-ru_RU-lite",
+				"size": 898225,
+				"name": "locale-ru_RU-lite",
+				"jsFile": "pjs-locale-ru_RU-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-sk_SK-index",
+				"size": 986174,
+				"name": "locale-sk_SK-index",
+				"jsFile": "pjs-locale-sk_SK-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-sk_SK-lite",
+				"size": 911946,
+				"name": "locale-sk_SK-lite",
+				"jsFile": "pjs-locale-sk_SK-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-sv_SE-index",
+				"size": 959220,
+				"name": "locale-sv_SE-index",
+				"jsFile": "pjs-locale-sv_SE-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-sv_SE-lite",
+				"size": 887857,
+				"name": "locale-sv_SE-lite",
+				"jsFile": "pjs-locale-sv_SE-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-th_TH-index",
+				"size": 929913,
+				"name": "locale-th_TH-index",
+				"jsFile": "pjs-locale-th_TH-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-th_TH-lite",
+				"size": 863391,
+				"name": "locale-th_TH-lite",
+				"jsFile": "pjs-locale-th_TH-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-tl_PH-index",
+				"size": 975754,
+				"name": "locale-tl_PH-index",
+				"jsFile": "pjs-locale-tl_PH-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-tr-index",
+				"size": 961077,
+				"name": "locale-tr-index",
+				"jsFile": "pjs-locale-tr-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-tr-lite",
+				"size": 888098,
+				"name": "locale-tr-lite",
+				"jsFile": "pjs-locale-tr-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-uk_UA-index",
+				"size": 969320,
+				"name": "locale-uk_UA-index",
+				"jsFile": "pjs-locale-uk_UA-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-uk_UA-lite",
+				"size": 893462,
+				"name": "locale-uk_UA-lite",
+				"jsFile": "pjs-locale-uk_UA-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-vi_VN-index",
+				"size": 952301,
+				"name": "locale-vi_VN-index",
+				"jsFile": "pjs-locale-vi_VN-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-vi_VN-lite",
+				"size": 881136,
+				"name": "locale-vi_VN-lite",
+				"jsFile": "pjs-locale-vi_VN-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-zh_CN-index",
+				"size": 769919,
+				"name": "locale-zh_CN-index",
+				"jsFile": "pjs-locale-zh_CN-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-zh_CN-lite",
+				"size": 717349,
+				"name": "locale-zh_CN-lite",
+				"jsFile": "pjs-locale-zh_CN-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-zh_TW-index",
+				"size": 763942,
+				"name": "locale-zh_TW-index",
+				"jsFile": "pjs-locale-zh_TW-index-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": "locale-zh_TW-lite",
+				"size": 711509,
+				"name": "locale-zh_TW-lite",
+				"jsFile": "pjs-locale-zh_TW-lite-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": 130,
+				"size": 907,
+				"name": null,
+				"jsFile": "pjs-130-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": "webpack-dev",
+				"size": 244039,
+				"name": "webpack-dev",
+				"jsFile": "pjs-webpack-dev-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 66,
+				"originsCount": 1
+			},
+			{
+				"id": 96,
+				"size": 27090,
+				"name": null,
+				"jsFile": "pjs-96-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 14,
+				"originsCount": 1
+			},
+			{
+				"id": 97,
+				"size": 1039803,
+				"name": null,
+				"jsFile": "pjs-97-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 13,
+				"originsCount": 1
+			},
+			{
+				"id": 98,
+				"size": 83002,
+				"name": null,
+				"jsFile": "pjs-98-dev.js",
+				"parentsCount": 10,
+				"modulesCount": 12,
+				"originsCount": 1
+			},
+			{
+				"id": 99,
+				"size": 1026414,
+				"name": null,
+				"jsFile": "pjs-99-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 11,
+				"originsCount": 1
+			},
+			{
+				"id": 100,
+				"size": 14265,
+				"name": null,
+				"jsFile": "pjs-100-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 101,
+				"size": 19725,
+				"name": null,
+				"jsFile": "pjs-101-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 102,
+				"size": 15292,
+				"name": null,
+				"jsFile": "pjs-102-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 103,
+				"size": 15326,
+				"name": null,
+				"jsFile": "pjs-103-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 104,
+				"size": 14865,
+				"name": null,
+				"jsFile": "pjs-104-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 105,
+				"size": 14991,
+				"name": null,
+				"jsFile": "pjs-105-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 106,
+				"size": 15253,
+				"name": null,
+				"jsFile": "pjs-106-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 107,
+				"size": 14279,
+				"name": null,
+				"jsFile": "pjs-107-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 108,
+				"size": 14483,
+				"name": null,
+				"jsFile": "pjs-108-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 109,
+				"size": 13720,
+				"name": null,
+				"jsFile": "pjs-109-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 110,
+				"size": 14857,
+				"name": null,
+				"jsFile": "pjs-110-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 111,
+				"size": 15418,
+				"name": null,
+				"jsFile": "pjs-111-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 112,
+				"size": 15614,
+				"name": null,
+				"jsFile": "pjs-112-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 113,
+				"size": 14431,
+				"name": null,
+				"jsFile": "pjs-113-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 114,
+				"size": 15507,
+				"name": null,
+				"jsFile": "pjs-114-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 115,
+				"size": 15687,
+				"name": null,
+				"jsFile": "pjs-115-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 116,
+				"size": 15027,
+				"name": null,
+				"jsFile": "pjs-116-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 117,
+				"size": 17317,
+				"name": null,
+				"jsFile": "pjs-117-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 10,
+				"originsCount": 1
+			},
+			{
+				"id": 119,
+				"size": 19426,
+				"name": null,
+				"jsFile": "pjs-119-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 6,
+				"originsCount": 1
+			},
+			{
+				"id": 121,
+				"size": 7469,
+				"name": null,
+				"jsFile": "pjs-121-dev.js",
+				"parentsCount": 4,
+				"modulesCount": 4,
+				"originsCount": 1
+			},
+			{
+				"id": 122,
+				"size": 14938,
+				"name": null,
+				"jsFile": "pjs-122-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 3,
+				"originsCount": 1
+			},
+			{
+				"id": 123,
+				"size": 15834,
+				"name": null,
+				"jsFile": "pjs-123-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 124,
+				"size": 7463,
+				"name": null,
+				"jsFile": "pjs-124-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 2,
+				"originsCount": 1
+			},
+			{
+				"id": 125,
+				"size": 2808,
+				"name": null,
+				"jsFile": "pjs-125-dev.js",
+				"parentsCount": 24,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 126,
+				"size": 927,
+				"name": null,
+				"jsFile": "pjs-126-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 127,
+				"size": 919,
+				"name": null,
+				"jsFile": "pjs-127-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 128,
+				"size": 917,
+				"name": null,
+				"jsFile": "pjs-128-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 129,
+				"size": 1059,
+				"name": null,
+				"jsFile": "pjs-129-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 131,
+				"size": 906,
+				"name": null,
+				"jsFile": "pjs-131-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 132,
+				"size": 926,
+				"name": null,
+				"jsFile": "pjs-132-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 133,
+				"size": 1035,
+				"name": null,
+				"jsFile": "pjs-133-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 134,
+				"size": 972,
+				"name": null,
+				"jsFile": "pjs-134-dev.js",
+				"parentsCount": 6,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 135,
+				"size": 1944,
+				"name": null,
+				"jsFile": "pjs-135-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 136,
+				"size": 6349,
+				"name": null,
+				"jsFile": "pjs-136-dev.js",
+				"parentsCount": 10,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 137,
+				"size": 8547,
+				"name": null,
+				"jsFile": "pjs-137-dev.js",
+				"parentsCount": 3,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 138,
+				"size": 3301,
+				"name": null,
+				"jsFile": "pjs-138-dev.js",
+				"parentsCount": 2,
+				"modulesCount": 1,
+				"originsCount": 1
+			},
+			{
+				"id": 139,
+				"size": 556,
+				"name": null,
+				"jsFile": "pjs-139-dev.js",
+				"parentsCount": 1,
+				"modulesCount": 1,
+				"originsCount": 1
+			}
+		]
+	}
+]
+Done in 2.64s.

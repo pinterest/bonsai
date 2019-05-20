@@ -59,7 +59,9 @@ export type Chunk = {
   files: Array<string>,
   hash: string,
   parents: Array<ChunkID>,
-  origins: Array<Origin>
+  modules?: any,
+  filteredModules?: any,
+  origins: Array<Origin>,
 };
 
 export type Module = {
