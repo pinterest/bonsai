@@ -62,7 +62,6 @@
     "flow-annotation-check": "1.8.1",
     "flow-bin": "0.98.0",
     "flow-coverage-report": "^0.6.0",
-    "flow-typed": "^2.1.2",
     "markdown-spellcheck": "^1.0.0",
     "nodemon": "^1.19.0",
     "object.values": "^1.0.4",
@@ -80,7 +79,6 @@
   "scripts": {
     "flow:watch": "flow status; fswatch -e \"/\\.\" -o . | xargs -n1 -I{} flow status",
     "flow:stop": "flow stop",
-    "flow:update-dfns": "flow-typed update && flow-typed install jest@21.0.0",
     "eslint:watch": "eslint ./src && echo 'No Lint Problems'; fswatch -e \"/\\.\" -o -r ./src | xargs -n1 -I{} eslint ./src && echo 'No Lint Problems'",
     "test": "react-scripts test --testPathPattern='src/(?!integration)'",
     "test:all": "react-scripts test",
