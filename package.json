@@ -69,7 +69,7 @@
     "react-scripts": "3.0.1",
     "react-test-renderer": "16.8.6",
     "require-context.macro": "^1.0.4",
-    "serve": "^11.0.0",
+    "serve": "^11.0.2",
     "webpack-cli": "^3.3.2"
   },
   "resolutions": {
