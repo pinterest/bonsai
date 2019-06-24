@@ -58,7 +58,7 @@
     "eslint-plugin-flowtype": "^3.9.1",
     "eslint-plugin-jest": "^22.6.4",
     "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-react": "7.14.0",
     "flow-annotation-check": "1.8.1",
     "flow-bin": "0.98.0",
     "flow-coverage-report": "^0.6.0",
