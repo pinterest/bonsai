@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "https://pinterest.github.io/bonsai/analyze/static/css/main.900abdc8.chunk.css",
+    "main.js": "https://pinterest.github.io/bonsai/analyze/static/js/main.1376c348.chunk.js",
+    "main.js.map": "https://pinterest.github.io/bonsai/analyze/static/js/main.1376c348.chunk.js.map",
+    "runtime~main.js": "https://pinterest.github.io/bonsai/analyze/static/js/runtime~main.469dd023.js",
+    "runtime~main.js.map": "https://pinterest.github.io/bonsai/analyze/static/js/runtime~main.469dd023.js.map",
+    "static/css/2.266e55a5.chunk.css": "https://pinterest.github.io/bonsai/analyze/static/css/2.266e55a5.chunk.css",
+    "static/js/2.2132b7cc.chunk.js": "https://pinterest.github.io/bonsai/analyze/static/js/2.2132b7cc.chunk.js",
+    "static/js/2.2132b7cc.chunk.js.map": "https://pinterest.github.io/bonsai/analyze/static/js/2.2132b7cc.chunk.js.map",
+    "index.html": "https://pinterest.github.io/bonsai/analyze/index.html",
+    "precache-manifest.dae1c88877d59466fee4dd73235b5971.js": "https://pinterest.github.io/bonsai/analyze/precache-manifest.dae1c88877d59466fee4dd73235b5971.js",
+    "service-worker.js": "https://pinterest.github.io/bonsai/analyze/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "https://pinterest.github.io/bonsai/analyze/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.900abdc8.chunk.css.map": "https://pinterest.github.io/bonsai/analyze/static/css/main.900abdc8.chunk.css.map"
+  }
+}

@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.table thead > tr:first-child > th {
+  border-bottom: none;
+}
+
+.dropdown-menu {
+  margin-bottom: 20px;
+}
+
+.OffsetPageAnchor:focus {
+  outline: 0;
+  -webkit-animation: yellowfade 3s forwards;
+          animation: yellowfade 3s forwards;
+}
+
+@-webkit-keyframes yellowfade {
+  from {
+    background: lightYellow;
+  }
+}
+
+@keyframes yellowfade {
+  from {
+    background: lightYellow;
+  }
+}
+
+.ModuleTableBody-circular-button {
+  margin-top: 2px;
+  margin-left: 0.5em;
+}
+
+.ModuleTableBody-row {
+  border-left: 4px solid transparent;
+}
+
+.ModuleTableBody-expanded-border {
+  border-left-color: #337ab7;
+}
+
+.ModuleTableBody-main-cell {
+  width:100%;
+}
+
+.LoadingSpinner-icon {
+  -webkit-animation: spin 3s infinite linear;
+          animation: spin 3s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+.ChunkDropdownPrefix {
+  position: relative;
+}
+.ChunkDropdownPrefix:before {
+  content: '↳';
+  left: -2em;
+  padding: 0 4px;
+}
+
+.AppFixed {
+  height: 100vh;
+  padding-top: 50px;
+  width: 100vw;
+}
+
+.AppView {
+  height: 100%;
+  overflow: scroll;
+  padding-top: 20px;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+
+/*# sourceMappingURL=main.css.map*/
