@@ -53,7 +53,7 @@ function makeRecordRangeFilter(
 export default function filterModules(
   extendedModules: Array<ExtendedModule>,
   filters: FilterProps,
-) {
+): Array<ExtendedModule> {
   return extendedModules
     .filter(makeRecordLikeRegExpFilter(
       'name',

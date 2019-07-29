@@ -6,6 +6,9 @@ node_js:
   - 10
   - 8
 
+env:
+  - SKIP_PREFLIGHT_CHECK=true
+
 cache: yarn
 
 before_install:
@@ -18,7 +21,7 @@ script:
   - yarn mdspell --en-gb --ignore-numbers --ignore-acronyms docs/**/*.md
   - yarn flow check
   - yarn flow-annotation-check
-  - yarn flow-coverage-report -t text
+  - npx flow-coverage-report -t text
 
   - yarn rebuild:integration-fixtures
   - yarn react-scripts test --coverage

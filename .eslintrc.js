@@ -25,6 +25,12 @@ module.exports = {
     'jest',
     'react',
   ],
+  'settings': {
+    'react': {
+      'version': 'detect',
+      'flowVersion': '0.104'
+    }
+  },
   'rules': {
     'array-callback-return': [ 'error', ],
     'comma-dangle': [ 'error', 'only-multiline', ],
