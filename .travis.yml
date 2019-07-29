@@ -6,6 +6,9 @@ node_js:
   - 10
   - 8
 
+env:
+  - SKIP_PREFLIGHT_CHECK=true
+
 cache: yarn
 
 before_install:
