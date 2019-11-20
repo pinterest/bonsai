@@ -62,7 +62,7 @@
     "flow-annotation-check": "^1.11.2",
     "flow-bin": "0.104.0",
     "markdown-spellcheck": "^1.0.0",
-    "nodemon": "^1.19.0",
+    "nodemon": "^2.0.0",
     "object.values": "^1.0.4",
     "raf": "^3.4.0",
     "react-scripts": "3.0.1",
