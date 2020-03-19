@@ -60,7 +60,7 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-react": "^7.3.0",
     "flow-annotation-check": "^1.11.2",
-    "flow-bin": "0.104.0",
+    "flow-bin": "0.121.0",
     "markdown-spellcheck": "^1.0.0",
     "nodemon": "^1.19.0",
     "object.values": "^1.0.4",
