@@ -42,7 +42,7 @@
     "@babel/core": "^7.10.2",
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/plugin-transform-strict-mode": "^7.10.1",
-    "@babel/register": "^7.4.0",
+    "@babel/register": "^7.10.1",
     "@storybook/addon-actions": "^5.1.1",
     "@storybook/addon-storyshots": "^5.1.1",
     "@storybook/react": "^5.1.1",
