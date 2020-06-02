@@ -6011,10 +6011,10 @@ flow-annotation-check@^1.11.2:
     glob "7.1.4"
     load-pkg "^4.0.0"
 
-flow-bin@0.104.0:
-  version "0.104.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.104.0.tgz#ef5b3600dfd36abe191a87d19f66e481bad2e235"
-  integrity sha512-EZXRRmf7m7ET5Lcnwm/I/T8G3d427Bq34vmO3qIlRcPIYloGuVoqRCwjaeezLRDntHkdciagAKbhJ+NTbDjnkw==
+flow-bin@0.126.0:
+  version "0.126.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.126.0.tgz#df06d1c6bf2cb770b71c38a76e8e4491cc57d624"
+  integrity sha512-91nCLt3B0drolW9bXmTssNxhshkkGDwokVyuquBA7TeHMCajbMNxm77JI0JydzHEv9xa6nMbBJXYyM6XW8Jzgg==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
