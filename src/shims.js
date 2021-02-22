@@ -5,7 +5,8 @@
 import values from 'object.values';
 import includes from 'array-includes';
 import 'raf/polyfill';
-import 'console-shim';
+
+console.timeStamp = function() {};
 
 if (!Object.values) {
   values.shim();
