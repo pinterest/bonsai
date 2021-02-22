@@ -4091,11 +4091,6 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-console-shim@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/console-shim/-/console-shim-1.0.3.tgz#d23509661e8ec1ec5fcf716891bf0263aee1ee78"
-  integrity sha1-0jUJZh6Owexfz3Fokb8CY67h7ng=
-
 constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
