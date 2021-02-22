@@ -9,7 +9,7 @@ if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]; then
 fi
 
 ./scripts/clean.sh
-./src/__test_helpers__/build-integration-fixtures.sh
+./scripts/build-integration-fixtures.sh
 CI=true yarn react-scripts test
 yarn build
 yarn build:cli
