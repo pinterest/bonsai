@@ -32,8 +32,8 @@
     "load-pkg": "^4.0.0",
     "object.values": "^1.0.4",
     "raf": "^3.4.0",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-redux": "^7.0.2",
     "redux": "^3.7.0"
   },
