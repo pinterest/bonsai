@@ -27,7 +27,7 @@
     "@github/octicons-react": "^7.4.0",
     "argparse": "^1.0.9",
     "array-includes": "^3.0.3",
-    "bootstrap": "4.3.1",
+    "bootstrap": "5.0.0",
     "invariant": "^2.2.2",
     "load-pkg": "^4.0.0",
     "object.values": "^1.0.4",
